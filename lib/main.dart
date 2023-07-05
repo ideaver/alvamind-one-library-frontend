@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -8,10 +7,8 @@ import 'package:provider/provider.dart';
 import 'app/locale/app_locale.dart';
 import 'app/route/app_routes.dart';
 import 'app/service/locator/service_locator.dart';
-import 'app/service/network/network_checker_service.dart';
-import 'app/service/notification/fcm_service.dart';
-import 'app/service/notification/local_notif_service.dart';
-// import 'view/main/main_view.dart';
+import 'app/service/network_checker/network_checker_service.dart';
+import 'view/main/main_view.dart';
 
 Future<void> main() async {
   // Initialize binding
@@ -23,14 +20,14 @@ Future<void> main() async {
   // Setup service locator
   setupServiceLocator();
 
-  // Initialize Firebase
-  await Firebase.initializeApp();
+  // Initialize Firebase (google-service.json required)
+  // await Firebase.initializeApp();
 
-  // Initialize FCM service
-  await FcmService.initNotification();
+  // Initialize FCM service (google-service.json required)
+  // await FcmService.initNotification();
 
   // Initialize local notification service
-  await LocalNotifService.initLocalNotifService();
+  // await LocalNotifService.initLocalNotifService();
 
   // Set/lock orientation
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -57,7 +54,7 @@ class MyApp extends StatelessWidget {
         title: 'LaundryNet',
         theme: AppTheme.themeSelector(),
         debugShowCheckedModeBanner: true,
-        // initialRoute: MainView.routeName,
+        initialRoute: MainView.routeName,
         routes: AppRoutes.routes,
         locale: AppLocale.defaultLocale,
         supportedLocales: AppLocale.supportedLocales,

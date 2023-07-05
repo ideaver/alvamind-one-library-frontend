@@ -12,7 +12,5 @@ class AppAssets {
   static const String emptyPlaceholder = 'assets/empty_placeholder.png';
 
   // Financial provider logo
-  static const String visa = 'assets/visa.png';
-  static const String masterCard = 'assets/mastercard.png';
-  static const String paypal = 'assets/paypal.png';
+  // static const String visa = 'assets/visa.png';
 }
