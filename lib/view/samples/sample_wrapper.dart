@@ -6,8 +6,11 @@ class SampleWrapper extends StatelessWidget {
   final String title;
   final Widget widget;
 
-  const SampleWrapper({Key? key, required this.title, required this.widget})
-      : super(key: key);
+  const SampleWrapper({
+    Key? key,
+    required this.title,
+    required this.widget,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
