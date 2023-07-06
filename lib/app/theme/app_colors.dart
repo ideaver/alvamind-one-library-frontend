@@ -76,6 +76,9 @@ class AppColors {
   static const Color blackLv5 = Color(0xFF9E9E9E);
   static const Color blackLv6 = Color(0xFFBDBDBD);
   static const Color blackLv7 = Color(0xFFE0E0E0);
+  static const Color blackLv8 = Color(0xFFEEEEEE);
+  static const Color blackLv9 = Color(0xFFF5F5F5);
+  static const Color blackLv10 = Color(0xFFFAFAFA);
 
   // Green
   static const Color greenLv1 = Color(0xFF07BD74);

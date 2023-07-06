@@ -6,7 +6,7 @@ import 'package:laundry_net/widget/molecule/app_button.dart';
 
 import '../atom/app_progress_indicator.dart';
 
-// App Image Widget
+// App Dialog Widget
 // v.2.0.1
 // by Elriz Wiraswara
 

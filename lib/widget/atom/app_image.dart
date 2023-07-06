@@ -9,7 +9,7 @@ import 'package:photo_view/photo_view_gallery.dart';
 
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
-import '../atom/app_progress_indicator.dart';
+import 'app_progress_indicator.dart';
 
 // App Image Widget
 // v.2.0.1
