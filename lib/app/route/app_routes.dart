@@ -11,6 +11,7 @@ import 'package:laundry_net/view/samples/message_bubble_samples_view.dart';
 import 'package:laundry_net/view/samples/pin_point_samples_view.dart';
 import 'package:laundry_net/view/samples/statistic_square_samples_view.dart';
 import 'package:laundry_net/view/samples/tags_samples_view.dart';
+import 'package:laundry_net/view/samples/text_field_samples_view.dart';
 
 // App routes
 class AppRoutes {
@@ -34,5 +35,6 @@ class AppRoutes {
     TagsSamplesView.routeName: (context) => const TagsSamplesView(),
     MessageBubbleSamplesView.routeName: (context) =>
         const MessageBubbleSamplesView(),
+    TextFieldSamplesView.routeName: (context) => const TextFieldSamplesView(),
   };
 }

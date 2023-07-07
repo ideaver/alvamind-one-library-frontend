@@ -23,4 +23,8 @@ class AppAssets {
 
   // Financial provider logo
   // static const String visa = 'assets/visa.png';
+
+  // Flags
+  static const String flagID = 'assets/icons/flags/ID.png';
+  static const String flagUS = 'assets/icons/flags/US.png';
 }

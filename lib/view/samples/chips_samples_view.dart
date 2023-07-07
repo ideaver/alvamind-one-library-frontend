@@ -54,7 +54,7 @@ class _ChipsSamplesViewState extends State<ChipsSamplesView> {
 
   Widget selectedChips() {
     return SampleWrapper(
-      title: 'Selected Chips',
+      title: 'Chips',
       widget: AppChips(
         onTap: () {
           setState(() {
@@ -69,7 +69,7 @@ class _ChipsSamplesViewState extends State<ChipsSamplesView> {
 
   Widget selectedChipsWithIcons() {
     return SampleWrapper(
-      title: 'Selected Chips With Icon',
+      title: 'Chips With Icon',
       widget: AppChips(
         onTap: () {
           setState(() {
@@ -86,7 +86,7 @@ class _ChipsSamplesViewState extends State<ChipsSamplesView> {
 
   Widget selectedChipsWithIconsCustomStyle() {
     return SampleWrapper(
-      title: 'Selected Chips With Icon Custom Style',
+      title: 'Chips With Icon Custom Style',
       widget: AppChips(
         onTap: () {
           setState(() {
