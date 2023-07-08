@@ -1,8 +1,9 @@
+import 'package:alvamind_library/app/const/countries.dart';
+import 'package:alvamind_library/model/country_model.dart';
+import 'package:alvamind_library/widget/atom/app_image.dart';
+import 'package:alvamind_library/widget/atom/app_tool_tip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:laundry_net/app/const/countries.dart';
-import 'package:laundry_net/model/country_model.dart';
-import 'package:laundry_net/widget/atom/app_image.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
@@ -12,6 +13,7 @@ enum AppTextFieldType {
   password,
   number,
   phone,
+  search,
 }
 
 class AppTextField extends StatefulWidget {
@@ -46,6 +48,7 @@ class AppTextField extends StatefulWidget {
   final Widget? suffixWidget;
   final Function(String text)? onChanged;
   final Function()? onEditingComplete;
+  final Function()? onTapSearcFilter;
   final Function(CountryModel)? onTapCountry;
   final List<TextInputFormatter>? inputFormatters;
   final bool showCounter;
@@ -87,6 +90,7 @@ class AppTextField extends StatefulWidget {
     this.suffixWidget,
     this.onChanged,
     this.onEditingComplete,
+    this.onTapSearcFilter,
     this.onTapCountry,
     this.inputFormatters,
     this.showCounter = false,
@@ -268,6 +272,17 @@ class _AppTextFieldState extends State<AppTextField> {
       return phoneCodePopupButton();
     }
 
+    if (widget.type == AppTextFieldType.search) {
+      return Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: Icon(
+          widget.prefixIcon ?? Icons.search_rounded,
+          color: _iconsColor,
+          size: widget.iconsSize,
+        ),
+      );
+    }
+
     if (widget.prefixIcon == null) {
       return null;
     }
@@ -287,6 +302,20 @@ class _AppTextFieldState extends State<AppTextField> {
       return textVisibilityIconButton();
     }
 
+    if (widget.type == AppTextFieldType.search) {
+      return GestureDetector(
+        onTap: widget.onTapSearcFilter,
+        child: Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: Icon(
+            widget.suffixIcon ?? Icons.tune_rounded,
+            color: _iconsColor,
+            size: widget.iconsSize,
+          ),
+        ),
+      );
+    }
+
     if (widget.suffixIcon == null) {
       return null;
     }
@@ -302,7 +331,14 @@ class _AppTextFieldState extends State<AppTextField> {
   }
 
   Widget phoneCodePopupButton() {
-    return PopupMenuButton(
+    return AppToolTipMenu(
+      onTapItem: (i) {
+        if (widget.onTapCountry != null) {
+          widget.onTapCountry!(countries[i]);
+        }
+        _country = countries[i];
+        setState(() {});
+      },
       child: Padding(
         padding: const EdgeInsets.only(left: 24, right: 8),
         child: Row(
@@ -330,36 +366,25 @@ class _AppTextFieldState extends State<AppTextField> {
           ],
         ),
       ),
-      itemBuilder: (context) {
-        return List.generate(countries.length, (i) {
-          return PopupMenuItem(
-            onTap: () {
-              if (widget.onTapCountry != null) {
-                widget.onTapCountry!(countries[i]);
-              }
-              _country = countries[i];
-              setState(() {});
-            },
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  width: widget.iconsSize ?? 24,
-                  child: AppImage(
-                    image: countries[i].flag,
-                    imgProvider: ImgProvider.assetImage,
-                  ),
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  countries[i].phoneCode,
-                  style: AppTextStyle.semibold(size: 12),
-                )
-              ],
+      children: List.generate(countries.length, (i) {
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              width: widget.iconsSize ?? 24,
+              child: AppImage(
+                image: countries[i].flag,
+                imgProvider: ImgProvider.assetImage,
+              ),
             ),
-          );
-        });
-      },
+            const SizedBox(width: 4),
+            Text(
+              countries[i].phoneCode,
+              style: AppTextStyle.semibold(size: 12),
+            )
+          ],
+        );
+      }),
     );
   }
 

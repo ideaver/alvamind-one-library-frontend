@@ -1,5 +1,5 @@
+import 'package:alvamind_library/widget/atom/app_image.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/widget/atom/app_image.dart';
 
 import '../../app/theme/app_colors.dart';
 
@@ -12,8 +12,12 @@ class AppAvatar extends StatelessWidget {
   final double? iconSize;
   final bool showIconButton;
   final bool enabled;
+  final Color? backgroundColor;
+  final Color enabledColor;
+  final Color disabledColor;
+  final Color iconColor;
   final IconData? icon;
-  final Function()? onTapIcon;
+  final Function()? onTap;
 
   const AppAvatar({
     super.key,
@@ -25,35 +29,28 @@ class AppAvatar extends StatelessWidget {
     this.iconSize,
     this.showIconButton = false,
     this.enabled = true,
+    this.backgroundColor = AppColors.blackLv9,
+    this.enabledColor = AppColors.primary,
+    this.disabledColor = AppColors.disabled,
+    this.iconColor = AppColors.white,
     this.icon,
-    this.onTapIcon,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        border: borderWidth != null
-            ? Border.all(
-                width: size / 24,
-                color: enabled ? AppColors.primary : AppColors.disabled,
-              )
-            : null,
-        borderRadius: BorderRadius.circular(borderRadius),
-      ),
+    return GestureDetector(
+      onTap: enabled ? onTap : null,
       child: Stack(
         children: [
-          SizedBox(
+          AppImage(
+            image: image,
+            imgProvider: imgProvider,
             width: size,
             height: size,
-            child: ClipOval(
-              child: AppImage(
-                image: image,
-                imgProvider: imgProvider,
-              ),
-            ),
+            backgroundColor: backgroundColor,
+            borderWidth: borderWidth,
+            borderRadius: borderRadius,
           ),
           showIconButton
               ? Positioned(
@@ -61,11 +58,8 @@ class AppAvatar extends StatelessWidget {
                   bottom: 0,
                   child: Container(
                     padding: EdgeInsets.all(size / 20),
-                    // margin: icon != null
-                    //     ? null
-                    //     : EdgeInsets.only(bottom: size / 20, right: size / 20),
                     decoration: BoxDecoration(
-                      color: enabled ? AppColors.primary : AppColors.disabled,
+                      color: enabled ? enabledColor : disabledColor,
                       shape:
                           icon == null ? BoxShape.circle : BoxShape.rectangle,
                       border: Border.all(
@@ -79,7 +73,7 @@ class AppAvatar extends StatelessWidget {
                     child: icon != null
                         ? Icon(
                             icon,
-                            color: AppColors.white,
+                            color: iconColor,
                             size: iconSize ?? (size / 8),
                           )
                         : SizedBox(

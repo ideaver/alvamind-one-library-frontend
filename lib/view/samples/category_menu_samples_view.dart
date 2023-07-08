@@ -1,7 +1,7 @@
+import 'package:alvamind_library/model/category_menu_model.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/molecule/app_category_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/model/category_menu_model.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/molecule/app_category_menu.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
@@ -9,7 +9,7 @@ import '../../app/theme/app_text_style.dart';
 class CategoryMenuSamplesView extends StatefulWidget {
   const CategoryMenuSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/category-menu-samples';
+  static const routeName = '/molecule-category-menu-samples';
 
   @override
   State<CategoryMenuSamplesView> createState() =>

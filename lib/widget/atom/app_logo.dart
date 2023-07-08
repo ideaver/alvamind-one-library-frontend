@@ -1,45 +1,49 @@
+import 'package:alvamind_library/widget/atom/app_image.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/app/asset/app_assets.dart';
-import 'package:laundry_net/widget/atom/app_image.dart';
 
 import '../../app/theme/app_text_style.dart';
 
 class AppLogo extends StatelessWidget {
+  final String title;
+  final String image;
+  final TextStyle? titleStyle;
+  final ImgProvider imgProvider;
   final double size;
   final bool withText;
-  final bool isRounded;
   final Function()? onTap;
 
   const AppLogo({
     super.key,
     this.size = 52,
+    this.titleStyle,
+    this.imgProvider = ImgProvider.assetImage,
     this.withText = false,
-    this.isRounded = false,
     this.onTap,
+    required this.title,
+    required this.image,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: size,
-      height: size,
-      child: Row(
-        children: [
-          AppImage(
-            image: isRounded ? AppAssets.logoCircle : AppAssets.logo,
-            imgProvider: ImgProvider.assetImage,
-          ),
-          withText
-              ? Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Text(
-                    'Reasa',
-                    style: AppTextStyle.heading1(),
-                  ),
-                )
-              : const SizedBox.shrink(),
-        ],
-      ),
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        AppImage(
+          image: image,
+          imgProvider: imgProvider,
+          width: withText ? null : size,
+          height: size,
+        ),
+        withText
+            ? Padding(
+                padding: EdgeInsets.only(left: size / 4),
+                child: Text(
+                  title,
+                  style: titleStyle ?? AppTextStyle.bold(size: size / 1.2),
+                ),
+              )
+            : const SizedBox.shrink(),
+      ],
     );
   }
 }

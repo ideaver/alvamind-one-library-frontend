@@ -1,14 +1,14 @@
 import 'dart:math';
 
+import 'package:alvamind_library/app/theme/app_colors.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/molecule/app_chips.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/app/theme/app_colors.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/molecule/app_chips.dart';
 
 class ChipsSamplesView extends StatefulWidget {
   const ChipsSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/chips-samples';
+  static const routeName = '/molecule-chips-samples';
 
   @override
   State<ChipsSamplesView> createState() => _ChipsSamplesViewState();

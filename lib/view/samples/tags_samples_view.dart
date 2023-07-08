@@ -1,12 +1,12 @@
+import 'package:alvamind_library/app/theme/app_colors.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/molecule/app_tags.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/app/theme/app_colors.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/molecule/app_tags.dart';
 
 class TagsSamplesView extends StatefulWidget {
   const TagsSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/tag-marker-samples';
+  static const routeName = '/molecule-tag-marker-samples';
 
   @override
   State<TagsSamplesView> createState() => _TagsSamplesViewState();

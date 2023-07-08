@@ -1,21 +1,21 @@
+import 'package:alvamind_library/app/const/countries.dart';
+import 'package:alvamind_library/app/theme/app_colors.dart';
+import 'package:alvamind_library/app/theme/app_text_style.dart';
+import 'package:alvamind_library/app/utility/console_log.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/molecule/app_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/app/const/countries.dart';
-import 'package:laundry_net/app/theme/app_colors.dart';
-import 'package:laundry_net/app/theme/app_text_style.dart';
-import 'package:laundry_net/app/utility/console_log.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/molecule/app_text_field.dart';
 
-class TextFieldSamplesView extends StatefulWidget {
-  const TextFieldSamplesView({Key? key}) : super(key: key);
+class InputFieldSamplesView extends StatefulWidget {
+  const InputFieldSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/input-field-samples';
+  static const routeName = '/molecule-input-field-samples';
 
   @override
-  State<TextFieldSamplesView> createState() => _TextFieldSamplesViewState();
+  State<InputFieldSamplesView> createState() => _InputFieldSamplesViewState();
 }
 
-class _TextFieldSamplesViewState extends State<TextFieldSamplesView> {
+class _InputFieldSamplesViewState extends State<InputFieldSamplesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

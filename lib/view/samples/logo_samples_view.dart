@@ -1,10 +1,14 @@
+import 'package:alvamind_library/app/asset/app_assets.dart';
+import 'package:alvamind_library/app/theme/app_colors.dart';
+import 'package:alvamind_library/app/theme/app_text_style.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/atom/app_logo.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/widget/atom/app_logo.dart';
 
 class LogoSamplesView extends StatefulWidget {
   const LogoSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/logo-samples';
+  static const routeName = '/atom-logo-samples';
 
   @override
   State<LogoSamplesView> createState() => _LogoSamplesViewState();
@@ -24,6 +28,8 @@ class _LogoSamplesViewState extends State<LogoSamplesView> {
             defaultLogoWithText(),
             circleLogo(),
             circleLogoWithText(),
+            circleLogoWithTextCustomSize(),
+            circleLogoWithTextCustomStyle(),
           ],
         ),
       ),
@@ -31,25 +37,72 @@ class _LogoSamplesViewState extends State<LogoSamplesView> {
   }
 
   Widget defaultLogo() {
-    return const AppLogo();
+    return const SampleWrapper(
+      title: 'Default Logo',
+      widget: AppLogo(
+        title: 'Reasa',
+        image: AppAssets.logo,
+      ),
+    );
   }
 
   Widget defaultLogoWithText() {
-    return const AppLogo(
-      withText: true,
+    return const SampleWrapper(
+      title: 'Default Logo With Text',
+      widget: AppLogo(
+        title: 'Reasa',
+        image: AppAssets.logo,
+        withText: true,
+      ),
     );
   }
 
   Widget circleLogo() {
-    return const AppLogo(
-      isRounded: true,
+    return const SampleWrapper(
+      title: 'Circle Logo',
+      widget: AppLogo(
+        title: 'Reasa',
+        image: AppAssets.logoCircle,
+      ),
     );
   }
 
   Widget circleLogoWithText() {
-    return const AppLogo(
-      isRounded: true,
-      withText: true,
+    return const SampleWrapper(
+      title: 'Circle Logo With Text',
+      widget: AppLogo(
+        title: 'Reasa',
+        image: AppAssets.logoCircle,
+        withText: true,
+      ),
+    );
+  }
+
+  Widget circleLogoWithTextCustomSize() {
+    return const SampleWrapper(
+      title: 'Circle Logo With Text Custom Size',
+      widget: AppLogo(
+        title: 'Reasa',
+        image: AppAssets.logoCircle,
+        withText: true,
+        size: 30,
+      ),
+    );
+  }
+
+  Widget circleLogoWithTextCustomStyle() {
+    return SampleWrapper(
+      title: 'Circle Logo With Text Custom Style',
+      widget: AppLogo(
+        title: 'Reasa',
+        image: AppAssets.logoCircle,
+        withText: true,
+        size: 30,
+        titleStyle: AppTextStyle.bold(
+          size: 16,
+          color: AppColors.primary,
+        ),
+      ),
     );
   }
 }

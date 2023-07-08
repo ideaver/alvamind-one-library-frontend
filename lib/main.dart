@@ -1,7 +1,7 @@
+import 'package:alvamind_library/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:laundry_net/app/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
 import 'app/locale/app_locale.dart';

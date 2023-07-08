@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:alvamind_library/app/utility/console_log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:laundry_net/app/utility/console_log.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
@@ -34,6 +34,12 @@ class AppImage extends StatefulWidget {
   final Duration? fadeInDuration;
   final Widget? errorWidget;
   final bool enableFullScreenView;
+  final double? width;
+  final double? height;
+  final Color? backgroundColor;
+  final Color borderColor;
+  final double? borderWidth;
+  final double? borderRadius;
 
   const AppImage({
     Key? key,
@@ -46,6 +52,12 @@ class AppImage extends StatefulWidget {
     this.fadeInDuration,
     this.errorWidget,
     this.enableFullScreenView = false,
+    this.width,
+    this.height,
+    this.backgroundColor,
+    this.borderColor = AppColors.primary,
+    this.borderWidth,
+    this.borderRadius,
   }) : super(key: key);
 
   @override
@@ -77,13 +89,34 @@ class _AppImageState extends State<AppImage> {
               );
             }
           : null,
-      child: widget.image == ''
-          ? noImage()
-          : widget.imgProvider == ImgProvider.networkImage
-              ? networkImage()
-              : widget.imgProvider == ImgProvider.assetImage
-                  ? assetImage()
-                  : fileImage(),
+      child: Container(
+        width: widget.width,
+        height: widget.height,
+        decoration: BoxDecoration(
+          color: widget.backgroundColor,
+          borderRadius: widget.borderRadius == null
+              ? null
+              : BorderRadius.circular(widget.borderRadius!),
+          border: widget.borderWidth == null
+              ? null
+              : Border.all(
+                  width: widget.borderWidth!,
+                  color: widget.borderColor,
+                ),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(
+            (widget.borderRadius ?? 0) - (widget.borderWidth ?? 0),
+          ),
+          child: widget.image == ''
+              ? noImage()
+              : widget.imgProvider == ImgProvider.networkImage
+                  ? networkImage()
+                  : widget.imgProvider == ImgProvider.assetImage
+                      ? assetImage()
+                      : fileImage(),
+        ),
+      ),
     );
   }
 

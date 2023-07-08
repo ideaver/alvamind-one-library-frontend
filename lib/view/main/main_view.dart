@@ -1,5 +1,5 @@
+import 'package:alvamind_library/widget/molecule/app_button.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/widget/molecule/app_button.dart';
 
 import '../../app/theme/app_text_style.dart';
 import 'list_menu_view.dart';
@@ -37,12 +37,12 @@ class _MainViewState extends State<MainView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'LaundryNet Mobile',
+                    'Alvamind One Library',
                     style: AppTextStyle.heading4(),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'LaundryNet Mobile Design System',
+                    'Alvamind One Library Design System',
                     style: AppTextStyle.bodyMedium(
                       fontWeight: AppFontWeight.medium,
                     ),

@@ -1,12 +1,12 @@
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/atom/app_avatar.dart';
+import 'package:alvamind_library/widget/atom/app_image.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/atom/app_avatar.dart';
-import 'package:laundry_net/widget/atom/app_image.dart';
 
 class AvatarSamplesView extends StatefulWidget {
   const AvatarSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/avatar-samples';
+  static const routeName = '/atom-avatar-samples';
 
   @override
   State<AvatarSamplesView> createState() => _AvatarSamplesViewState();
@@ -29,6 +29,7 @@ class _AvatarSamplesViewState extends State<AvatarSamplesView> {
             avatarWithBorder(),
             avatarWithBorderDisabled(),
             avatarWithIconButtonCustomSize(),
+            avatarWithIconButtonCustomSizeAndRadius(),
           ],
         ),
       ),
@@ -103,6 +104,19 @@ class _AvatarSamplesViewState extends State<AvatarSamplesView> {
         showIconButton: true,
         icon: Icons.add,
         size: 200,
+      ),
+    );
+  }
+
+  Widget avatarWithIconButtonCustomSizeAndRadius() {
+    return const SampleWrapper(
+      title: 'Avatar With Icon Button Custom Size And Radius',
+      widget: AppAvatar(
+        image: randomImage,
+        showIconButton: true,
+        icon: Icons.add,
+        size: 200,
+        borderRadius: 32,
       ),
     );
   }

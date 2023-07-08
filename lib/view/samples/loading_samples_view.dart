@@ -1,11 +1,11 @@
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/atom/app_progress_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/atom/app_progress_indicator.dart';
 
 class LoadingSamplesView extends StatefulWidget {
   const LoadingSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/loading-samples';
+  static const routeName = '/atom-loading-samples';
 
   @override
   State<LoadingSamplesView> createState() => _LoadingSamplesViewState();

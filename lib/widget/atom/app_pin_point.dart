@@ -1,7 +1,7 @@
+import 'package:alvamind_library/app/asset/app_assets.dart';
+import 'package:alvamind_library/app/theme/app_colors.dart';
+import 'package:alvamind_library/widget/atom/app_image.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/app/asset/app_assets.dart';
-import 'package:laundry_net/app/theme/app_colors.dart';
-import 'package:laundry_net/widget/atom/app_image.dart';
 
 class AppPinPoint extends StatelessWidget {
   final String image;

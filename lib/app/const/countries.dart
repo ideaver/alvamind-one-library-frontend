@@ -1,5 +1,5 @@
-import 'package:laundry_net/app/asset/app_assets.dart';
-import 'package:laundry_net/model/country_model.dart';
+import 'package:alvamind_library/app/asset/app_assets.dart';
+import 'package:alvamind_library/model/country_model.dart';
 
 List<CountryModel> countries = [
   CountryModel(

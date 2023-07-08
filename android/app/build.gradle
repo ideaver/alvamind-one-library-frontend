@@ -33,7 +33,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 // apply plugin: 'com.google.gms.google-services'
 
 android {
-    namespace "com.app.laundry_net"
+    namespace "com.app.alvamind_library"
     compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
@@ -52,7 +52,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.app.laundry_net"
+        applicationId "com.app.alvamind_library"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 21             

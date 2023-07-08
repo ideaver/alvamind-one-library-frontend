@@ -1,12 +1,12 @@
+import 'package:alvamind_library/app/theme/app_colors.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/molecule/app_button.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/app/theme/app_colors.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/molecule/app_button.dart';
 
 class ButtonSamplesView extends StatefulWidget {
   const ButtonSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/button-samples';
+  static const routeName = '/molecule-button-samples';
 
   @override
   State<ButtonSamplesView> createState() => _ButtonSamplesViewState();

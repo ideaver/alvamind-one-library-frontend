@@ -1,12 +1,12 @@
+import 'package:alvamind_library/app/theme/app_colors.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/atom/app_statistic_square.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/app/theme/app_colors.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/atom/app_statistic_square.dart';
 
 class StatisticSquareSamplesView extends StatefulWidget {
   const StatisticSquareSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/statistic-square-samples';
+  static const routeName = '/atom-statistic-square-samples';
 
   @override
   State<StatisticSquareSamplesView> createState() =>

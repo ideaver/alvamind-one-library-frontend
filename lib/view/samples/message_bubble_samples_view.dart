@@ -1,10 +1,10 @@
+import 'package:alvamind_library/widget/molecule/app_message_bubble.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/widget/molecule/app_message_bubble.dart';
 
 class MessageBubbleSamplesView extends StatefulWidget {
   const MessageBubbleSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/message-bubble-samples';
+  static const routeName = '/molecule-message-bubble-samples';
 
   @override
   State<MessageBubbleSamplesView> createState() =>

@@ -1,12 +1,12 @@
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/molecule/app_button.dart';
+import 'package:alvamind_library/widget/molecule/app_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_net/view/samples/sample_wrapper.dart';
-import 'package:laundry_net/widget/molecule/app_dialog.dart';
-import 'package:laundry_net/widget/molecule/app_button.dart';
 
 class DialogSamplesView extends StatefulWidget {
   const DialogSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/dialog-samples';
+  static const routeName = '/molecule-dialog-samples';
 
   @override
   State<DialogSamplesView> createState() => _DialogSamplesViewState();
