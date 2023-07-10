@@ -89,6 +89,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/images/
+    - assets/images/payment/
     - assets/icons/
     - assets/icons/flags/
     - assets/fonts/
@@ -122,6 +123,9 @@ flutter:
         - asset: assets/fonts/Urbanist-SemiBold.ttf
         - asset: assets/fonts/Urbanist-Medium.ttf
         - asset: assets/fonts/Urbanist-Regular.ttf
+    - family: CustomIcon
+      fonts:
+        - asset: assets/fonts/CustomIcon.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

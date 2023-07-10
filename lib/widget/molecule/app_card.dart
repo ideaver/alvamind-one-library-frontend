@@ -38,7 +38,7 @@ class AppCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap ?? () {},
       child: Container(
         width: width,
         height: height,
@@ -56,19 +56,16 @@ class AppCard extends StatelessWidget {
                 : const SizedBox.shrink(),
             Container(
               decoration: BoxDecoration(
-                color: backgroundImage != null
-                    ? AppColors.transparent
-                    : color ??
-                        (AppTheme.isLightMode
-                            ? AppColors.white
-                            : AppColors.blackLv2),
+                color: backgroundImage != null ? AppColors.transparent : color ?? (AppTheme.isLightMode ? AppColors.white : AppColors.blackLv2),
                 border: borderWidth != null
                     ? Border.all(
                         width: borderWidth!,
                         color: borderColor,
                       )
                     : null,
-                boxShadow: [AppShadows.cardShadow2],
+                boxShadow: [
+                  AppShadows.cardShadow2
+                ],
               ),
               child: Container(
                 padding: padding,
