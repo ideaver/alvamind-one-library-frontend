@@ -22,6 +22,8 @@ import 'package:alvamind_library/view/samples/tags_samples_view.dart';
 import 'package:alvamind_library/view/samples/tool_tip_menu_samples_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../view/samples/accordion_samples_view.dart';
+
 // App routes
 class AppRoutes {
   // This class is not meant to be instatiated or extended; this constructor
@@ -57,5 +59,6 @@ class AppRoutes {
         const ProgressLineSamplesView(),
     DropDownSamplesView.routeName: (context) => const DropDownSamplesView(),
     ItemCardsSamplesView.routeName: (context) => const ItemCardsSamplesView(),
+    AccordionSamplesView.routeName: (context) => const AccordionSamplesView(),
   };
 }
