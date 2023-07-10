@@ -29,7 +29,7 @@ Future<void> main() async {
   // Initialize local notification service
   // await LocalNotifService.initLocalNotifService();
 
-  // Set/lock orientation
+  // Set/lock orientationgvhvgj
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   // Set overlay style

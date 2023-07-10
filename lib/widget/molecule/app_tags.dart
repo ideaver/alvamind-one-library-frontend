@@ -10,6 +10,7 @@ class AppTags extends StatelessWidget {
   final EdgeInsets padding;
   final Color color;
   final Color textColor;
+  final Color iconsColor;
   final Color borderColor;
   final String text;
   final IconData? leftIcon;
@@ -24,6 +25,7 @@ class AppTags extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
     this.color = AppColors.primary,
     this.textColor = AppColors.white,
+    this.iconsColor = AppColors.white,
     this.borderColor = AppColors.primary,
     required this.text,
     this.leftIcon,
@@ -82,10 +84,10 @@ class AppTags extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(right: 8),
+      padding: const EdgeInsets.only(right: 6),
       child: Icon(
         leftIcon,
-        color: textColor,
+        color: iconsColor,
         size: fontSize + 2,
       ),
     );
@@ -97,10 +99,10 @@ class AppTags extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(left: 8),
+      padding: const EdgeInsets.only(left: 6),
       child: Icon(
         rightIcon,
-        color: textColor,
+        color: iconsColor,
         size: fontSize + 2,
       ),
     );

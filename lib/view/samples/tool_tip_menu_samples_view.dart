@@ -32,7 +32,7 @@ class _ToolTipMenuSamplesState extends State<ToolTipMenuSamples> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             defaultToolTip(),
-            defaultToolTipCustomStyle(),
+            toolTipCustomStyle(),
             customChildToolTip(),
           ],
         ),
@@ -60,9 +60,9 @@ class _ToolTipMenuSamplesState extends State<ToolTipMenuSamples> {
     );
   }
 
-  Widget defaultToolTipCustomStyle() {
+  Widget toolTipCustomStyle() {
     return SampleWrapper(
-      title: 'Default Tool Tip Menu Custom Style',
+      title: 'Tool Tip Menu Custom Style',
       widget: AppToolTipMenu(
         onTapItem: (i) {
           _country2 = countries[i];

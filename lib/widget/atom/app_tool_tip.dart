@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../app/theme/app_text_style.dart';
 
 class AppToolTipMenu extends StatelessWidget {
+  final bool enabled;
   final Widget? child;
   final String? title;
   final TextStyle? style;
@@ -12,6 +13,7 @@ class AppToolTipMenu extends StatelessWidget {
   final double? width;
   final double? borderWidth;
   final double borderRadius;
+  final double itemsBorderRadius;
   final double elevation;
   final EdgeInsets padding;
   final EdgeInsets? itemPadding;
@@ -19,11 +21,16 @@ class AppToolTipMenu extends StatelessWidget {
   final Color iconColor;
   final Color titleColor;
   final Color borderColor;
+  final Color shadowColor;
+  final Color itemsBackgroundColor;
+  final Offset? offset;
+  final BoxConstraints? itemsConstraint;
   final List<Widget> children;
   final Function(int) onTapItem;
 
   const AppToolTipMenu({
     Key? key,
+    this.enabled = true,
     this.child,
     this.title,
     this.style,
@@ -32,6 +39,7 @@ class AppToolTipMenu extends StatelessWidget {
     this.width,
     this.borderWidth,
     this.borderRadius = 12,
+    this.itemsBorderRadius = 6,
     this.elevation = 4,
     this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
     this.itemPadding = const EdgeInsets.all(12),
@@ -39,6 +47,10 @@ class AppToolTipMenu extends StatelessWidget {
     this.iconColor = AppColors.blackLv1,
     this.titleColor = AppColors.blackLv1,
     this.borderColor = AppColors.blackLv8,
+    this.shadowColor = AppColors.blackLv9,
+    this.itemsBackgroundColor = AppColors.white,
+    this.offset,
+    this.itemsConstraint,
     required this.children,
     required this.onTapItem,
   }) : super(key: key);
@@ -61,15 +73,19 @@ class AppToolTipMenu extends StatelessWidget {
       child: Theme(
         data: Theme.of(context).copyWith(
           highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
+          splashColor: AppColors.blackLv9,
         ),
         child: PopupMenuButton(
+          color: itemsBackgroundColor,
+          enabled: enabled,
+          constraints: itemsConstraint,
           elevation: elevation,
-          shadowColor: Colors.black54,
-          offset: Offset(
-            0 - padding.left,
-            (padding.top * 2) + (borderWidth ?? 1) + 2,
-          ),
+          shadowColor: shadowColor.withOpacity(0.54),
+          offset: offset ??
+              Offset(
+                0 - padding.left,
+                (padding.top * 2) + (borderWidth ?? 1) + 2,
+              ),
           position: PopupMenuPosition.under,
           shape: RoundedRectangleBorder(
             side: borderWidth != null
@@ -78,8 +94,8 @@ class AppToolTipMenu extends StatelessWidget {
                     color: borderColor,
                   )
                 : BorderSide.none,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(6),
+            borderRadius: BorderRadius.all(
+              Radius.circular(itemsBorderRadius),
             ),
           ),
           child: child ??

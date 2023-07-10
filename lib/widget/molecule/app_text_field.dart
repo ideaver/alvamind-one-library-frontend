@@ -339,32 +339,30 @@ class _AppTextFieldState extends State<AppTextField> {
         _country = countries[i];
         setState(() {});
       },
-      child: Padding(
-        padding: const EdgeInsets.only(left: 24, right: 8),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              width: widget.iconsSize ?? 24,
-              child: AppImage(
-                image: _country.flag,
-                imgProvider: ImgProvider.assetImage,
-              ),
+      padding: const EdgeInsets.only(left: 24, right: 8),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: widget.iconsSize ?? 24,
+            child: AppImage(
+              image: _country.flag,
+              imgProvider: ImgProvider.assetImage,
             ),
-            const SizedBox(width: 4),
-            Icon(
-              Icons.keyboard_arrow_down_rounded,
-              color: _iconsColor,
-              size: widget.iconsSize ?? 24,
-            ),
-            const SizedBox(width: 4),
-            Text(
-              _country.phoneCode,
-              style: widget.textStyle ??
-                  AppTextStyle.bodyMedium(fontWeight: AppFontWeight.semibold),
-            )
-          ],
-        ),
+          ),
+          const SizedBox(width: 4),
+          Icon(
+            Icons.keyboard_arrow_down_rounded,
+            color: _iconsColor,
+            size: widget.iconsSize ?? 24,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            _country.phoneCode,
+            style: widget.textStyle ??
+                AppTextStyle.bodyMedium(fontWeight: AppFontWeight.semibold),
+          )
+        ],
       ),
       children: List.generate(countries.length, (i) {
         return Row(
