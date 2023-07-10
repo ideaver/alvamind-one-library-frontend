@@ -117,8 +117,7 @@ class _ChipsSamplesViewState extends State<ChipsSamplesView> {
             (i) => AppChips(
               onTap: () {
                 setState(() {
-                  randomChips[i]['is_selected'] =
-                      !randomChips[i]['is_selected'];
+                  randomChips[i]['is_selected'] = !randomChips[i]['is_selected'];
                 });
               },
               isSelected: randomChips[i]['is_selected'],
