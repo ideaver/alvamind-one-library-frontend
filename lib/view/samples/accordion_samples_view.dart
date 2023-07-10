@@ -30,7 +30,7 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
   }
 
   Widget questionAccordion() {
-    return SampleWrapper(
+    return const SampleWrapper(
       title: 'Question Card',
       widget: AppExpansionListTile(
         title: 'Question',
