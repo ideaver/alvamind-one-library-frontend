@@ -19,6 +19,8 @@ import 'package:alvamind_library/view/samples/tags_samples_view.dart';
 import 'package:alvamind_library/view/samples/tool_tip_menu_samples_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../view/samples/accordion_samples_view.dart';
+
 // App routes
 class AppRoutes {
   // This class is not meant to be instatiated or extended; this constructor
@@ -31,24 +33,20 @@ class AppRoutes {
     DialogSamplesView.routeName: (context) => const DialogSamplesView(),
     LoadingSamplesView.routeName: (context) => const LoadingSamplesView(),
     AvatarSamplesView.routeName: (context) => const AvatarSamplesView(),
-    StatisticSquareSamplesView.routeName: (context) =>
-        const StatisticSquareSamplesView(),
+    StatisticSquareSamplesView.routeName: (context) => const StatisticSquareSamplesView(),
     IconButtonSamplesView.routeName: (context) => const IconButtonSamplesView(),
-    CategoryMenuSamplesView.routeName: (context) =>
-        const CategoryMenuSamplesView(),
+    CategoryMenuSamplesView.routeName: (context) => const CategoryMenuSamplesView(),
     ChipsSamplesView.routeName: (context) => const ChipsSamplesView(),
     PinPointSamplesView.routeName: (context) => const PinPointSamplesView(),
     TagsSamplesView.routeName: (context) => const TagsSamplesView(),
-    MessageBubbleSamplesView.routeName: (context) =>
-        const MessageBubbleSamplesView(),
+    MessageBubbleSamplesView.routeName: (context) => const MessageBubbleSamplesView(),
     InputFieldSamplesView.routeName: (context) => const InputFieldSamplesView(),
     ToolTipMenuSamples.routeName: (context) => const ToolTipMenuSamples(),
     DividerSamplesView.routeName: (context) => const DividerSamplesView(),
     LogoSamplesView.routeName: (context) => const LogoSamplesView(),
     ImageSamplesView.routeName: (context) => const ImageSamplesView(),
-    IllustrationStateSamplesView.routeName: (context) =>
-        const IllustrationStateSamplesView(),
-    InputSearchFieldSamplesView.routeName: (context) =>
-        const InputSearchFieldSamplesView(),
+    IllustrationStateSamplesView.routeName: (context) => const IllustrationStateSamplesView(),
+    InputSearchFieldSamplesView.routeName: (context) => const InputSearchFieldSamplesView(),
+    AccordionSamplesView.routeName: (context) => const AccordionSamplesView(),
   };
 }
