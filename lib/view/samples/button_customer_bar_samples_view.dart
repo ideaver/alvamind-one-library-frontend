@@ -43,6 +43,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
       title: 'Button Bar list 1',
       widget: ButtonBarCustomer(
         index: _index,
+        gapLeftOut: SizedBox(width: AppSizes.padding / 2),
         //
         iconLeftOut: CustomIcon.home_icon,
         textLeftOut: 'Beranda',
@@ -98,7 +99,11 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
       title: 'Button Bar list 2',
       widget: ButtonBarCustomer(
         index: _index,
-        padding: EdgeInsets.symmetric(vertical: AppSizes.padding / 2),
+        padding: EdgeInsets.symmetric(vertical: AppSizes.padding / 1.5),
+        gapLeftOut: SizedBox(width: AppSizes.padding * 1.2),
+        gapLeftIn: SizedBox(width: AppSizes.padding * 1.5),
+        gapRightIn: SizedBox(width: AppSizes.padding),
+        gapRightOut: SizedBox(width: AppSizes.padding / 3),
         //
         iconLeftOut: CustomIcon.home_icon,
         textLeftOut: 'Beranda',
@@ -127,7 +132,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           // TODO
         },
         //
-        iconRightIn: CustomIcon.chat_icon,
+        iconRightIn: Icons.group,
         textRightIn: 'Karyawan',
         functionButtonRightIn: () {
           // TODO
@@ -154,6 +159,11 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
       title: 'Button Bar list 3',
       widget: ButtonBarCustomer(
         index: _index,
+        gapLeftOut: SizedBox(width: AppSizes.padding / 2),
+        gapLeftIn: SizedBox(width: AppSizes.padding / 2),
+
+        gapRightIn: SizedBox(width: AppSizes.padding / 2),
+        gapRightOut: SizedBox(width: AppSizes.padding / 2),
         //
         iconLeftOut: CustomIcon.home_icon,
         textLeftOut: 'Beranda',
@@ -209,6 +219,11 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
       title: 'Button Bar list 4',
       widget: ButtonBarCustomer(
         index: _index,
+        gapLeftOut: SizedBox(width: AppSizes.padding / 2),
+        gapLeftIn: SizedBox(width: AppSizes.padding / 4),
+
+        gapRightIn: SizedBox(width: AppSizes.padding),
+        gapRightOut: SizedBox(width: AppSizes.padding),
         //
         iconLeftOut: CustomIcon.home_icon,
         textLeftOut: 'Beranda',

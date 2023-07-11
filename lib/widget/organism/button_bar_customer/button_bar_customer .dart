@@ -23,6 +23,10 @@ class ButtonBarCustomer extends StatelessWidget {
   final Color? textCenterColor;
   final EdgeInsetsGeometry? paddingTextCenter;
   final EdgeInsetsGeometry? padding;
+  final Widget? gapLeftOut;
+  final Widget? gapLeftIn;
+  final Widget? gapRightIn;
+  final Widget? gapRightOut;
 
   final void Function() functionButtonCenter;
   final void Function() functionButtonLeftOut;
@@ -55,6 +59,10 @@ class ButtonBarCustomer extends StatelessWidget {
     this.index,
     this.paddingTextCenter,
     this.padding,
+    this.gapLeftIn,
+    this.gapLeftOut,
+    this.gapRightIn,
+    this.gapRightOut,
   });
 
   @override
@@ -93,7 +101,7 @@ class ButtonBarCustomer extends StatelessWidget {
                     color: index == 0 ? AppColors.primary : AppColors.blackLv6,
                   ),
                 ),
-
+                gapLeftOut ?? SizedBox.shrink(),
                 AppIconButton(
                   padding: EdgeInsets.all(0),
                   paddingText: EdgeInsets.only(top: 5),
@@ -109,6 +117,7 @@ class ButtonBarCustomer extends StatelessWidget {
                     color: index == 1 ? AppColors.primary : AppColors.blackLv6,
                   ),
                 ),
+                gapLeftIn ?? SizedBox.shrink(),
                 // =======================
                 Container(
                   padding: paddingTextCenter ?? EdgeInsets.all(AppSizes.padding),
@@ -140,6 +149,7 @@ class ButtonBarCustomer extends StatelessWidget {
                     ),
                   ),
                 ),
+                gapRightIn ?? SizedBox.shrink(),
 
                 // ==========================
                 AppIconButton(
@@ -157,7 +167,7 @@ class ButtonBarCustomer extends StatelessWidget {
                     color: index == 3 ? AppColors.primary : AppColors.blackLv6,
                   ),
                 ),
-
+                gapRightOut ?? SizedBox.shrink(),
                 AppIconButton(
                   padding: EdgeInsets.all(0),
                   paddingText: EdgeInsets.only(top: 5),
