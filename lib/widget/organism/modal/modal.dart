@@ -44,51 +44,53 @@ class AppModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: padding ?? EdgeInsets.all(AppSizes.padding * 2),
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.white,
         borderRadius: borderRadius ?? BorderRadius.circular(40),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const AppImage(
-            image: AppAssets.info,
-            imgProvider: ImgProvider.assetImage,
-            width: 200,
-          ),
-          SizedBox(height: AppSizes.padding * 2),
-          Text(
-            title,
-            style: AppTextStyle.bold(size: 24, color: titleColor ?? Colors.white),
-          ),
-          SizedBox(height: AppSizes.padding * 1.5),
-          Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: AppTextStyle.regular(size: 16, color: subtitleColor ?? Colors.white),
-          ),
-          SizedBox(height: AppSizes.padding * 2),
-          Flex(
-            direction: directionButton ?? Axis.vertical,
-            children: [
-              AppButton(
-                onTap: functionButton ?? () {},
-                text: 'button',
-                rounded: true,
-              ),
-              SizedBox(height: AppSizes.padding / 1.5),
-              AppButton(
-                onTap: functionSecondButton ?? () {},
-                text: 'Button',
-                textColor: AppColors.primary,
-                buttonColor: AppColors.blueLv5,
-                rounded: true,
-              ),
-            ],
-          ),
-        ],
+      child: Padding(
+        padding: padding ?? EdgeInsets.all(AppSizes.padding * 2),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const AppImage(
+              image: AppAssets.info,
+              imgProvider: ImgProvider.assetImage,
+              width: 200,
+            ),
+            SizedBox(height: AppSizes.padding * 2),
+            Text(
+              title,
+              style: AppTextStyle.bold(size: 24, color: titleColor ?? Colors.white),
+            ),
+            SizedBox(height: AppSizes.padding * 1.5),
+            Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: AppTextStyle.regular(size: 16, color: subtitleColor ?? Colors.white),
+            ),
+            SizedBox(height: AppSizes.padding * 1.5),
+            Flex(
+              direction: directionButton ?? Axis.vertical,
+              children: [
+                AppButton(
+                  onTap: functionButton ?? () {},
+                  text: 'button',
+                  rounded: true,
+                ),
+                SizedBox(height: AppSizes.padding / 2),
+                AppButton(
+                  onTap: functionSecondButton ?? () {},
+                  text: 'Button',
+                  textColor: AppColors.primary,
+                  buttonColor: AppColors.blueLv5,
+                  rounded: true,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

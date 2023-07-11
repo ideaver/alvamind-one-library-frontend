@@ -1,9 +1,10 @@
+import 'package:alvamind_library/app/theme/app_text_style.dart';
+import 'package:alvamind_library/widget/atom/app_divider.dart';
+import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
-import '../../atom/app_divider.dart';
-import '../../molecule/app_bar_bottom.dart';
 
 class ButtonBarCustomer extends StatelessWidget {
   final String textCenter;
@@ -20,12 +21,16 @@ class ButtonBarCustomer extends StatelessWidget {
   final Color? iconCenterColor;
   final Color? iconCenterBackgroundColor;
   final Color? textCenterColor;
+  final EdgeInsetsGeometry? paddingTextCenter;
+  final EdgeInsetsGeometry? padding;
 
   final void Function() functionButtonCenter;
   final void Function() functionButtonLeftOut;
   final void Function() functionButtonLeftIn;
   final void Function() functionButtonRightIn;
   final void Function() functionButtonRightOut;
+
+  final int? index;
 
   const ButtonBarCustomer({
     super.key,
@@ -47,6 +52,9 @@ class ButtonBarCustomer extends StatelessWidget {
     this.iconCenterColor,
     this.iconCenterBackgroundColor,
     this.textCenterColor,
+    this.index,
+    this.paddingTextCenter,
+    this.padding,
   });
 
   @override
@@ -64,49 +72,115 @@ class ButtonBarCustomer extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: AppSizes.padding),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              AppBarBottom(
-                icon: iconLeftOut,
-                text: textLeftIn,
-                functionButton: functionButtonLeftIn,
-              ),
-              AppBarBottom(
-                icon: iconLeftIn,
-                text: textLeftIn,
-                functionButton: functionButtonLeftIn,
-              ),
-              AppBarBottom(
-                icon: iconCenter,
-                text: textCenter,
-                functionButton: functionButtonCenter,
-                buttonColor: iconCenterBackgroundColor,
-                iconColor: iconCenterColor,
-                textColor: textCenterColor,
-              ),
-              AppBarBottom(
-                icon: iconRightIn,
-                text: textRightIn,
-                functionButton: functionButtonRightIn,
-              ),
-              AppBarBottom(
-                icon: iconRightOut,
-                text: textRightOut,
-                functionButton: functionButtonRightOut,
-              ),
-            ],
-          ),
-          SizedBox(
-            height: AppSizes.padding,
+          Padding(
+            padding: padding ?? const EdgeInsets.all(0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                AppIconButton(
+                  padding: EdgeInsets.all(0),
+                  paddingText: EdgeInsets.only(top: 5),
+                  icon: Icon(
+                    iconLeftOut,
+                    color: index == 0 ? AppColors.primary : AppColors.blackLv6,
+                  ),
+                  text: textLeftOut,
+                  buttonColor: AppColors.transparent,
+                  onTap: functionButtonLeftOut,
+                  textStyle: AppTextStyle.medium(
+                    size: 10,
+                    color: index == 0 ? AppColors.primary : AppColors.blackLv6,
+                  ),
+                ),
+
+                AppIconButton(
+                  padding: EdgeInsets.all(0),
+                  paddingText: EdgeInsets.only(top: 5),
+                  icon: Icon(
+                    iconLeftIn,
+                    color: index == 1 ? AppColors.primary : AppColors.blackLv6,
+                  ),
+                  text: textLeftIn,
+                  onTap: functionButtonLeftIn,
+                  buttonColor: AppColors.transparent,
+                  textStyle: AppTextStyle.medium(
+                    size: 10,
+                    color: index == 1 ? AppColors.primary : AppColors.blackLv6,
+                  ),
+                ),
+                // =======================
+                Container(
+                  padding: paddingTextCenter ?? EdgeInsets.all(AppSizes.padding),
+                  decoration: BoxDecoration(
+                    color: iconCenterBackgroundColor ?? AppColors.primary,
+                    shape: BoxShape.circle,
+                  ),
+                  child: AppIconButton(
+                    padding: EdgeInsets.all(0),
+                    paddingText: EdgeInsets.only(top: 5),
+                    icon: Icon(
+                      iconCenter,
+                      color: textCenterColor != null
+                          ? textCenterColor
+                          : index == 2
+                              ? AppColors.primary
+                              : AppColors.white,
+                    ),
+                    text: textCenter,
+                    onTap: functionButtonCenter,
+                    buttonColor: Colors.transparent,
+                    textStyle: AppTextStyle.medium(
+                      size: 10,
+                      color: textCenterColor != null
+                          ? textCenterColor
+                          : index == 2
+                              ? AppColors.primary
+                              : AppColors.white,
+                    ),
+                  ),
+                ),
+
+                // ==========================
+                AppIconButton(
+                  padding: EdgeInsets.all(0),
+                  paddingText: EdgeInsets.only(top: 5),
+                  icon: Icon(
+                    iconRightIn,
+                    color: index == 3 ? AppColors.primary : AppColors.blackLv6,
+                  ),
+                  text: textRightIn,
+                  onTap: functionButtonRightIn,
+                  buttonColor: AppColors.transparent,
+                  textStyle: AppTextStyle.medium(
+                    size: 10,
+                    color: index == 3 ? AppColors.primary : AppColors.blackLv6,
+                  ),
+                ),
+
+                AppIconButton(
+                  padding: EdgeInsets.all(0),
+                  paddingText: EdgeInsets.only(top: 5),
+                  icon: Icon(
+                    iconRightOut,
+                    color: index == 4 ? AppColors.primary : AppColors.blackLv6,
+                  ),
+                  text: textRightOut,
+                  onTap: functionButtonRightOut,
+                  buttonColor: AppColors.transparent,
+                  textStyle: AppTextStyle.medium(
+                    size: 10,
+                    color: index == 4 ? AppColors.primary : AppColors.blackLv6,
+                  ),
+                )
+              ],
+            ),
           ),
           AppDivider(
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.padding * 6, vertical: AppSizes.padding / 2),
             thickness: 4,
-            padding: EdgeInsets.symmetric(horizontal: AppSizes.padding * 6),
-          ),
-          SizedBox(
-            height: AppSizes.padding / 2,
-          ),
+            color: AppColors.blackLv7,
+          )
         ],
       ),
     );

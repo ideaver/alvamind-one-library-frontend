@@ -3,6 +3,8 @@ import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../widget/molecule/app_button.dart';
+import '../../widget/molecule/app_dialog.dart';
 import '../../widget/organism/modal/modal.dart';
 
 class ModalSamplesView extends StatefulWidget {
@@ -35,17 +37,28 @@ class _ModalSamplesViewState extends State<ModalSamplesView> {
   Widget modal() {
     return SampleWrapper(
       title: 'Modal',
-      widget: AppModal(
-        backgroundColor: AppColors.white,
-        title: 'Modal',
-        titleColor: AppColors.primary,
-        subtitle: 'Lorem ipsum dolor sit amet hua qui lori ipsum sit ghui amet poety amet',
-        subtitleColor: AppColors.black,
-        functionButton: () {
-          // TODO
-        },
-        functionSecondButton: () {
-          // TODO
+      widget: AppButton(
+        text: 'Modal',
+        onTap: () {
+          final navigator = Navigator.of(context);
+          AppDialog.show(
+            navigator,
+            padding: EdgeInsets.all(0),
+            backgroundColor: Colors.transparent,
+            child: AppModal(
+              backgroundColor: AppColors.white,
+              title: 'Modal',
+              titleColor: AppColors.primary,
+              subtitle: 'Lorem ipsum dolor sit amet hua qui lori ipsum sit ghui amet poety amet',
+              subtitleColor: AppColors.black,
+              functionButton: () {
+                // TODO
+              },
+              functionSecondButton: () {
+                // TODO
+              },
+            ),
+          );
         },
       ),
     );

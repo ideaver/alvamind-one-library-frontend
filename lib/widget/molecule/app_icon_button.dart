@@ -14,6 +14,7 @@ class AppIconButton extends StatelessWidget {
   final Color borderColor;
   final Widget icon;
   final String? text;
+  final EdgeInsetsGeometry? paddingText;
   final TextStyle? textStyle;
   final Function() onTap;
 
@@ -29,6 +30,7 @@ class AppIconButton extends StatelessWidget {
     this.borderRadius = 100,
     this.text,
     this.textStyle,
+    this.paddingText,
     required this.icon,
     required this.onTap,
   });
@@ -46,9 +48,7 @@ class AppIconButton extends StatelessWidget {
               onTap: enable ? onTap : null,
               splashColor: Colors.black.withOpacity(0.06),
               splashFactory: InkRipple.splashFactory,
-              highlightColor: enable
-                  ? AppColors.black.withOpacity(0.12)
-                  : Colors.transparent,
+              highlightColor: enable ? AppColors.black.withOpacity(0.12) : Colors.transparent,
               borderRadius: BorderRadius.circular(borderRadius),
               child: Ink(
                 width: width,
@@ -70,7 +70,7 @@ class AppIconButton extends StatelessWidget {
           ),
           text != null
               ? Padding(
-                  padding: const EdgeInsets.only(top: 10),
+                  padding: paddingText ?? EdgeInsets.only(top: 10),
                   child: Text(
                     text!,
                     style: textStyle ??

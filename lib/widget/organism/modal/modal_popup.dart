@@ -66,108 +66,108 @@ class _ModalPopupState extends State<ModalPopup> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: widget.padding ??
-          EdgeInsets.symmetric(
-            vertical: AppSizes.padding,
-            horizontal: AppSizes.padding * 1.5,
-          ),
       decoration: BoxDecoration(
         color: widget.backgroundColor ?? AppColors.white,
         borderRadius: widget.borderRadius ?? BorderRadius.circular(40),
       ),
-      child: Column(
-        children: [
-          AppDivider(
-            thickness: 4,
-            padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 7),
-          ),
-          SizedBox(
-            height: AppSizes.padding,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                widget.title,
-                style: AppTextStyle.bold(
-                  size: 24,
-                  color: widget.titleColor ?? Colors.black,
+      child: Padding(
+        padding: widget.padding ??
+            EdgeInsets.symmetric(
+              vertical: AppSizes.padding,
+              horizontal: AppSizes.padding * 1.5,
+            ),
+        child: Column(
+          children: [
+            AppDivider(
+              thickness: 4,
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 7),
+            ),
+            SizedBox(
+              height: AppSizes.padding,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  widget.title,
+                  style: AppTextStyle.bold(
+                    size: 24,
+                    color: widget.titleColor ?? Colors.black,
+                  ),
                 ),
-              ),
-              AppDivider(
-                thickness: 1,
-                padding: EdgeInsets.symmetric(
-                  horizontal: AppSizes.padding / 3,
-                  vertical: AppSizes.padding,
+                AppDivider(
+                  thickness: 1,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: AppSizes.padding / 3,
+                    vertical: AppSizes.padding,
+                  ),
                 ),
-              ),
-              //
-              // subtitle text
-              //
-              widget.miniTitle != null
-                  ? Text(
-                      widget.miniTitle ?? '',
-                      textAlign: TextAlign.center,
-                      style: AppTextStyle.bold(size: 20, color: widget.miniTitleColor ?? AppColors.black),
-                    )
-                  : const SizedBox.shrink(),
-              widget.miniTitle != null
-                  ? SizedBox(
-                      height: AppSizes.padding,
-                    )
-                  : const SizedBox.shrink(),
-              widget.subtitle != null
-                  ? Text(
-                      widget.subtitle ?? '',
-                      textAlign: TextAlign.start,
-                      style: AppTextStyle.regular(size: 16, color: widget.subtitleColor ?? AppColors.black),
-                    )
-                  : const SizedBox.shrink(),
-              ...widget.moreWidget ?? [],
-              //
-              // address
-              //
-              widget.subtitle != null
-                  ? SizedBox(
-                      height: AppSizes.padding,
-                    )
-                  : const SizedBox.shrink(),
-              widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
-              widget.slider == true ? sliderWay() : const SizedBox.shrink(),
-              SizedBox(height: AppSizes.padding),
-              Container(
-                child: Flex(
-                  direction: widget.directionButton ?? Axis.horizontal,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ...widget.children,
-                    widget.price == false
-                        ? SizedBox.shrink()
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              widgetPrice(),
-                              AppButton(
-                                onTap: widget.priceButton ??
-                                    () {
-                                      // TODO
-                                    },
-                                text: 'Pesan',
-                                rounded: true,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: AppSizes.padding * 4,
-                                  vertical: AppSizes.padding,
+                //
+                // subtitle text
+                //
+                widget.miniTitle != null
+                    ? Text(
+                        widget.miniTitle ?? '',
+                        textAlign: TextAlign.center,
+                        style: AppTextStyle.bold(size: 18, color: widget.miniTitleColor ?? AppColors.black),
+                      )
+                    : const SizedBox.shrink(),
+                widget.miniTitle != null
+                    ? SizedBox(
+                        height: AppSizes.padding,
+                      )
+                    : const SizedBox.shrink(),
+                widget.subtitle != null
+                    ? Text(
+                        widget.subtitle ?? '',
+                        textAlign: TextAlign.start,
+                        style: AppTextStyle.regular(size: 14, color: widget.subtitleColor ?? AppColors.black),
+                      )
+                    : const SizedBox.shrink(),
+
+                widget.subtitle != null
+                    ? SizedBox(
+                        height: AppSizes.padding,
+                      )
+                    : const SizedBox.shrink(),
+                //
+                // address
+                //
+                ...widget.moreWidget ?? [],
+                widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
+                widget.slider == true ? sliderWay() : const SizedBox.shrink(),
+
+                Container(
+                  child: Flex(
+                    direction: widget.directionButton ?? Axis.horizontal,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ...widget.children,
+                      widget.price == false
+                          ? SizedBox.shrink()
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                widgetPrice(),
+                                AppButton(
+                                  width: 160,
+                                  rounded: true,
+                                  text: 'Pesan',
+                                  onTap: widget.priceButton ??
+                                      () {
+                                        // TODO
+                                      },
                                 ),
-                              ),
-                            ],
-                          ),
-                  ],
+                              ],
+                            ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -180,7 +180,7 @@ class _ModalPopupState extends State<ModalPopup> {
           children: [
             const Icon(
               Icons.pin_drop,
-              size: 20,
+              size: 18,
               color: AppColors.redLv1,
             ),
             SizedBox(
@@ -189,7 +189,7 @@ class _ModalPopupState extends State<ModalPopup> {
             Text(
               widget.titleAddress ?? '',
               style: AppTextStyle.bold(
-                size: 20,
+                size: 18,
               ),
             ),
           ],
@@ -200,7 +200,7 @@ class _ModalPopupState extends State<ModalPopup> {
         Text(
           widget.subtitleAddress ?? '',
           style: AppTextStyle.regular(
-            size: 13,
+            size: 12,
           ),
         ),
         SizedBox(
@@ -226,32 +226,31 @@ class _ModalPopupState extends State<ModalPopup> {
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Icon(
                   Icons.attach_money_sharp,
                   color: AppColors.primary,
-                  size: 35,
+                  size: 30,
                 ),
                 Text(
                   widget.textPrice ?? '',
                   style: AppTextStyle.bold(
-                    size: 32,
+                    size: 30,
                     color: AppColors.primary,
                   ),
                 ),
               ],
-            ),
-            SizedBox(
-              width: AppSizes.padding / 4,
             ),
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Text(
                 widget.statusPrice ?? '',
                 style: AppTextStyle.medium(
-                  size: 14,
+                  size: 12,
                   color: AppColors.blackLv4,
                 ),
               ),
