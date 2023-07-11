@@ -23,6 +23,7 @@ import 'package:alvamind_library/view/samples/tool_tip_menu_samples_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../view/samples/accordion_samples_view.dart';
+import '../../view/samples/modal_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
 
 // App routes
@@ -56,5 +57,6 @@ class AppRoutes {
     ItemCardsSamplesView.routeName: (context) => const ItemCardsSamplesView(),
     AccordionSamplesView.routeName: (context) => const AccordionSamplesView(),
     PaymentSamplesView.routeName: (context) => const PaymentSamplesView(),
+    ModalSamplesView.routeName: (context) => const ModalSamplesView(),
   };
 }
