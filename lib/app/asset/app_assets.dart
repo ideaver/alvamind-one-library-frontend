@@ -36,6 +36,16 @@ class AppAssets {
   // Financial provider logo
   // static const String visa = 'assets/visa.png';
 
+  // Category
+  static const String mosqueIcon = 'assets/icons/category/mosque-icon.png';
+  static const String bagIcon = 'assets/icons/category/bag-icon.png';
+  static const String categoryIcon = 'assets/icons/category/category-icon.png';
+  static const String dollIcon = 'assets/icons/category/doll-icon.png';
+  static const String helmetIcon = 'assets/icons/category/racing-helmet-icon.png';
+  static const String tshirtIcon = 'assets/icons/category/tshirt-icon.png';
+  static const String moneyyIcon = 'assets/icons/category/money-icon.png';
+  static const String sleepingIcon = 'assets/icons/category/sleeping-bold-icon.png';
+
   // Flags
   static const String flagID = 'assets/icons/flags/ID.png';
   static const String flagUS = 'assets/icons/flags/US.png';

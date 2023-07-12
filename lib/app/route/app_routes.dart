@@ -15,6 +15,7 @@ import 'package:alvamind_library/view/samples/item_cards_samples_view.dart';
 import 'package:alvamind_library/view/samples/loading_samples_view.dart';
 import 'package:alvamind_library/view/samples/logo_samples_view.dart';
 import 'package:alvamind_library/view/samples/message_bubble_samples_view.dart';
+import 'package:alvamind_library/view/samples/order_card_samples_view.dart';
 import 'package:alvamind_library/view/samples/pin_point_samples_view.dart';
 import 'package:alvamind_library/view/samples/progress_line_samples_view.dart';
 import 'package:alvamind_library/view/samples/statistic_square_samples_view.dart';
@@ -27,6 +28,8 @@ import '../../view/samples/button_customer_bar_samples_view.dart';
 import '../../view/samples/modal_popup_button_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
+import '../../view/samples/service_category_samples_view.dart';
+import '../../view/samples/terms_condition_list_samples_view.dart';
 
 // App routes
 class AppRoutes {
@@ -62,5 +65,8 @@ class AppRoutes {
     ModalSamplesView.routeName: (context) => const ModalSamplesView(),
     ModalPopupButtonSamplesView.routeName: (context) => const ModalPopupButtonSamplesView(),
     ButtonBarCustomerSamplesView.routeName: (context) => const ButtonBarCustomerSamplesView(),
+    OrderCardSamplesView.routeName: (context) => const OrderCardSamplesView(),
+    TermsConditionListSamplesView.routeName: (context) => const TermsConditionListSamplesView(),
+    ServiceCategorySamplesView.routeName: (context) => const ServiceCategorySamplesView(),
   };
 }

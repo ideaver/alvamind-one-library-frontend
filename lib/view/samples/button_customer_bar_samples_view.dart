@@ -126,10 +126,14 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         iconCenter: CustomIcon.scan_icon,
         textCenter: 'Akutansi',
         paddingTextCenter: EdgeInsets.all(0),
-        textCenterColor: AppColors.blackLv6,
+        // textCenterColor: AppColors.blackLv6,
         iconCenterBackgroundColor: Colors.white,
         functionButtonCenter: () {
           // TODO
+
+          setState(() {
+            _index = 2;
+          });
         },
         //
         iconRightIn: Icons.group,

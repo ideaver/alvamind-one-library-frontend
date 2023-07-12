@@ -94,6 +94,7 @@ flutter:
     - assets/images/payment/
     - assets/icons/
     - assets/icons/flags/
+    - assets/icons/category/
     - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -73,7 +73,7 @@ class _ModalPopupState extends State<ModalPopup> {
       child: Padding(
         padding: widget.padding ??
             EdgeInsets.symmetric(
-              vertical: AppSizes.padding,
+              vertical: AppSizes.padding / 1.5,
               horizontal: AppSizes.padding * 1.5,
             ),
         child: Column(
@@ -82,9 +82,7 @@ class _ModalPopupState extends State<ModalPopup> {
               thickness: 4,
               padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 7),
             ),
-            SizedBox(
-              height: AppSizes.padding,
-            ),
+            SizedBox(height: AppSizes.padding),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -164,6 +162,9 @@ class _ModalPopupState extends State<ModalPopup> {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: AppSizes.padding / 1.5,
+                )
               ],
             ),
           ],

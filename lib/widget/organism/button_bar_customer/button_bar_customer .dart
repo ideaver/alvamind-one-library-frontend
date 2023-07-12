@@ -87,8 +87,8 @@ class ButtonBarCustomer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 AppIconButton(
-                  padding: EdgeInsets.all(0),
-                  paddingText: EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.all(0),
+                  paddingText: const EdgeInsets.only(top: 5),
                   icon: Icon(
                     iconLeftOut,
                     color: index == 0 ? AppColors.primary : AppColors.blackLv6,
@@ -101,10 +101,10 @@ class ButtonBarCustomer extends StatelessWidget {
                     color: index == 0 ? AppColors.primary : AppColors.blackLv6,
                   ),
                 ),
-                gapLeftOut ?? SizedBox.shrink(),
+                gapLeftOut ?? const SizedBox.shrink(),
                 AppIconButton(
-                  padding: EdgeInsets.all(0),
-                  paddingText: EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.all(0),
+                  paddingText: const EdgeInsets.only(top: 5),
                   icon: Icon(
                     iconLeftIn,
                     color: index == 1 ? AppColors.primary : AppColors.blackLv6,
@@ -117,7 +117,7 @@ class ButtonBarCustomer extends StatelessWidget {
                     color: index == 1 ? AppColors.primary : AppColors.blackLv6,
                   ),
                 ),
-                gapLeftIn ?? SizedBox.shrink(),
+                gapLeftIn ?? const SizedBox.shrink(),
                 // =======================
                 Container(
                   padding: paddingTextCenter ?? EdgeInsets.all(AppSizes.padding),
@@ -126,15 +126,15 @@ class ButtonBarCustomer extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: AppIconButton(
-                    padding: EdgeInsets.all(0),
-                    paddingText: EdgeInsets.only(top: 5),
+                    padding: const EdgeInsets.all(0),
+                    paddingText: const EdgeInsets.only(top: 5),
                     icon: Icon(
                       iconCenter,
                       color: textCenterColor != null
                           ? textCenterColor
                           : index == 2
                               ? AppColors.primary
-                              : AppColors.white,
+                              : AppColors.blackLv6,
                     ),
                     text: textCenter,
                     onTap: functionButtonCenter,
@@ -145,7 +145,7 @@ class ButtonBarCustomer extends StatelessWidget {
                           ? textCenterColor
                           : index == 2
                               ? AppColors.primary
-                              : AppColors.white,
+                              : AppColors.blackLv6,
                     ),
                   ),
                 ),
@@ -153,8 +153,8 @@ class ButtonBarCustomer extends StatelessWidget {
 
                 // ==========================
                 AppIconButton(
-                  padding: EdgeInsets.all(0),
-                  paddingText: EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.all(0),
+                  paddingText: const EdgeInsets.only(top: 5),
                   icon: Icon(
                     iconRightIn,
                     color: index == 3 ? AppColors.primary : AppColors.blackLv6,
@@ -167,10 +167,10 @@ class ButtonBarCustomer extends StatelessWidget {
                     color: index == 3 ? AppColors.primary : AppColors.blackLv6,
                   ),
                 ),
-                gapRightOut ?? SizedBox.shrink(),
+                gapRightOut ?? const SizedBox.shrink(),
                 AppIconButton(
-                  padding: EdgeInsets.all(0),
-                  paddingText: EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.all(0),
+                  paddingText: const EdgeInsets.only(top: 5),
                   icon: Icon(
                     iconRightOut,
                     color: index == 4 ? AppColors.primary : AppColors.blackLv6,
