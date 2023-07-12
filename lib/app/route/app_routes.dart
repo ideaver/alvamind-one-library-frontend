@@ -25,9 +25,11 @@ import 'package:flutter/material.dart';
 
 import '../../view/samples/accordion_samples_view.dart';
 import '../../view/samples/button_customer_bar_samples_view.dart';
+import '../../view/samples/comment_and_review_list_samples_view.dart';
 import '../../view/samples/modal_popup_button_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
+import '../../view/samples/promo_card_samples_view.dart';
 import '../../view/samples/service_category_samples_view.dart';
 import '../../view/samples/terms_condition_list_samples_view.dart';
 
@@ -68,5 +70,7 @@ class AppRoutes {
     OrderCardSamplesView.routeName: (context) => const OrderCardSamplesView(),
     TermsConditionListSamplesView.routeName: (context) => const TermsConditionListSamplesView(),
     ServiceCategorySamplesView.routeName: (context) => const ServiceCategorySamplesView(),
+    CommentAndReviewListSamplesView.routeName: (context) => const CommentAndReviewListSamplesView(),
+    PromoCardSamplesView.routeName: (context) => const PromoCardSamplesView(),
   };
 }

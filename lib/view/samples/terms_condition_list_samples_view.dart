@@ -48,6 +48,8 @@ class _TermsConditionListSamplesViewState extends State<TermsConditionListSample
                 QuestionText(
                   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                   color: AppColors.black,
+                  padding: EdgeInsets.all(0),
+                  backgroundColor: AppColors.transparent,
                 )
               ],
             ),

@@ -8,7 +8,9 @@ class AppExpansionListTile extends StatefulWidget {
   final String title;
   final Color? titleColor;
   final String? subtitle;
+  final String? subtitleDown;
   final Color? subtitleColor;
+  final Color? subtitleDownColor;
   final IconData? icon;
   final Color? buttonDropColor;
   final Color? iconColor;
@@ -16,6 +18,8 @@ class AppExpansionListTile extends StatefulWidget {
   final bool expand;
   final List<Widget> children;
   final Widget? moreItem;
+  final Widget? leftItem;
+  final bool? divider;
 
   const AppExpansionListTile({
     Key? key,
@@ -30,6 +34,10 @@ class AppExpansionListTile extends StatefulWidget {
     this.iconColor,
     this.moreItem,
     this.expand = false,
+    this.leftItem,
+    this.divider = true,
+    this.subtitleDown,
+    this.subtitleDownColor,
   }) : super(key: key);
 
   @override
@@ -48,7 +56,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height: isExpanded ? null : 55,
+      height: isExpanded ? null : 58,
       duration: const Duration(milliseconds: 300),
       child: Container(
         decoration: BoxDecoration(
@@ -98,6 +106,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                                     ),
                                   )
                                 : const SizedBox.shrink(),
+                            widget.leftItem != null ? widget.leftItem! : const SizedBox.shrink(),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -112,11 +121,20 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                                     : SizedBox.shrink(),
                                 Text(
                                   widget.title,
-                                  style: AppTextStyle.bodyXLarge(
-                                    fontWeight: AppFontWeight.bold,
+                                  style: AppTextStyle.bold(
+                                    size: 18,
                                     color: widget.titleColor,
                                   ),
                                 ),
+                                widget.subtitleDown != null
+                                    ? Text(
+                                        widget.subtitleDown!,
+                                        style: AppTextStyle.bodyMedium(
+                                          fontWeight: AppFontWeight.medium,
+                                          color: widget.subtitleDownColor,
+                                        ),
+                                      )
+                                    : SizedBox.shrink(),
                               ],
                             ),
                           ],
@@ -138,11 +156,13 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                     ),
                   ),
                 ),
-                isExpanded
-                    ? const AppDivider(
-                        thickness: 0.5,
-                        padding: EdgeInsets.symmetric(horizontal: 18),
-                      )
+                widget.divider == true
+                    ? isExpanded
+                        ? AppDivider(
+                            thickness: 0.5,
+                            padding: EdgeInsets.symmetric(horizontal: 18),
+                          )
+                        : const SizedBox.shrink()
                     : const SizedBox.shrink(),
                 ...widget.children,
               ],

@@ -49,8 +49,7 @@ class AppButton extends StatelessWidget {
         onTap: enable ? onTap : null,
         splashColor: AppColors.black.withOpacity(0.06),
         splashFactory: InkRipple.splashFactory,
-        highlightColor:
-            enable ? AppColors.black.withOpacity(0.12) : Colors.transparent,
+        highlightColor: enable ? AppColors.black.withOpacity(0.12) : Colors.transparent,
         borderRadius: BorderRadius.circular(rounded ? 100 : 16),
         child: Ink(
           width: width,

@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:alvamind_library/app/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -5,12 +6,16 @@ class QuestionText extends StatelessWidget {
   final String text;
   final Color? color;
   final EdgeInsetsGeometry? padding;
+  final Color? backgroundColor;
+  final BorderRadiusGeometry? borderRadius;
 
   QuestionText({
     super.key,
     required this.text,
     this.color,
     this.padding,
+    this.backgroundColor,
+    this.borderRadius,
   });
 
   @override
@@ -25,6 +30,15 @@ class QuestionText extends StatelessWidget {
             )
           : padding!,
       child: Container(
+        padding: EdgeInsets.all(
+          AppSizes.padding,
+        ),
+        decoration: BoxDecoration(
+            color: backgroundColor ?? Colors.white,
+            borderRadius: borderRadius ??
+                BorderRadius.circular(
+                  20,
+                )),
         child: Text(
           text,
           style: AppTextStyle.regular(

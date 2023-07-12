@@ -57,10 +57,13 @@ class CustomIcon {
   static const _kFontFam = 'CustomIcon';
   static const String? _kFontPkg = null;
 
+  static const IconData heart_icon = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData edit_icon = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData icon_arrow_down = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData icon_arrow_right = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData scan_icon = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData home_icon = IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData chat_icon = IconData(0xe813, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData send_icon = IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData three_user_icon = IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
