@@ -77,6 +77,9 @@ class _PromoCardSamplesViewState extends State<PromoCardSamplesView> {
         rightIcon: false,
         detailDatePromo: '25 Mei - 25 Mei 2023',
         countPromo: '123.123',
+        functionEditButton: () {
+          // TODO
+        },
       ),
     );
   }

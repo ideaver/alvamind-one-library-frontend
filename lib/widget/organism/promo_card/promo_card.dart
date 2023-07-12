@@ -18,6 +18,7 @@ class PromoCard extends StatelessWidget {
   final IconData? iconButton;
 
   final void Function()? functionIconButton;
+  final void Function()? functionEditButton;
   final String? image;
   final bool? rightIcon;
 
@@ -31,6 +32,7 @@ class PromoCard extends StatelessWidget {
     this.rightIcon = true,
     this.countPromo,
     this.detailDatePromo,
+    this.functionEditButton,
     required this.title,
   });
 
@@ -186,7 +188,7 @@ class PromoCard extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(AppSizes.padding),
           child: AppButton(
-            onTap: () {},
+            onTap: functionEditButton ?? () {},
             text: 'Edit',
             rounded: true,
             padding: EdgeInsets.symmetric(vertical: AppSizes.padding / 2),
