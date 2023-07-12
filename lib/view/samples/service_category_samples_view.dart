@@ -1,11 +1,8 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 import 'package:flutter/material.dart';
 
-import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
-import '../../model/category_menu_model.dart';
-import '../../widget/molecule/app_category_menu.dart';
+
 import '../../widget/organism/service_category_menu/service_category_menu.dart';
 
 class ServiceCategorySamplesView extends StatefulWidget {
