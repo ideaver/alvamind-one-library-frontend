@@ -53,12 +53,13 @@ class _PromoCardSamplesViewState extends State<PromoCardSamplesView> {
 
   Widget promoCardEdit() {
     return SampleWrapper(
-      title: 'Promo Card',
+      title: 'Promo Card Edit',
       widget: PromoCard(
         image: AppAssets.failed,
         title: 'Promo Spesial Hari ini\nUntuk Hari ini',
         datePromo: 'Berakhir 2 Hari lagi',
         subtitle: 'Dapatkan diskon hinggi 75% syarat &\nkententuan berlaku.',
+        iconButton: CustomIcon.edit_pen_icon,
         functionIconButton: () {
           // TODO
         },
@@ -68,7 +69,7 @@ class _PromoCardSamplesViewState extends State<PromoCardSamplesView> {
 
   Widget promoCardEditDown() {
     return SampleWrapper(
-      title: 'Promo Card',
+      title: 'Promo Card Edit Button Down',
       widget: PromoCard(
         image: AppAssets.success,
         title: 'Promo Spesial Hari ini\nUntuk Hari ini',

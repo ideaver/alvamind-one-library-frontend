@@ -66,4 +66,5 @@ class CustomIcon {
   static const IconData chat_icon = IconData(0xe813, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData send_icon = IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData three_user_icon = IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData edit_pen_icon = IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

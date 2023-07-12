@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -188,6 +189,7 @@ class PromoCard extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(AppSizes.padding),
           child: AppButton(
+            leftIcon: CustomIcon.edit_pen_icon,
             onTap: functionEditButton ?? () {},
             text: 'Edit',
             rounded: true,

@@ -194,17 +194,16 @@ class CommentListCard extends StatelessWidget {
             AppIconButton(
               icon: isComment == false
                   ? Icon(
-                      Icons.more_horiz_outlined,
-                      size: 24,
+                      Icons.pending_outlined,
+                      size: 26,
+                      color: AppColors.white,
                     )
                   : Icon(
-                      size: 24,
+                      size: 26,
                       CustomIcon.edit_icon,
                     ),
               onTap: () {},
               padding: EdgeInsets.all(2),
-              borderWidth: isComment == false ? 1 : 0,
-              borderColor: isComment == false ? AppColors.black : AppColors.transparent,
               buttonColor: AppColors.transparent,
             ),
           ],

@@ -15,16 +15,18 @@ class ServiceCategory extends StatelessWidget {
     CategoryMenuModel(
       child: Image.asset(
         AppAssets.tshirtIcon,
-        scale: 1.5,
+        fit: BoxFit.cover,
+        scale: 2,
       ),
-      title: ' Pakaian  ',
+      title: 'Pakaian',
       color: AppColors.greenLv6,
       onTap: () {},
     ),
     CategoryMenuModel(
       child: Image.asset(
         AppAssets.moneyyIcon,
-        scale: 1.5,
+        fit: BoxFit.cover,
+        scale: 2,
       ),
       color: Color(0xFF9C27B0).withOpacity(0.36),
       title: 'Karpet',
@@ -33,15 +35,17 @@ class ServiceCategory extends StatelessWidget {
     CategoryMenuModel(
       child: Image.asset(
         AppAssets.mosqueIcon,
-        scale: 1.5,
+        fit: BoxFit.cover,
+        scale: 2,
       ),
-      title: 'Alat Ibadah ',
+      title: 'Alat Ibadah',
       onTap: () {},
     ),
     CategoryMenuModel(
       child: Image.asset(
         AppAssets.dollIcon,
-        scale: 1.5,
+        fit: BoxFit.cover,
+        scale: 2,
       ),
       title: 'Boneka',
       onTap: () {},
@@ -52,7 +56,8 @@ class ServiceCategory extends StatelessWidget {
     CategoryMenuModel(
       child: Image.asset(
         AppAssets.sleepingIcon,
-        scale: 1.5,
+        fit: BoxFit.cover,
+        scale: 2,
       ),
       title: 'Alat Tidur',
       color: Color(0xFFFF981F).withOpacity(0.36),
@@ -61,7 +66,8 @@ class ServiceCategory extends StatelessWidget {
     CategoryMenuModel(
       child: Image.asset(
         AppAssets.helmetIcon,
-        scale: 1,
+        fit: BoxFit.cover,
+        scale: 2,
       ),
       color: Color(0xFF4AAF57).withOpacity(0.36),
       title: 'Helm',
@@ -70,7 +76,8 @@ class ServiceCategory extends StatelessWidget {
     CategoryMenuModel(
       child: Image.asset(
         AppAssets.bagIcon,
-        scale: 1,
+        fit: BoxFit.cover,
+        scale: 2,
       ),
       color: Color(0xFF8BC255).withOpacity(0.36),
       title: 'Sepatu & Tas',
@@ -79,7 +86,8 @@ class ServiceCategory extends StatelessWidget {
     CategoryMenuModel(
       child: Image.asset(
         AppAssets.categoryIcon,
-        scale: 1,
+        fit: BoxFit.cover,
+        scale: 2,
       ),
       color: Color(0xFFFF981F).withOpacity(0.36),
       title: 'Lainnya',
@@ -90,16 +98,17 @@ class ServiceCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         AppCategoryMenu(
-          spacing: AppSizes.padding * 1.5,
+          spacing: AppSizes.padding * 2,
           categoryMenus: categoryMenusUp,
         ),
         SizedBox(
           height: AppSizes.padding,
         ),
         AppCategoryMenu(
-          spacing: AppSizes.padding * 1.5,
+          spacing: AppSizes.padding * 2,
           categoryMenus: categoryMenusDown,
         ),
       ],
