@@ -46,59 +46,69 @@ class PromoCard extends StatelessWidget {
           AppLongCard(
             backgroundColor: AppColors.transparent,
             children: [
-              Row(
-                children: [
-                  AppImage(
-                    image: image ?? randomImage,
-                    imgProvider: ImgProvider.assetImage,
-                    width: 60,
-                  ),
-                  SizedBox(
-                    width: AppSizes.padding,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        overflow: TextOverflow.clip,
-                        style: AppTextStyle.bold(
-                          size: 20,
-                        ),
-                      ),
-                      SizedBox(height: AppSizes.padding / 2),
-                      Row(
+              Expanded(
+                child: Row(
+                  children: [
+                    AppImage(
+                      image: image ?? randomImage,
+                      imgProvider: ImgProvider.assetImage,
+                      width: 60,
+                    ),
+                    SizedBox(
+                      width: AppSizes.padding,
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(
-                            Icons.access_time_outlined,
-                            color: AppColors.blackLv4,
-                            size: 15,
-                          ),
-                          SizedBox(
-                            width: AppSizes.padding / 4,
-                          ),
                           Text(
-                            datePromo ?? '',
-                            overflow: TextOverflow.clip,
+                            title,
+                            softWrap: true,
+                            maxLines: 3,
+                            overflow: TextOverflow.fade,
+                            style: AppTextStyle.bold(
+                              size: 20,
+                            ),
+                          ),
+                          SizedBox(height: AppSizes.padding / 2),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.access_time_outlined,
+                                color: AppColors.blackLv4,
+                                size: 15,
+                              ),
+                              SizedBox(
+                                width: AppSizes.padding / 4,
+                              ),
+                              Text(
+                                datePromo ?? '',
+                                softWrap: true,
+                                maxLines: 3,
+                                overflow: TextOverflow.fade,
+                                style: AppTextStyle.regular(
+                                  size: 12,
+                                  color: AppColors.blackLv4,
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(height: AppSizes.padding / 2),
+                          Text(
+                            subtitle ?? '',
+                            softWrap: true,
+                            maxLines: 3,
+                            overflow: TextOverflow.fade,
                             style: AppTextStyle.regular(
-                              size: 12,
+                              size: 10,
                               color: AppColors.blackLv4,
                             ),
                           )
                         ],
                       ),
-                      SizedBox(height: AppSizes.padding / 2),
-                      Text(
-                        subtitle ?? '',
-                        overflow: TextOverflow.clip,
-                        style: AppTextStyle.regular(
-                          size: 10,
-                          color: AppColors.blackLv4,
-                        ),
-                      )
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
               rightIcon == true
                   ? AppIconButton(
@@ -122,15 +132,20 @@ class PromoCard extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.padding),
+            Expanded(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     detailDatePromo ?? '',
+                    textAlign: TextAlign.center,
+                    softWrap: true,
+                    maxLines: 3,
+                    overflow: TextOverflow.fade,
                     style: AppTextStyle.bold(size: 18),
                   ),
                   SizedBox(
@@ -154,26 +169,31 @@ class PromoCard extends StatelessWidget {
               width: 1,
               color: AppColors.blackLv4,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.padding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    countPromo ?? '',
-                    style: AppTextStyle.bold(size: 18),
-                  ),
-                  SizedBox(
-                    height: AppSizes.padding / 2,
-                  ),
-                  Text(
-                    'Pengguna Promo',
-                    style: AppTextStyle.medium(
-                      size: 12,
-                      color: AppColors.blackLv4,
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: AppSizes.padding),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      countPromo ?? '',
+                      textAlign: TextAlign.center,
+                      style: AppTextStyle.bold(size: 18),
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: AppSizes.padding / 2,
+                    ),
+                    Text(
+                      'Pengguna Promo',
+                      textAlign: TextAlign.center,
+                      style: AppTextStyle.medium(
+                        size: 12,
+                        color: AppColors.blackLv4,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

@@ -19,7 +19,7 @@ class ItemCardListSelected extends StatelessWidget {
   final bool? isSelected;
   final String? timeWork;
   final String? typeItem;
-
+  final bool? isStatus;
   final String? textPrice;
   final String? statusPrice;
   final String? dateProgress;
@@ -53,6 +53,7 @@ class ItemCardListSelected extends StatelessWidget {
     this.isSelected,
     this.timeWork,
     this.typeItem,
+    this.isStatus = false,
   });
 
   @override
@@ -123,7 +124,7 @@ class ItemCardListSelected extends StatelessWidget {
             )
           ],
         ),
-        // buttonDown()
+        isStatus == true ? buttonDown() : const SizedBox.shrink(),
       ],
     );
   }
@@ -138,14 +139,14 @@ class ItemCardListSelected extends StatelessWidget {
         ),
         //
         // isList
-        isList == true
+        isStatus == true
             ? AppProgressLine(
                 value: labelingCount ?? 20,
                 maxValue: 100,
                 label: labelingText ?? 'Labeling',
               )
             : const SizedBox.shrink(),
-        isList == true
+        isStatus == true
             ? SizedBox(
                 height: AppSizes.padding,
               )

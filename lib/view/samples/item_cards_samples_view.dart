@@ -31,6 +31,7 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
           children: [
             itemCardImage(),
             itemCardList(),
+            itemCardListProfile(),
             Row(
               children: [
                 itemCardListVerticalMode(),
@@ -39,6 +40,7 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
             itemCardListSelectedDetail(),
             itemCardListSelected(),
             itemCardListSelectedDone(),
+            itemCardListSelectedStatus(),
           ],
         ),
       ),
@@ -72,6 +74,22 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
+      ),
+    );
+  }
+
+  Widget itemCardListProfile() {
+    return const SampleWrapper(
+      title: 'ItemCardList',
+      widget: ItemCardList(
+        starImageCount: '50',
+        title: 'Barokah Laundry',
+        isList: true,
+        dateProgress: '2 Agustus 2023',
+        textLeftButton: 'Detail Pesanan',
+        textRightButton: 'Lacak Pengiriman',
+        address: 'Jl. Sukamenak DPR RI KOM...',
+        isProfile: true,
       ),
     );
   }
@@ -121,25 +139,44 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         isSelected: true,
         textPrice: 'Rp7rb',
         statusPrice: '/kg',
-        dateProgress: '2 Agustus 2023',
-        textLeftButton: 'Detail Pesanan',
-        textRightButton: 'Lacak Pengiriman',
       ),
     );
   }
 
   Widget itemCardListSelectedDone() {
-    return const SampleWrapper(
-      title: 'ItemCardList Selected',
+    return SampleWrapper(
+      title: 'ItemCardList Selected Done',
       widget: ItemCardListSelectedDone(
-        starImageCount: '50',
         title: 'Cuci Kering',
         isSelected: true,
+        morePayment: 'Rp2.500',
+        shuttlePayment: 'Free',
+        textButton: 'Dengan pembayaran saldo platform',
+        functionButton: () {
+          // TODO
+        },
+      ),
+    );
+  }
+
+  Widget itemCardListSelectedStatus() {
+    return SampleWrapper(
+      title: 'ItemCardList Selected Status',
+      widget: ItemCardListSelected(
+        starImageCount: '50',
+        title: 'Cuci Kering',
         textPrice: 'Rp7rb',
         statusPrice: '/kg',
         dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
+        isStatus: true,
+        functionLeftButton: () {
+          // TODO
+        },
+        functionRightButton: () {
+          // TODO
+        },
       ),
     );
   }

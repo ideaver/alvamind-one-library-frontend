@@ -73,14 +73,14 @@ class _ModalPopupState extends State<ModalPopup> {
       child: Padding(
         padding: widget.padding ??
             EdgeInsets.symmetric(
-              vertical: AppSizes.padding / 1.5,
-              horizontal: AppSizes.padding * 1.5,
+              vertical: AppSizes.padding,
+              horizontal: AppSizes.padding,
             ),
         child: Column(
           children: [
             AppDivider(
               thickness: 4,
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 7),
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 6),
             ),
             SizedBox(height: AppSizes.padding),
             Column(
@@ -163,9 +163,6 @@ class _ModalPopupState extends State<ModalPopup> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: AppSizes.padding / 1.5,
-                )
               ],
             ),
           ],
@@ -265,9 +262,10 @@ class _ModalPopupState extends State<ModalPopup> {
 
   SfRangeValues _values = const SfRangeValues(0, 5);
 
+  double? pad;
   Widget sliderWay() {
     return Padding(
-      padding: EdgeInsets.only(top: AppSizes.padding * 2),
+      padding: EdgeInsets.only(top: pad ?? 0),
       child: SfRangeSliderTheme(
         data: SfRangeSliderThemeData(
           tooltipBackgroundColor: AppColors.primary,
@@ -288,6 +286,13 @@ class _ModalPopupState extends State<ModalPopup> {
             setState(() {
               _values = values;
             });
+          },
+          onChangeStart: (value) {
+            pad = AppSizes.padding * 2;
+          },
+          onChangeEnd: (values) {
+            pad = 0;
+            print('object');
           },
         ),
       ),

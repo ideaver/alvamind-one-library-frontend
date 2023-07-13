@@ -16,7 +16,7 @@ class ItemCardList extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final bool? isList;
   final bool? isVertical;
-
+  final bool? isProfile;
   final String? address;
   final String? textPrice;
   final String? statusPrice;
@@ -28,6 +28,9 @@ class ItemCardList extends StatelessWidget {
   final String? labelingText;
   final double? labelingCount;
   final String? starImageCount;
+  final String? tagText;
+  final Color? tagColor;
+  final String? dateProfileItem;
   final void Function()? functionRightButton;
   final void Function()? functionLeftButton;
 
@@ -35,6 +38,7 @@ class ItemCardList extends StatelessWidget {
     super.key,
     required this.title,
     this.isVertical = false,
+    this.isProfile = false,
     this.padding,
     this.dataProgress,
     this.address,
@@ -50,6 +54,9 @@ class ItemCardList extends StatelessWidget {
     this.textPrice,
     this.textRightButton,
     this.starImageCount,
+    this.dateProfileItem,
+    this.tagColor,
+    this.tagText,
   });
 
   @override
@@ -126,14 +133,14 @@ class ItemCardList extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  isList == true ? headItem() : const SizedBox.shrink(),
+                  headItem(),
                   Flex(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     direction: Axis.horizontal,
                     children: [
                       Text(
                         address ?? 'City, Country',
-                        style: AppTextStyle.regular(size: 14),
+                        style: AppTextStyle.medium(size: 14),
                       ),
                       priceStatus(),
                     ],
@@ -149,15 +156,42 @@ class ItemCardList extends StatelessWidget {
   }
 
   Widget headItem() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        Text(
-          title,
-          style: AppTextStyle.bold(size: 20),
+        isProfile == true
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                     dateProfileItem ?? 'Berdiri 2023',
+                    style: AppTextStyle.regular(size: 10),
+                  ),
+                  AppTags(
+                    text:  tagText ?? 'Premium',
+                    color: tagColor ??  AppColors.redLv1,
+                    fontSize: 10,
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    borderRadius: 8,
+                  ),
+                ],
+              )
+            : const SizedBox.shrink(),
+        isProfile == true
+            ? SizedBox(
+                height: AppSizes.padding / 2,
+              )
+            : const SizedBox.shrink(),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: AppTextStyle.bold(size: 20),
+            ),
+            heartButton(),
+          ],
         ),
-        heartButton(),
       ],
     );
   }

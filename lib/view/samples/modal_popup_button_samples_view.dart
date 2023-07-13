@@ -1,4 +1,5 @@
 import 'package:alvamind_library/app/theme/app_colors.dart';
+import 'package:alvamind_library/app/theme/app_text_style.dart';
 import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 import 'package:alvamind_library/widget/organism/modal/modal_popup.dart';
 
@@ -153,18 +154,38 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
               children: [
                 AppButton(
                   onTap: () {},
-                  text: 'Pilih Lokasi dan Lanjut Isi Alamat',
+                  text: '',
                   rounded: true,
+                  customText: Expanded(
+                    child: Text(
+                      'Pilih Lokasi dan Lanjut Isi Alamat',
+                      style: AppTextStyle.bold(size: 16, color: AppColors.white),
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.fade,
+                      softWrap: true,
+                      maxLines: 2,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: AppSizes.padding / 2,
                 ),
                 AppButton(
                   onTap: () {},
-                  text: 'Tidak Ketemu? Isi Alamat Manual',
+                  text: '',
                   textColor: AppColors.primary,
                   buttonColor: AppColors.blueLv5,
                   rounded: true,
+                  customText: Expanded(
+                    child: Text(
+                      'Tidak Ketemu? Isi Alamat Manual',
+                      style: AppTextStyle.bold(size: 16, color: AppColors.primary),
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.fade,
+                      softWrap: true,
+                      maxLines: 2,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -225,7 +246,17 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
               children: [
                 AppButton(
                   onTap: () {},
-                  text: 'Pilih Lokasi dan Lanjut Isi Alamat',
+                  text: '',
+                  customText: Expanded(
+                    child: Text(
+                      'Pilih Lokasi dan Lanjut Isi Alamat',
+                      style: AppTextStyle.bold(size: 16, color: AppColors.white),
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.fade,
+                      softWrap: true,
+                      maxLines: 2,
+                    ),
+                  ),
                   rounded: true,
                 ),
               ],

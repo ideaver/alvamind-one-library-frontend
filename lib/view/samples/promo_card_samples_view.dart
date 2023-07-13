@@ -41,7 +41,7 @@ class _PromoCardSamplesViewState extends State<PromoCardSamplesView> {
       title: 'Promo Card',
       widget: PromoCard(
         image: AppAssets.warning,
-        title: 'Promo Spesial Hari ini\nUntuk Hari ini',
+        title: 'Promo Spesial Hari ini Untuk Hari ini',
         datePromo: 'Berakhir 2 Hari lagi',
         subtitle: 'Dapatkan diskon hinggi 75% syarat &\nkententuan berlaku.',
         functionIconButton: () {

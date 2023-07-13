@@ -19,6 +19,7 @@ class AppButton extends StatelessWidget {
   final String text;
   final IconData? leftIcon;
   final IconData? rightIcon;
+  final Widget? customText;
   final Function() onTap;
 
   const AppButton({
@@ -37,6 +38,7 @@ class AppButton extends StatelessWidget {
     this.borderColor = AppColors.blackLv7,
     this.leftIcon,
     this.rightIcon,
+    this.customText,
     required this.text,
     required this.onTap,
   });
@@ -81,13 +83,15 @@ class AppButton extends StatelessWidget {
   }
 
   Widget buttonText() {
-    return Text(
-      text,
-      style: AppTextStyle.bold(
-        size: fontSize ?? 16,
-        color: enable ? textColor : disabledTextColor,
-      ),
-    );
+    return customText == null
+        ? Text(
+            text,
+            style: AppTextStyle.bold(
+              size: fontSize ?? 16,
+              color: enable ? textColor : disabledTextColor,
+            ),
+          )
+        : customText!;
   }
 
   Widget leftIconWidget() {

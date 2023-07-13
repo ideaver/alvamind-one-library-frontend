@@ -49,7 +49,7 @@ class AppModal extends StatelessWidget {
         borderRadius: borderRadius ?? BorderRadius.circular(40),
       ),
       child: Padding(
-        padding: padding ?? EdgeInsets.all(AppSizes.padding * 2),
+        padding: padding ?? EdgeInsets.all(AppSizes.padding * 1.2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,

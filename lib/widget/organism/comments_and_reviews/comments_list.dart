@@ -181,8 +181,8 @@ class CommentListCard extends StatelessWidget {
               text: countStaruser ?? '',
               fontSize: 12,
               padding: EdgeInsets.symmetric(
-                horizontal: AppSizes.padding / 1.5,
-                vertical: AppSizes.padding / 2.5,
+                horizontal: AppSizes.padding / 2,
+                vertical: AppSizes.padding / 4,
               ),
               borderWidth: 1.5,
               leftIcon: Icons.star,
@@ -193,17 +193,17 @@ class CommentListCard extends StatelessWidget {
             ),
             AppIconButton(
               icon: isComment == false
-                  ? Icon(
+                  ? const Icon(
                       Icons.pending_outlined,
-                      size: 26,
+                      size: 20,
                       color: AppColors.white,
                     )
-                  : Icon(
-                      size: 26,
+                  : const Icon(
+                      size: 20,
                       CustomIcon.edit_icon,
                     ),
               onTap: () {},
-              padding: EdgeInsets.all(2),
+              padding: const EdgeInsets.all(2),
               buttonColor: AppColors.transparent,
             ),
           ],
