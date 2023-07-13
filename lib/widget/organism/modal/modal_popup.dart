@@ -139,7 +139,7 @@ class _ModalPopupState extends State<ModalPopup> {
                 Container(
                   child: Flex(
                     direction: widget.directionButton ?? Axis.horizontal,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ...widget.children,
                       widget.price == false
@@ -148,14 +148,15 @@ class _ModalPopupState extends State<ModalPopup> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 widgetPrice(),
-                                AppButton(
-                                  width: 160,
-                                  rounded: true,
-                                  text: 'Pesan',
-                                  onTap: widget.priceButton ??
-                                      () {
-                                        // TODO
-                                      },
+                                Expanded(
+                                  child: AppButton(
+                                    rounded: true,
+                                    text: 'Pesan',
+                                    onTap: widget.priceButton ??
+                                        () {
+                                          // TODO
+                                        },
+                                  ),
                                 ),
                               ],
                             ),

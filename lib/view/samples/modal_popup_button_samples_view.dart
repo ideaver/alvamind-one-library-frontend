@@ -58,20 +58,22 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
               subtitle: 'Lorem ipsum dolor sit amet hua qui lori ipsum sit ghui amet poety amet',
               subtitleColor: AppColors.black,
               children: [
-                AppButton(
-                  onTap: () {},
-                  text: 'Cancel',
-                  textColor: AppColors.primary,
-                  buttonColor: AppColors.blueLv5,
-                  rounded: true,
-                  width: 135,
+                Expanded(
+                  child: AppButton(
+                    onTap: () {},
+                    text: 'Cancel',
+                    textColor: AppColors.primary,
+                    buttonColor: AppColors.blueLv5,
+                    rounded: true,
+                  ),
                 ),
                 SizedBox(width: AppSizes.padding / 2),
-                AppButton(
-                  onTap: () {},
-                  text: 'Yes, Logout',
-                  rounded: true,
-                  width: 130,
+                Expanded(
+                  child: AppButton(
+                    onTap: () {},
+                    text: 'Yes, Logout',
+                    rounded: true,
+                  ),
                 ),
               ],
             ),
@@ -98,25 +100,27 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
               titleColor: AppColors.redLv1,
               miniTitle: 'Are you sure you want to log out?',
               children: [
-                AppButton(
-                  onTap: () {},
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppSizes.padding * 2,
-                    vertical: AppSizes.padding,
+                Expanded(
+                  child: AppButton(
+                    onTap: () {},
+                    padding: EdgeInsets.symmetric(
+                      vertical: AppSizes.padding,
+                    ),
+                    text: 'Cancel',
+                    textColor: AppColors.primary,
+                    buttonColor: AppColors.blueLv5,
+                    rounded: true,
                   ),
-                  text: 'Cancel',
-                  textColor: AppColors.primary,
-                  buttonColor: AppColors.blueLv5,
-                  rounded: true,
                 ),
                 SizedBox(width: AppSizes.padding / 2),
-                AppButton(
-                  onTap: () {},
-                  text: 'Yes, Logout',
-                  rounded: true,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppSizes.padding * 1.5,
-                    vertical: AppSizes.padding,
+                Expanded(
+                  child: AppButton(
+                    onTap: () {},
+                    text: 'Yes, Logout',
+                    rounded: true,
+                    padding: EdgeInsets.symmetric(
+                      vertical: AppSizes.padding,
+                    ),
                   ),
                 ),
               ],

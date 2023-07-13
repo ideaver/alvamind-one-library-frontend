@@ -66,31 +66,32 @@ class OrderCard extends StatelessWidget {
               SizedBox(
                 width: AppSizes.padding,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  isProgress == true ? statusProgress() : SizedBox.shrink(),
-                  isProgress == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: AppTextStyle.bold(size: 20),
-                      ),
-                      isDone == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
-                      isDone == true
-                          ? Text(
-                              dateDone ?? '',
-                              style: AppTextStyle.regular(size: 14),
-                            )
-                          : SizedBox.shrink(),
-                      SizedBox(height: AppSizes.padding / 2),
-                      priceStatus(),
-                    ],
-                  )
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    isProgress == true ? statusProgress() : SizedBox.shrink(),
+                    isProgress == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: AppTextStyle.bold(size: 20),
+                        ),
+                        isDone == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                        isDone == true
+                            ? Text(
+                                dateDone ?? '',
+                                style: AppTextStyle.regular(size: 14),
+                              )
+                            : SizedBox.shrink(),
+                        SizedBox(height: AppSizes.padding / 2),
+                        priceStatus(),
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),
@@ -118,29 +119,34 @@ class OrderCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppButton(
-                onTap: functionLeftButton ?? () {},
-                text: textLeftButton ?? '',
-                rounded: true,
-                width: 165,
-                borderWidth: 2,
-                borderColor: AppColors.primary,
-                padding: EdgeInsets.symmetric(
-                  vertical: AppSizes.padding / 2.5,
+              Expanded(
+                child: AppButton(
+                  onTap: functionLeftButton ?? () {},
+                  text: textLeftButton ?? '',
+                  rounded: true,
+                  borderWidth: 2,
+                  borderColor: AppColors.primary,
+                  padding: EdgeInsets.symmetric(
+                    vertical: AppSizes.padding / 2.5,
+                  ),
                 ),
               ),
-              AppButton(
-                onTap: functionRightButton ?? () {},
-                width: 165,
-                padding: EdgeInsets.symmetric(
-                  vertical: AppSizes.padding / 2.5,
+              SizedBox(
+                width: AppSizes.padding / 2,
+              ),
+              Expanded(
+                child: AppButton(
+                  onTap: functionRightButton ?? () {},
+                  padding: EdgeInsets.symmetric(
+                    vertical: AppSizes.padding / 2.5,
+                  ),
+                  text: textRightButton ?? '',
+                  textColor: AppColors.primary,
+                  buttonColor: AppColors.white,
+                  borderWidth: 2,
+                  borderColor: AppColors.primary,
+                  rounded: true,
                 ),
-                text: textRightButton ?? '',
-                textColor: AppColors.primary,
-                buttonColor: AppColors.white,
-                borderWidth: 2,
-                borderColor: AppColors.primary,
-                rounded: true,
               ),
             ],
           )
@@ -150,26 +156,21 @@ class OrderCard extends StatelessWidget {
   }
 
   Widget statusProgress() {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            dateProgress ?? '',
-            style: AppTextStyle.medium(size: 14),
-          ),
-          SizedBox(
-            width: AppSizes.padding * 1.5,
-          ),
-          const AppTags(
-            text: 'Sedang Progress',
-            color: AppColors.white,
-            textColor: AppColors.primary,
-            borderWidth: 1,
-            borderColor: AppColors.primary,
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          dateProgress ?? '',
+          style: AppTextStyle.medium(size: 14),
+        ),
+        const AppTags(
+          text: 'Sedang Progress',
+          color: AppColors.white,
+          textColor: AppColors.primary,
+          borderWidth: 1,
+          borderColor: AppColors.primary,
+        ),
+      ],
     );
   }
 
@@ -208,7 +209,6 @@ class OrderCard extends StatelessWidget {
   Widget priceStatus() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(
           children: [
