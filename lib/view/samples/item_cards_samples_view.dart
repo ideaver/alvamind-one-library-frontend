@@ -151,7 +151,7 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         isSelected: true,
         morePayment: 'Rp2.500',
         shuttlePayment: 'Free',
-        textButton: 'Dengan pembayaran saldo platform',
+        textButton: 'Dipilih',
         functionButton: () {
           // TODO
         },

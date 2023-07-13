@@ -20,7 +20,7 @@ class _PromoCardSamplesViewState extends State<PromoCardSamplesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackLv8,
+      backgroundColor: AppColors.blackLv9,
       appBar: AppBar(title: const Text('Promo Card')),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(AppSizes.padding),

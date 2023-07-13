@@ -96,6 +96,7 @@ class _ModalPopupState extends State<ModalPopup> {
                 ),
                 AppDivider(
                   thickness: 1,
+                  color: Color(0xFFEEEEEE),
                   padding: EdgeInsets.symmetric(
                     horizontal: AppSizes.padding / 3,
                     vertical: AppSizes.padding,
@@ -262,16 +263,15 @@ class _ModalPopupState extends State<ModalPopup> {
 
   SfRangeValues _values = const SfRangeValues(0, 5);
 
-  double? pad;
   Widget sliderWay() {
     return Padding(
-      padding: EdgeInsets.only(top: pad ?? 0),
+      padding: EdgeInsets.only(top: AppSizes.padding * 2),
       child: SfRangeSliderTheme(
         data: SfRangeSliderThemeData(
           tooltipBackgroundColor: AppColors.primary,
           thumbColor: AppColors.white,
           thumbStrokeColor: AppColors.primary,
-          thumbStrokeWidth: 2,
+          thumbStrokeWidth: 4,
         ),
         child: SfRangeSlider(
           min: 0,
@@ -282,17 +282,11 @@ class _ModalPopupState extends State<ModalPopup> {
             return actualValue.round().toString() + ' KM';
           },
           enableTooltip: true,
+          shouldAlwaysShowTooltip: true,
           onChanged: (dynamic values) {
             setState(() {
               _values = values;
             });
-          },
-          onChangeStart: (value) {
-            pad = AppSizes.padding * 2;
-          },
-          onChangeEnd: (values) {
-            pad = 0;
-            print('object');
           },
         ),
       ),
