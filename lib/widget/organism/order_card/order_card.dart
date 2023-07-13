@@ -77,12 +77,18 @@ class OrderCard extends StatelessWidget {
                       children: [
                         Text(
                           title,
+                          softWrap: true,
+                          maxLines: 3,
+                          overflow: TextOverflow.fade,
                           style: AppTextStyle.bold(size: 20),
                         ),
                         isDone == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
                         isDone == true
                             ? Text(
                                 dateDone ?? '',
+                                softWrap: true,
+                                maxLines: 3,
+                                overflow: TextOverflow.fade,
                                 style: AppTextStyle.regular(size: 14),
                               )
                             : SizedBox.shrink(),
@@ -212,13 +218,6 @@ class OrderCard extends StatelessWidget {
       children: [
         Row(
           children: [
-            isDone == true
-                ? const Icon(
-                    Icons.attach_money_sharp,
-                    color: AppColors.primary,
-                    size: 26,
-                  )
-                : const SizedBox.shrink(),
             Text(
               textPrice ?? '',
               style: AppTextStyle.bold(

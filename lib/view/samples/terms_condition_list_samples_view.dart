@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
-import '../../widget/molecule/app_expanel_List.dart';
-import '../../widget/organism/accordion/accordion_question_card.dart';
+
+import '../../widget/organism/terms_condition_list/terms_condition_list.dart';
 
 class TermsConditionListSamplesView extends StatefulWidget {
   const TermsConditionListSamplesView({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _TermsConditionListSamplesViewState extends State<TermsConditionListSample
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Terms Condition List Samples')),
-      backgroundColor: AppColors.blackLv8,
+      backgroundColor: AppColors.blackLv10,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(AppSizes.padding),
         child: Column(
@@ -34,28 +34,9 @@ class _TermsConditionListSamplesViewState extends State<TermsConditionListSample
   }
 
   Widget termsConditionList() {
-    return Column(
-      children: [
-        ...List.generate(3, (i) {
-          return SampleWrapper(
-            title: 'Terms Condition List $i',
-            widget: AppExpansionListTile(
-              title: 'Lorem ipsum dolor sit amet $i',
-              titleColor: AppColors.black,
-              expand: true,
-              backgroundColor: AppColors.white,
-              children: [
-                QuestionText(
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                  color: AppColors.black,
-                  padding: EdgeInsets.all(0),
-                  backgroundColor: AppColors.transparent,
-                )
-              ],
-            ),
-          );
-        })
-      ],
+    return const SampleWrapper(
+      title: 'Terms Condiiton',
+      widget: TermsConditionList(),
     );
   }
 }

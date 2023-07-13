@@ -10,7 +10,6 @@ import '../../atom/app_image.dart';
 import '../../molecule/app_button.dart';
 import '../../molecule/app_card.dart';
 import '../../molecule/app_progress_line.dart';
-import '../../molecule/app_tags.dart';
 
 class ItemCardListSelected extends StatelessWidget {
   final String title;
@@ -298,19 +297,7 @@ class ItemCardListSelected extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Align(
-            alignment: Alignment.centerRight,
-            child: AppTags(
-              text: starImageCount ?? '',
-              color: AppColors.blackLv9.withOpacity(0.54),
-              borderRadius: 100,
-              textColor: AppColors.primary,
-              leftIcon: Icons.star,
-              iconsColor: AppColors.orangeLv1,
-              fontSize: 10,
-              padding: EdgeInsets.all(AppSizes.padding / 4),
-            ),
-          ),
+          Container()
         ],
       ),
     );

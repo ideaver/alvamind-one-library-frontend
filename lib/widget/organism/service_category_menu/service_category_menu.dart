@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
-import '../../../app/theme/app_sizes.dart';
-import '../../../model/category_menu_model.dart';
 
 class ServiceCategory extends StatelessWidget {
   ServiceCategory({
