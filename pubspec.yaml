@@ -56,7 +56,7 @@ dependencies:
   loading_indicator: ^3.1.1
   syncfusion_flutter_core: ^22.1.37
   syncfusion_flutter_sliders: ^22.1.37
-    dotted_border: ^2.0.0+3
+  dotted_border: ^2.0.0+3
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -3,7 +3,6 @@ import 'package:alvamind_library/app/theme/app_text_style.dart';
 import 'package:alvamind_library/widget/molecule/app_card_container.dart';
 
 import 'package:flutter/material.dart';
-import 'package:toggle_switch/toggle_switch.dart';
 
 import '../../app/theme/app_colors.dart';
 
@@ -45,7 +44,6 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
                         children: [
                           Row(
                             children: [
-                              toggle(),
                               SizedBox(
                                 width: AppSizes.padding,
                               ),
@@ -64,7 +62,6 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
                               SizedBox(
                                 width: AppSizes.padding,
                               ),
-                              toggle(),
                             ],
                           ),
                         ],
@@ -93,27 +90,4 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
   //     widget:
   //   );
   // }
-
-  Widget toggle() {
-    return ToggleSwitch(
-      minWidth: 20,
-      minHeight: 20,
-      cornerRadius: 20.0,
-      activeBgColors: [
-        [
-          Colors.white
-        ],
-        [
-          Colors.white
-        ]
-      ],
-      initialLabelIndex: 1,
-      totalSwitches: 2,
-      radiusStyle: true,
-      inactiveBgColor: AppColors.primary,
-      onToggle: (index) {
-        print('switched to: $index');
-      },
-    );
-  }
 }

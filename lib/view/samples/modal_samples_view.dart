@@ -127,11 +127,16 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
           final navigator = Navigator.of(context);
           AppModal.show(
             navigator,
-            backgroundColor: AppColors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+            ),
+            backgroundColor: AppColors.yellowLv1,
             title: 'Pin Poin Alamat',
             titleColor: AppColors.black,
             directionButton: Axis.vertical,
             textAddress: true,
+            price: false,
             titleAddress: 'Rancamulya',
             subtitleAddress: 'Pameungpek, Kab. Bandung, Jawa barat',
             children: [
@@ -218,6 +223,7 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
             titleColor: AppColors.black,
             directionButton: Axis.vertical,
             slider: true,
+            price: false,
             children: [
               AppButton(
                 onTap: () {},
