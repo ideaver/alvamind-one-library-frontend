@@ -21,7 +21,6 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
       appBar: AppBar(title: const Text('Card PinPoin & Delivery')),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(AppSizes.padding),
@@ -91,12 +90,16 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
             starImageCount: '50',
             title: 'Barokah Laundry',
             isProgress: true,
-            textPrice: 'Rp42.431',
-            statusPrice: '/00 days',
+            textPrice: '20 Kg',
+            statusPrice: 'Estimasi Selesai 7 hari',
             dateProgress: '2 Agustus 2023',
             textLeftButton: 'Detail Pesanan',
             textRightButton: 'Lacak Pengiriman',
             labelingCount: 40,
+            tagText: 'Delivery',
+            tagTextColor: AppColors.white,
+            tagColor: AppColors.greenLv3,
+            tagBorderWidth: 0,
             functionLeftButton: () {
               // TODO
             },

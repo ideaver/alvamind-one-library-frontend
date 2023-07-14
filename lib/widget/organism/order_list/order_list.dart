@@ -105,7 +105,7 @@ class _OrderListState extends State<OrderList> {
                 ),
           AppIconButton(
             buttonColor: AppColors.transparent,
-            padding: EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
             icon: Icon(
               isShow == false ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
               size: 20,
@@ -121,10 +121,7 @@ class _OrderListState extends State<OrderList> {
     );
   }
 
-  Widget textBetween(
-    String leftText,
-    String rightText,
-  ) {
+  Widget textBetween(String leftText, String rightText) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

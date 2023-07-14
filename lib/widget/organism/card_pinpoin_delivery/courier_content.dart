@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_sizes.dart';
 import '../../atom/app_image.dart';
-import '../../molecule/account_list.dart';
+import '../../molecule/app_account_list.dart';
 
 class CourierContent extends StatelessWidget {
   final String nameCourier;

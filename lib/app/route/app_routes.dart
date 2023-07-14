@@ -29,6 +29,7 @@ import '../../view/samples/card_pinpoin_delivery_samples_view.dart';
 import '../../view/samples/comment_and_review_list_samples_view.dart';
 import '../../view/samples/modal_popup_button_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
+import '../../view/samples/operasional_card_samples_view.dart';
 import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/owner_oulet_card_samples_view.dart';
@@ -80,5 +81,6 @@ class AppRoutes {
     OrderTypeInfoSamplesView.routeName: (context) => const OrderTypeInfoSamplesView(),
     OrderListSamplesView.routeName: (context) => const OrderListSamplesView(),
     CardPinPoinDeliverySamplesView.routeName: (context) => const CardPinPoinDeliverySamplesView(),
+    OperasionalCardSamplesView.routeName: (context) => const OperasionalCardSamplesView(),
   };
 }

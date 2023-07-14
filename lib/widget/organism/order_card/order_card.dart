@@ -27,6 +27,12 @@ class OrderCard extends StatelessWidget {
   final double? labelingCount;
   final String? starImageCount;
   final Color? backgroundColor;
+  //
+  final Color? tagColor;
+  final String? tagText;
+  final double? tagBorderWidth;
+  final Color? tagBorderColor;
+  final Color? tagTextColor;
   final void Function()? functionRightButton;
   final void Function()? functionLeftButton;
 
@@ -50,6 +56,11 @@ class OrderCard extends StatelessWidget {
     this.textRightButton,
     this.starImageCount,
     this.backgroundColor,
+    this.tagBorderColor,
+    this.tagBorderWidth,
+    this.tagColor,
+    this.tagText,
+    this.tagTextColor,
   });
 
   @override
@@ -74,6 +85,7 @@ class OrderCard extends StatelessWidget {
                   children: [
                     isProgress == true ? statusProgress() : SizedBox.shrink(),
                     isProgress == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                    //
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -176,12 +188,12 @@ class OrderCard extends StatelessWidget {
             style: AppTextStyle.medium(size: 14),
           ),
         ),
-        const AppTags(
-          text: 'Sedang Progress',
-          color: AppColors.white,
-          textColor: AppColors.primary,
-          borderWidth: 1,
-          borderColor: AppColors.primary,
+        AppTags(
+          text: tagText ?? 'Sedang Progress',
+          color: tagColor ?? AppColors.white,
+          textColor: tagTextColor ?? AppColors.primary,
+          borderWidth: tagBorderWidth ?? 1,
+          borderColor: tagTextColor ?? AppColors.primary,
         ),
       ],
     );
@@ -221,7 +233,7 @@ class OrderCard extends StatelessWidget {
 
   Widget priceStatus() {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
           children: [
