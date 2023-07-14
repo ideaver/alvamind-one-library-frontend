@@ -5,13 +5,12 @@ import '../../view/samples/accordion_samples_view.dart';
 import '../../view/samples/avatar_samples_view.dart';
 import '../../view/samples/button_customer_bar_samples_view.dart';
 import '../../view/samples/button_samples_view.dart';
+import '../../view/samples/card_pinpoin_delivery_samples_view.dart';
 import '../../view/samples/category_menu_samples_view.dart';
-import '../../view/samples/checkbox_samples_view.dart';
 import '../../view/samples/chips_samples_view.dart';
 import '../../view/samples/comment_and_review_list_samples_view.dart';
 import '../../view/samples/dialog_samples_view.dart';
 import '../../view/samples/divider_samples_view.dart';
-import '../../view/samples/dotted_border_sample_view.dart';
 import '../../view/samples/dropdown_samples_view.dart';
 import '../../view/samples/icon_button_samples_view.dart';
 import '../../view/samples/illustration_state_samples_view.dart';
@@ -24,22 +23,18 @@ import '../../view/samples/logo_samples_view.dart';
 import '../../view/samples/message_bubble_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
 import '../../view/samples/order_card_samples_view.dart';
+import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/owner_oulet_card_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
 import '../../view/samples/pin_point_samples_view.dart';
 import '../../view/samples/progress_line_samples_view.dart';
 import '../../view/samples/promo_card_samples_view.dart';
-import '../../view/samples/radio_samples_view.dart';
 import '../../view/samples/service_category_samples_view.dart';
 import '../../view/samples/statistic_square_samples_view.dart';
-import '../../view/samples/table_navigation_samples_view.dart';
-import '../../view/samples/table_samples_view.dart';
 import '../../view/samples/tags_samples_view.dart';
 import '../../view/samples/terms_condition_list_samples_view.dart';
-import '../../view/samples/toggle_samples_view.dart';
 import '../../view/samples/tool_tip_menu_samples_view.dart';
-import '../../view/samples/transaction_info_sample_view.dart';
 
 // App routes
 class AppRoutes {
@@ -81,12 +76,7 @@ class AppRoutes {
     PromoCardSamplesView.routeName: (context) => const PromoCardSamplesView(),
     OwnerOutletCardSamplesView.routeName: (context) => const OwnerOutletCardSamplesView(),
     OrderTypeInfoSamplesView.routeName: (context) => const OrderTypeInfoSamplesView(),
-    TransactionInfoSamplesView.routeName: (context) => const TransactionInfoSamplesView(),
-    RadioSamplesView.routeName: (context) => const RadioSamplesView(),
-    ToggleSamplesView.routeName: (context) => const ToggleSamplesView(),
-    DottedBorderSamplesView.routeName: (context) => const DottedBorderSamplesView(),
-    CheckboxSamplesView.routeName: (context) => const CheckboxSamplesView(),
-    TableSamplesView.routeName: (context) => const TableSamplesView(),
-    TableNavigationSamplesView.routeName: (context) => const TableNavigationSamplesView(),
+    OrderListSamplesView.routeName: (context) => const OrderListSamplesView(),
+    CardPinPoinDeliverySamplesView.routeName: (context) => const CardPinPoinDeliverySamplesView(),
   };
 }

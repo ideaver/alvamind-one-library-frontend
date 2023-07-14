@@ -24,47 +24,76 @@ class OwnerOutletCard extends StatelessWidget {
   final String? address;
   final String? textLeftButton;
   final String? textRightButton;
+  final Widget? ownerCard;
 
   final void Function()? functionButton;
   final void Function()? functionRightButton;
   final void Function()? functionLeftButton;
 
-  const OwnerOutletCard({super.key, required this.title, this.padding, this.isSelected, this.morePayment, this.shuttlePayment, this.functionButton, this.textButton, this.starImageCount, this.tagColor, this.tagText, this.address, this.textLeftButton, this.functionLeftButton, this.functionRightButton, this.textRightButton});
+  const OwnerOutletCard({
+    super.key,
+    required this.title,
+    this.padding,
+    this.isSelected,
+    this.morePayment,
+    this.shuttlePayment,
+    this.functionButton,
+    this.textButton,
+    this.starImageCount,
+    this.tagColor,
+    this.tagText,
+    this.address,
+    this.textLeftButton,
+    this.functionLeftButton,
+    this.functionRightButton,
+    this.textRightButton,
+    this.ownerCard,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.primary,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Padding(
-        padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.all(0),
-        child: Column(
-          children: [
-            Container(
-              padding: padding ?? EdgeInsets.all(AppSizes.padding),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: horizontalMode(),
+    return Column(
+      children: [
+        ownerCard == null ? const SizedBox.shrink() : ownerCard!,
+        ownerCard == null ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding),
+        //
+        //
+        Container(
+          decoration: BoxDecoration(
+            color: AppColors.primary,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Padding(
+            padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.all(0),
+            child: Column(
+              children: [
+                Container(
+                  padding: padding ?? EdgeInsets.all(AppSizes.padding),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: horizontalMode(),
+                ),
+                isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                isSelected == true
+                    ? AppButton(
+                        padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 4),
+                        text: textButton ?? '',
+                        borderColor: AppColors.primary,
+                        borderWidth: 0,
+                        onTap: functionButton ?? () {},
+                        rightIcon: Icons.check_circle_rounded,
+                      )
+                    : SizedBox.shrink(),
+                isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+              ],
             ),
-            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
-            isSelected == true
-                ? AppButton(
-                    padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 4),
-                    text: textButton ?? '',
-                    borderColor: AppColors.primary,
-                    borderWidth: 0,
-                    onTap: functionButton ?? () {},
-                    rightIcon: Icons.check_circle_rounded,
-                  )
-                : SizedBox.shrink(),
-            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
-          ],
+          ),
         ),
-      ),
+        //
+        //
+      ],
     );
   }
 

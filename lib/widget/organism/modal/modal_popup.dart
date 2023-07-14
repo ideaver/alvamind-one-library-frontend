@@ -140,40 +140,43 @@
 //                 widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
 //                 widget.slider == true ? sliderWay() : const SizedBox.shrink(),
 
-//                 Container(
-//                   child: Flex(
-//                     direction: widget.directionButton ?? Axis.horizontal,
-//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                     children: [
-//                       ...widget.children,
-//                       widget.price == false
-//                           ? SizedBox.shrink()
-//                           : Row(
-//                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                               children: [
-//                                 widgetPrice(),
-//                                 Expanded(
-//                                   child: AppButton(
-//                                     rounded: true,
-//                                     text: 'Pesan',
-//                                     onTap: widget.priceButton ??
-//                                         () {
-//                                           // TODO
-//                                         },
-//                                   ),
-//                                 ),
-//                               ],
-//                             ),
-//                     ],
-//                   ),
-//                 ),
-//               ],
+// Widget widgetAddress() {
+//   return Column(
+//     crossAxisAlignment: CrossAxisAlignment.start,
+//     children: [
+//       Row(
+//         children: [
+//           const Icon(
+//             Icons.location_pin,
+//             size: 18,
+//             color: AppColors.redLv1,
+//           ),
+//           SizedBox(
+//             width: AppSizes.padding / 2,
+//           ),
+//           Text(
+//             widget.titleAddress ?? '',
+//             style: AppTextStyle.bold(
+//               size: 18,
 //             ),
-//           ],
+//           ),
+//         ],
+//       ),
+//       SizedBox(
+//         height: AppSizes.padding / 4,
+//       ),
+//       Text(
+//         widget.subtitleAddress ?? '',
+//         style: AppTextStyle.regular(
+//           size: 12,
 //         ),
 //       ),
-//     );
-//   }
+//       SizedBox(
+//         height: AppSizes.padding,
+//       ),
+//     ],
+//   );
+// }
 
 //   Widget widgetAddress() {
 //     return Column(

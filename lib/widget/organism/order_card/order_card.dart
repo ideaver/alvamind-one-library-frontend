@@ -26,6 +26,7 @@ class OrderCard extends StatelessWidget {
   final String? labelingText;
   final double? labelingCount;
   final String? starImageCount;
+  final Color? backgroundColor;
   final void Function()? functionRightButton;
   final void Function()? functionLeftButton;
 
@@ -48,6 +49,7 @@ class OrderCard extends StatelessWidget {
     this.textPrice,
     this.textRightButton,
     this.starImageCount,
+    this.backgroundColor,
   });
 
   @override
@@ -55,7 +57,7 @@ class OrderCard extends StatelessWidget {
     return Container(
       padding: padding ?? EdgeInsets.all(AppSizes.padding),
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: backgroundColor ?? AppColors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -165,9 +167,14 @@ class OrderCard extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          dateProgress ?? '',
-          style: AppTextStyle.medium(size: 14),
+        Expanded(
+          child: Text(
+            dateProgress ?? '',
+            softWrap: true,
+            maxLines: 3,
+            overflow: TextOverflow.fade,
+            style: AppTextStyle.medium(size: 14),
+          ),
         ),
         const AppTags(
           text: 'Sedang Progress',
