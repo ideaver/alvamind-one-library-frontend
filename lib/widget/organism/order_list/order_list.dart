@@ -1,6 +1,7 @@
 import 'package:alvamind_library/app/theme/app_text_style.dart';
 import 'package:alvamind_library/widget/atom/app_divider.dart';
 import 'package:alvamind_library/widget/atom/app_image.dart';
+import 'package:alvamind_library/widget/molecule/app_card_container.dart';
 
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class OrderList extends StatefulWidget {
   final String? location;
   final String? title;
   final String? description;
+  final List<BoxShadow>? boxShadow;
 
   const OrderList({
     super.key,
@@ -30,6 +32,7 @@ class OrderList extends StatefulWidget {
     this.description,
     this.location,
     this.title,
+    this.boxShadow,
   });
 
   @override
@@ -41,12 +44,11 @@ class _OrderListState extends State<OrderList> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AppCardContainer(
+      boxShadow: widget.boxShadow ?? [],
       padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
-      decoration: BoxDecoration(
-        color: widget.backgroundColor ?? AppColors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
+      backgroundColor: widget.backgroundColor ?? AppColors.white,
+      borderRadius: BorderRadius.circular(20),
       child: Column(
         children: [
           widget.orderCard ?? const SizedBox.shrink(),
