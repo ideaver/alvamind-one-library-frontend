@@ -1,22 +1,22 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-
+import 'package:alvamind_library/widget/molecule/app_modal.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../app/theme/app_text_style.dart';
 import '../../widget/molecule/app_button.dart';
-import '../../widget/molecule/app_dialog.dart';
-import '../../widget/organism/modal/modal.dart';
+import 'sample_wrapper.dart';
 
-class ModalSamplesView extends StatefulWidget {
-  const ModalSamplesView({Key? key}) : super(key: key);
+class ModalPopupButtonSamplesView extends StatefulWidget {
+  const ModalPopupButtonSamplesView({Key? key}) : super(key: key);
 
   static const routeName = '/organism-modal-samples';
 
   @override
-  State<ModalSamplesView> createState() => _ModalSamplesViewState();
+  State<ModalPopupButtonSamplesView> createState() => _ModalPopupButtonSamplesViewState();
 }
 
-class _ModalSamplesViewState extends State<ModalSamplesView> {
+class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,37 +27,214 @@ class _ModalSamplesViewState extends State<ModalSamplesView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            modal(),
+            modalPopUp(),
+            modalPopUpWithMiniTitle(),
+            modalPopUpWithAddress(),
+            modalPopUpWithPrice(),
+            modalPopUpWithSlider(),
           ],
         ),
       ),
     );
   }
 
-  Widget modal() {
+  Widget modalPopUp() {
     return SampleWrapper(
-      title: 'Modal',
+      title: 'Modal PopUp',
       widget: AppButton(
-        text: 'Modal',
+        text: 'Modal PopUp',
         onTap: () {
           final navigator = Navigator.of(context);
-          AppDialog.show(
+          AppModal.show(
             navigator,
-            padding: EdgeInsets.all(0),
-            backgroundColor: Colors.transparent,
-            child: AppModal(
-              backgroundColor: AppColors.white,
-              title: 'Modal',
-              titleColor: AppColors.primary,
-              subtitle: 'Lorem ipsum dolor sit amet hua qui lori ipsum sit ghui amet poety amet',
-              subtitleColor: AppColors.black,
-              functionButton: () {
-                // TODO
-              },
-              functionSecondButton: () {
-                // TODO
-              },
-            ),
+            backgroundColor: AppColors.white,
+            title: 'Modal',
+            titleColor: AppColors.redLv1,
+            miniTitle: 'Are you sure you want to log out?',
+            subtitle: 'Lorem ipsum dolor sit amet hua qui lori ipsum sit ghui amet poety amet',
+            subtitleColor: AppColors.black,
+            children: [
+              AppButton(
+                onTap: () {},
+                text: 'Cancel',
+                textColor: AppColors.primary,
+                buttonColor: AppColors.blueLv5,
+                rounded: true,
+              ),
+              SizedBox(width: AppSizes.padding / 2),
+              AppButton(
+                onTap: () {},
+                text: 'Yes, Logout',
+                rounded: true,
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget modalPopUpWithMiniTitle() {
+    return SampleWrapper(
+      title: 'Modal PopUp with Text',
+      widget: AppButton(
+        text: 'Modal PopUp with Text',
+        onTap: () {
+          final navigator = Navigator.of(context);
+          AppModal.show(
+            navigator,
+            backgroundColor: AppColors.white,
+            title: 'Logout',
+            titleColor: AppColors.redLv1,
+            miniTitle: 'Are you sure you want to log out?',
+            children: [
+              Expanded(
+                child: AppButton(
+                  onTap: () {},
+                  padding: EdgeInsets.symmetric(
+                    vertical: AppSizes.padding,
+                  ),
+                  text: 'Cancel',
+                  textColor: AppColors.primary,
+                  buttonColor: AppColors.blueLv5,
+                  rounded: true,
+                ),
+              ),
+              SizedBox(width: AppSizes.padding / 2),
+              Expanded(
+                child: AppButton(
+                  onTap: () {},
+                  text: 'Yes, Logout',
+                  rounded: true,
+                  padding: EdgeInsets.symmetric(
+                    vertical: AppSizes.padding,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget modalPopUpWithAddress() {
+    return SampleWrapper(
+      title: 'Modal PopUp with Address',
+      widget: AppButton(
+        text: 'Modal PopUp with Adress',
+        onTap: () {
+          final navigator = Navigator.of(context);
+          AppModal.show(
+            navigator,
+            backgroundColor: AppColors.white,
+            title: 'Pin Poin Alamat',
+            titleColor: AppColors.black,
+            directionButton: Axis.vertical,
+            textAddress: true,
+            titleAddress: 'Rancamulya',
+            subtitleAddress: 'Pameungpek, Kab. Bandung, Jawa barat',
+            children: [
+              AppButton(
+                onTap: () {},
+                text: '',
+                rounded: true,
+                customText: Expanded(
+                  child: Text(
+                    'Pilih Lokasi dan Lanjut Isi Alamat',
+                    style: AppTextStyle.bold(size: 16, color: AppColors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.fade,
+                    softWrap: true,
+                    maxLines: 2,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: AppSizes.padding / 2,
+              ),
+              AppButton(
+                onTap: () {},
+                text: '',
+                textColor: AppColors.primary,
+                buttonColor: AppColors.blueLv5,
+                rounded: true,
+                customText: Expanded(
+                  child: Text(
+                    'Tidak Ketemu? Isi Alamat Manual',
+                    style: AppTextStyle.bold(size: 16, color: AppColors.primary),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.fade,
+                    softWrap: true,
+                    maxLines: 2,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget modalPopUpWithPrice() {
+    return SampleWrapper(
+      title: 'Modal PopUp with Price',
+      widget: AppButton(
+        text: 'Modal PopUp with Price',
+        onTap: () {
+          final navigator = Navigator.of(context);
+          AppModal.show(
+            navigator,
+            backgroundColor: AppColors.white,
+            title: 'Logout',
+            miniTitle: 'Are you sure you want to log out?',
+            titleColor: AppColors.black,
+            directionButton: Axis.vertical,
+            price: true,
+            textPrice: '29',
+            statusPrice: '/night',
+            children: [],
+            priceButton: () {
+              // TODO
+            },
+          );
+        },
+      ),
+    );
+  }
+
+  Widget modalPopUpWithSlider() {
+    return SampleWrapper(
+      title: 'Modal PopUp with Slider',
+      widget: AppButton(
+        text: 'Modal PopUp with Slider',
+        onTap: () {
+          final navigator = Navigator.of(context);
+          AppModal.show(
+            navigator,
+            backgroundColor: AppColors.white,
+            title: 'Atur Jarak Absen',
+            titleColor: AppColors.black,
+            directionButton: Axis.vertical,
+            slider: true,
+            children: [
+              AppButton(
+                onTap: () {},
+                text: '',
+                customText: Expanded(
+                  child: Text(
+                    'Pilih Lokasi dan Lanjut Isi Alamat',
+                    style: AppTextStyle.bold(size: 16, color: AppColors.white),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.fade,
+                    softWrap: true,
+                    maxLines: 2,
+                  ),
+                ),
+                rounded: true,
+              ),
+            ],
           );
         },
       ),

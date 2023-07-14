@@ -1,9 +1,9 @@
-import 'package:alvamind_library/app/theme/app_shadows.dart';
-import 'package:alvamind_library/app/theme/app_theme.dart';
-import 'package:alvamind_library/widget/atom/app_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_shadows.dart';
+import '../../app/theme/app_theme.dart';
+import '../atom/app_image.dart';
 
 class AppCard extends StatelessWidget {
   final double? width;

@@ -1,12 +1,11 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
+import '../../widget/molecule/app_expansion_list_tile.dart';
 import '../../widget/molecule/app_text_field.dart';
-import '../../widget/molecule/app_expanel_List.dart';
 import '../../widget/organism/accordion/accordion_question_card.dart';
+import 'sample_wrapper.dart';
 
 class AccordionSamplesView extends StatefulWidget {
   const AccordionSamplesView({Key? key}) : super(key: key);

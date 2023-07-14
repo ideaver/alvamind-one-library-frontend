@@ -1,4 +1,3 @@
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
@@ -6,9 +5,8 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../atom/app_image.dart';
-
 import '../../molecule/app_card.dart';
-
+import '../../molecule/app_icon_button.dart';
 import '../../molecule/app_tags.dart';
 
 class ItemCardList extends StatelessWidget {
@@ -163,12 +161,12 @@ class ItemCardList extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                     dateProfileItem ?? 'Berdiri 2023',
+                    dateProfileItem ?? 'Berdiri 2023',
                     style: AppTextStyle.regular(size: 10),
                   ),
                   AppTags(
-                    text:  tagText ?? 'Premium',
-                    color: tagColor ??  AppColors.redLv1,
+                    text: tagText ?? 'Premium',
+                    color: tagColor ?? AppColors.orangeLv1,
                     fontSize: 10,
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     borderRadius: 8,
@@ -231,7 +229,9 @@ class ItemCardList extends StatelessWidget {
   Widget priceStatus() {
     return Flex(
       direction: isVertical == true ? Axis.horizontal : Axis.vertical,
-      mainAxisAlignment: isVertical == true ? MainAxisAlignment.start : MainAxisAlignment.center,
+      mainAxisAlignment: isVertical == true
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(

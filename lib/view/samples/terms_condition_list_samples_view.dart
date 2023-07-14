@@ -1,10 +1,9 @@
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
-
 import '../../widget/organism/terms_condition_list/terms_condition_list.dart';
+import 'sample_wrapper.dart';
 
 class TermsConditionListSamplesView extends StatefulWidget {
   const TermsConditionListSamplesView({Key? key}) : super(key: key);

@@ -1,12 +1,12 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/model/country_model.dart';
-import 'package:alvamind_library/model/drop_down_model.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/molecule/app_drop_down.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/const/countries.dart';
+import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_text_style.dart';
+import '../../model/country_model.dart';
+import '../../model/drop_down_model.dart';
+import '../../widget/molecule/app_drop_down.dart';
+import 'sample_wrapper.dart';
 
 class DropDownSamplesView extends StatefulWidget {
   const DropDownSamplesView({Key? key}) : super(key: key);

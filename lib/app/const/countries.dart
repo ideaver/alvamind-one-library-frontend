@@ -1,5 +1,5 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
-import 'package:alvamind_library/model/country_model.dart';
+import '../../model/country_model.dart';
+import '../asset/app_assets.dart';
 
 List<CountryModel> countries = [
   CountryModel(

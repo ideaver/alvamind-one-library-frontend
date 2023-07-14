@@ -1,4 +1,3 @@
-import 'package:alvamind_library/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -8,6 +7,7 @@ import 'app/locale/app_locale.dart';
 import 'app/route/app_routes.dart';
 import 'app/service/locator/service_locator.dart';
 import 'app/service/network_checker/network_checker_service.dart';
+import 'app/theme/app_theme.dart';
 import 'view/main/main_view.dart';
 
 Future<void> main() async {

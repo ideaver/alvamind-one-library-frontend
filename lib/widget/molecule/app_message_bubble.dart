@@ -1,9 +1,9 @@
-import 'package:alvamind_library/app/theme/app_theme.dart';
-import 'package:alvamind_library/app/utility/date_formatter.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
+import '../../app/theme/app_theme.dart';
+import '../../app/utility/date_formatter.dart';
 
 class AppMessageBubble extends StatelessWidget {
   final bool isMe;

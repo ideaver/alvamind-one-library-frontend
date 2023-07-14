@@ -100,4 +100,7 @@ class AppColors {
 
   // Orange
   static const Color orangeLv1 = Color(0xFFFB9400);
+
+  // Purple
+  static const Color purpleLv1 = Color(0xFF9D28AC);
 }

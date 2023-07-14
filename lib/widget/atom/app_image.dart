@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:alvamind_library/app/utility/console_log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
@@ -9,6 +8,7 @@ import 'package:photo_view/photo_view_gallery.dart';
 
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
+import '../../app/utility/console_log.dart';
 import 'app_progress_indicator.dart';
 
 // App Image Widget

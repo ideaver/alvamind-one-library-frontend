@@ -1,7 +1,8 @@
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/atom/app_image.dart';
-import 'package:alvamind_library/widget/atom/app_pin_point.dart';
 import 'package:flutter/material.dart';
+
+import '../../widget/atom/app_image.dart';
+import '../../widget/atom/app_pin_point.dart';
+import 'sample_wrapper.dart';
 
 class PinPointSamplesView extends StatefulWidget {
   const PinPointSamplesView({Key? key}) : super(key: key);

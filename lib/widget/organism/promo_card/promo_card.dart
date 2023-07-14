@@ -1,6 +1,6 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:flutter/material.dart';
 
+import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
@@ -40,7 +40,8 @@ class PromoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: AppColors.white, borderRadius: BorderRadius.circular(30)),
+      decoration: BoxDecoration(
+          color: AppColors.white, borderRadius: BorderRadius.circular(30)),
       child: Column(
         children: [
           AppLongCard(
@@ -202,7 +203,8 @@ class PromoCard extends StatelessWidget {
           height: AppSizes.padding,
         ),
         AppDivider(
-          padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: 0),
+          padding:
+              EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: 0),
           thickness: 2,
           color: AppColors.blackLv7,
         ),

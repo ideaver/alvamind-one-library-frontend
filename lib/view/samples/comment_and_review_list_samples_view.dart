@@ -1,14 +1,13 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-
-import 'package:alvamind_library/widget/molecule/app_expanel_List.dart';
-import 'package:alvamind_library/widget/organism/accordion/accordion_question_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
 import '../../widget/atom/app_avatar.dart';
 import '../../widget/atom/app_image.dart';
+import '../../widget/molecule/app_expansion_list_tile.dart';
+import '../../widget/organism/accordion/accordion_question_card.dart';
 import '../../widget/organism/comments_and_reviews/comments_list.dart';
+import 'sample_wrapper.dart';
 
 class CommentAndReviewListSamplesView extends StatefulWidget {
   const CommentAndReviewListSamplesView({Key? key}) : super(key: key);

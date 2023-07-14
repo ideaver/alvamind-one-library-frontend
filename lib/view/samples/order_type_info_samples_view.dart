@@ -1,10 +1,9 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
+import '../../widget/molecule/app_icon_button.dart';
 
 class OrderTypeInfoSamplesView extends StatefulWidget {
   const OrderTypeInfoSamplesView({Key? key}) : super(key: key);

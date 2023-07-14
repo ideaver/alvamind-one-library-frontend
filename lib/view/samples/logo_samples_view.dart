@@ -1,9 +1,10 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/atom/app_logo.dart';
 import 'package:flutter/material.dart';
+
+import '../../app/asset/app_assets.dart';
+import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_text_style.dart';
+import '../../widget/atom/app_logo.dart';
+import 'sample_wrapper.dart';
 
 class LogoSamplesView extends StatefulWidget {
   const LogoSamplesView({Key? key}) : super(key: key);

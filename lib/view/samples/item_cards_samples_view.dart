@@ -1,13 +1,13 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/atom/app_image.dart';
-import 'package:alvamind_library/widget/organism/item_card/item_card_image.dart';
-import 'package:alvamind_library/widget/organism/item_card/item_card_list.dart';
-import 'package:alvamind_library/widget/organism/item_card/item_card_list_select_done.dart';
-import 'package:alvamind_library/widget/organism/item_card/item_card_list_selected.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../widget/atom/app_image.dart';
+import '../../widget/organism/item_card/item_card_image.dart';
+import '../../widget/organism/item_card/item_card_list.dart';
+import '../../widget/organism/item_card/item_card_list_select_done.dart';
+import '../../widget/organism/item_card/item_card_list_selected.dart';
+import 'sample_wrapper.dart';
 
 class ItemCardsSamplesView extends StatefulWidget {
   const ItemCardsSamplesView({Key? key}) : super(key: key);
@@ -49,7 +49,7 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
 
   Widget itemCardImage() {
     return SampleWrapper(
-      title: 'Default Statistic Square',
+      title: 'Item Card Image',
       widget: ItemCardImage(
         image: randomImage,
         stars: '5.0',
