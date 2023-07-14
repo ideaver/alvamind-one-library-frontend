@@ -1,10 +1,10 @@
 import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:alvamind_library/widget/organism/operasional_card/operasional_card_edit.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../app/theme/app_colors.dart';
+import '../../widget/organism/operasional_card/operasional_card.dart';
 
 class OperasionalCardSamplesView extends StatefulWidget {
   const OperasionalCardSamplesView({Key? key}) : super(key: key);
@@ -25,69 +25,46 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              children: [
-                AppCardContainer(
-                  padding: EdgeInsets.all(AppSizes.padding * 1.2),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: AppColors.blackLv7,
-                      offset: Offset(0, 4),
-                      blurRadius: 60,
-                      spreadRadius: 0,
-                    ),
-                  ],
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: AppSizes.padding,
-                              ),
-                              Text(
-                                'Senin',
-                                style: AppTextStyle.bold(size: 20),
-                              )
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                '08.00 - 17.00',
-                                style: AppTextStyle.medium(size: 16),
-                              ),
-                              SizedBox(
-                                width: AppSizes.padding,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: AppSizes.padding,
-                      ),
-                      Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                        style: AppTextStyle.medium(size: 14),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            )
+            operasionalCard(),
+            operasionalCardDisabled(),
+            operasionalCardEdit(),
           ],
         ),
       ),
     );
   }
 
-  // Widget cardPinPoinDelivery() {
-  //   return SampleWrapper(
-  //     title: 'Card PinPoin & Delivery',
-  //     widget:
-  //   );
-  // }
+  Widget operasionalCard() {
+    return SampleWrapper(
+      title: 'Operasional Card Active',
+      widget: OperasionalCard(
+        dayTitle: 'Senin',
+        time: '08.00 - 17.00',
+      ),
+    );
+  }
+
+  Widget operasionalCardDisabled() {
+    return SampleWrapper(
+      title: 'Operasional Card Disabled',
+      widget: OperasionalCard(
+        isDisabled: true,
+        dayTitle: 'Selasa',
+        time: '08.00 - 17.00',
+        chipCloseButton: () {
+          // TODO
+        },
+      ),
+    );
+  }
+
+  Widget operasionalCardEdit() {
+    return SampleWrapper(
+      title: 'Operasional Card Edit',
+      widget: OperasionalCardEdit(
+        dayTitle: 'Selasa',
+        time: '08.00 - 17.00',
+      ),
+    );
+  }
 }

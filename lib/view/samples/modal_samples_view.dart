@@ -53,19 +53,25 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
             miniTitle: 'Are you sure you want to log out?',
             subtitle: 'Lorem ipsum dolor sit amet hua qui lori ipsum sit ghui amet poety amet',
             subtitleColor: AppColors.black,
+            directionButton: Axis.horizontal,
+            price: false,
             children: [
-              AppButton(
-                onTap: () {},
-                text: 'Cancel',
-                textColor: AppColors.primary,
-                buttonColor: AppColors.blueLv5,
-                rounded: true,
+              Expanded(
+                child: AppButton(
+                  onTap: () {},
+                  text: 'Cancel',
+                  textColor: AppColors.primary,
+                  buttonColor: AppColors.blueLv5,
+                  rounded: true,
+                ),
               ),
               SizedBox(width: AppSizes.padding / 2),
-              AppButton(
-                onTap: () {},
-                text: 'Yes, Logout',
-                rounded: true,
+              Expanded(
+                child: AppButton(
+                  onTap: () {},
+                  text: 'Yes, Logout',
+                  rounded: true,
+                ),
               ),
             ],
           );
@@ -87,6 +93,8 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
             title: 'Logout',
             titleColor: AppColors.redLv1,
             miniTitle: 'Are you sure you want to log out?',
+            directionButton: Axis.horizontal,
+            price: false,
             children: [
               Expanded(
                 child: AppButton(
@@ -127,11 +135,7 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
           final navigator = Navigator.of(context);
           AppModal.show(
             navigator,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
-            ),
-            backgroundColor: AppColors.yellowLv1,
+            backgroundColor: AppColors.white,
             title: 'Pin Poin Alamat',
             titleColor: AppColors.black,
             directionButton: Axis.vertical,

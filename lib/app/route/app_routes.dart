@@ -1,3 +1,4 @@
+import 'package:alvamind_library/view/samples/toggle_samples_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../view/main/main_view.dart';
@@ -66,6 +67,8 @@ class AppRoutes {
     ProgressLineSamplesView.routeName: (context) => const ProgressLineSamplesView(),
     DropDownSamplesView.routeName: (context) => const DropDownSamplesView(),
     ItemCardsSamplesView.routeName: (context) => const ItemCardsSamplesView(),
+    ToggleSamplesView.routeName: (context) => const ToggleSamplesView(),
+    //
     AccordionSamplesView.routeName: (context) => const AccordionSamplesView(),
     PaymentSamplesView.routeName: (context) => const PaymentSamplesView(),
     ModalPopupButtonSamplesView.routeName: (context) => const ModalPopupButtonSamplesView(),

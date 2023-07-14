@@ -37,6 +37,7 @@ class AppModal {
     showModalBottomSheet(
       context: navigator.context,
       // isScrollControlled: true,
+      backgroundColor: AppColors.transparent,
       builder: (context) {
         return AppModalWidget(
           backgroundColor: backgroundColor,
@@ -127,7 +128,11 @@ class _AppModalWidgetState extends State<AppModalWidget> {
     return Container(
       decoration: BoxDecoration(
         color: widget.backgroundColor ?? AppColors.white,
-        borderRadius: widget.borderRadius ?? BorderRadius.circular(40),
+        borderRadius: widget.borderRadius ??
+            const BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+            ),
       ),
       child: Padding(
         padding: widget.padding ??
@@ -140,7 +145,7 @@ class _AppModalWidgetState extends State<AppModalWidget> {
           children: [
             AppDivider(
               thickness: 4,
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 6),
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
             ),
             SizedBox(height: AppSizes.padding),
             Column(
