@@ -20,6 +20,7 @@ class AppExpansionListTile extends StatefulWidget {
   final Widget? moreItem;
   final Widget? leftItem;
   final bool? divider;
+  final List<BoxShadow>? boxShadow;
 
   const AppExpansionListTile({
     Key? key,
@@ -38,6 +39,7 @@ class AppExpansionListTile extends StatefulWidget {
     this.divider = true,
     this.subtitleDown,
     this.subtitleDownColor,
+    this.boxShadow,
   }) : super(key: key);
 
   @override
@@ -62,14 +64,15 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
         decoration: BoxDecoration(
           color: widget.backgroundColor,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: const [
-            BoxShadow(
-              color: AppColors.blackLv8,
-              offset: Offset(0, 4),
-              blurRadius: 60,
-              spreadRadius: 0,
-            ),
-          ],
+          boxShadow: widget.boxShadow ??
+              const [
+                BoxShadow(
+                  color: AppColors.blackLv7,
+                  offset: Offset(0, 4),
+                  blurRadius: 60,
+                  spreadRadius: 0,
+                ),
+              ],
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),

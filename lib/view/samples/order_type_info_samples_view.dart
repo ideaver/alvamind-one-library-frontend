@@ -1,10 +1,11 @@
 import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
+import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
-import '../../app/theme/app_text_style.dart';
+
+import '../../widget/organism/order_type_info/order_type_info.dart';
 
 class OrderTypeInfoSamplesView extends StatefulWidget {
   const OrderTypeInfoSamplesView({Key? key}) : super(key: key);
@@ -26,62 +27,30 @@ class _OrderTypeInfoSamplesViewState extends State<OrderTypeInfoSamplesView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                appRightIcon(Icons.fire_truck, 'Delivery'),
-                appRightIcon(Icons.fire_truck, 'Drop'),
-                appRightIcon(Icons.fire_truck, 'Self Service'),
-              ],
-            ),
-            // Column(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   crossAxisAlignment: CrossAxisAlignment.center,
-            //   children: [
-            //     Text(
-            //       countPromo ?? '',
-            //       textAlign: TextAlign.center,
-            //       style: AppTextStyle.bold(size: 18),
-            //     ),
-            //     SizedBox(
-            //       height: AppSizes.padding / 2,
-            //     ),
-            //     Text(
-            //       'Pengguna Promo',
-            //       textAlign: TextAlign.center,
-            //       style: AppTextStyle.medium(
-            //         size: 12,
-            //         color: AppColors.blackLv4,
-            //       ),
-            //     ),
-            //   ],
-            // ),
+            orderTypeInfo(),
           ],
         ),
       ),
     );
   }
 
-  Widget appRightIcon(IconData icon, String text) {
-    return Row(
-      children: [
-        AppIconButton(
-            icon: Icon(
-              icon,
-              color: AppColors.primary,
-            ),
-            buttonColor: AppColors.blueLv5,
-            onTap: () {}),
-        SizedBox(
-          width: AppSizes.padding / 4,
-        ),
-        Text(
-          text,
-          style: AppTextStyle.bold(
-            size: 14,
-          ),
-        )
-      ],
+  Widget orderTypeInfo() {
+    return SampleWrapper(
+      title: 'Order Type Info',
+      widget: OrderTypeInfo(
+        countMachine: '21/24',
+        countCustomers: '3.145',
+        countEmployees: '7',
+        deliveryButton: () {
+          // TODO
+        },
+        dropButton: () {
+          // TODO
+        },
+        selfButton: () {
+          // TODO
+        },
+      ),
     );
   }
 }

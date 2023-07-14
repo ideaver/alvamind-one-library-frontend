@@ -25,9 +25,11 @@ import 'package:flutter/material.dart';
 
 import '../../view/samples/accordion_samples_view.dart';
 import '../../view/samples/button_customer_bar_samples_view.dart';
+import '../../view/samples/card_pinpoin_delivery_samples_view.dart';
 import '../../view/samples/comment_and_review_list_samples_view.dart';
 import '../../view/samples/modal_popup_button_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
+import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/owner_oulet_card_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
@@ -76,5 +78,7 @@ class AppRoutes {
     PromoCardSamplesView.routeName: (context) => const PromoCardSamplesView(),
     OwnerOutletCardSamplesView.routeName: (context) => const OwnerOutletCardSamplesView(),
     OrderTypeInfoSamplesView.routeName: (context) => const OrderTypeInfoSamplesView(),
+    OrderListSamplesView.routeName: (context) => const OrderListSamplesView(),
+    CardPinPoinDeliverySamplesView.routeName: (context) => const CardPinPoinDeliverySamplesView(),
   };
 }

@@ -84,7 +84,6 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
       widget: ItemCardList(
         starImageCount: '50',
         title: 'Barokah Laundry',
-        isList: true,
         dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',

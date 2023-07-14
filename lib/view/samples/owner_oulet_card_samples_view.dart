@@ -4,6 +4,8 @@ import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../widget/organism/item_card/item_card_list.dart';
+import '../../widget/organism/order_type_info/order_type_info.dart';
 import '../../widget/organism/owner_outlet_card/owner_oultet_card.dart';
 
 class OwnerOutletCardSamplesView extends StatefulWidget {
@@ -46,6 +48,37 @@ class _OwnerOutletCardSamplesViewState extends State<OwnerOutletCardSamplesView>
         functionButton: () {
           // TODO
         },
+        ownerCard: ItemCardList(
+          starImageCount: '50',
+          title: 'Barokah Laundry',
+          dateProgress: '2 Agustus 2023',
+          textLeftButton: 'Detail Pesanan',
+          textRightButton: 'Lacak Pengiriman',
+          address: 'Jl. Sukamenak DPR RI KOM...',
+          isProfile: true,
+          isOwner: true,
+          functionLeftButton: () {
+            // TODO
+          },
+          functionRightButton: () {
+            // TODO
+          },
+          detailInfoCard: OrderTypeInfo(
+            withOrder: false,
+            countMachine: '21/24',
+            countCustomers: '3.145',
+            countEmployees: '7',
+            deliveryButton: () {
+              // TODO
+            },
+            dropButton: () {
+              // TODO
+            },
+            selfButton: () {
+              // TODO
+            },
+          ),
+        ),
       ),
     );
   }

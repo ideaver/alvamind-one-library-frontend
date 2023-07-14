@@ -179,7 +179,7 @@ class _ModalPopupState extends State<ModalPopup> {
         Row(
           children: [
             const Icon(
-              Icons.pin_drop,
+              Icons.location_pin,
               size: 18,
               color: AppColors.redLv1,
             ),
