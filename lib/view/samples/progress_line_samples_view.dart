@@ -1,8 +1,9 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/molecule/app_progress_line.dart';
 import 'package:flutter/material.dart';
+
+import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_text_style.dart';
+import '../../widget/molecule/app_progress_line.dart';
+import 'sample_wrapper.dart';
 
 class ProgressLineSamplesView extends StatefulWidget {
   const ProgressLineSamplesView({Key? key}) : super(key: key);

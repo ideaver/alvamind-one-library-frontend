@@ -1,7 +1,7 @@
-import 'package:alvamind_library/widget/atom/app_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import 'app_image.dart';
 
 class AppAvatar extends StatelessWidget {
   final String image;

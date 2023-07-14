@@ -1,12 +1,12 @@
-import 'package:alvamind_library/app/const/countries.dart';
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/model/country_model.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/atom/app_image.dart';
-import 'package:alvamind_library/widget/atom/app_tool_tip.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/const/countries.dart';
+import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
+import '../../model/country_model.dart';
+import '../../widget/atom/app_image.dart';
+import '../../widget/atom/app_tool_tip.dart';
+import 'sample_wrapper.dart';
 
 class ToolTipMenuSamples extends StatefulWidget {
   const ToolTipMenuSamples({Key? key}) : super(key: key);

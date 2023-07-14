@@ -1,5 +1,6 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../app/theme/app_colors.dart';
 
 class AppDivider extends StatelessWidget {
   final double thickness;

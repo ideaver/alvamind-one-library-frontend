@@ -1,6 +1,7 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
+
+import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_text_style.dart';
 
 class AppProgressLine extends StatelessWidget {
   final double? lineWidth;
@@ -45,57 +46,57 @@ class AppProgressLine extends StatelessWidget {
     return SizedBox(
       width: lineWidth,
       child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: lineHeight,
-              width: lineWidth ?? constraints.maxWidth,
-              alignment: Alignment.centerLeft,
-              decoration: BoxDecoration(
-                color: lineBackgroundColor,
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: Container(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
                 height: lineHeight,
-                width: value / (maxValue) * constraints.maxWidth,
+                width: lineWidth ?? constraints.maxWidth,
+                alignment: Alignment.centerLeft,
                 decoration: BoxDecoration(
-                  color: lineColor,
+                  color: lineBackgroundColor,
                   borderRadius: BorderRadius.circular(borderRadius),
                 ),
+                child: Container(
+                  height: lineHeight,
+                  width: value / (maxValue) * constraints.maxWidth,
+                  decoration: BoxDecoration(
+                    color: lineColor,
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  ),
+                ),
               ),
-            ),
-            !showLabel
-                ? const SizedBox.shrink()
-                : Padding(
-                    padding: labelPadding,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          label ?? '',
-                          style: labelStyle ??
-                              AppTextStyle.bodySmall(
-                                fontWeight: AppFontWeight.regular,
-                                color: labelColor,
-                              ),
-                        ),
-                        Text(
-                          valueLabel ??
-                              '${(value / maxValue * 100).toStringAsFixed(fractionDigits)}%',
-                          style: valueLabelStyle ??
-                              AppTextStyle.bodySmall(
-                                fontWeight: AppFontWeight.regular,
-                                color: valueLabelColor,
-                              ),
-                        ),
-                      ],
-                    ),
-                  )
-          ],
-        );
-      }),
+              !showLabel
+                  ? const SizedBox.shrink()
+                  : Padding(
+                      padding: labelPadding,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            label ?? '',
+                            style: labelStyle ??
+                                AppTextStyle.bodySmall(
+                                  fontWeight: AppFontWeight.regular,
+                                  color: labelColor,
+                                ),
+                          ),
+                          Text(
+                            valueLabel ?? '${(value / maxValue * 100).toStringAsFixed(fractionDigits)}%',
+                            style: valueLabelStyle ??
+                                AppTextStyle.bodySmall(
+                                  fontWeight: AppFontWeight.regular,
+                                  color: valueLabelColor,
+                                ),
+                          ),
+                        ],
+                      ),
+                    )
+            ],
+          );
+        },
+      ),
     );
   }
 }

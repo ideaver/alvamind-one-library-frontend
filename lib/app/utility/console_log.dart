@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 
-// App Currency Formatter
+// App Console Log
 // v.2.0.0
 // by Elriz Wiraswara
 

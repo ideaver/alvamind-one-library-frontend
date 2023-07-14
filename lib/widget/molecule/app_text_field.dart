@@ -1,12 +1,12 @@
-import 'package:alvamind_library/app/const/countries.dart';
-import 'package:alvamind_library/model/country_model.dart';
-import 'package:alvamind_library/widget/atom/app_image.dart';
-import 'package:alvamind_library/widget/atom/app_tool_tip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../app/const/countries.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
+import '../../model/country_model.dart';
+import '../atom/app_image.dart';
+import '../atom/app_tool_tip.dart';
 
 enum AppTextFieldType {
   text,

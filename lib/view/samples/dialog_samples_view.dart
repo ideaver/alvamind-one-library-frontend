@@ -1,7 +1,10 @@
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/molecule/app_button.dart';
-import 'package:alvamind_library/widget/molecule/app_dialog.dart';
 import 'package:flutter/material.dart';
+
+import '../../app/asset/app_assets.dart';
+import '../../app/theme/app_colors.dart';
+import '../../widget/molecule/app_button.dart';
+import '../../widget/molecule/app_dialog.dart';
+import 'sample_wrapper.dart';
 
 class DialogSamplesView extends StatefulWidget {
   const DialogSamplesView({Key? key}) : super(key: key);
@@ -24,6 +27,7 @@ class _DialogSamplesViewState extends State<DialogSamplesView> {
           children: [
             dialogProgress(),
             errorDialog(),
+            defaultDialog(),
             customDialog(),
           ],
         ),
@@ -57,9 +61,9 @@ class _DialogSamplesViewState extends State<DialogSamplesView> {
     );
   }
 
-  Widget customDialog() {
+  Widget defaultDialog() {
     return SampleWrapper(
-      title: 'Custom Dialog',
+      title: 'Default Dialog',
       widget: AppButton(
         onTap: () {
           final navigator = Navigator.of(context);
@@ -69,6 +73,37 @@ class _DialogSamplesViewState extends State<DialogSamplesView> {
             text: 'Dialog Text',
             leftButtonText: 'Left Button',
             rightButtonText: 'Right Button',
+          );
+        },
+        text: 'AppDialog.show(navigator)',
+      ),
+    );
+  }
+
+  Widget customDialog() {
+    return SampleWrapper(
+      title: 'Custom Dialog',
+      widget: AppButton(
+        onTap: () {
+          final navigator = Navigator.of(context);
+          AppDialog.show(
+            navigator,
+            padding: const EdgeInsets.all(0),
+            backgroundColor: Colors.transparent,
+            child: AppDialogCustomWidget(
+              backgroundColor: AppColors.white,
+              image: AppAssets.info,
+              title: 'Dialog',
+              titleColor: AppColors.primary,
+              subtitle: 'Lorem ipsum dolor sit amet hua qui lori ipsum sit ghui amet poety amet',
+              subtitleColor: AppColors.black,
+              functionButton: () {
+                // TODO
+              },
+              functionSecondButton: () {
+                // TODO
+              },
+            ),
           );
         },
         text: 'AppDialog.show(navigator)',

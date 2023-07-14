@@ -1,15 +1,12 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
-
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-
-import 'package:alvamind_library/widget/molecule/app_chips.dart';
-
 import 'package:flutter/material.dart';
-import 'package:alvamind_library/app/theme/app_sizes.dart';
 
+import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../widget/molecule/app_chips.dart';
 import '../../widget/organism/paymend_method/payment_method.dart';
 import '../../widget/organism/paymend_method/payment_methods_card.dart';
+import 'sample_wrapper.dart';
 
 class PaymentSamplesView extends StatefulWidget {
   const PaymentSamplesView({Key? key}) : super(key: key);

@@ -1,12 +1,11 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
 import '../../widget/organism/order_type_info/order_type_info.dart';
 import '../../widget/organism/owner_outlet_card/owner_oultet_card.dart';
+import 'sample_wrapper.dart';
 
 class OwnerOutletCardSamplesView extends StatefulWidget {
   const OwnerOutletCardSamplesView({Key? key}) : super(key: key);

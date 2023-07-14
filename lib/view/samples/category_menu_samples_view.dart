@@ -1,10 +1,10 @@
-import 'package:alvamind_library/model/category_menu_model.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/molecule/app_category_menu.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
+import '../../model/category_menu_model.dart';
+import '../../widget/molecule/app_category_menu.dart';
+import 'sample_wrapper.dart';
 
 class CategoryMenuSamplesView extends StatefulWidget {
   const CategoryMenuSamplesView({Key? key}) : super(key: key);

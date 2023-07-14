@@ -1,10 +1,8 @@
 import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
-
 import '../../widget/organism/order_type_info/order_type_info.dart';
 
 class OrderTypeInfoSamplesView extends StatefulWidget {

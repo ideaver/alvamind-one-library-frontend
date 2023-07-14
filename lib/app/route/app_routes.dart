@@ -1,42 +1,41 @@
-import 'package:alvamind_library/view/main/main_view.dart';
-import 'package:alvamind_library/view/samples/avatar_samples_view.dart';
-import 'package:alvamind_library/view/samples/button_samples_view.dart';
-import 'package:alvamind_library/view/samples/category_menu_samples_view.dart';
-import 'package:alvamind_library/view/samples/chips_samples_view.dart';
-import 'package:alvamind_library/view/samples/dialog_samples_view.dart';
-import 'package:alvamind_library/view/samples/divider_samples_view.dart';
-import 'package:alvamind_library/view/samples/dropdown_samples_view.dart';
-import 'package:alvamind_library/view/samples/icon_button_samples_view.dart';
-import 'package:alvamind_library/view/samples/illustration_state_samples_view.dart';
-import 'package:alvamind_library/view/samples/image_samples_view.dart';
-import 'package:alvamind_library/view/samples/input_field_samples_view.dart';
-import 'package:alvamind_library/view/samples/input_search_samples_view.dart';
-import 'package:alvamind_library/view/samples/item_cards_samples_view.dart';
-import 'package:alvamind_library/view/samples/loading_samples_view.dart';
-import 'package:alvamind_library/view/samples/logo_samples_view.dart';
-import 'package:alvamind_library/view/samples/message_bubble_samples_view.dart';
-import 'package:alvamind_library/view/samples/order_card_samples_view.dart';
-import 'package:alvamind_library/view/samples/pin_point_samples_view.dart';
-import 'package:alvamind_library/view/samples/progress_line_samples_view.dart';
-import 'package:alvamind_library/view/samples/statistic_square_samples_view.dart';
-import 'package:alvamind_library/view/samples/tags_samples_view.dart';
-import 'package:alvamind_library/view/samples/tool_tip_menu_samples_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../view/main/main_view.dart';
 import '../../view/samples/accordion_samples_view.dart';
+import '../../view/samples/avatar_samples_view.dart';
 import '../../view/samples/button_customer_bar_samples_view.dart';
+import '../../view/samples/button_samples_view.dart';
 import '../../view/samples/card_pinpoin_delivery_samples_view.dart';
+import '../../view/samples/category_menu_samples_view.dart';
+import '../../view/samples/chips_samples_view.dart';
 import '../../view/samples/comment_and_review_list_samples_view.dart';
-import '../../view/samples/modal_popup_button_samples_view.dart';
+import '../../view/samples/dialog_samples_view.dart';
+import '../../view/samples/divider_samples_view.dart';
+import '../../view/samples/dropdown_samples_view.dart';
+import '../../view/samples/icon_button_samples_view.dart';
+import '../../view/samples/illustration_state_samples_view.dart';
+import '../../view/samples/image_samples_view.dart';
+import '../../view/samples/input_field_samples_view.dart';
+import '../../view/samples/input_search_samples_view.dart';
+import '../../view/samples/item_cards_samples_view.dart';
+import '../../view/samples/loading_samples_view.dart';
+import '../../view/samples/logo_samples_view.dart';
+import '../../view/samples/message_bubble_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
 import '../../view/samples/operasional_card_samples_view.dart';
+import '../../view/samples/order_card_samples_view.dart';
 import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/owner_oulet_card_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
+import '../../view/samples/pin_point_samples_view.dart';
+import '../../view/samples/progress_line_samples_view.dart';
 import '../../view/samples/promo_card_samples_view.dart';
 import '../../view/samples/service_category_samples_view.dart';
+import '../../view/samples/statistic_square_samples_view.dart';
+import '../../view/samples/tags_samples_view.dart';
 import '../../view/samples/terms_condition_list_samples_view.dart';
+import '../../view/samples/tool_tip_menu_samples_view.dart';
 
 // App routes
 class AppRoutes {
@@ -69,7 +68,6 @@ class AppRoutes {
     ItemCardsSamplesView.routeName: (context) => const ItemCardsSamplesView(),
     AccordionSamplesView.routeName: (context) => const AccordionSamplesView(),
     PaymentSamplesView.routeName: (context) => const PaymentSamplesView(),
-    ModalSamplesView.routeName: (context) => const ModalSamplesView(),
     ModalPopupButtonSamplesView.routeName: (context) => const ModalPopupButtonSamplesView(),
     ButtonBarCustomerSamplesView.routeName: (context) => const ButtonBarCustomerSamplesView(),
     OrderCardSamplesView.routeName: (context) => const OrderCardSamplesView(),

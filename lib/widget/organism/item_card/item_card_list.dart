@@ -1,4 +1,3 @@
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
@@ -7,10 +6,9 @@ import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../atom/app_divider.dart';
 import '../../atom/app_image.dart';
-
 import '../../molecule/app_button.dart';
 import '../../molecule/app_card.dart';
-
+import '../../molecule/app_icon_button.dart';
 import '../../molecule/app_tags.dart';
 
 class ItemCardList extends StatelessWidget {
@@ -174,7 +172,7 @@ class ItemCardList extends StatelessWidget {
                   ),
                   AppTags(
                     text: tagText ?? 'Premium',
-                    color: tagColor ?? AppColors.redLv1,
+                    color: tagColor ?? AppColors.orangeLv1,
                     fontSize: 10,
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     borderRadius: 8,

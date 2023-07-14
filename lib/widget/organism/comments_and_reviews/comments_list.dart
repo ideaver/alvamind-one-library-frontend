@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-
-import 'package:alvamind_library/widget/molecule/app_chips.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
 
 import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
+import '../../../app/theme/app_text_style.dart';
 import '../../atom/app_avatar.dart';
 import '../../atom/app_image.dart';
+import '../../molecule/app_chips.dart';
+import '../../molecule/app_icon_button.dart';
 
 class CommentListCard extends StatelessWidget {
   final String titleUser;

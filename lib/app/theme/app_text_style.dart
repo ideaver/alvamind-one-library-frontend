@@ -1,7 +1,7 @@
-import 'package:alvamind_library/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_theme.dart';
 
 // App Currency Formatter
 // v.2.0.0

@@ -1,8 +1,9 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/atom/app_divider.dart';
 import 'package:flutter/material.dart';
+
+import '../../app/asset/app_assets.dart';
+import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_text_style.dart';
+import '../atom/app_divider.dart';
 
 class AppExpansionListTile extends StatefulWidget {
   final String title;
@@ -121,7 +122,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                                           color: widget.subtitleColor,
                                         ),
                                       )
-                                    : SizedBox.shrink(),
+                                    : const SizedBox.shrink(),
                                 Text(
                                   widget.title,
                                   style: AppTextStyle.bold(
@@ -137,14 +138,14 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                                           color: widget.subtitleDownColor,
                                         ),
                                       )
-                                    : SizedBox.shrink(),
+                                    : const SizedBox.shrink(),
                               ],
                             ),
                           ],
                         ),
                         Row(
                           children: [
-                            widget.moreItem != null ? widget.moreItem! : SizedBox.shrink(),
+                            widget.moreItem != null ? widget.moreItem! : const SizedBox.shrink(),
                             const SizedBox(
                               width: 12,
                             ),
@@ -161,7 +162,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                 ),
                 widget.divider == true
                     ? isExpanded
-                        ? AppDivider(
+                        ? const AppDivider(
                             thickness: 0.5,
                             padding: EdgeInsets.symmetric(horizontal: 18),
                           )

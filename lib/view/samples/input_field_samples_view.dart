@@ -1,10 +1,11 @@
-import 'package:alvamind_library/app/const/countries.dart';
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/app/utility/console_log.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/molecule/app_text_field.dart';
 import 'package:flutter/material.dart';
+
+import '../../app/const/countries.dart';
+import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_text_style.dart';
+import '../../app/utility/console_log.dart';
+import '../../widget/molecule/app_text_field.dart';
+import 'sample_wrapper.dart';
 
 class InputFieldSamplesView extends StatefulWidget {
   const InputFieldSamplesView({Key? key}) : super(key: key);

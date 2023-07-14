@@ -1,7 +1,8 @@
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/atom/app_avatar.dart';
-import 'package:alvamind_library/widget/atom/app_image.dart';
 import 'package:flutter/material.dart';
+
+import '../../widget/atom/app_avatar.dart';
+import '../../widget/atom/app_image.dart';
+import 'sample_wrapper.dart';
 
 class AvatarSamplesView extends StatefulWidget {
   const AvatarSamplesView({Key? key}) : super(key: key);

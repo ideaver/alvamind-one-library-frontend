@@ -1,5 +1,6 @@
-import 'package:alvamind_library/widget/molecule/app_message_bubble.dart';
 import 'package:flutter/material.dart';
+
+import '../../widget/molecule/app_message_bubble.dart';
 
 class MessageBubbleSamplesView extends StatefulWidget {
   const MessageBubbleSamplesView({Key? key}) : super(key: key);

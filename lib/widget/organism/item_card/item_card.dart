@@ -1,5 +1,6 @@
-import 'package:alvamind_library/widget/molecule/app_card.dart';
 import 'package:flutter/material.dart';
+
+import '../../molecule/app_card.dart';
 
 class ItemCard extends StatelessWidget {
   final String image;

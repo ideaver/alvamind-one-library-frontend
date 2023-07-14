@@ -1,9 +1,8 @@
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_sizes.dart';
-
 import '../../widget/organism/service_category_menu/service_category_menu.dart';
+import 'sample_wrapper.dart';
 
 class ServiceCategorySamplesView extends StatefulWidget {
   const ServiceCategorySamplesView({Key? key}) : super(key: key);

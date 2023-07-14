@@ -1,14 +1,12 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../app/theme/app_text_style.dart';
+import '../atom/app_image.dart';
 import '../atom/app_progress_indicator.dart';
-
-// App Dialog Widget
-// v.2.0.1
-// by Elriz Wiraswara
+import 'app_button.dart';
 
 class AppDialog {
   static Future<void> show(
@@ -70,8 +68,7 @@ class AppDialog {
           child: Column(
             children: [
               Text(
-                message ??
-                    'Something went wrong, please contact your system administrator or try restart the app',
+                message ?? 'Something went wrong, please contact your system administrator or try restart the app',
                 textAlign: TextAlign.center,
                 style: AppTextStyle.bodyMedium(
                   fontWeight: AppFontWeight.medium,
@@ -79,9 +76,7 @@ class AppDialog {
               ),
               const SizedBox(height: 18),
               Text(
-                error.toString().length > 35
-                    ? error.toString().substring(0, 15)
-                    : error.toString(),
+                error.toString().length > 35 ? error.toString().substring(0, 15) : error.toString(),
                 textAlign: TextAlign.center,
                 style: AppTextStyle.bodySmall(
                   fontWeight: AppFontWeight.bold,
@@ -117,7 +112,7 @@ class AppDialog {
   }
 }
 
-// Custom Dialog
+// Default Dialog
 class AppDialogWidget extends StatelessWidget {
   final String? title;
   final Widget? child;
@@ -245,9 +240,7 @@ class AppDialogWidget extends StatelessWidget {
                           child: AppButton(
                             text: leftButtonText!,
                             buttonColor: backgroundColor,
-                            textColor: enableRightButton
-                                ? leftButtonTextColor
-                                : AppColors.blackLv1,
+                            textColor: enableRightButton ? leftButtonTextColor : AppColors.blackLv1,
                             onTap: () async {
                               if (enableLeftButton) {
                                 if (onTapLeftButton != null) {
@@ -275,9 +268,7 @@ class AppDialogWidget extends StatelessWidget {
                           child: AppButton(
                             text: rightButtonText!,
                             buttonColor: backgroundColor,
-                            textColor: enableRightButton
-                                ? rightButtonTextColor
-                                : AppColors.blackLv1,
+                            textColor: enableRightButton ? rightButtonTextColor : AppColors.blackLv1,
                             onTap: () async {
                               if (enableRightButton) {
                                 if (onTapRightButton != null) {
@@ -294,5 +285,99 @@ class AppDialogWidget extends StatelessWidget {
               ),
             ),
           );
+  }
+}
+
+// Custom Dialog
+class AppDialogCustomWidget extends StatelessWidget {
+  final String? image;
+  final ImgProvider imgProvider;
+  final IconData? icon;
+  final Color? backgroundColor;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
+  final BorderRadiusGeometry? borderRadius;
+  final String title;
+  final String subtitle;
+  final Color? titleColor;
+  final Color? subtitleColor;
+  final Axis? directionButton;
+  final void Function()? functionButton;
+  final void Function()? functionSecondButton;
+
+  const AppDialogCustomWidget({
+    super.key,
+    this.backgroundColor,
+    this.borderRadius,
+    this.directionButton,
+    this.functionButton,
+    this.functionSecondButton,
+    this.icon,
+    this.image,
+    this.imgProvider = ImgProvider.assetImage,
+    this.margin,
+    this.padding,
+    required this.subtitle,
+    this.subtitleColor,
+    required this.title,
+    this.titleColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: backgroundColor ?? AppColors.white,
+        borderRadius: borderRadius ?? BorderRadius.circular(40),
+      ),
+      child: Padding(
+        padding: padding ?? EdgeInsets.all(AppSizes.padding * 1.2),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            image != null
+                ? Padding(
+                    padding: EdgeInsets.symmetric(vertical: AppSizes.padding * 1.5),
+                    child: AppImage(
+                      image: image!,
+                      imgProvider: imgProvider,
+                      width: 150,
+                    ),
+                  )
+                : const SizedBox.shrink(),
+            Text(
+              title,
+              style: AppTextStyle.bold(size: 24, color: titleColor ?? Colors.white),
+            ),
+            SizedBox(height: AppSizes.padding * 1.5),
+            Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: AppTextStyle.regular(size: 16, color: subtitleColor ?? Colors.white),
+            ),
+            SizedBox(height: AppSizes.padding * 1.5),
+            Flex(
+              direction: directionButton ?? Axis.vertical,
+              children: [
+                AppButton(
+                  onTap: functionButton ?? () {},
+                  text: 'button',
+                  rounded: true,
+                ),
+                SizedBox(height: AppSizes.padding / 2),
+                AppButton(
+                  onTap: functionSecondButton ?? () {},
+                  text: 'Button',
+                  textColor: AppColors.primary,
+                  buttonColor: AppColors.blueLv5,
+                  rounded: true,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
