@@ -41,7 +41,7 @@ class AccountList extends StatelessWidget {
                 SizedBox(
                   width: AppSizes.padding,
                 ),
-                Column(
+                Column( 
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(

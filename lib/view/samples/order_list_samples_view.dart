@@ -1,11 +1,10 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/organism/order_list/order_list.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
 import '../../widget/organism/order_card/order_card.dart';
+import '../../widget/organism/order_list/order_list.dart';
+import 'sample_wrapper.dart';
 
 class OrderListSamplesView extends StatefulWidget {
   const OrderListSamplesView({Key? key}) : super(key: key);

@@ -162,7 +162,7 @@ class _AppModalWidgetState extends State<AppModalWidget> {
                 ),
                 AppDivider(
                   thickness: 1,
-                  color: Color(0xFFEEEEEE),
+                  color: const Color(0xFFEEEEEE),
                   padding: EdgeInsets.symmetric(
                     horizontal: AppSizes.padding / 3,
                     vertical: AppSizes.padding,
@@ -203,32 +203,30 @@ class _AppModalWidgetState extends State<AppModalWidget> {
                 widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
                 widget.slider == true ? sliderWay() : const SizedBox.shrink(),
 
-                Container(
-                  child: Flex(
-                    direction: widget.directionButton ?? Axis.horizontal,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ...widget.children,
-                      widget.price == false
-                          ? SizedBox.shrink()
-                          : Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                widgetPrice(),
-                                Expanded(
-                                  child: AppButton(
-                                    rounded: true,
-                                    text: 'Pesan',
-                                    onTap: widget.priceButton ??
-                                        () {
-                                          // TODO
-                                        },
-                                  ),
+                Flex(
+                  direction: widget.directionButton ?? Axis.horizontal,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ...widget.children,
+                    widget.price == false
+                        ? const SizedBox.shrink()
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              widgetPrice(),
+                              Expanded(
+                                child: AppButton(
+                                  rounded: true,
+                                  text: 'Pesan',
+                                  onTap: widget.priceButton ??
+                                      () {
+                                        // TODO
+                                      },
                                 ),
-                              ],
-                            ),
-                    ],
-                  ),
+                              ),
+                            ],
+                          ),
+                  ],
                 ),
               ],
             ),
@@ -345,9 +343,9 @@ class _AppModalWidgetState extends State<AppModalWidget> {
           min: 0,
           max: 10,
           values: _values,
-          tooltipShape: SfRectangularTooltipShape(),
+          tooltipShape: const SfRectangularTooltipShape(),
           tooltipTextFormatterCallback: (actualValue, formattedText) {
-            return actualValue.round().toString() + ' KM';
+            return '${actualValue.round()} KM';
           },
           enableTooltip: true,
           shouldAlwaysShowTooltip: true,

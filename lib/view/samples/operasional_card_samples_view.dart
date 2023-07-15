@@ -1,6 +1,6 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/organism/operasional_card/operasional_card_edit.dart';
+import '../../app/theme/app_sizes.dart';
+import 'sample_wrapper.dart';
+import '../../widget/organism/operasional_card/operasional_card_edit.dart';
 
 import 'package:flutter/material.dart';
 

@@ -37,12 +37,12 @@ class _MainViewState extends State<MainView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Alvamind One Library',
+                    'LaundryNet',
                     style: AppTextStyle.heading4(),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Alvamind One Library Design System',
+                    'LaundryNet Design System',
                     style: AppTextStyle.bodyMedium(
                       fontWeight: AppFontWeight.medium,
                     ),

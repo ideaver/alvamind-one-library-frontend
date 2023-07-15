@@ -1,10 +1,10 @@
-import 'package:alvamind_library/widget/molecule/app_modal.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
 import '../../widget/molecule/app_button.dart';
+import '../../widget/molecule/app_modal.dart';
 import 'sample_wrapper.dart';
 
 class ModalPopupButtonSamplesView extends StatefulWidget {

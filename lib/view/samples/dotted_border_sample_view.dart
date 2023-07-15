@@ -1,7 +1,7 @@
-import '../../app/theme/app_colors.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
 import '../../widget/atom/app_dotted_border.dart';
 import 'sample_wrapper.dart';
