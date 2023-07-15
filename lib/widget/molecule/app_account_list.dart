@@ -41,7 +41,7 @@ class AccountList extends StatelessWidget {
                 SizedBox(
                   width: AppSizes.padding,
                 ),
-                Column( 
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -66,7 +66,7 @@ class AccountList extends StatelessWidget {
                         child: AppIconButton(
                           buttonColor: AppColors.transparent,
                           padding: EdgeInsets.all(2),
-                          icon: Icon(
+                          icon: const Icon(
                             CustomIcon.chat_icon,
                             color: AppColors.primary,
                           ),
@@ -80,8 +80,8 @@ class AccountList extends StatelessWidget {
                         child: AppIconButton(
                           padding: EdgeInsets.all(2),
                           buttonColor: AppColors.transparent,
-                          icon: Icon(
-                            Icons.call_outlined,
+                          icon: const Icon(
+                            CustomIcon.contact_icon,
                             color: AppColors.primary,
                           ),
                           onTap: functionChatButton ?? () {},

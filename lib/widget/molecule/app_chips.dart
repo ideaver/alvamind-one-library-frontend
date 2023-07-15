@@ -43,8 +43,7 @@ class AppChips extends StatelessWidget {
         onTap: enable ? onTap : null,
         splashColor: AppColors.black.withOpacity(0.06),
         splashFactory: InkRipple.splashFactory,
-        highlightColor:
-            enable ? AppColors.black.withOpacity(0.12) : Colors.transparent,
+        highlightColor: enable ? AppColors.black.withOpacity(0.12) : Colors.transparent,
         borderRadius: BorderRadius.circular(100),
         child: Ink(
           padding: padding,

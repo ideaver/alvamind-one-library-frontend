@@ -244,7 +244,7 @@ class _AppModalWidgetState extends State<AppModalWidget> {
         Row(
           children: [
             const Icon(
-              Icons.pin_drop,
+              Icons.location_on,
               size: 18,
               color: AppColors.redLv1,
             ),

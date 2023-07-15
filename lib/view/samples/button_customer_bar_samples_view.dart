@@ -42,7 +42,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
       title: 'Button Bar list 1',
       widget: ButtonBarCustomer(
         index: _index,
-        gapLeftOut: SizedBox(width: AppSizes.padding / 2),
+
         //
         iconLeftOut: CustomIcon.home_icon,
         textLeftOut: 'Beranda',
@@ -53,7 +53,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconLeftIn: Icons.document_scanner,
+        iconLeftIn: CustomIcon.document_icon,
         textLeftIn: 'Order',
         functionButtonLeftIn: () {
           // TODO
@@ -98,11 +98,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
       title: 'Button Bar list 2',
       widget: ButtonBarCustomer(
         index: _index,
-        padding: EdgeInsets.symmetric(vertical: AppSizes.padding / 1.5),
-        gapLeftOut: SizedBox(width: AppSizes.padding * 1.2),
-        gapLeftIn: SizedBox(width: AppSizes.padding * 1.5),
-        gapRightIn: SizedBox(width: AppSizes.padding),
-        gapRightOut: SizedBox(width: AppSizes.padding / 3),
+
         //
         iconLeftOut: CustomIcon.home_icon,
         textLeftOut: 'Beranda',
@@ -113,7 +109,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconLeftIn: Icons.document_scanner,
+        iconLeftIn: CustomIcon.building_icon,
         textLeftIn: 'Outlet',
         functionButtonLeftIn: () {
           // TODO
@@ -122,9 +118,9 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconCenter: CustomIcon.scan_icon,
+        iconCenter: CustomIcon.wallet_icon,
         textCenter: 'Akutansi',
-        paddingTextCenter: EdgeInsets.all(0),
+
         // textCenterColor: AppColors.blackLv6,
         iconCenterBackgroundColor: Colors.white,
         functionButtonCenter: () {
@@ -135,7 +131,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconRightIn: Icons.group,
+        iconRightIn: CustomIcon.three_user_icon,
         textRightIn: 'Karyawan',
         functionButtonRightIn: () {
           // TODO
@@ -162,11 +158,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
       title: 'Button Bar list 3',
       widget: ButtonBarCustomer(
         index: _index,
-        gapLeftOut: SizedBox(width: AppSizes.padding / 2),
-        gapLeftIn: SizedBox(width: AppSizes.padding / 2),
 
-        gapRightIn: SizedBox(width: AppSizes.padding / 2),
-        gapRightOut: SizedBox(width: AppSizes.padding / 2),
         //
         iconLeftOut: CustomIcon.home_icon,
         textLeftOut: 'Beranda',
@@ -177,7 +169,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconLeftIn: Icons.document_scanner,
+        iconLeftIn: CustomIcon.document_icon,
         textLeftIn: 'Produksi',
         functionButtonLeftIn: () {
           // TODO
@@ -222,11 +214,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
       title: 'Button Bar list 4',
       widget: ButtonBarCustomer(
         index: _index,
-        gapLeftOut: SizedBox(width: AppSizes.padding / 2),
-        gapLeftIn: SizedBox(width: AppSizes.padding / 4),
 
-        gapRightIn: SizedBox(width: AppSizes.padding),
-        gapRightOut: SizedBox(width: AppSizes.padding),
         //
         iconLeftOut: CustomIcon.home_icon,
         textLeftOut: 'Beranda',
@@ -237,7 +225,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconLeftIn: Icons.document_scanner,
+        iconLeftIn: CustomIcon.convert_3d_cube_icon,
         textLeftIn: 'Antar Jemput',
         functionButtonLeftIn: () {
           // TODO

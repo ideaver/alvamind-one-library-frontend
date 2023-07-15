@@ -106,7 +106,9 @@ class ServiceCategory extends StatelessWidget {
         height: 400,
         width: 300,
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+          ),
           itemBuilder: (_, index) => Container(
             child: categoryMenusUp[index],
           ),

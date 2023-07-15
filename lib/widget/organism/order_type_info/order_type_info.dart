@@ -35,12 +35,12 @@ class OrderTypeInfo extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   appRightIcon(
-                    Icons.fire_truck,
+                    CustomIcon.truck_fast_icon,
                     'Delivery',
                     deliveryButton ?? () {},
                   ),
                   appRightIcon(
-                    Icons.add_box,
+                    CustomIcon.box_icon,
                     'Drop',
                     dropButton ?? () {},
                   ),
@@ -140,7 +140,7 @@ class OrderTypeInfo extends StatelessWidget {
           icon: Icon(
             icon,
             color: AppColors.primary,
-            size: 20,
+            size: 16,
           ),
           buttonColor: AppColors.blueLv5,
           width: 40,

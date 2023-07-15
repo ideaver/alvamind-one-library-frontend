@@ -74,8 +74,14 @@ class _OperasionalCardState extends State<OperasionalCard> {
                       ? AppChips(
                           text: 'Tutup',
                           fontSize: 14,
+                          textStyle: AppTextStyle.bold(
+                            size: 14,
+                            color: AppColors.blackLv3,
+                          ),
                           selectedColor: AppColors.blackLv6,
                           leftIcon: Icons.login_rounded,
+                          unselectedColor: AppColors.blackLv3,
+                          borderWidth: 0,
                           padding: EdgeInsets.symmetric(
                             vertical: AppSizes.padding / 2,
                             horizontal: AppSizes.padding,
