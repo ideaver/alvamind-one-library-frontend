@@ -163,7 +163,7 @@ class UserProfileCard extends StatelessWidget {
               ],
             ),
             const CircleAvatar(
-              backgroundImage: AssetImage(randomImage),
+              backgroundImage: NetworkImage(randomImage),
               maxRadius: 25,
             )
           ],

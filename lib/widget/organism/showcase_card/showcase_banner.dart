@@ -191,10 +191,11 @@ class DummyContent extends StatelessWidget {
             ],
           ),
           Positioned(
-            left: 165 - AppSizes.padding,
-            top: 10,
+            left: 175 - AppSizes.padding,
+            bottom: 0,
             child: const AppImage(
-              width: 220,
+              width: 200,
+              height: 200,
               image: AppAssets.personBannerImage,
               imgProvider: ImgProvider.assetImage,
             ),
