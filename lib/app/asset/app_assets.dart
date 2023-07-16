@@ -26,6 +26,7 @@ class AppAssets {
 
   // App State Illustration
   static const String personBannerImage = 'assets/images/person-banner-image.png';
+  static const String cubeImage = 'assets/images/cube-image.png';
   static const String info = 'assets/images/info.png';
   static const String success = 'assets/images/success.png';
   static const String failed = 'assets/images/failed.png';

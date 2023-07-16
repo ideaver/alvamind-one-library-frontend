@@ -47,19 +47,68 @@ class UserProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCardContainer(
-        padding: EdgeInsets.all(AppSizes.padding * 2),
-        borderRadius: BorderRadius.circular(40),
-        backgroundColor: AppColors.blueLv1,
-        gradient: const LinearGradient(colors: [
-          AppColors.blueLv2,
-          AppColors.blueLv1,
-        ]),
-        child: Stack(
-          children: [
-            content(),
-          ],
-        ));
+    return Stack(
+      children: [
+        AppCardContainer(
+          padding: EdgeInsets.all(AppSizes.padding * 2),
+          borderRadius: BorderRadius.circular(40),
+          backgroundColor: AppColors.blueLv1,
+          gradient: const LinearGradient(colors: [
+            AppColors.blueLv2,
+            AppColors.blueLv1,
+          ]),
+          child: content(),
+        ),
+        Positioned(
+          top: 75,
+          left: 200,
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(
+              AppAssets.cubeImage,
+              width: 100,
+              height: 100,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 247,
+          left: 223,
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(
+              AppAssets.cubeImage,
+              width: 100,
+              height: 100,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 38,
+          right: 242,
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(
+              AppAssets.cubeImage,
+              width: 250,
+              height: 282,
+            ),
+          ),
+        ),
+        Positioned(
+          left: 232,
+          bottom: 86,
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(
+              AppAssets.cubeImage,
+              width: 250,
+              height: 282,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
   Widget content() {
@@ -142,19 +191,18 @@ class UserProfileCard extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      countBalance ?? '',
-                      softWrap: true,
-                      maxLines: 2,
-                      overflow: TextOverflow.fade,
-                      style: AppTextStyle.bold(
-                        size: 32,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+                SizedBox(
+                  height: AppSizes.padding / 3,
+                ),
+                Text(
+                  countBalance ?? '',
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.fade,
+                  style: AppTextStyle.bold(
+                    size: 32,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),

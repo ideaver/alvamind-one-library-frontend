@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../view/main/main_view.dart';
 import '../../view/samples/accordion_samples_view.dart';
+import '../../view/samples/attedance_card.dart';
 import '../../view/samples/avatar_samples_view.dart';
 import '../../view/samples/button_customer_bar_samples_view.dart';
 import '../../view/samples/button_samples_view.dart';
@@ -24,6 +25,7 @@ import '../../view/samples/loading_samples_view.dart';
 import '../../view/samples/logo_samples_view.dart';
 import '../../view/samples/message_bubble_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
+import '../../view/samples/notification_card_samples_view.dart';
 import '../../view/samples/operasional_card_samples_view.dart';
 import '../../view/samples/order_card_samples_view.dart';
 import '../../view/samples/order_list_samples_view.dart';
@@ -38,10 +40,12 @@ import '../../view/samples/service_category_samples_view.dart';
 import '../../view/samples/showcase_card_samples_view.dart';
 import '../../view/samples/snackbar_samples_view.dart';
 import '../../view/samples/statistic_square_samples_view.dart';
+import '../../view/samples/status_card_complain.dart';
 import '../../view/samples/table_navigation_samples_view.dart';
 import '../../view/samples/table_samples_view.dart';
 import '../../view/samples/tags_samples_view.dart';
 import '../../view/samples/terms_condition_list_samples_view.dart';
+import '../../view/samples/time_field_samples_view.dart';
 import '../../view/samples/toggle_samples_view.dart';
 import '../../view/samples/tool_tip_menu_samples_view.dart';
 import '../../view/samples/transaction_info_sample_view.dart';
@@ -100,5 +104,9 @@ class AppRoutes {
     SnackbarSamplesView.routeName: (context) => const SnackbarSamplesView(),
     ShowcaseCardSamplesView.routeName: (context) => const ShowcaseCardSamplesView(),
     TransaksiReviewCardSamplesView.routeName: (context) => const TransaksiReviewCardSamplesView(),
+    AttedanceCardSamplesView.routeName: (context) => const AttedanceCardSamplesView(),
+    TimeFieldSamplesView.routeName: (context) => const TimeFieldSamplesView(),
+    NotificationCardSamplesView.routeName: (context) => const NotificationCardSamplesView(),
+    StatusCardComplainSamplesView.routeName: (context) => const StatusCardComplainSamplesView(),
   };
 }
