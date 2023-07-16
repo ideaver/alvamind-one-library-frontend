@@ -10,7 +10,10 @@ import 'app_tags.dart';
 class AppTransactionInfo extends StatelessWidget {
   final String transactionId;
   final String transactionStatus;
+  final Color? dotColor;
   final Color transactionStatusColor;
+  final EdgeInsets? dotChillPadding;
+  final bool? onlyTrasactionId;
   final Function()? onTapCopyButton;
 
   const AppTransactionInfo({
@@ -19,13 +22,16 @@ class AppTransactionInfo extends StatelessWidget {
     required this.transactionStatus,
     this.transactionStatusColor = AppColors.primary,
     this.onTapCopyButton,
+    this.dotChillPadding,
+    this.dotColor,
+    this.onlyTrasactionId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppDottedBorder(
-      color: AppColors.purpleLv1,
-      childPadding: EdgeInsets.all(AppSizes.padding),
+      color: dotColor ?? AppColors.purpleLv1,
+      childPadding: dotChillPadding ?? EdgeInsets.all(AppSizes.padding),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -62,24 +68,26 @@ class AppTransactionInfo extends StatelessWidget {
             ],
           ),
           SizedBox(height: AppSizes.padding),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Status',
-                style: AppTextStyle.bodyMedium(
-                  fontWeight: AppFontWeight.medium,
-                ),
-              ),
-              AppTags(
-                text: transactionStatus,
-                textColor: transactionStatusColor,
-                borderWidth: 1,
-                borderColor: transactionStatusColor,
-                color: AppColors.transparent,
-              )
-            ],
-          )
+          onlyTrasactionId == true
+              ? const SizedBox.shrink()
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Status',
+                      style: AppTextStyle.bodyMedium(
+                        fontWeight: AppFontWeight.medium,
+                      ),
+                    ),
+                    AppTags(
+                      text: transactionStatus,
+                      textColor: transactionStatusColor,
+                      borderWidth: 1,
+                      borderColor: transactionStatusColor,
+                      color: AppColors.transparent,
+                    )
+                  ],
+                )
         ],
       ),
     );

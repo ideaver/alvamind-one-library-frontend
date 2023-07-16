@@ -35,6 +35,7 @@ import '../../view/samples/progress_line_samples_view.dart';
 import '../../view/samples/promo_card_samples_view.dart';
 import '../../view/samples/radio_samples_view.dart';
 import '../../view/samples/service_category_samples_view.dart';
+import '../../view/samples/showcase_card_samples_view.dart';
 import '../../view/samples/snackbar_samples_view.dart';
 import '../../view/samples/statistic_square_samples_view.dart';
 import '../../view/samples/table_navigation_samples_view.dart';
@@ -44,6 +45,7 @@ import '../../view/samples/terms_condition_list_samples_view.dart';
 import '../../view/samples/toggle_samples_view.dart';
 import '../../view/samples/tool_tip_menu_samples_view.dart';
 import '../../view/samples/transaction_info_sample_view.dart';
+import '../../view/samples/transaction_review_card.dart';
 
 // App routes
 class AppRoutes {
@@ -96,5 +98,7 @@ class AppRoutes {
     TableNavigationSamplesView.routeName: (context) => const TableNavigationSamplesView(),
     TransactionInfoSamplesView.routeName: (context) => const TransactionInfoSamplesView(),
     SnackbarSamplesView.routeName: (context) => const SnackbarSamplesView(),
+    ShowcaseCardSamplesView.routeName: (context) => const ShowcaseCardSamplesView(),
+    TransaksiReviewCardSamplesView.routeName: (context) => const TransaksiReviewCardSamplesView(),
   };
 }

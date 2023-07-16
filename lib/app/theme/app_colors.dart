@@ -11,7 +11,9 @@ class AppColors {
 
   // Convert Color into MaterialColor
   static MaterialColor createMaterialColor(Color color) {
-    List strengths = <double>[.05];
+    List strengths = <double>[
+      .05
+    ];
     final swatch = <int, Color>{};
     final int r = color.red, g = color.green, b = color.blue;
 
@@ -103,4 +105,5 @@ class AppColors {
 
   // Purple
   static const Color purpleLv1 = Color(0xFF9D28AC);
+  static const Color purpleLv2 = Color(0xFF7210FF);
 }

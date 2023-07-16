@@ -9,6 +9,7 @@ class AppLongCard extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final List<BoxShadow>? boxShadow;
 
   const AppLongCard({
     super.key,
@@ -17,6 +18,7 @@ class AppLongCard extends StatelessWidget {
     this.padding,
     this.margin,
     this.borderRadius,
+    this.boxShadow,
   });
 
   @override
@@ -27,6 +29,7 @@ class AppLongCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.white,
         borderRadius: borderRadius ?? BorderRadius.circular(20),
+        boxShadow: boxShadow ?? [],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

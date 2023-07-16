@@ -4,8 +4,8 @@ import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../widget/molecule/app_chips.dart';
-import '../../widget/organism/paymend_method/payment_method.dart';
-import '../../widget/organism/paymend_method/payment_methods_card.dart';
+import '../../widget/organism/payment_method/payment_method.dart';
+import '../../widget/organism/payment_method/payment_methods_card.dart';
 import 'sample_wrapper.dart';
 
 class PaymentSamplesView extends StatefulWidget {

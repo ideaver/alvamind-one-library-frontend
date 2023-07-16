@@ -9,6 +9,7 @@ class AppAssets {
   // App logo
   static const String logo = 'assets/images/logo.png';
   static const String logoCircle = 'assets/images/logo_circle.png';
+  static const String logoCreditCard = 'assets/images/credit-card-logo.png';
 
   //Images
 
@@ -24,6 +25,7 @@ class AppAssets {
   static const String appleIcon = 'assets/images/payment/apple-icon.png';
 
   // App State Illustration
+  static const String personBannerImage = 'assets/images/person-banner-image.png';
   static const String info = 'assets/images/info.png';
   static const String success = 'assets/images/success.png';
   static const String failed = 'assets/images/failed.png';

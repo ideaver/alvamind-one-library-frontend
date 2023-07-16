@@ -10,6 +10,7 @@ class AppCardContainer extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final Widget? child;
   final List<BoxShadow>? boxShadow;
+  final Gradient? gradient;
 
   const AppCardContainer({
     Key? key,
@@ -19,6 +20,7 @@ class AppCardContainer extends StatelessWidget {
     this.padding,
     this.child,
     this.boxShadow,
+    this.gradient,
   }) : super(key: key);
 
   @override
@@ -29,6 +31,7 @@ class AppCardContainer extends StatelessWidget {
         color: backgroundColor ?? AppColors.white,
         borderRadius: borderRadius ?? BorderRadius.circular(20),
         boxShadow: boxShadow ?? [],
+        gradient: gradient,
       ),
       padding: padding ?? EdgeInsets.all(AppSizes.padding),
       margin: margin ?? EdgeInsets.zero,
