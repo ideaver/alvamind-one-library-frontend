@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:alvamind_library/app/theme/app_text_style.dart';
 import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
@@ -7,17 +6,8 @@ import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../molecule/app_ink_container.dart';
-=======
-import 'package:flutter/material.dart';
 
-import '../../../app/theme/app_colors.dart';
-import '../../../app/theme/app_sizes.dart';
-import '../../../app/theme/app_text_style.dart';
-import '../../molecule/app_card_container.dart';
-import '../../molecule/app_icon_button.dart';
->>>>>>> 9cb27f4523b8b98fc8ac130b505774039781736b
 import '../../molecule/app_progress_line.dart';
-import '../../molecule/app_tags.dart';
 
 class StatusCardComplain extends StatelessWidget {
   final String tagStatus;

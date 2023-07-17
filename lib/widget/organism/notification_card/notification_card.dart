@@ -1,24 +1,13 @@
-<<<<<<< HEAD
-import 'package:alvamind_library/app/asset/app_assets.dart';
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_long_card.dart';
-import 'package:alvamind_library/widget/molecule/app_tags.dart';
-=======
->>>>>>> 9cb27f4523b8b98fc8ac130b505774039781736b
 import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
-<<<<<<< HEAD
-import '../../molecule/app_ink_container.dart';
-=======
+
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
-import '../../molecule/app_card_container.dart';
+import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_long_card.dart';
 import '../../molecule/app_tags.dart';
->>>>>>> 9cb27f4523b8b98fc8ac130b505774039781736b
 
 class NotificationCard extends StatelessWidget {
   final String title;
@@ -54,7 +43,6 @@ class NotificationCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-<<<<<<< HEAD
           AppLongCard(
             padding: EdgeInsets.all(0),
             backgroundColor: AppColors.transparent,
@@ -66,21 +54,9 @@ class NotificationCard extends StatelessWidget {
                       maxRadius: 25,
                       backgroundColor: backgroundColorIcon ?? AppColors.blueLv5,
                       child: Icon(
-                        iconNotification ?? CustomIcon.document_icon,
+                        iconNotification ?? CustomIcon.documentIcon,
                         color: iconColor ?? AppColors.primary,
                       ),
-=======
-          AppLongCard(padding: EdgeInsets.all(0), children: [
-            Expanded(
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    maxRadius: 25,
-                    backgroundColor: AppColors.blueLv5,
-                    child: Icon(
-                      CustomIcon.documentIcon,
-                      color: AppColors.primary,
->>>>>>> 9cb27f4523b8b98fc8ac130b505774039781736b
                     ),
                     SizedBox(
                       width: AppSizes.padding,

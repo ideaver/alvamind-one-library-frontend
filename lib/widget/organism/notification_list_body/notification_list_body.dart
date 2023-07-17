@@ -68,7 +68,7 @@ class _NotificationListBodyState extends State<NotificationListBody> {
                         timeNotification: '20:49 PM',
                         iconColor: AppColors.primary,
                         backgroundColorIcon: AppColors.blueLv5,
-                        iconNotification: CustomIcon.document_icon,
+                        iconNotification: CustomIcon.documentIcon,
                         textNotification: 'Selamat pesanan anda telah kami buat. anda bisa langsung mengceknya.',
                         onTap: () {
                           // TODO
@@ -112,7 +112,7 @@ class _NotificationListBodyState extends State<NotificationListBody> {
                                 timeNotification: '20:49 PM',
                                 iconColor: AppColors.redLv1,
                                 backgroundColorIcon: AppColors.redLv1.withOpacity(0.2),
-                                iconNotification: CustomIcon.chat_icon,
+                                iconNotification: CustomIcon.chatIcon,
                                 textNotification: 'Komplain anda berhasil ditanggapi. silahkan klik untuk mengetahui info selanjutnya.',
                                 onTap: () {
                                   // TODO
