@@ -1,12 +1,10 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/organism/attedance_card/attedance_card.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
 import '../../widget/molecule/app_tags.dart';
+import '../../widget/organism/attedance_card/attedance_card.dart';
+import 'sample_wrapper.dart';
 
 class AttedanceCardSamplesView extends StatefulWidget {
   const AttedanceCardSamplesView({Key? key}) : super(key: key);

@@ -1,15 +1,12 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
-
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-
-import 'package:alvamind_library/widget/organism/transaction_review_card/list_card_flowup.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_sizes.dart';
-
 import '../../widget/organism/transaction_review_card/card_review.dart';
+import '../../widget/organism/transaction_review_card/list_card_flowup.dart';
 import '../../widget/organism/transaction_review_card/list_card_progress.dart';
 import '../../widget/organism/transaction_review_card/list_transaction.dart';
+import 'sample_wrapper.dart';
 
 class TransaksiReviewCardSamplesView extends StatefulWidget {
   const TransaksiReviewCardSamplesView({Key? key}) : super(key: key);
@@ -44,7 +41,7 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
     return SampleWrapper(
       title: 'List Card Progress',
       widget: ListCard(
-        leftIcon: CustomIcon.wallet_icon,
+        leftIcon: CustomIcon.walletIcon,
         rightIcon: Icons.chevron_right_rounded,
         title: 'Selasa, 23 Juni 2023',
         subtitle: 'Status Complain',
@@ -63,7 +60,7 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
     return SampleWrapper(
       title: 'List Card Flow',
       widget: ListCardFlow(
-        leftIcon: CustomIcon.wallet_icon,
+        leftIcon: CustomIcon.walletIcon,
         leftTitle: 'Inflow',
         title: 'Rp 10.123.567',
         subtitle: '+10% Naik dari bulan lalu',

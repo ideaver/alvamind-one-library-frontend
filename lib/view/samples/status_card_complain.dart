@@ -1,11 +1,9 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/organism/status_card_complain/status_card_complain.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../widget/organism/status_card_complain/status_card_complain.dart';
+import 'sample_wrapper.dart';
 
 class StatusCardComplainSamplesView extends StatefulWidget {
   const StatusCardComplainSamplesView({Key? key}) : super(key: key);

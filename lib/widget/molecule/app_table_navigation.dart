@@ -34,7 +34,6 @@ class AppTableNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      spacing: 12,
       runSpacing: 8,
       alignment: WrapAlignment.center,
       crossAxisAlignment: WrapCrossAlignment.center,
@@ -52,9 +51,12 @@ class AppTableNavigation extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return Text(
-      title!,
-      style: titleStyle ?? AppTextStyle.bodyLarge(fontWeight: AppFontWeight.medium),
+    return Padding(
+      padding: const EdgeInsets.only(right: 12),
+      child: Text(
+        title!,
+        style: titleStyle ?? AppTextStyle.bodyLarge(fontWeight: AppFontWeight.medium),
+      ),
     );
   }
 
@@ -63,21 +65,24 @@ class AppTableNavigation extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return AppToolTipMenu(
-      onTapItem: onSelectedMaxRows ?? (i) {},
-      borderRadius: 100,
-      borderWidth: 1,
-      borderColor: AppColors.blackLv8,
-      title: '$maxRows',
-      children: [
-        ...List.generate(
-          maxRows!,
-          (index) => Text(
-            '${index + 1}',
-            style: titleStyle ?? AppTextStyle.bodyLarge(fontWeight: AppFontWeight.medium),
+    return Padding(
+      padding: const EdgeInsets.only(right: 12),
+      child: AppToolTipMenu(
+        onTapItem: onSelectedMaxRows ?? (i) {},
+        borderRadius: 100,
+        borderWidth: 1,
+        borderColor: AppColors.blackLv8,
+        title: '$maxRows',
+        children: [
+          ...List.generate(
+            maxRows!,
+            (index) => Text(
+              '${index + 1}',
+              style: titleStyle ?? AppTextStyle.bodyLarge(fontWeight: AppFontWeight.medium),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -86,9 +91,12 @@ class AppTableNavigation extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return Text(
-      '$currentPageIndex-$maxPageIndex of $maxPageIndex',
-      style: titleStyle ?? AppTextStyle.bodyLarge(fontWeight: AppFontWeight.medium),
+    return Padding(
+      padding: const EdgeInsets.only(right: 12),
+      child: Text(
+        '$currentPageIndex-$maxPageIndex of $maxPageIndex',
+        style: titleStyle ?? AppTextStyle.bodyLarge(fontWeight: AppFontWeight.medium),
+      ),
     );
   }
 
@@ -98,54 +106,63 @@ class AppTableNavigation extends StatelessWidget {
       children: [
         onTapFirstPage == null
             ? const SizedBox.shrink()
-            : AppIconButton(
-                padding: const EdgeInsets.all(4),
-                buttonColor: AppColors.transparent,
-                icon: const Icon(
-                  Icons.first_page,
-                  color: AppColors.blackLv1,
-                  size: 28,
+            : Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: AppIconButton(
+                  padding: const EdgeInsets.all(4),
+                  buttonColor: AppColors.transparent,
+                  icon: const Icon(
+                    Icons.first_page,
+                    color: AppColors.blackLv1,
+                    size: 28,
+                  ),
+                  onTap: onTapFirstPage!,
                 ),
-                onTap: onTapFirstPage!,
               ),
-        const SizedBox(width: 18),
         onTapPrevPage == null
             ? const SizedBox.shrink()
-            : AppIconButton(
-                padding: const EdgeInsets.all(8),
-                buttonColor: AppColors.transparent,
-                icon: const Icon(
-                  Icons.arrow_back_ios_rounded,
-                  color: AppColors.blackLv1,
-                  size: 20,
+            : Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: AppIconButton(
+                  padding: const EdgeInsets.all(8),
+                  buttonColor: AppColors.transparent,
+                  icon: const Icon(
+                    Icons.arrow_back_ios_rounded,
+                    color: AppColors.blackLv1,
+                    size: 20,
+                  ),
+                  onTap: onTapPrevPage!,
                 ),
-                onTap: onTapPrevPage!,
               ),
-        const SizedBox(width: 18),
         onTapNextPage == null
             ? const SizedBox.shrink()
-            : AppIconButton(
-                padding: const EdgeInsets.all(8),
-                buttonColor: AppColors.transparent,
-                icon: const Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  color: AppColors.blackLv1,
-                  size: 20,
+            : Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: AppIconButton(
+                  padding: const EdgeInsets.all(8),
+                  buttonColor: AppColors.transparent,
+                  icon: const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: AppColors.blackLv1,
+                    size: 20,
+                  ),
+                  onTap: onTapNextPage!,
                 ),
-                onTap: onTapNextPage!,
               ),
-        const SizedBox(width: 18),
         onTapLastPage == null
             ? const SizedBox.shrink()
-            : AppIconButton(
-                padding: const EdgeInsets.all(4),
-                buttonColor: AppColors.transparent,
-                icon: const Icon(
-                  Icons.last_page,
-                  color: AppColors.blackLv1,
-                  size: 28,
+            : Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: AppIconButton(
+                  padding: const EdgeInsets.all(4),
+                  buttonColor: AppColors.transparent,
+                  icon: const Icon(
+                    Icons.last_page,
+                    color: AppColors.blackLv1,
+                    size: 28,
+                  ),
+                  onTap: onTapLastPage!,
                 ),
-                onTap: onTapLastPage!,
               ),
       ],
     );

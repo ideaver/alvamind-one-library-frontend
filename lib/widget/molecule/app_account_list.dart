@@ -68,40 +68,36 @@ class AccountList extends StatelessWidget {
                 ),
                 //
                 Expanded(
-                  child: rightButton == true
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Flexible(
-                              child: AppIconButton(
-                                buttonColor: AppColors.transparent,
-                                padding: EdgeInsets.all(2),
-                                icon: const Icon(
-                                  CustomIcon.chat_icon,
-                                  color: AppColors.primary,
-                                ),
-                                onTap: functionChatButton ?? () {},
-                              ),
-                            ),
-                            SizedBox(
-                              width: AppSizes.padding,
-                            ),
-                            Flexible(
-                              child: AppIconButton(
-                                padding: EdgeInsets.all(2),
-                                buttonColor: AppColors.transparent,
-                                icon: const Icon(
-                                  CustomIcon.contact_icon,
-                                  color: AppColors.primary,
-                                ),
-                                onTap: functionChatButton ?? () {},
-                              ),
-                            ),
-                          ],
-                        )
-                      : rightItem != null
-                          ? rightItem!
-                          : const SizedBox.shrink(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Flexible(
+                        child: AppIconButton(
+                          buttonColor: AppColors.transparent,
+                          padding: EdgeInsets.all(2),
+                          icon: const Icon(
+                            CustomIcon.chat_icon,
+                            color: AppColors.primary,
+                          ),
+                          onTap: functionChatButton ?? () {},
+                        ),
+                      ),
+                      SizedBox(
+                        width: AppSizes.padding,
+                      ),
+                      Flexible(
+                        child: AppIconButton(
+                          padding: EdgeInsets.all(2),
+                          buttonColor: AppColors.transparent,
+                          icon: const Icon(
+                            CustomIcon.contact_icon,
+                            color: AppColors.primary,
+                          ),
+                          onTap: functionChatButton ?? () {},
+                        ),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),

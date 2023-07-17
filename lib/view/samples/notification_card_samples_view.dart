@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:alvamind_library/app/theme/app_sizes.dart';
 
@@ -6,7 +7,13 @@ import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+=======
+import 'package:flutter/material.dart';
+
+import '../../app/theme/app_sizes.dart';
+>>>>>>> 9cb27f4523b8b98fc8ac130b505774039781736b
 import '../../widget/organism/notification_card/notification_card.dart';
+import 'sample_wrapper.dart';
 
 class NotificationCardSamplesView extends StatefulWidget {
   const NotificationCardSamplesView({Key? key}) : super(key: key);

@@ -298,9 +298,7 @@ class ItemCardListSelected extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container()
-        ],
+        children: [Container()],
       ),
     );
   }
@@ -337,7 +335,7 @@ class ItemCardListSelected extends StatelessWidget {
       padding: EdgeInsets.all(0),
       buttonColor: AppColors.transparent,
       icon: const Icon(
-        CustomIcon.heart_icon,
+        CustomIcon.heartIcon,
         color: AppColors.primary,
       ),
       onTap: () {},

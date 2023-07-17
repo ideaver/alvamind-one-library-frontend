@@ -25,11 +25,7 @@ class _PromoCardSamplesViewState extends State<PromoCardSamplesView> {
         padding: EdgeInsets.all(AppSizes.padding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            promoCard(),
-            promoCardEdit(),
-            promoCardEditDown()
-          ],
+          children: [promoCard(), promoCardEdit(), promoCardEditDown()],
         ),
       ),
     );
@@ -58,7 +54,7 @@ class _PromoCardSamplesViewState extends State<PromoCardSamplesView> {
         title: 'Promo Spesial Hari ini\nUntuk Hari ini',
         datePromo: 'Berakhir 2 Hari lagi',
         subtitle: 'Dapatkan diskon hinggi 75% syarat &\nkententuan berlaku.',
-        iconButton: CustomIcon.edit_pen_icon,
+        iconButton: CustomIcon.editPenIcon,
         functionIconButton: () {
           // TODO
         },

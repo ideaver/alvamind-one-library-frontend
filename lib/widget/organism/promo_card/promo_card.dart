@@ -40,8 +40,7 @@ class PromoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: AppColors.white, borderRadius: BorderRadius.circular(30)),
+      decoration: BoxDecoration(color: AppColors.white, borderRadius: BorderRadius.circular(30)),
       child: Column(
         children: [
           AppLongCard(
@@ -203,15 +202,14 @@ class PromoCard extends StatelessWidget {
           height: AppSizes.padding,
         ),
         AppDivider(
-          padding:
-              EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: 0),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: 0),
           thickness: 2,
           color: AppColors.blackLv7,
         ),
         Padding(
           padding: EdgeInsets.all(AppSizes.padding),
           child: AppButton(
-            leftIcon: CustomIcon.edit_pen_icon,
+            leftIcon: CustomIcon.editPenIcon,
             onTap: functionEditButton ?? () {},
             text: 'Edit',
             rounded: true,

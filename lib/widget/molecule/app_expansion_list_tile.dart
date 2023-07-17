@@ -150,7 +150,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                               width: 12,
                             ),
                             Icon(
-                              isExpanded ? CustomIcon.icon_arrow_down : CustomIcon.icon_arrow_right,
+                              isExpanded ? CustomIcon.iconArrowDown : CustomIcon.iconArrowRight,
                               color: widget.buttonDropColor == null ? Colors.blue : widget.buttonDropColor,
                               size: 18,
                             ),

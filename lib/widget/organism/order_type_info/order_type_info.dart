@@ -43,17 +43,17 @@ class OrderTypeInfo extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   appRightIcon(
-                    CustomIcon.truck_fast_icon,
+                    CustomIcon.truckFastIcon,
                     'Delivery',
                     deliveryButton ?? () {},
                   ),
                   appRightIcon(
-                    CustomIcon.box_icon,
+                    CustomIcon.boxIcon,
                     'Drop',
                     dropButton ?? () {},
                   ),
                   appRightIcon(
-                    CustomIcon.scan_icon,
+                    CustomIcon.scanIcon,
                     'Self Service',
                     selfButton ?? () {},
                   ),

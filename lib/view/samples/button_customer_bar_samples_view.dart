@@ -44,7 +44,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         index: _index,
 
         //
-        iconLeftOut: CustomIcon.home_icon,
+        iconLeftOut: CustomIcon.homeIcon,
         textLeftOut: 'Beranda',
         functionButtonLeftOut: () {
           // TODO
@@ -53,7 +53,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconLeftIn: CustomIcon.document_icon,
+        iconLeftIn: CustomIcon.documentIcon,
         textLeftIn: 'Order',
         functionButtonLeftIn: () {
           // TODO
@@ -62,7 +62,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconCenter: CustomIcon.scan_icon,
+        iconCenter: CustomIcon.scanIcon,
         textCenter: 'Scan',
         iconCenterColor: AppColors.white,
         textCenterColor: AppColors.white,
@@ -71,7 +71,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           // TODO
         },
         //
-        iconRightIn: CustomIcon.chat_icon,
+        iconRightIn: CustomIcon.chatIcon,
         textRightIn: 'Chat',
         functionButtonRightIn: () {
           // TODO
@@ -100,7 +100,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         index: _index,
 
         //
-        iconLeftOut: CustomIcon.home_icon,
+        iconLeftOut: CustomIcon.homeIcon,
         textLeftOut: 'Beranda',
         functionButtonLeftOut: () {
           // TODO
@@ -109,7 +109,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconLeftIn: CustomIcon.building_icon,
+        iconLeftIn: CustomIcon.buildingIcon,
         textLeftIn: 'Outlet',
         functionButtonLeftIn: () {
           // TODO
@@ -118,7 +118,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconCenter: CustomIcon.wallet_icon,
+        iconCenter: CustomIcon.walletIcon,
         textCenter: 'Akutansi',
 
         // textCenterColor: AppColors.blackLv6,
@@ -131,7 +131,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconRightIn: CustomIcon.three_user_icon,
+        iconRightIn: CustomIcon.threeUserIcon,
         textRightIn: 'Karyawan',
         functionButtonRightIn: () {
           // TODO
@@ -160,7 +160,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         index: _index,
 
         //
-        iconLeftOut: CustomIcon.home_icon,
+        iconLeftOut: CustomIcon.homeIcon,
         textLeftOut: 'Beranda',
         functionButtonLeftOut: () {
           // TODO
@@ -169,7 +169,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconLeftIn: CustomIcon.document_icon,
+        iconLeftIn: CustomIcon.documentIcon,
         textLeftIn: 'Produksi',
         functionButtonLeftIn: () {
           // TODO
@@ -178,7 +178,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconCenter: CustomIcon.scan_icon,
+        iconCenter: CustomIcon.scanIcon,
         textCenter: 'Scan',
         iconCenterColor: AppColors.white,
         textCenterColor: AppColors.white,
@@ -187,7 +187,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           // TODO
         },
         //
-        iconRightIn: CustomIcon.chat_icon,
+        iconRightIn: CustomIcon.chatIcon,
         textRightIn: 'Inbox',
         functionButtonRightIn: () {
           // TODO
@@ -216,7 +216,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         index: _index,
 
         //
-        iconLeftOut: CustomIcon.home_icon,
+        iconLeftOut: CustomIcon.homeIcon,
         textLeftOut: 'Beranda',
         functionButtonLeftOut: () {
           // TODO
@@ -225,7 +225,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconLeftIn: CustomIcon.convert_3d_cube_icon,
+        iconLeftIn: CustomIcon.convert3dCubeIcon,
         textLeftIn: 'Antar Jemput',
         functionButtonLeftIn: () {
           // TODO
@@ -234,7 +234,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           });
         },
         //
-        iconCenter: CustomIcon.scan_icon,
+        iconCenter: CustomIcon.scanIcon,
         textCenter: 'Scan',
         iconCenterColor: AppColors.white,
         textCenterColor: AppColors.white,
@@ -243,7 +243,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
           // TODO
         },
         //
-        iconRightIn: CustomIcon.chat_icon,
+        iconRightIn: CustomIcon.chatIcon,
         textRightIn: 'Inbox',
         functionButtonRightIn: () {
           // TODO

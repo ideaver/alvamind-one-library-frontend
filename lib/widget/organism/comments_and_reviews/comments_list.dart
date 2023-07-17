@@ -86,7 +86,7 @@ class CommentListCard extends StatelessWidget {
               AppIconButton(
                 padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                 icon: const Icon(
-                  CustomIcon.heart_icon,
+                  CustomIcon.heartIcon,
                   color: AppColors.primary,
                 ),
                 buttonColor: Colors.transparent,
@@ -111,7 +111,7 @@ class CommentListCard extends StatelessWidget {
                     AppIconButton(
                       padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                       icon: const Icon(
-                        CustomIcon.send_icon,
+                        CustomIcon.sendIcon,
                         color: AppColors.primary,
                       ),
                       buttonColor: Colors.transparent,
@@ -199,7 +199,7 @@ class CommentListCard extends StatelessWidget {
                     )
                   : const Icon(
                       size: 20,
-                      CustomIcon.edit_icon,
+                      CustomIcon.editIcon,
                     ),
               onTap: () {},
               padding: const EdgeInsets.all(2),

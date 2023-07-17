@@ -23,6 +23,10 @@ class _TableNavigationSamplesViewState extends State<TableNavigationSamplesView>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             defaultTableNavigation(),
+            tableNavigationWithoutTitle(),
+            tableNavigationOnlyNavButtons(),
+            tableNavigationPrevAndNextOnly(),
+            tableNavigationFirstAndLastOnly(),
           ],
         ),
       ),
@@ -43,6 +47,80 @@ class _TableNavigationSamplesViewState extends State<TableNavigationSamplesView>
           onTapLastPage: () {},
           onTapNextPage: () {},
           onTapPrevPage: () {},
+        ),
+      ),
+    );
+  }
+
+  Widget tableNavigationWithoutTitle() {
+    return SampleWrapper(
+      title: 'Table Navigation Without Rows Title',
+      widget: Center(
+        child: AppTableNavigation(
+          maxRows: 25,
+          maxPageIndex: 10,
+          currentPageIndex: 1,
+          onSelectedMaxRows: (i) {},
+          onTapFirstPage: () {},
+          onTapLastPage: () {},
+          onTapNextPage: () {},
+          onTapPrevPage: () {},
+        ),
+      ),
+    );
+  }
+
+  Widget tableNavigationWithoutTitleAndRows() {
+    return SampleWrapper(
+      title: 'Table Navigation Without Rows Title & Rows Dropdown',
+      widget: Center(
+        child: AppTableNavigation(
+          maxPageIndex: 10,
+          currentPageIndex: 1,
+          onSelectedMaxRows: (i) {},
+          onTapFirstPage: () {},
+          onTapLastPage: () {},
+          onTapNextPage: () {},
+          onTapPrevPage: () {},
+        ),
+      ),
+    );
+  }
+
+  Widget tableNavigationOnlyNavButtons() {
+    return SampleWrapper(
+      title: 'Table Navigation Only Nav. Buttons',
+      widget: Center(
+        child: AppTableNavigation(
+          onSelectedMaxRows: (i) {},
+          onTapFirstPage: () {},
+          onTapLastPage: () {},
+          onTapNextPage: () {},
+          onTapPrevPage: () {},
+        ),
+      ),
+    );
+  }
+
+  Widget tableNavigationPrevAndNextOnly() {
+    return SampleWrapper(
+      title: 'Table Navigation Prev. & Next Only',
+      widget: Center(
+        child: AppTableNavigation(
+          onTapNextPage: () {},
+          onTapPrevPage: () {},
+        ),
+      ),
+    );
+  }
+
+  Widget tableNavigationFirstAndLastOnly() {
+    return SampleWrapper(
+      title: 'Table Navigation First & Last Only',
+      widget: Center(
+        child: AppTableNavigation(
+          onTapFirstPage: () {},
+          onTapLastPage: () {},
         ),
       ),
     );

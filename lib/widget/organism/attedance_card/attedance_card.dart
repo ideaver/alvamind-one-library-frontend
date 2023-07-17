@@ -1,10 +1,10 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
+import '../../molecule/app_card_container.dart';
+import '../../molecule/app_icon_button.dart';
 import '../../molecule/app_tags.dart';
 
 class AttedanceCard extends StatelessWidget {

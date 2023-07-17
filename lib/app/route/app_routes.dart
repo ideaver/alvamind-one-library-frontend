@@ -45,6 +45,7 @@ import '../../view/samples/showcase_card_samples_view.dart';
 import '../../view/samples/snackbar_samples_view.dart';
 import '../../view/samples/statistic_square_samples_view.dart';
 import '../../view/samples/status_card_complain.dart';
+import '../../view/samples/steps_samples_view.dart';
 import '../../view/samples/table_navigation_samples_view.dart';
 import '../../view/samples/table_samples_view.dart';
 import '../../view/samples/tags_organism_samples_view.dart';
@@ -113,10 +114,14 @@ class AppRoutes {
     TimeFieldSamplesView.routeName: (context) => const TimeFieldSamplesView(),
     NotificationCardSamplesView.routeName: (context) => const NotificationCardSamplesView(),
     StatusCardComplainSamplesView.routeName: (context) => const StatusCardComplainSamplesView(),
+<<<<<<< HEAD
     TagsOrganismSamplesView.routeName: (context) => const TagsOrganismSamplesView(),
     BodySamplesView.routeName: (context) => const BodySamplesView(),
     ChatFormSamplesView.routeName: (context) => const ChatFormSamplesView(),
     OutletHeroSamplesView.routeName: (context) => const OutletHeroSamplesView(),
     NotificationListBodySamplesView.routeName: (context) => const NotificationListBodySamplesView(),
+=======
+    StepsSamplesView.routeName: (context) => const StepsSamplesView(),
+>>>>>>> 9cb27f4523b8b98fc8ac130b505774039781736b
   };
 }

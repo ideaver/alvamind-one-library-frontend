@@ -1,9 +1,8 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/organism/time_field/time_field.dart';
-
 import 'package:flutter/material.dart';
+
+import '../../app/theme/app_sizes.dart';
+import '../../widget/organism/time_field/time_field.dart';
+import 'sample_wrapper.dart';
 
 class TimeFieldSamplesView extends StatefulWidget {
   const TimeFieldSamplesView({Key? key}) : super(key: key);
