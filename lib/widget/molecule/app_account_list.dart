@@ -67,7 +67,7 @@ class AccountList extends StatelessWidget {
                           buttonColor: AppColors.transparent,
                           padding: EdgeInsets.all(2),
                           icon: const Icon(
-                            CustomIcon.chat_icon,
+                            CustomIcon.chatIcon,
                             color: AppColors.primary,
                           ),
                           onTap: functionChatButton ?? () {},
@@ -81,7 +81,7 @@ class AccountList extends StatelessWidget {
                           padding: EdgeInsets.all(2),
                           buttonColor: AppColors.transparent,
                           icon: const Icon(
-                            CustomIcon.contact_icon,
+                            CustomIcon.contactIcon,
                             color: AppColors.primary,
                           ),
                           onTap: functionChatButton ?? () {},

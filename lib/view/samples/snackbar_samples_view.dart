@@ -1,8 +1,8 @@
-import 'package:alvamind_library/widget/molecule/app_snackbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../widget/molecule/app_button.dart';
+import '../../widget/molecule/app_snackbar.dart';
 import 'sample_wrapper.dart';
 
 class SnackbarSamplesView extends StatefulWidget {

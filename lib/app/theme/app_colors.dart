@@ -11,9 +11,7 @@ class AppColors {
 
   // Convert Color into MaterialColor
   static MaterialColor createMaterialColor(Color color) {
-    List strengths = <double>[
-      .05
-    ];
+    List strengths = <double>[.05];
     final swatch = <int, Color>{};
     final int r = color.red, g = color.green, b = color.blue;
 
@@ -103,7 +101,31 @@ class AppColors {
   // Orange
   static const Color orangeLv1 = Color(0xFFFB9400);
 
+  // Amber
+  static const Color amberLv1 = Color(0xFFFFC02D);
+
+  // Pink
+  static const Color pinkLv1 = Color(0xFFEA1E61);
+
+  // Teal
+  static const Color tealLv1 = Color(0xFF009689);
+
+  // Indigo
+  static const Color indigoLv1 = Color(0xFF3F51B2);
+
+  // Lime
+  static const Color limeLv1 = Color(0xFFCDDC4C);
+
+  // Blue Gray
+  static const Color blueGrayLv1 = Color(0xFF607D8A);
+
   // Purple
   static const Color purpleLv1 = Color(0xFF9D28AC);
   static const Color purpleLv2 = Color(0xFF7210FF);
+
+  // Cyan
+  static const Color cyanLv1 = Color(0xFF00BCD3);
+
+  // Brown
+  static const Color brownLv1 = Color(0xFF7A5548);
 }

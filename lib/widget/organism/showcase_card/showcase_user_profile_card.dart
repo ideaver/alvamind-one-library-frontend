@@ -245,7 +245,7 @@ class UserProfileCard extends StatelessWidget {
               ),
               AppIconButton(
                 icon: const Icon(
-                  CustomIcon.scan_icon,
+                  CustomIcon.scanIcon,
                   color: AppColors.primary,
                 ),
                 onTap: functionPayButton ?? () {},

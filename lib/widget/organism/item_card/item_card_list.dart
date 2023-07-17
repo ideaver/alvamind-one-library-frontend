@@ -264,7 +264,7 @@ class ItemCardList extends StatelessWidget {
       padding: EdgeInsets.all(0),
       buttonColor: AppColors.transparent,
       icon: const Icon(
-        CustomIcon.heart_icon,
+        CustomIcon.heartIcon,
         color: AppColors.primary,
       ),
       onTap: () {},

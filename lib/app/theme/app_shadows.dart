@@ -9,13 +9,13 @@ class AppShadows {
   AppShadows._();
 
   static final cardShadow1 = BoxShadow(
-    color: AppColors.black.withOpacity(0.05),
+    color: AppColors.black.withOpacity(0.08),
     offset: const Offset(0, 4),
     blurRadius: 60,
   );
 
   static final cardShadow2 = BoxShadow(
-    color: AppColors.black.withOpacity(0.08),
+    color: AppColors.black.withOpacity(0.05),
     offset: const Offset(0, 4),
     blurRadius: 60,
   );
@@ -24,5 +24,23 @@ class AppShadows {
     color: AppColors.black.withOpacity(0.08),
     offset: const Offset(0, 20),
     blurRadius: 100,
+  );
+
+  static final shadow1 = BoxShadow(
+    color: AppColors.primary.withOpacity(0.25),
+    offset: const Offset(4, 8),
+    blurRadius: 24,
+  );
+
+  static final shadow2 = BoxShadow(
+    color: AppColors.primary.withOpacity(0.20),
+    offset: const Offset(4, 12),
+    blurRadius: 32,
+  );
+
+  static final shadow3 = BoxShadow(
+    color: AppColors.primary.withOpacity(0.20),
+    offset: const Offset(4, 16),
+    blurRadius: 32,
   );
 }

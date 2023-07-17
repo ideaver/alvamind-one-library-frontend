@@ -56,7 +56,7 @@ class CardPinPoinDelivery extends StatelessWidget {
                     vertical: AppSizes.padding / 2,
                   ),
                   fontSize: 14,
-                  leftIcon: CustomIcon.edit_pen_icon,
+                  leftIcon: CustomIcon.editPenIcon,
                   text: 'Ubah',
                   onTap: functionEditButton ?? () {},
                 )

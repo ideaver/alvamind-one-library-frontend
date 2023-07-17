@@ -1,9 +1,8 @@
-import 'package:alvamind_library/widget/organism/showcase_card/showcase_banner.dart';
-import 'package:alvamind_library/widget/organism/showcase_card/showcase_credit_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_sizes.dart';
-
+import '../../widget/organism/showcase_card/showcase_banner.dart';
+import '../../widget/organism/showcase_card/showcase_credit_card.dart';
 import '../../widget/organism/showcase_card/showcase_user_profile_card.dart';
 import 'sample_wrapper.dart';
 

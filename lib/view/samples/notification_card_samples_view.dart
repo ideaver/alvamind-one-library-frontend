@@ -1,10 +1,8 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_sizes.dart';
 import '../../widget/organism/notification_card/notification_card.dart';
+import 'sample_wrapper.dart';
 
 class NotificationCardSamplesView extends StatefulWidget {
   const NotificationCardSamplesView({Key? key}) : super(key: key);
