@@ -7,7 +7,14 @@ import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_text_field.dart';
 
-class TimeField extends StatelessWidget {
+class TimeField extends StatefulWidget {
+  @override
+  State<TimeField> createState() => _TimeFieldState();
+}
+
+int chipsSelected = -1;
+
+class _TimeFieldState extends State<TimeField> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -46,10 +53,13 @@ class TimeField extends StatelessWidget {
                       return Padding(
                         padding: index == 3 ? EdgeInsets.all(0) : EdgeInsets.only(right: AppSizes.padding),
                         child: AppChips(
-                          text: '09:00 AM',
-                          onTap: () {},
-                          isSelected: false,
-                        ),
+                            text: '${09 + index}:00 AM',
+                            onTap: () {
+                              setState(() {
+                                chipsSelected = index;
+                              });
+                            },
+                            isSelected: chipsSelected == index ? true : false),
                       );
                     })
                   ],

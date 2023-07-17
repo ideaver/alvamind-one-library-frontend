@@ -9,6 +9,7 @@ import '../../atom/app_image.dart';
 import '../../molecule/app_button.dart';
 import '../../molecule/app_card.dart';
 import '../../molecule/app_icon_button.dart';
+import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_tags.dart';
 
 class ItemCardList extends StatelessWidget {
@@ -35,6 +36,7 @@ class ItemCardList extends StatelessWidget {
   final Widget? detailInfoCard;
   final void Function()? functionRightButton;
   final void Function()? functionLeftButton;
+  final void Function()? onTapCard;
 
   const ItemCardList({
     super.key,
@@ -61,16 +63,16 @@ class ItemCardList extends StatelessWidget {
     this.tagColor,
     this.tagText,
     this.detailInfoCard,
+    this.onTapCard,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AppInkContainer(
+      onTap: onTapCard ?? () {},
       padding: padding ?? EdgeInsets.all(AppSizes.padding),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(30),
-      ),
+      backgroundColor: AppColors.white,
+      borderRadius: BorderRadius.circular(30),
       child: isVertical == true ? verticalMode() : horizontalMode(),
     );
   }

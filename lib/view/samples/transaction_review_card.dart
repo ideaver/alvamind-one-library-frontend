@@ -49,7 +49,10 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
         title: 'Selasa, 23 Juni 2023',
         subtitle: 'Status Complain',
         textTags: 'Proses',
-        functionLeftIcon: () {
+        onTapChevronButton: () {
+          // TODO
+        },
+        onTapCard: () {
           // TODO
         },
       ),
@@ -57,7 +60,7 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
   }
 
   Widget listCardFlow() {
-    return const SampleWrapper(
+    return SampleWrapper(
       title: 'List Card Flow',
       widget: ListCardFlow(
         leftIcon: CustomIcon.wallet_icon,
@@ -65,6 +68,9 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
         title: 'Rp 10.123.567',
         subtitle: '+10% Naik dari bulan lalu',
         textTags: 'Proses',
+        onTap: () {
+          // TODO
+        },
       ),
     );
   }

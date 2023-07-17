@@ -4,10 +4,12 @@ import '../../view/main/main_view.dart';
 import '../../view/samples/accordion_samples_view.dart';
 import '../../view/samples/attedance_card.dart';
 import '../../view/samples/avatar_samples_view.dart';
+import '../../view/samples/body_samples_view.dart';
 import '../../view/samples/button_customer_bar_samples_view.dart';
 import '../../view/samples/button_samples_view.dart';
 import '../../view/samples/card_pinpoin_delivery_samples_view.dart';
 import '../../view/samples/category_menu_samples_view.dart';
+import '../../view/samples/chat_form_samples_view.dart';
 import '../../view/samples/checkbox_samples_view.dart';
 import '../../view/samples/chips_samples_view.dart';
 import '../../view/samples/comment_and_review_list_samples_view.dart';
@@ -26,10 +28,12 @@ import '../../view/samples/logo_samples_view.dart';
 import '../../view/samples/message_bubble_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
 import '../../view/samples/notification_card_samples_view.dart';
+import '../../view/samples/notification_list_body.dart';
 import '../../view/samples/operasional_card_samples_view.dart';
 import '../../view/samples/order_card_samples_view.dart';
 import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
+import '../../view/samples/outlet_hero_samples_view.dart';
 import '../../view/samples/owner_outlet_card_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
 import '../../view/samples/pin_point_samples_view.dart';
@@ -43,6 +47,7 @@ import '../../view/samples/statistic_square_samples_view.dart';
 import '../../view/samples/status_card_complain.dart';
 import '../../view/samples/table_navigation_samples_view.dart';
 import '../../view/samples/table_samples_view.dart';
+import '../../view/samples/tags_organism_samples_view.dart';
 import '../../view/samples/tags_samples_view.dart';
 import '../../view/samples/terms_condition_list_samples_view.dart';
 import '../../view/samples/time_field_samples_view.dart';
@@ -108,5 +113,10 @@ class AppRoutes {
     TimeFieldSamplesView.routeName: (context) => const TimeFieldSamplesView(),
     NotificationCardSamplesView.routeName: (context) => const NotificationCardSamplesView(),
     StatusCardComplainSamplesView.routeName: (context) => const StatusCardComplainSamplesView(),
+    TagsOrganismSamplesView.routeName: (context) => const TagsOrganismSamplesView(),
+    BodySamplesView.routeName: (context) => const BodySamplesView(),
+    ChatFormSamplesView.routeName: (context) => const ChatFormSamplesView(),
+    OutletHeroSamplesView.routeName: (context) => const OutletHeroSamplesView(),
+    NotificationListBodySamplesView.routeName: (context) => const NotificationListBodySamplesView(),
   };
 }

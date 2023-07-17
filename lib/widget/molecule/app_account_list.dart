@@ -11,6 +11,8 @@ class AccountList extends StatelessWidget {
   final String? title;
   final String? subtitle;
   final String? image;
+  final bool? rightButton;
+  final Widget? rightItem;
   final void Function()? functionChatButton;
   final void Function()? functionCallButton;
 
@@ -21,6 +23,8 @@ class AccountList extends StatelessWidget {
     this.image,
     this.subtitle,
     this.title,
+    this.rightButton = true,
+    this.rightItem,
   });
 
   @override
@@ -48,8 +52,13 @@ class AccountList extends StatelessWidget {
                       title ?? '',
                       style: AppTextStyle.bold(size: 18),
                     ),
+                    SizedBox(
+                      height: AppSizes.padding / 4,
+                    ),
                     Text(
                       subtitle ?? '',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: AppTextStyle.medium(
                         size: 14,
                         color: AppColors.blackLv5,
@@ -59,36 +68,40 @@ class AccountList extends StatelessWidget {
                 ),
                 //
                 Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Flexible(
-                        child: AppIconButton(
-                          buttonColor: AppColors.transparent,
-                          padding: EdgeInsets.all(2),
-                          icon: const Icon(
-                            CustomIcon.chat_icon,
-                            color: AppColors.primary,
-                          ),
-                          onTap: functionChatButton ?? () {},
-                        ),
-                      ),
-                      SizedBox(
-                        width: AppSizes.padding,
-                      ),
-                      Flexible(
-                        child: AppIconButton(
-                          padding: EdgeInsets.all(2),
-                          buttonColor: AppColors.transparent,
-                          icon: const Icon(
-                            CustomIcon.contact_icon,
-                            color: AppColors.primary,
-                          ),
-                          onTap: functionChatButton ?? () {},
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: rightButton == true
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Flexible(
+                              child: AppIconButton(
+                                buttonColor: AppColors.transparent,
+                                padding: EdgeInsets.all(2),
+                                icon: const Icon(
+                                  CustomIcon.chat_icon,
+                                  color: AppColors.primary,
+                                ),
+                                onTap: functionChatButton ?? () {},
+                              ),
+                            ),
+                            SizedBox(
+                              width: AppSizes.padding,
+                            ),
+                            Flexible(
+                              child: AppIconButton(
+                                padding: EdgeInsets.all(2),
+                                buttonColor: AppColors.transparent,
+                                icon: const Icon(
+                                  CustomIcon.contact_icon,
+                                  color: AppColors.primary,
+                                ),
+                                onTap: functionChatButton ?? () {},
+                              ),
+                            ),
+                          ],
+                        )
+                      : rightItem != null
+                          ? rightItem!
+                          : const SizedBox.shrink(),
                 )
               ],
             ),

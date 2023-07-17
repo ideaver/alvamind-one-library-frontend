@@ -10,7 +10,11 @@ class OrderTypeInfo extends StatelessWidget {
   final String? countMachine;
   final String? countCustomers;
   final String? countEmployees;
+  final double? fontSize;
+  final double? iconSize;
+  final double? backgroundSize;
   final bool? withOrder;
+  final bool? onlyOrder;
   final void Function()? deliveryButton;
   final void Function()? dropButton;
   final void Function()? selfButton;
@@ -23,6 +27,10 @@ class OrderTypeInfo extends StatelessWidget {
     this.deliveryButton,
     this.dropButton,
     this.selfButton,
+    this.backgroundSize,
+    this.fontSize,
+    this.iconSize,
+    this.onlyOrder = false,
   });
 
   @override
@@ -57,30 +65,32 @@ class OrderTypeInfo extends StatelessWidget {
                 height: AppSizes.padding / 2,
               )
             : const SizedBox.shrink(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            detailInfo(countMachine ?? '', 'Mesin aktif'),
-            Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 12,
+        onlyOrder == true
+            ? const SizedBox.shrink()
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  detailInfo(countMachine ?? '', 'Mesin aktif'),
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                    ),
+                    height: 18,
+                    width: 1,
+                    color: AppColors.blackLv4,
+                  ),
+                  detailInfo(countCustomers ?? '', 'Konsumen'),
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                    ),
+                    height: 18,
+                    width: 1,
+                    color: AppColors.blackLv4,
+                  ),
+                  detailInfo(countEmployees ?? '', 'Karyawan'),
+                ],
               ),
-              height: 18,
-              width: 1,
-              color: AppColors.blackLv4,
-            ),
-            detailInfo(countCustomers ?? '', 'Konsumen'),
-            Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 12,
-              ),
-              height: 18,
-              width: 1,
-              color: AppColors.blackLv4,
-            ),
-            detailInfo(countEmployees ?? '', 'Karyawan'),
-          ],
-        ),
       ],
     );
   }
@@ -132,7 +142,7 @@ class OrderTypeInfo extends StatelessWidget {
   Widget appRightIcon(
     IconData icon,
     String text,
-    void Function() functionButton,
+    void Function() onTapButton,
   ) {
     return Row(
       children: [
@@ -140,12 +150,12 @@ class OrderTypeInfo extends StatelessWidget {
           icon: Icon(
             icon,
             color: AppColors.primary,
-            size: 16,
+            size: iconSize ?? 16,
           ),
           buttonColor: AppColors.blueLv5,
-          width: 40,
-          height: 40,
-          onTap: functionButton,
+          width: backgroundSize ?? 40,
+          height: backgroundSize ?? 40,
+          onTap: onTapButton,
         ),
         SizedBox(
           width: AppSizes.padding / 2,
@@ -156,7 +166,7 @@ class OrderTypeInfo extends StatelessWidget {
           maxLines: 3,
           overflow: TextOverflow.fade,
           style: AppTextStyle.bold(
-            size: 14,
+            size: fontSize ?? 14,
           ),
         )
       ],

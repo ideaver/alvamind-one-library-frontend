@@ -13,14 +13,14 @@ class UserCreditCard extends StatelessWidget {
   final String numberCard;
   final String nameCard;
   final String expiryDateCard;
-  final void Function() functionEditButton;
+  final void Function() onTapEditButton;
 
   const UserCreditCard({
     super.key,
     required this.numberCard,
     required this.expiryDateCard,
     required this.nameCard,
-    required this.functionEditButton,
+    required this.onTapEditButton,
   });
 
   @override
@@ -124,7 +124,7 @@ class UserCreditCard extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 3),
               buttonColor: AppColors.white,
               textColor: AppColors.primary,
-              onTap: functionEditButton,
+              onTap: onTapEditButton,
             )
           ],
         )

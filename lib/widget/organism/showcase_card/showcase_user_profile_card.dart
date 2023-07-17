@@ -20,22 +20,22 @@ class UserProfileCard extends StatelessWidget {
   final bool? onlyBalance;
   final bool? onlyUser;
 
-  final void Function()? functionCopyButton;
-  final void Function()? functionHistoryButton;
-  final void Function()? functionTopUpButton;
-  final void Function()? functionWithDrawButton;
-  final void Function()? functionPayButton;
-  final void Function()? functionDetailButton;
+  final void Function()? onTapCopyButton;
+  final void Function()? onTapHistoryButton;
+  final void Function()? onTapTopUpButton;
+  final void Function()? onTapWithDrawButton;
+  final void Function()? onTapPayButton;
+  final void Function()? onTapDetailButton;
 
   const UserProfileCard({
     super.key,
     this.countBalance,
-    this.functionCopyButton,
-    this.functionHistoryButton,
-    this.functionPayButton,
-    this.functionTopUpButton,
-    this.functionWithDrawButton,
-    this.functionDetailButton,
+    this.onTapCopyButton,
+    this.onTapHistoryButton,
+    this.onTapPayButton,
+    this.onTapTopUpButton,
+    this.onTapWithDrawButton,
+    this.onTapDetailButton,
     this.idUser,
     this.nameUser,
     this.employeeJob,
@@ -157,7 +157,7 @@ class UserProfileCard extends StatelessWidget {
                           color: Colors.white,
                         ),
                         buttonColor: AppColors.transparent,
-                        onTap: functionCopyButton ?? () {})
+                        onTap: onTapCopyButton ?? () {})
                   ],
                 ),
               ],
@@ -212,7 +212,7 @@ class UserProfileCard extends StatelessWidget {
               borderColor: Colors.white,
               borderWidth: 1,
               padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
-              onTap: functionHistoryButton ?? () {},
+              onTap: onTapHistoryButton ?? () {},
             )
           ],
         ),
@@ -228,7 +228,7 @@ class UserProfileCard extends StatelessWidget {
                   Icons.add_box,
                   color: AppColors.primary,
                 ),
-                onTap: functionTopUpButton ?? () {},
+                onTap: onTapTopUpButton ?? () {},
                 buttonColor: AppColors.blueLv4,
                 textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
                 text: 'Top Up',
@@ -238,7 +238,7 @@ class UserProfileCard extends StatelessWidget {
                   Icons.local_play_rounded,
                   color: AppColors.primary,
                 ),
-                onTap: functionWithDrawButton ?? () {},
+                onTap: onTapWithDrawButton ?? () {},
                 buttonColor: AppColors.blueLv4,
                 text: 'Withdrawal',
                 textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
@@ -248,7 +248,7 @@ class UserProfileCard extends StatelessWidget {
                   CustomIcon.scan_icon,
                   color: AppColors.primary,
                 ),
-                onTap: functionPayButton ?? () {},
+                onTap: onTapPayButton ?? () {},
                 textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
                 buttonColor: AppColors.blueLv4,
                 text: 'Bayar',
@@ -299,7 +299,7 @@ class UserProfileCard extends StatelessWidget {
           borderColor: Colors.white,
           borderWidth: 1,
           padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
-          onTap: functionDetailButton ?? () {},
+          onTap: onTapDetailButton ?? () {},
         )
       ],
     );

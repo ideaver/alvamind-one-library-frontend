@@ -1,29 +1,32 @@
 import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
 import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
 import 'package:alvamind_library/widget/molecule/app_tags.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_progress_line.dart';
 
 class StatusCardComplain extends StatelessWidget {
   final String tagStatus;
   final double countStatus;
-  final void Function() functionButton;
+  final void Function() onTapChevronButton;
+  final void Function() onTapCard;
 
   const StatusCardComplain({
     Key? key,
     required this.countStatus,
-    required this.functionButton,
+    required this.onTapChevronButton,
+    required this.onTapCard,
     required this.tagStatus,
   });
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return AppCardContainer(
+    return AppInkContainer(
+      onTap: onTapCard,
       child: Column(
         children: [
           Row(
@@ -51,7 +54,7 @@ class StatusCardComplain extends StatelessWidget {
                       icon: Icon(
                         Icons.chevron_right,
                       ),
-                      onTap: functionButton)
+                      onTap: onTapChevronButton)
                 ],
               ),
             ],

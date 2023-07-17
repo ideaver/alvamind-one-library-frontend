@@ -25,6 +25,7 @@ class AppAssets {
   static const String appleIcon = 'assets/images/payment/apple-icon.png';
 
   // App State Illustration
+  static const String boardPaperImage = 'assets/images/board-paper.png';
   static const String personBannerImage = 'assets/images/person-banner-image.png';
   static const String cubeImage = 'assets/images/cube-image.png';
   static const String info = 'assets/images/info.png';

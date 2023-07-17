@@ -9,6 +9,7 @@ import '../../atom/app_image.dart';
 import '../../molecule/app_button.dart';
 import '../../molecule/app_card.dart';
 import '../../molecule/app_icon_button.dart';
+import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_progress_line.dart';
 
 class ItemCardListSelected extends StatelessWidget {
@@ -31,6 +32,7 @@ class ItemCardListSelected extends StatelessWidget {
   final String? starImageCount;
   final void Function()? functionRightButton;
   final void Function()? functionLeftButton;
+  final void Function()? onTapCard;
 
   const ItemCardListSelected({
     super.key,
@@ -53,11 +55,12 @@ class ItemCardListSelected extends StatelessWidget {
     this.timeWork,
     this.typeItem,
     this.isStatus = false,
+    this.onTapCard,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Ink(
       decoration: BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.circular(30),
@@ -66,12 +69,11 @@ class ItemCardListSelected extends StatelessWidget {
         padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.all(0),
         child: Column(
           children: [
-            Container(
+            AppInkContainer(
+              onTap: onTapCard ?? () {},
               padding: padding ?? EdgeInsets.all(AppSizes.padding),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
+              backgroundColor: AppColors.white,
+              borderRadius: BorderRadius.circular(30),
               child: horizontalMode(),
             ),
             isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),

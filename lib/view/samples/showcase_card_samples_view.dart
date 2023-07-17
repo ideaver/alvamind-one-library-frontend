@@ -45,7 +45,7 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         numberCard: '1234 5678 9123 1211',
         nameCard: 'Situmorang',
         expiryDateCard: '10/23',
-        functionEditButton: () {
+        onTapEditButton: () {
           // TODO
         },
       ),
@@ -66,19 +66,19 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         nameUser: 'Amber Winston',
         idUser: 'ID Profil 5457383979',
         countBalance: 'Rp12.689.000',
-        functionCopyButton: () {
+        onTapCopyButton: () {
           // TODO
         },
-        functionHistoryButton: () {
+        onTapHistoryButton: () {
           // TODO
         },
-        functionTopUpButton: () {
+        onTapTopUpButton: () {
           // TODO
         },
-        functionWithDrawButton: () {
+        onTapWithDrawButton: () {
           // TODO
         },
-        functionPayButton: () {
+        onTapPayButton: () {
           // TODO
         },
       ),
@@ -95,10 +95,10 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         idUser: 'ID Profil 5457383979',
         employeePlace: 'Barokah Laundry',
         employeeJob: 'Kasir, Produksi',
-        functionCopyButton: () {
+        onTapCopyButton: () {
           // TODO
         },
-        functionDetailButton: () {
+        onTapDetailButton: () {
           // TODO
         },
       ),
@@ -112,7 +112,7 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         onlyUser: true,
         nameUser: 'Amber Winston',
         idUser: 'ID Profil 5457383979',
-        functionCopyButton: () {
+        onTapCopyButton: () {
           // TODO
         },
       ),
@@ -125,16 +125,16 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
       widget: UserProfileCard(
         onlyBalance: true,
         countBalance: 'Rp12.689.000',
-        functionHistoryButton: () {
+        onTapHistoryButton: () {
           // TODO
         },
-        functionTopUpButton: () {
+        onTapTopUpButton: () {
           // TODO
         },
-        functionWithDrawButton: () {
+        onTapWithDrawButton: () {
           // TODO
         },
-        functionPayButton: () {
+        onTapPayButton: () {
           // TODO
         },
       ),
