@@ -137,14 +137,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.8"
-  ditredi:
-    dependency: "direct main"
-    description:
-      name: ditredi
-      sha256: "5bed909dfe632f977d412b7c324a724a49c4f33c221023cf07bb5b1762af59c4"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   dots_indicator:
     dependency: "direct main"
     description:
