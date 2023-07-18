@@ -170,10 +170,10 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
         isStatus: true,
-        functionLeftButton: () {
+        onTapLeftButton: () {
           // TODO
         },
-        functionRightButton: () {
+        onTapRightButton: () {
           // TODO
         },
       ),

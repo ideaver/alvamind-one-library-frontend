@@ -18,6 +18,7 @@ class AppExpansionListTile extends StatefulWidget {
   final Color? backgroundColor;
   final bool expand;
   final List<Widget> children;
+  final EdgeInsetsGeometry? paddingChild;
   final Widget? moreItem;
   final Widget? leftItem;
   final bool? divider;
@@ -25,8 +26,8 @@ class AppExpansionListTile extends StatefulWidget {
 
   const AppExpansionListTile({
     Key? key,
-    required this.children,
     required this.title,
+    required this.children,
     this.icon,
     this.backgroundColor,
     this.titleColor,
@@ -41,6 +42,7 @@ class AppExpansionListTile extends StatefulWidget {
     this.subtitleDown,
     this.subtitleDownColor,
     this.boxShadow,
+    this.paddingChild,
   }) : super(key: key);
 
   @override
@@ -59,9 +61,13 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height: isExpanded ? null : 58,
+      height: isExpanded
+          ? null
+          : widget.subtitle != null
+              ? 74
+              : 58,
       duration: const Duration(milliseconds: 300),
-      child: Container(
+      child: Ink(
         decoration: BoxDecoration(
           color: widget.backgroundColor,
           borderRadius: BorderRadius.circular(20),
@@ -168,7 +174,16 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                           )
                         : const SizedBox.shrink()
                     : const SizedBox.shrink(),
-                ...widget.children,
+                isExpanded == true
+                    ? Padding(
+                        padding: widget.paddingChild ?? EdgeInsets.all(0),
+                        child: Column(
+                          children: [
+                            ...widget.children,
+                          ],
+                        ),
+                      )
+                    : const SizedBox.shrink(),
               ],
             ),
           ),

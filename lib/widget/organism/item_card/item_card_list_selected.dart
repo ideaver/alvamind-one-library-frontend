@@ -13,13 +13,13 @@ import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_progress_line.dart';
 
 class ItemCardListSelected extends StatelessWidget {
-  final String title;
   final EdgeInsetsGeometry? padding;
   final bool? isList;
   final bool? isSelected;
+  final bool? isStatus;
+  final String title;
   final String? timeWork;
   final String? typeItem;
-  final bool? isStatus;
   final String? textPrice;
   final String? statusPrice;
   final String? dateProgress;
@@ -28,10 +28,11 @@ class ItemCardListSelected extends StatelessWidget {
   final String? textLeftButton;
   final String? textRightButton;
   final String? labelingText;
-  final double? labelingCount;
   final String? starImageCount;
-  final void Function()? functionRightButton;
-  final void Function()? functionLeftButton;
+  final double? labelingCount;
+  final List<BoxShadow>? boxShadow;
+  final void Function()? onTapRightButton;
+  final void Function()? onTapLeftButton;
   final void Function()? onTapCard;
 
   const ItemCardListSelected({
@@ -42,8 +43,8 @@ class ItemCardListSelected extends StatelessWidget {
     this.dateProgress,
     this.isList = false,
     this.statusPrice,
-    this.functionLeftButton,
-    this.functionRightButton,
+    this.onTapLeftButton,
+    this.onTapRightButton,
     this.labelingText,
     this.labelingCount,
     this.statustProgressText,
@@ -56,6 +57,7 @@ class ItemCardListSelected extends StatelessWidget {
     this.typeItem,
     this.isStatus = false,
     this.onTapCard,
+    this.boxShadow,
   });
 
   @override
@@ -64,6 +66,7 @@ class ItemCardListSelected extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.circular(30),
+        boxShadow: boxShadow ?? [],
       ),
       child: Padding(
         padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.all(0),
@@ -86,7 +89,7 @@ class ItemCardListSelected extends StatelessWidget {
                     borderWidth: 0,
                     onTap: () {},
                   )
-                : SizedBox.shrink(),
+                : const SizedBox.shrink(),
             isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
           ],
         ),
@@ -159,7 +162,7 @@ class ItemCardListSelected extends StatelessWidget {
           children: [
             Expanded(
               child: AppButton(
-                onTap: functionLeftButton ?? () {},
+                onTap: onTapLeftButton ?? () {},
                 text: textLeftButton ?? '',
                 rounded: true,
                 borderWidth: 2,
@@ -174,7 +177,7 @@ class ItemCardListSelected extends StatelessWidget {
             ),
             Expanded(
               child: AppButton(
-                onTap: functionRightButton ?? () {},
+                onTap: onTapRightButton ?? () {},
                 padding: EdgeInsets.symmetric(
                   vertical: AppSizes.padding / 2.5,
                 ),
@@ -298,7 +301,9 @@ class ItemCardListSelected extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [Container()],
+        children: [
+          Container()
+        ],
       ),
     );
   }

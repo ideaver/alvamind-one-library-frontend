@@ -46,7 +46,9 @@ import '../../view/samples/snackbar_samples_view.dart';
 import '../../view/samples/statistic_square_samples_view.dart';
 import '../../view/samples/status_card_complain.dart';
 import '../../view/samples/steps_samples_view.dart';
+import '../../view/samples/tab_detail_outlet_samples_view.dart';
 import '../../view/samples/table_navigation_samples_view.dart';
+import '../../view/samples/table_organism_samples_view.dart';
 import '../../view/samples/table_samples_view.dart';
 import '../../view/samples/tags_organism_samples_view.dart';
 import '../../view/samples/tags_samples_view.dart';
@@ -120,5 +122,7 @@ class AppRoutes {
     OutletHeroSamplesView.routeName: (context) => const OutletHeroSamplesView(),
     NotificationListBodySamplesView.routeName: (context) => const NotificationListBodySamplesView(),
     StepsSamplesView.routeName: (context) => const StepsSamplesView(),
+    TabDetailOutletSamplesView.routeName: (context) => const TabDetailOutletSamplesView(),
+    TableOrganismSamplesView.routeName: (context) => const TableOrganismSamplesView(),
   };
 }

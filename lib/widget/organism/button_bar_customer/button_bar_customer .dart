@@ -180,7 +180,7 @@ class ButtonBarCustomer extends StatelessWidget {
                   height: 60,
                   width: MediaQuery.of(context).size.width - AppSizes.padding * 4,
                   child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 5,
                     ),
                     itemBuilder: (_, index) => Container(
@@ -191,7 +191,7 @@ class ButtonBarCustomer extends StatelessWidget {
                   )),
             ],
           ),
-          SizedBox(height: AppSizes.padding / 1.5),
+          SizedBox(height: AppSizes.padding / 1.2),
           AppDivider(
             padding: EdgeInsets.symmetric(
               horizontal: AppSizes.padding * 6,
