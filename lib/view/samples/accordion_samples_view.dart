@@ -15,6 +15,7 @@ import '../../widget/organism/accordion/accordion_stock_note.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
 import '../../widget/organism/item_card/item_card_list_selected.dart';
 import '../../widget/organism/payment_method/payment_method.dart';
+import '../../widget/organism/transaction_review_card/list_card_progress.dart';
 import 'sample_wrapper.dart';
 
 class AccordionSamplesView extends StatefulWidget {
@@ -62,6 +63,7 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
             accordionItemComplain(),
             accordionItemSelectedStatus(),
             accordionStockNote(),
+            accordionTransferBankWaiting(),
           ],
         ),
       ),
@@ -349,6 +351,41 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
     return SampleWrapper(
       title: 'Accordion Stock',
       widget: AccordionStockNote(),
+    );
+  }
+
+  Widget accordionTransferBankWaiting() {
+    return SampleWrapper(
+      title: 'Accordion Transfer Bank Waiting',
+      widget: AppExpansionListTile(
+        title: 'Transfer Bank',
+        backgroundColor: AppColors.white,
+        paddingChild: EdgeInsets.all(AppSizes.padding),
+        children: [
+          ...List.generate(3, (index) {
+            return Padding(
+              padding: index == 3
+                  ? EdgeInsets.all(0)
+                  : EdgeInsets.only(
+                      bottom: AppSizes.padding,
+                    ),
+              child: ListCard(
+                leftIcon: CustomIcon.walletIcon,
+                rightIcon: Icons.chevron_right_rounded,
+                title: 'Selasa, 23 Juni 2023',
+                subtitle: 'Status Complain',
+                textTags: 'Proses',
+                onTapChevronButton: () {
+                  // TODO
+                },
+                onTapCard: () {
+                  // TODO
+                },
+              ),
+            );
+          })
+        ],
+      ),
     );
   }
 }

@@ -13,8 +13,21 @@ import '../../molecule/app_expansion_list_tile.dart';
 import '../../molecule/app_text_field.dart';
 
 class AccordionStockNote extends StatelessWidget {
+  final dynamic Function(String)? onChangeUpInput;
+  final dynamic Function(String)? onChangeDownInput;
+  final dynamic Function()? onEditingCompleteUpInput;
+  final dynamic Function()? onEditingCompleteDownInput;
+  final TextEditingController? controllerUpInput;
+  final TextEditingController? controllerDownInput;
+
   const AccordionStockNote({
     super.key,
+    this.controllerDownInput,
+    this.controllerUpInput,
+    this.onChangeDownInput,
+    this.onChangeUpInput,
+    this.onEditingCompleteDownInput,
+    this.onEditingCompleteUpInput,
   });
   @override
   Widget build(BuildContext context) {
@@ -42,6 +55,9 @@ class AccordionStockNote extends StatelessWidget {
                 Expanded(
                   child: AppTextField(
                     hintText: '00.00',
+                    controller: controllerUpInput,
+                    onChanged: onChangeUpInput ?? (String) {},
+                    onEditingComplete: onEditingCompleteUpInput ?? () {},
                   ),
                 ),
                 SizedBox(
@@ -60,10 +76,10 @@ class AccordionStockNote extends StatelessWidget {
                       _unitWeight = unitWeight.firstWhere((e) => e.codeUnit == item.value);
                     },
                     hintText: 'KG',
-                    selectedItem: _unitWeight.textUnit,
+                    selectedItem: _unitWeight.codeUnit,
                     items: List.generate(
                       countries.length,
-                      (i) => DropDownModel(text: unitWeight[i].textUnit, value: unitWeight[i].codeUnit),
+                      (i) => DropDownModel(text: unitWeight[i].codeUnit, value: unitWeight[i].codeUnit),
                     ),
                     itemsBuilder: (item) {
                       return Text(
@@ -97,6 +113,9 @@ class AccordionStockNote extends StatelessWidget {
                 Expanded(
                   child: AppTextField(
                     hintText: '00.00',
+                    controller: controllerDownInput,
+                    onChanged: onChangeDownInput ?? (String) {},
+                    onEditingComplete: onEditingCompleteDownInput ?? () {},
                   ),
                 ),
                 SizedBox(
@@ -118,7 +137,7 @@ class AccordionStockNote extends StatelessWidget {
                     selectedItem: _unitWeight.textUnit,
                     items: List.generate(
                       countries.length,
-                      (i) => DropDownModel(text: unitWeight[i].textUnit, value: unitWeight[i].codeUnit),
+                      (i) => DropDownModel(text: unitWeight[i].codeUnit, value: unitWeight[i].codeUnit),
                     ),
                     itemsBuilder: (item) {
                       return Text(

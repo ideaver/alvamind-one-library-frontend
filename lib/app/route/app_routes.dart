@@ -4,6 +4,7 @@ import '../../view/main/main_view.dart';
 import '../../view/samples/accordion_samples_view.dart';
 import '../../view/samples/attedance_card.dart';
 import '../../view/samples/avatar_samples_view.dart';
+import '../../view/samples/bar_chart_samples_view.dart';
 import '../../view/samples/body_samples_view.dart';
 import '../../view/samples/button_customer_bar_samples_view.dart';
 import '../../view/samples/button_samples_view.dart';
@@ -50,6 +51,7 @@ import '../../view/samples/tab_detail_outlet_samples_view.dart';
 import '../../view/samples/table_navigation_samples_view.dart';
 import '../../view/samples/table_organism_samples_view.dart';
 import '../../view/samples/table_samples_view.dart';
+import '../../view/samples/table_with_export_filter_samples_view.dart';
 import '../../view/samples/tags_organism_samples_view.dart';
 import '../../view/samples/tags_samples_view.dart';
 import '../../view/samples/terms_condition_list_samples_view.dart';
@@ -57,7 +59,7 @@ import '../../view/samples/time_field_samples_view.dart';
 import '../../view/samples/toggle_samples_view.dart';
 import '../../view/samples/tool_tip_menu_samples_view.dart';
 import '../../view/samples/transaction_info_sample_view.dart';
-import '../../view/samples/transaction_review_card.dart';
+import '../../view/samples/transaction_review_card_samples_view.dart';
 
 // App routes
 class AppRoutes {
@@ -124,5 +126,7 @@ class AppRoutes {
     StepsSamplesView.routeName: (context) => const StepsSamplesView(),
     TabDetailOutletSamplesView.routeName: (context) => const TabDetailOutletSamplesView(),
     TableOrganismSamplesView.routeName: (context) => const TableOrganismSamplesView(),
+    TableWithExportFilterSamplesView.routeName: (context) => const TableWithExportFilterSamplesView(),
+    BarChartSamplesView.routeName: (context) => const BarChartSamplesView(),
   };
 }

@@ -1,23 +1,27 @@
-import 'package:alvamind_library/widget/molecule/app_tags.dart';
+import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
+import 'package:alvamind_library/widget/molecule/app_text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
 import '../../model/table_model.dart';
 import '../../widget/molecule/app_Checkbox.dart';
+
+import '../../widget/molecule/app_tags.dart';
 import '../../widget/organism/table_organism/table_financal_journal.dart';
 import 'sample_wrapper.dart';
 
-class TableOrganismSamplesView extends StatefulWidget {
-  const TableOrganismSamplesView({Key? key}) : super(key: key);
+class TableWithExportFilterSamplesView extends StatefulWidget {
+  const TableWithExportFilterSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/organism-table-financial-journal-samples';
+  static const routeName = '/organism-table-with-export-filter-samples';
 
   @override
-  State<TableOrganismSamplesView> createState() => _TableOrganismSamplesViewState();
+  State<TableWithExportFilterSamplesView> createState() => _TableWithExportFilterSamplesViewState();
 }
 
-class _TableOrganismSamplesViewState extends State<TableOrganismSamplesView> {
+class _TableWithExportFilterSamplesViewState extends State<TableWithExportFilterSamplesView> {
   List<TableModel> headerData1 = [
     TableModel(
       expanded: false,
@@ -149,7 +153,7 @@ class _TableOrganismSamplesViewState extends State<TableOrganismSamplesView> {
         TableModel(data: 'SO-23425', flex: 2),
         TableModel(
             expanded: false,
-            child: AppTags(
+            child: const AppTags(
               text: 'Berhasil',
               color: AppColors.transparent,
               textColor: AppColors.greenLv1,
@@ -173,41 +177,64 @@ class _TableOrganismSamplesViewState extends State<TableOrganismSamplesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Table Organism Samples')),
+      appBar: AppBar(title: const Text('Table With Export Filter Samples')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  defaultTable(),
-                ],
-              ),
-            )
+            tableWithExportFilter(),
           ],
         ),
       ),
     );
   }
 
-  Widget defaultTable() {
+  Widget tableWithExportFilter() {
     return SampleWrapper(
-      title: 'Table Financial Journal',
-      widget: TableFinancialJurnal(
-        headerTitle: headerTitle,
-        headerData1: headerData1,
-        data1: data1,
-        headerData2: headerData2,
-        data2: data2,
-        headerData3: headerData3,
-        data3: data3,
-        headerData4: headerData4,
-        data4: data4,
-        headerData5: headerData5,
-        data5: data5,
+      title: 'Table With Export Filter',
+      widget: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: AppTextField(
+                  suffixIcon: Icons.search,
+                  hintText: 'Search..',
+                  onChanged: (value) {},
+                  onEditingComplete: () {},
+                ),
+              ),
+              SizedBox(
+                width: AppSizes.padding / 2,
+              ),
+              AppIconButton(
+                borderRadius: 15,
+                icon: const Icon(
+                  Icons.sim_card_download_rounded,
+                  color: AppColors.white,
+                ),
+                onTap: () {},
+              ),
+            ],
+          ),
+          SizedBox(
+            height: AppSizes.padding,
+          ),
+          TableFinancialJurnal(
+            headerTitle: headerTitle,
+            headerData1: headerData1,
+            data1: data1,
+            headerData2: headerData2,
+            data2: data2,
+            headerData3: headerData3,
+            data3: data3,
+            headerData4: headerData4,
+            data4: data4,
+            headerData5: headerData5,
+            data5: data5,
+          ),
+        ],
       ),
     );
   }

@@ -47,30 +47,36 @@ class _ListCardState extends State<ListCard> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Icon(
-                widget.leftIcon,
-                color: AppColors.primary,
-              ),
-              SizedBox(
-                width: AppSizes.padding,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.subtitle,
-                    style: AppTextStyle.medium(size: 14),
+          Expanded(
+            child: Row(
+              children: [
+                Icon(
+                  widget.leftIcon,
+                  color: AppColors.primary,
+                ),
+                SizedBox(
+                  width: AppSizes.padding,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.subtitle,
+                        style: AppTextStyle.medium(size: 14),
+                      ),
+                      Text(
+                        widget.title,
+                        softWrap: true,
+                        overflow: TextOverflow.fade,
+                        maxLines: 2,
+                        style: AppTextStyle.bold(size: 18),
+                      ),
+                    ],
                   ),
-                  Text(
-                    widget.title,
-                    style: AppTextStyle.bold(size: 18),
-                  ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
           Row(
             children: [

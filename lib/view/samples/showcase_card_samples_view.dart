@@ -52,7 +52,7 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
   }
 
   Widget bannerCard() {
-    return SampleWrapper(
+    return const SampleWrapper(
       title: 'Banner card',
       widget: BannerCard(),
     );
