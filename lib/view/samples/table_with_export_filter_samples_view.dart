@@ -179,7 +179,6 @@ class _TableWithExportFilterSamplesViewState extends State<TableWithExportFilter
     [
       TableModel(
         child: AppTableNavigation(
-          title: 'Rows per page',
           maxRows: 25,
           maxPageIndex: 10,
           currentPageIndex: 1,

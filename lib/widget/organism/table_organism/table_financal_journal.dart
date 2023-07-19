@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../model/table_model.dart';
@@ -42,31 +43,38 @@ class TableFinancialJurnal extends StatelessWidget {
           data: headerTitle,
           tableBorderWidth: 1,
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              AppTable(
-                headerData: headerData1,
-                data: data1,
-              ),
-              AppTable(
-                headerData: headerData2,
-                data: data2,
-              ),
-              AppTable(
-                headerData: headerData3,
-                data: data3,
-              ),
-              AppTable(
-                headerData: headerData4,
-                data: data4,
-              ),
-              AppTable(
-                headerData: headerData5,
-                data: data5,
-              ),
-            ],
+        Container(
+          decoration: BoxDecoration(
+              border: Border.all(
+            width: 1,
+            color: AppColors.blackLv7,
+          )),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                AppTable(
+                  headerData: headerData1,
+                  data: data1,
+                ),
+                AppTable(
+                  headerData: headerData2,
+                  data: data2,
+                ),
+                AppTable(
+                  headerData: headerData3,
+                  data: data3,
+                ),
+                AppTable(
+                  headerData: headerData4,
+                  data: data4,
+                ),
+                AppTable(
+                  headerData: headerData5,
+                  data: data5,
+                ),
+              ],
+            ),
           ),
         ),
         AppTable(
