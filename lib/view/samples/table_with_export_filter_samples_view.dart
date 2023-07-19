@@ -8,6 +8,7 @@ import '../../app/theme/app_text_style.dart';
 import '../../model/table_model.dart';
 import '../../widget/molecule/app_Checkbox.dart';
 
+import '../../widget/molecule/app_table_navigation.dart';
 import '../../widget/molecule/app_tags.dart';
 import '../../widget/organism/table_organism/table_financal_journal.dart';
 import 'sample_wrapper.dart';
@@ -174,6 +175,24 @@ class _TableWithExportFilterSamplesViewState extends State<TableWithExportFilter
     ]
   ];
 
+  List<List<TableModel>> tableNavigation = [
+    [
+      TableModel(
+        child: AppTableNavigation(
+          title: 'Rows per page',
+          maxRows: 25,
+          maxPageIndex: 10,
+          currentPageIndex: 1,
+          onSelectedMaxRows: (i) {},
+          onTapFirstPage: () {},
+          onTapLastPage: () {},
+          onTapNextPage: () {},
+          onTapPrevPage: () {},
+        ),
+      ),
+    ]
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -233,6 +252,7 @@ class _TableWithExportFilterSamplesViewState extends State<TableWithExportFilter
             data4: data4,
             headerData5: headerData5,
             data5: data5,
+            tableNavigation: tableNavigation,
           ),
         ],
       ),

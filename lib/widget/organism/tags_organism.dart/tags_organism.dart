@@ -3,26 +3,20 @@ import 'package:alvamind_library/widget/molecule/app_chips.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../../app/theme/app_colors.dart';
+
 // ignore: must_be_immutable
 class TagsOrganism extends StatefulWidget {
-  final List listChips;
+  final List<String> listChips;
   final EdgeInsets? padding;
   final double? fontSize;
   final bool? isSelected;
   final IconData? leftIcon;
+  final List<Color>? selectedColor;
   final void Function(int)? onTap;
   int? selected;
 
-  TagsOrganism({
-    super.key,
-    required this.listChips,
-    required this.onTap,
-    this.padding,
-    this.fontSize,
-    this.leftIcon,
-    this.isSelected,
-    this.selected,
-  });
+  TagsOrganism({super.key, required this.listChips, required this.onTap, this.padding, this.fontSize, this.leftIcon, this.isSelected, this.selected, this.selectedColor});
 
   @override
   State<TagsOrganism> createState() => _TagsOrganismState();
@@ -42,6 +36,7 @@ class _TagsOrganismState extends State<TagsOrganism> {
               padding: index == widget.listChips.length - 1 ? EdgeInsets.all(0) : EdgeInsets.only(right: AppSizes.padding / 2),
               child: AppChips(
                 leftIcon: widget.leftIcon ?? null,
+                selectedColor: widget.selectedColor?[index] ?? AppColors.primary,
                 fontSize: widget.fontSize ?? 16,
                 padding: widget.padding ??
                     EdgeInsets.symmetric(

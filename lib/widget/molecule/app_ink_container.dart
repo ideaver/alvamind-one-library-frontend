@@ -6,6 +6,7 @@ import '../../app/theme/app_sizes.dart';
 class AppInkContainer extends StatefulWidget {
   final Color? backgroundColor;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final BorderRadius? borderRadius;
   final Widget? child;
   final List<BoxShadow>? boxShadow;
@@ -19,6 +20,7 @@ class AppInkContainer extends StatefulWidget {
     this.child,
     this.boxShadow,
     this.onTap,
+    this.margin,
   }) : super(key: key);
 
   @override

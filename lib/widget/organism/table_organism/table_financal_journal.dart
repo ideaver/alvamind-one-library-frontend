@@ -17,9 +17,11 @@ class TableFinancialJurnal extends StatelessWidget {
     required this.data4,
     required this.headerData5,
     required this.data5,
+    required this.tableNavigation,
   });
 
   final List<List<TableModel>> headerTitle;
+  final List<List<TableModel>> tableNavigation;
   final List<TableModel> headerData1;
   final List<List<TableModel>> data1;
   final List<TableModel> headerData2;
@@ -66,6 +68,10 @@ class TableFinancialJurnal extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        AppTable(
+          data: tableNavigation,
+          tableBorderWidth: 1,
         ),
       ],
     );

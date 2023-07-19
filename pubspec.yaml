@@ -59,7 +59,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   carousel_slider: ^4.2.1
   dots_indicator: ^3.0.0
- 
+  syncfusion_flutter_charts: ^22.1.39
 
 
   # The following adds the Cupertino Icons font to your application.

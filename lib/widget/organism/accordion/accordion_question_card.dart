@@ -8,6 +8,7 @@ class QuestionText extends StatelessWidget {
   final Color? color;
   final EdgeInsetsGeometry? padding;
   final Color? backgroundColor;
+  final List<BoxShadow>? boxShadow;
   final BorderRadiusGeometry? borderRadius;
 
   QuestionText({
@@ -17,6 +18,7 @@ class QuestionText extends StatelessWidget {
     this.padding,
     this.backgroundColor,
     this.borderRadius,
+    this.boxShadow,
   });
 
   @override
@@ -35,6 +37,7 @@ class QuestionText extends StatelessWidget {
           AppSizes.padding,
         ),
         decoration: BoxDecoration(
+            boxShadow: boxShadow ?? [],
             color: backgroundColor ?? Colors.white,
             borderRadius: borderRadius ??
                 BorderRadius.circular(

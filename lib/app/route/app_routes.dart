@@ -18,6 +18,7 @@ import '../../view/samples/dialog_samples_view.dart';
 import '../../view/samples/divider_samples_view.dart';
 import '../../view/samples/dotted_border_sample_view.dart';
 import '../../view/samples/dropdown_samples_view.dart';
+import '../../view/samples/gallery_tabs_samples_view.dart';
 import '../../view/samples/icon_button_samples_view.dart';
 import '../../view/samples/illustration_state_samples_view.dart';
 import '../../view/samples/image_samples_view.dart';
@@ -35,12 +36,14 @@ import '../../view/samples/order_card_samples_view.dart';
 import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/outlet_hero_samples_view.dart';
+import '../../view/samples/outlet_tab_bodies.dart';
 import '../../view/samples/owner_outlet_card_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
 import '../../view/samples/pin_point_samples_view.dart';
 import '../../view/samples/progress_line_samples_view.dart';
 import '../../view/samples/promo_card_samples_view.dart';
 import '../../view/samples/radio_samples_view.dart';
+import '../../view/samples/review_tabs_samples_view.dart';
 import '../../view/samples/service_category_samples_view.dart';
 import '../../view/samples/showcase_card_samples_view.dart';
 import '../../view/samples/snackbar_samples_view.dart';
@@ -52,6 +55,7 @@ import '../../view/samples/table_navigation_samples_view.dart';
 import '../../view/samples/table_organism_samples_view.dart';
 import '../../view/samples/table_samples_view.dart';
 import '../../view/samples/table_with_export_filter_samples_view.dart';
+import '../../view/samples/tabs_container_samples_view.dart';
 import '../../view/samples/tags_organism_samples_view.dart';
 import '../../view/samples/tags_samples_view.dart';
 import '../../view/samples/terms_condition_list_samples_view.dart';
@@ -128,5 +132,9 @@ class AppRoutes {
     TableOrganismSamplesView.routeName: (context) => const TableOrganismSamplesView(),
     TableWithExportFilterSamplesView.routeName: (context) => const TableWithExportFilterSamplesView(),
     BarChartSamplesView.routeName: (context) => const BarChartSamplesView(),
+    OutletTabBodiesSamplesView.routeName: (context) => const OutletTabBodiesSamplesView(),
+    ReviewTabsSamplesView.routeName: (context) => const ReviewTabsSamplesView(),
+    GalleryTabsSamplesView.routeName: (context) => const GalleryTabsSamplesView(),
+    TabsContainerSamplesView.routeName: (context) => const TabsContainerSamplesView(),
   };
 }

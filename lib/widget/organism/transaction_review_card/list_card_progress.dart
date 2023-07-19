@@ -12,7 +12,10 @@ class ListCard extends StatefulWidget {
   final String subtitle;
   final IconData? rightIcon;
   final IconData? leftIcon;
+  final Color? leftIconColor;
+  final Color? rightIconColor;
   final String? textTags;
+  final bool? isSubtitle;
   final void Function()? onTapChevronButton;
   final void Function()? onTapCard;
   const ListCard({
@@ -24,6 +27,9 @@ class ListCard extends StatefulWidget {
     this.textTags,
     this.onTapChevronButton,
     this.onTapCard,
+    this.leftIconColor,
+    this.rightIconColor,
+    this.isSubtitle = true,
   });
 
   @override
@@ -52,7 +58,7 @@ class _ListCardState extends State<ListCard> {
               children: [
                 Icon(
                   widget.leftIcon,
-                  color: AppColors.primary,
+                  color: widget.leftIconColor ?? AppColors.primary,
                 ),
                 SizedBox(
                   width: AppSizes.padding,
@@ -61,10 +67,12 @@ class _ListCardState extends State<ListCard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        widget.subtitle,
-                        style: AppTextStyle.medium(size: 14),
-                      ),
+                      widget.isSubtitle == false
+                          ? const SizedBox.shrink()
+                          : Text(
+                              widget.subtitle,
+                              style: AppTextStyle.medium(size: 14),
+                            ),
                       Text(
                         widget.title,
                         softWrap: true,
@@ -91,7 +99,10 @@ class _ListCardState extends State<ListCard> {
               AppIconButton(
                 padding: const EdgeInsets.all(0),
                 buttonColor: AppColors.transparent,
-                icon: Icon(widget.rightIcon),
+                icon: Icon(
+                  widget.rightIcon,
+                  color: widget.rightIconColor ?? AppColors.blackLv2,
+                ),
                 onTap: widget.onTapChevronButton ?? () {},
               )
             ],

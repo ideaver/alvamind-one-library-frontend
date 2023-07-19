@@ -8,11 +8,13 @@ class AppStatisticSquare extends StatelessWidget {
   final String? subTitle;
   final String data;
   final double borderRadius;
+  final double? borderRadiusCircle;
   final double iconSize;
   final EdgeInsets padding;
   final IconData icon;
   final Color? shadowColor;
   final Color? iconColor;
+  final Color? iconBackgroundColor;
   final Color textColor;
   final List<Color> colors;
   final Function()? onTap;
@@ -28,9 +30,14 @@ class AppStatisticSquare extends StatelessWidget {
     this.icon = Icons.stacked_bar_chart_rounded,
     this.shadowColor,
     this.textColor = AppColors.white,
-    this.colors = const [AppColors.blueLv2, AppColors.blueLv1],
+    this.colors = const [
+      AppColors.blueLv2,
+      AppColors.blueLv1
+    ],
     this.iconSize = 24,
     this.iconColor = AppColors.primary,
+    this.iconBackgroundColor,
+    this.borderRadiusCircle,
   });
 
   @override
@@ -57,8 +64,8 @@ class AppStatisticSquare extends StatelessWidget {
             Container(
               padding: padding / 2,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(borderRadius),
-                color: AppColors.white,
+                borderRadius: BorderRadius.circular(borderRadiusCircle ?? borderRadius),
+                color: iconBackgroundColor ?? AppColors.white,
               ),
               child: Icon(
                 icon,

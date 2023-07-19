@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';
+import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../widget/organism/transaction_review_card/card_review.dart';
 import '../../widget/organism/transaction_review_card/list_card_flowup.dart';
@@ -11,7 +12,7 @@ import 'sample_wrapper.dart';
 class TransaksiReviewCardSamplesView extends StatefulWidget {
   const TransaksiReviewCardSamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/organism-transaksi-review-card-samples';
+  static const routeName = '/organism-transaction-review-card-samples';
 
   @override
   State<TransaksiReviewCardSamplesView> createState() => _TransaksiReviewCardSamplesViewState();
@@ -75,7 +76,14 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
   Widget listTransaction() {
     return const SampleWrapper(
       title: 'List Transaction',
-      widget: ListTransaction(),
+      widget: ListTransaction(
+        email: 'nakama@gmail.com',
+        number: '+62534234432',
+        gender: 'Perempuan',
+        registerDate: '19 Mei 2023',
+        status: 'Aktif',
+        statusColor: AppColors.greenLv1,
+      ),
     );
   }
 

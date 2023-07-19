@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
-import '../../../app/theme/app_sizes.dart';
 import '../../atom/app_divider.dart';
 import '../../molecule/app_card_container.dart';
 import '../../molecule/app_transaction_info.dart';
 
 class ListTransaction extends StatelessWidget {
+  final String email;
+  final String number;
+  final String gender;
+  final String registerDate;
+  final String status;
+  final Color? statusColor;
+
   const ListTransaction({
     super.key,
+    required this.email,
+    required this.number,
+    required this.registerDate,
+    required this.status,
+    required this.gender,
+    this.statusColor,
   });
 
   @override
@@ -25,44 +37,42 @@ class ListTransaction extends StatelessWidget {
       ],
       child: Column(
         children: [
-          const AppTransactionInfo(
+          AppTransactionInfo(
             dotChillPadding: EdgeInsets.all(0),
             dotColor: AppColors.transparent,
-            transactionId: '18239873123',
+            textTitle: 'Email',
+            transactionId: email,
             transactionStatus: 'Paid',
             onlyTrasactionId: true,
           ),
-          const AppTransactionInfo(
+          AppTransactionInfo(
             dotChillPadding: EdgeInsets.all(0),
             dotColor: AppColors.transparent,
-            transactionId: '18239873123',
+            textTitle: 'Whatsapp',
+            transactionId: number,
             transactionStatus: 'Paid',
             onlyTrasactionId: true,
           ),
-          const AppTransactionInfo(
+          AppTransactionInfo(
             dotChillPadding: EdgeInsets.all(0),
             dotColor: AppColors.transparent,
-            transactionId: '18239873123',
+            textTitle: 'Gender',
+            transactionId: gender,
             transactionStatus: 'Paid',
+            withIcon: false,
             onlyTrasactionId: true,
           ),
           const AppDivider(
-            color: AppColors.blackLv6,
+            color: AppColors.blackLv7,
           ),
-          const AppTransactionInfo(
+          AppTransactionInfo(
             dotChillPadding: EdgeInsets.all(0),
             dotColor: AppColors.transparent,
-            transactionId: '18239873123',
-            transactionStatus: 'Paid',
-          ),
-          SizedBox(
-            height: AppSizes.padding,
-          ),
-          const AppTransactionInfo(
-            dotChillPadding: EdgeInsets.all(0),
-            dotColor: AppColors.transparent,
-            transactionId: '18239873123',
-            transactionStatus: 'Paid',
+            textTitle: 'Terdaftar',
+            transactionId: registerDate,
+            transactionStatus: status,
+            withIcon: false,
+            transactionStatusColor: statusColor ?? AppColors.greenLv1,
           ),
         ],
       ),

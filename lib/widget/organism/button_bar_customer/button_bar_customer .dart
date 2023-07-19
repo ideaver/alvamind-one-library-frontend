@@ -93,7 +93,7 @@ class ButtonBarCustomer extends StatelessWidget {
 
       // =======================
       Container(
-        margin: EdgeInsets.all(AppSizes.padding / 3),
+        margin: EdgeInsets.all(AppSizes.padding / 2),
         decoration: BoxDecoration(
           color: iconCenterBackgroundColor ?? AppColors.primary,
           shape: BoxShape.circle,
