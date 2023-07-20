@@ -34,6 +34,7 @@ import '../../view/samples/notification_list_body.dart';
 import '../../view/samples/operasional_card_samples_view.dart';
 import '../../view/samples/order_card_samples_view.dart';
 import '../../view/samples/order_list_samples_view.dart';
+import '../../view/samples/order_list_body_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/outlet_hero_samples_view.dart';
 import '../../view/samples/outlet_tab_bodies.dart';
@@ -45,6 +46,7 @@ import '../../view/samples/promo_card_samples_view.dart';
 import '../../view/samples/radio_samples_view.dart';
 import '../../view/samples/review_tabs_samples_view.dart';
 import '../../view/samples/service_category_samples_view.dart';
+import '../../view/samples/service_tabs_samples_view.dart';
 import '../../view/samples/showcase_card_samples_view.dart';
 import '../../view/samples/snackbar_samples_view.dart';
 import '../../view/samples/statistic_square_samples_view.dart';
@@ -64,6 +66,7 @@ import '../../view/samples/toggle_samples_view.dart';
 import '../../view/samples/tool_tip_menu_samples_view.dart';
 import '../../view/samples/transaction_info_sample_view.dart';
 import '../../view/samples/transaction_review_card_samples_view.dart';
+import '../../view/samples/user_profile_summary_bodies_samples_view.dart';
 
 // App routes
 class AppRoutes {
@@ -136,5 +139,8 @@ class AppRoutes {
     ReviewTabsSamplesView.routeName: (context) => const ReviewTabsSamplesView(),
     GalleryTabsSamplesView.routeName: (context) => const GalleryTabsSamplesView(),
     TabsContainerSamplesView.routeName: (context) => const TabsContainerSamplesView(),
+    ServiceTabsSamplesView.routeName: (context) => const ServiceTabsSamplesView(),
+    OrderListBodySamplesView.routeName: (context) => const OrderListBodySamplesView(),
+    UserProfileSummaryBodySamplesView.routeName: (context) => const UserProfileSummaryBodySamplesView(),
   };
 }

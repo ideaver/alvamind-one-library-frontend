@@ -48,14 +48,12 @@ BarChartGroupData generateGroupDataOmzet(
 }
 
 const incomeColor = AppColors.cyanLv1;
-const spendingColor = AppColors.orangeLv1;
+const spendingColor = AppColors.redLv1;
 
 BarChartGroupData generateGroupDataProfit(
   int x,
-  double homeService,
-  double dropService,
-  double delivery,
-  double selfService,
+  double income,
+  double spending,
 ) {
   return BarChartGroupData(
     x: x,
@@ -63,26 +61,14 @@ BarChartGroupData generateGroupDataProfit(
     barRods: [
       BarChartRodData(
         fromY: 0,
-        toY: homeService,
-        color: homeServiceColor,
+        toY: income,
+        color: incomeColor,
         width: 12,
       ),
       BarChartRodData(
-        fromY: homeService + betweenSpace,
-        toY: homeService + betweenSpace + dropService,
-        color: dropServiceColor,
-        width: 12,
-      ),
-      BarChartRodData(
-        fromY: homeService + betweenSpace + dropService + betweenSpace,
-        toY: homeService + betweenSpace + dropService + betweenSpace + delivery,
-        color: deliveryColor,
-        width: 12,
-      ),
-      BarChartRodData(
-        fromY: homeService + betweenSpace + dropService + betweenSpace + delivery + betweenSpace,
-        toY: homeService + betweenSpace + dropService + betweenSpace + delivery + betweenSpace + selfService,
-        color: selfServiceColor,
+        fromY: income + betweenSpace,
+        toY: income + betweenSpace + spending,
+        color: spendingColor,
         width: 12,
       ),
     ],

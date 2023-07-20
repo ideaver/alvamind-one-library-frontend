@@ -46,10 +46,10 @@ class _OrderCardSamplesViewState extends State<OrderCardSamplesView> {
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
         labelingCount: 40,
-        functionLeftButton: () {
+        onTapLeftButton: () {
           // TODO
         },
-        functionRightButton: () {
+        onTapRightButton: () {
           // TODO
         },
       ),
@@ -68,10 +68,10 @@ class _OrderCardSamplesViewState extends State<OrderCardSamplesView> {
         statusPrice: '/00 days',
         textLeftButton: 'Detail',
         textRightButton: 'E-Receipt',
-        functionLeftButton: () {
+        onTapLeftButton: () {
           // TODO
         },
-        functionRightButton: () {
+        onTapRightButton: () {
           // TODO
         },
       ),

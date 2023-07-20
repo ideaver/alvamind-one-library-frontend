@@ -140,44 +140,45 @@ class _OutletTabBodiesSamplesViewState extends State<OutletTabBodiesSamplesView>
           height: AppSizes.padding,
         ),
         BarChart(
-            textTypeChart: 'Laba Rugi',
-            textDateRange: '1 Jan 2023 - 31 Juli 2023',
-            countTotal: '- Rp687.375.337',
-            countTotalColor: AppColors.redLv1,
-            countTransaction: '1000',
-            tagBar: TagsOrganism(
-              listChips: const [
-                'Pemasukan',
-                'Pengeluaran',
-              ],
-              onTap: (value) {
-                // TODO
-                setState(() {
-                  tagSelected2 = value;
-                });
-              },
-            ),
-            barChart: tagSelected2 == 0
-                ? Chart(
-                    listValueChart: [
-                      generateGroupDataOmzet(0, 1, 2, 2, 2),
-                      generateGroupDataOmzet(1, 2, 1, 1.2, 2),
-                      generateGroupDataOmzet(2, 1, 2, 1.2, 2),
-                      generateGroupDataOmzet(3, 2, 2, 1.1, 2),
-                      generateGroupDataOmzet(4, 2, 1, 1.4, 2),
-                      generateGroupDataOmzet(5, 2, 2, 1.4, 2),
-                    ],
-                  )
-                : Chart(
-                    listValueChart: [
-                      generateGroupDataOmzet(0, 1, 2, 2, 2),
-                      generateGroupDataOmzet(1, 2, 1, 1.2, 2),
-                      generateGroupDataOmzet(2, 1, 2, 1.2, 2),
-                      generateGroupDataOmzet(3, 2, 2, 1.1, 2),
-                      generateGroupDataOmzet(4, 2, 1, 1.4, 2),
-                      generateGroupDataOmzet(5, 2, 2, 1.4, 2),
-                    ],
-                  )),
+          textTypeChart: 'Laba Rugi',
+          textDateRange: '1 Jan 2023 - 31 Juli 2023',
+          countTotal: '- Rp687.375.337',
+          countTotalColor: AppColors.redLv1,
+          countTransaction: '1000',
+          tagBar: TagsOrganism(
+            listChips: const [
+              'Pemasukan',
+              'Pengeluaran',
+            ],
+            onTap: (value) {
+              // TODO
+              setState(() {
+                tagSelected2 = value;
+              });
+            },
+          ),
+          barChart: tagSelected2 == 0
+              ? Chart(
+                  listValueChart: [
+                    generateGroupDataProfit(0, 4, 5),
+                    generateGroupDataProfit(1, 4, 2),
+                    generateGroupDataProfit(4, 2, 2),
+                    generateGroupDataProfit(2, 2, 1),
+                    generateGroupDataProfit(3, 1, 2),
+                    generateGroupDataProfit(5, 2, 1),
+                  ],
+                )
+              : Chart(
+                  listValueChart: [
+                    generateGroupDataProfit(0, 4, 5),
+                    generateGroupDataProfit(1, 1, 2),
+                    generateGroupDataProfit(2, 2, 1),
+                    generateGroupDataProfit(3, 2, 2),
+                    generateGroupDataProfit(4, 2, 2),
+                    generateGroupDataProfit(5, 2, 1),
+                  ],
+                ),
+        ),
       ],
     );
   }

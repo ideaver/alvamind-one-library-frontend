@@ -132,22 +132,22 @@ class _BarChartSamplesViewState extends State<BarChartSamplesView> {
         barChart: tagSelected2 == 0
             ? Chart(
                 listValueChart: [
-                  generateGroupDataOmzet(0, 1, 2, 2, 2),
-                  generateGroupDataOmzet(1, 2, 2, 1.1, 2),
-                  generateGroupDataOmzet(4, 2, 2, 1.4, 2),
-                  generateGroupDataOmzet(2, 2, 1, 1.4, 2),
-                  generateGroupDataOmzet(3, 1, 2, 1.2, 2),
-                  generateGroupDataOmzet(5, 2, 1, 1.2, 2),
+                  generateGroupDataProfit(0, 4, 5),
+                  generateGroupDataProfit(1, 4, 2),
+                  generateGroupDataProfit(4, 2, 2),
+                  generateGroupDataProfit(2, 2, 1),
+                  generateGroupDataProfit(3, 1, 2),
+                  generateGroupDataProfit(5, 2, 1),
                 ],
               )
             : Chart(
                 listValueChart: [
-                  generateGroupDataOmzet(0, 1, 2, 2, 2),
-                  generateGroupDataOmzet(1, 1, 2, 1.2, 2),
-                  generateGroupDataOmzet(2, 2, 1, 1.4, 2),
-                  generateGroupDataOmzet(3, 2, 2, 1.1, 2),
-                  generateGroupDataOmzet(4, 2, 2, 1.4, 2),
-                  generateGroupDataOmzet(5, 2, 1, 1.2, 2),
+                  generateGroupDataProfit(0, 4, 5),
+                  generateGroupDataProfit(1, 1, 2),
+                  generateGroupDataProfit(2, 2, 1),
+                  generateGroupDataProfit(3, 2, 2),
+                  generateGroupDataProfit(4, 2, 2),
+                  generateGroupDataProfit(5, 2, 1),
                 ],
               ),
       ),

@@ -27,14 +27,19 @@ class OrderCard extends StatelessWidget {
   final double? labelingCount;
   final String? starImageCount;
   final Color? backgroundColor;
-  //
   final Color? tagColor;
   final String? tagText;
   final double? tagBorderWidth;
   final Color? tagBorderColor;
   final Color? tagTextColor;
-  final void Function()? functionRightButton;
-  final void Function()? functionLeftButton;
+  final Color? leftButtonColor;
+  final Color? rightButtonColor;
+  final Color? leftButtonBorderColor;
+  final Color? leftButtonTextColor;
+  final Color? rightButtonTextColor;
+  final Color? rightButtonBorderColor;
+  final void Function()? onTapRightButton;
+  final void Function()? onTapLeftButton;
 
   const OrderCard({
     super.key,
@@ -46,8 +51,8 @@ class OrderCard extends StatelessWidget {
     this.dateProgress,
     this.isProgress,
     this.statusPrice,
-    this.functionLeftButton,
-    this.functionRightButton,
+    this.onTapLeftButton,
+    this.onTapRightButton,
     this.labelingText,
     this.labelingCount,
     this.statustProgressText,
@@ -61,6 +66,12 @@ class OrderCard extends StatelessWidget {
     this.tagColor,
     this.tagText,
     this.tagTextColor,
+    this.leftButtonBorderColor,
+    this.leftButtonColor,
+    this.leftButtonTextColor,
+    this.rightButtonBorderColor,
+    this.rightButtonColor,
+    this.rightButtonTextColor,
   });
 
   @override
@@ -141,11 +152,13 @@ class OrderCard extends StatelessWidget {
             children: [
               Expanded(
                 child: AppButton(
-                  onTap: functionLeftButton ?? () {},
+                  onTap: onTapLeftButton ?? () {},
                   text: textLeftButton ?? '',
                   rounded: true,
+                  textColor: leftButtonTextColor ?? AppColors.white,
                   borderWidth: 2,
-                  borderColor: AppColors.primary,
+                  buttonColor: leftButtonColor ?? AppColors.primary,
+                  borderColor: leftButtonBorderColor ?? AppColors.primary,
                   padding: EdgeInsets.symmetric(
                     vertical: AppSizes.padding / 2.5,
                   ),
@@ -156,15 +169,15 @@ class OrderCard extends StatelessWidget {
               ),
               Expanded(
                 child: AppButton(
-                  onTap: functionRightButton ?? () {},
+                  onTap: onTapRightButton ?? () {},
                   padding: EdgeInsets.symmetric(
                     vertical: AppSizes.padding / 2.5,
                   ),
                   text: textRightButton ?? '',
-                  textColor: AppColors.primary,
-                  buttonColor: AppColors.white,
+                  textColor: rightButtonTextColor ?? AppColors.primary,
                   borderWidth: 2,
-                  borderColor: AppColors.primary,
+                  buttonColor: rightButtonColor ?? AppColors.white,
+                  borderColor: rightButtonBorderColor ?? AppColors.primary,
                   rounded: true,
                 ),
               ),

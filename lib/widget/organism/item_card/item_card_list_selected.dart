@@ -17,6 +17,8 @@ class ItemCardListSelected extends StatefulWidget {
   final bool? isList;
   final bool? isSelected;
   final bool? isStatus;
+  final bool? withCustomItem;
+  final Widget? rightItem;
   final String title;
   final String? timeWork;
   final String? typeItem;
@@ -62,6 +64,8 @@ class ItemCardListSelected extends StatefulWidget {
     this.boxShadow,
     this.selectedButtonColor,
     this.onTapSelectedButton,
+    this.rightItem,
+    this.withCustomItem = false,
   });
 
   @override
@@ -213,7 +217,11 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
           widget.title,
           style: AppTextStyle.bold(size: 20),
         ),
-        widget.isList == true ? heartButton() : const SizedBox.shrink(),
+        widget.isList == true
+            ? widget.withCustomItem == false
+                ? heartButton()
+                : widget.rightItem!
+            : const SizedBox.shrink(),
       ],
     );
   }

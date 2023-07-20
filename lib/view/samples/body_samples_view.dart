@@ -80,7 +80,7 @@ class _BodySamplesViewState extends State<BodySamplesView> {
               SizedBox(height: AppSizes.padding * 1.5),
               AppInkContainer(
                 backgroundColor: AppColors.transparent,
-                padding: EdgeInsets.all(0),
+                padding: const EdgeInsets.all(0),
                 borderRadius: BorderRadius.circular(0),
                 child: AccountList(
                   rightButton: false,

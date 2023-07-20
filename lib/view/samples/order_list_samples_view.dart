@@ -56,10 +56,10 @@ class _OrderListSamplesViewState extends State<OrderListSamplesView> {
           tagTextColor: AppColors.white,
           tagColor: AppColors.greenLv3,
           tagBorderWidth: 0,
-          functionLeftButton: () {
+          onTapLeftButton: () {
             // TODO
           },
-          functionRightButton: () {
+          onTapRightButton: () {
             // TODO
           },
         ),
