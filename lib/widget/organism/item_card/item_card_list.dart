@@ -12,7 +12,7 @@ import '../../molecule/app_icon_button.dart';
 import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_tags.dart';
 
-class ItemCardList extends StatelessWidget {
+class ItemCardList extends StatefulWidget {
   final String title;
   final EdgeInsetsGeometry? padding;
   final bool? isList;
@@ -67,13 +67,18 @@ class ItemCardList extends StatelessWidget {
   });
 
   @override
+  State<ItemCardList> createState() => _ItemCardListState();
+}
+
+class _ItemCardListState extends State<ItemCardList> {
+  @override
   Widget build(BuildContext context) {
     return AppInkContainer(
-      onTap: onTapCard ?? () {},
-      padding: padding ?? EdgeInsets.all(AppSizes.padding),
+      onTap: widget.onTapCard ?? () {},
+      padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
       backgroundColor: AppColors.white,
       borderRadius: BorderRadius.circular(30),
-      child: isVertical == true ? verticalMode() : horizontalMode(),
+      child: widget.isVertical == true ? verticalMode() : horizontalMode(),
     );
   }
 
@@ -89,18 +94,18 @@ class ItemCardList extends StatelessWidget {
             height: AppSizes.padding,
           ),
           Flex(
-            direction: isVertical == true ? Axis.vertical : Axis.horizontal,
+            direction: widget.isVertical == true ? Axis.vertical : Axis.horizontal,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                widget.title,
                 style: AppTextStyle.bold(size: 20),
               ),
               SizedBox(
                 height: AppSizes.padding / 2,
               ),
               Text(
-                address ?? 'City, Country',
+                widget.address ?? 'City, Country',
                 style: AppTextStyle.regular(size: 12),
               ),
               SizedBox(
@@ -145,7 +150,7 @@ class ItemCardList extends StatelessWidget {
                     direction: Axis.horizontal,
                     children: [
                       Text(
-                        address ?? 'City, Country',
+                        widget.address ?? 'City, Country',
                         style: AppTextStyle.medium(size: 14),
                       ),
                       priceStatus(),
@@ -156,7 +161,7 @@ class ItemCardList extends StatelessWidget {
             )
           ],
         ),
-        isOwner == true ? buttonDown() : SizedBox.shrink(),
+        widget.isOwner == true ? buttonDown() : SizedBox.shrink(),
       ],
     );
   }
@@ -164,17 +169,17 @@ class ItemCardList extends StatelessWidget {
   Widget headItem() {
     return Column(
       children: [
-        isProfile == true
+        widget.isProfile == true
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    dateProfileItem ?? 'Berdiri 2023',
+                    widget.dateProfileItem ?? 'Berdiri 2023',
                     style: AppTextStyle.regular(size: 10),
                   ),
                   AppTags(
-                    text: tagText ?? 'Premium',
-                    color: tagColor ?? AppColors.orangeLv1,
+                    text: widget.tagText ?? 'Premium',
+                    color: widget.tagColor ?? AppColors.orangeLv1,
                     fontSize: 10,
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     borderRadius: 8,
@@ -182,7 +187,7 @@ class ItemCardList extends StatelessWidget {
                 ],
               )
             : const SizedBox.shrink(),
-        isProfile == true
+        widget.isProfile == true
             ? SizedBox(
                 height: AppSizes.padding / 2,
               )
@@ -192,7 +197,7 @@ class ItemCardList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              title,
+              widget.title,
               style: AppTextStyle.bold(size: 20),
             ),
             heartButton(),
@@ -219,7 +224,7 @@ class ItemCardList extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: AppTags(
-              text: starImageCount ?? '',
+              text: widget.starImageCount ?? '',
               color: AppColors.blackLv9.withOpacity(0.54),
               borderRadius: 100,
               textColor: AppColors.primary,
@@ -236,12 +241,12 @@ class ItemCardList extends StatelessWidget {
 
   Widget priceStatus() {
     return Flex(
-      direction: isVertical == true ? Axis.horizontal : Axis.vertical,
-      mainAxisAlignment: isVertical == true ? MainAxisAlignment.start : MainAxisAlignment.center,
+      direction: widget.isVertical == true ? Axis.horizontal : Axis.vertical,
+      mainAxisAlignment: widget.isVertical == true ? MainAxisAlignment.start : MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
-          textPrice ?? '',
+          widget.textPrice ?? '',
           style: AppTextStyle.bold(
             size: 24,
             color: AppColors.primary,
@@ -250,7 +255,7 @@ class ItemCardList extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(4.0),
           child: Text(
-            statusPrice ?? '',
+            widget.statusPrice ?? '',
             style: AppTextStyle.medium(
               size: 10,
               color: AppColors.blackLv4,
@@ -261,15 +266,20 @@ class ItemCardList extends StatelessWidget {
     );
   }
 
+  IconData heartIcon = CustomIcon.heartIcon;
   Widget heartButton() {
     return AppIconButton(
       padding: EdgeInsets.all(0),
       buttonColor: AppColors.transparent,
-      icon: const Icon(
-        CustomIcon.heartIcon,
+      icon: Icon(
+        heartIcon,
         color: AppColors.primary,
       ),
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
+        });
+      },
     );
   }
 
@@ -283,7 +293,7 @@ class ItemCardList extends StatelessWidget {
         ),
         //
         // isList
-        detailInfoCard ?? const SizedBox.shrink(),
+        widget.detailInfoCard ?? const SizedBox.shrink(),
         //
         SizedBox(
           height: AppSizes.padding,
@@ -294,8 +304,8 @@ class ItemCardList extends StatelessWidget {
           children: [
             Expanded(
               child: AppButton(
-                onTap: functionLeftButton ?? () {},
-                text: textLeftButton ?? '',
+                onTap: widget.functionLeftButton ?? () {},
+                text: widget.textLeftButton ?? '',
                 rounded: true,
                 borderWidth: 2,
                 borderColor: AppColors.primary,
@@ -309,11 +319,11 @@ class ItemCardList extends StatelessWidget {
             ),
             Expanded(
               child: AppButton(
-                onTap: functionRightButton ?? () {},
+                onTap: widget.functionRightButton ?? () {},
                 padding: EdgeInsets.symmetric(
                   vertical: AppSizes.padding / 2.5,
                 ),
-                text: textRightButton ?? '',
+                text: widget.textRightButton ?? '',
                 textColor: AppColors.primary,
                 buttonColor: AppColors.white,
                 borderWidth: 2,

@@ -56,8 +56,8 @@ class _TabsContainerSamplesViewState extends State<TabsContainerSamplesView> {
           children: [
             TabBarDetailOutlet(
               leftIcon: const [
-                Icons.insert_chart_outlined_rounded,
-                Icons.access_time_sharp,
+                CustomIcon.chartCurvedIcon,
+                CustomIcon.timesquareIcon,
                 CustomIcon.documentIcon,
                 CustomIcon.documentIcon,
                 Icons.image_outlined,
@@ -112,10 +112,10 @@ class _TabsContainerSamplesViewState extends State<TabsContainerSamplesView> {
             children: [
               TabBarDetailOutlet(
                 leftIcon: const [
-                  Icons.insert_chart_outlined_rounded,
-                  Icons.access_time_sharp,
-                  Icons.access_time_sharp,
-                  Icons.access_time_sharp,
+                  CustomIcon.chartCurvedIcon,
+                  CustomIcon.timesquareIcon,
+                  CustomIcon.timesquareIcon,
+                  CustomIcon.timesquareIcon,
                   CustomIcon.documentIcon,
                   Icons.star_border_rounded,
                   Icons.image_outlined,
@@ -149,7 +149,7 @@ class _TabsContainerSamplesViewState extends State<TabsContainerSamplesView> {
                   padding: EdgeInsets.only(bottom: AppSizes.padding * 1.5),
                   child: ListCard(
                     isSubtitle: i == 0 ? false : null,
-                    leftIcon: i == 0 ? Icons.location_on_rounded : CustomIcon.walletIcon,
+                    leftIcon: i == 0 ? Icons.location_on_rounded : CustomIcon.walletBoldIcon,
                     leftIconColor: i == 0 ? AppColors.greenLv1 : null,
                     rightIcon: Icons.chevron_right_rounded,
                     title: i == 0

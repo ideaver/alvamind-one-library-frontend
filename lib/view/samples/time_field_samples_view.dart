@@ -33,7 +33,20 @@ class _TimeFieldSamplesViewState extends State<TimeFieldSamplesView> {
   Widget timeField() {
     return SampleWrapper(
       title: 'Time Field',
-      widget: TimeField(),
+      widget: TimeField(
+        onChangedStartCalendar: (String) {
+          // TODO
+        },
+        onChangedEndCalendar: (String) {
+          // TODO
+        },
+        onChangedStartTime: (String) {
+          // TODO
+        },
+        onChangedEndTime: (String) {
+          // TODO
+        },
+      ),
     );
   }
 }

@@ -225,7 +225,7 @@ class UserProfileCard extends StatelessWidget {
             children: [
               AppIconButton(
                 icon: const Icon(
-                  Icons.add_box,
+                  Icons.add_box_rounded,
                   color: AppColors.primary,
                 ),
                 onTap: onTapTopUpButton ?? () {},
@@ -235,7 +235,7 @@ class UserProfileCard extends StatelessWidget {
               ),
               AppIconButton(
                 icon: const Icon(
-                  Icons.local_play_rounded,
+                  CustomIcon.withdrawBoldIcon,
                   color: AppColors.primary,
                 ),
                 onTap: onTapWithDrawButton ?? () {},

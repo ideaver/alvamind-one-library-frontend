@@ -2,6 +2,7 @@ import 'package:alvamind_library/app/theme/app_sizes.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../atom/app_statistic_square.dart';
 
@@ -43,7 +44,7 @@ class _OutletSummaryBodyState extends State<OutletSummaryBody> {
           AppColors.blueLv2,
           AppColors.blueLv1
         ],
-        icon: Icons.dashboard,
+        icon: CustomIcon.speakerIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 18,
       ),
@@ -55,7 +56,7 @@ class _OutletSummaryBodyState extends State<OutletSummaryBody> {
           Color(0XFFFB9400),
           AppColors.orangeLv1,
         ],
-        icon: Icons.dashboard,
+        icon: Icons.person,
         iconColor: AppColors.primary,
         borderRadiusCircle: 18,
       ),
@@ -67,7 +68,7 @@ class _OutletSummaryBodyState extends State<OutletSummaryBody> {
           AppColors.greenLv2,
           AppColors.greenLv1
         ],
-        icon: Icons.dashboard,
+        icon: CustomIcon.threeUserBoldIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 18,
       ),
@@ -79,7 +80,7 @@ class _OutletSummaryBodyState extends State<OutletSummaryBody> {
           AppColors.redLv2,
           AppColors.redLv1
         ],
-        icon: Icons.dashboard,
+        icon: CustomIcon.documentBoldIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 15,
       ),

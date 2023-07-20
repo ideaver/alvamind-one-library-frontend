@@ -40,8 +40,8 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
       title: 'Tab Bar Detail Outlet',
       widget: TabBarDetailOutlet(
         leftIcon: const [
-          Icons.insert_chart_outlined_rounded,
-          Icons.access_time_sharp,
+          CustomIcon.chartCurvedIcon,
+          CustomIcon.timesquareIcon,
           CustomIcon.documentIcon,
           CustomIcon.documentIcon,
           Icons.image_outlined,
@@ -69,10 +69,10 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
       title: 'Tab Bar Detail User Profile',
       widget: TabBarDetailOutlet(
         leftIcon: const [
-          Icons.insert_chart_outlined_rounded,
-          Icons.access_time_sharp,
-          Icons.access_time_sharp,
-          Icons.access_time_sharp,
+          CustomIcon.chartCurvedIcon,
+          CustomIcon.timesquareIcon,
+          CustomIcon.timesquareIcon,
+          CustomIcon.timesquareIcon,
           CustomIcon.documentIcon,
           Icons.star_border_rounded,
           Icons.image_outlined,
@@ -99,10 +99,10 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
       title: 'Tab Bar Detail Employee',
       widget: TabBarDetailOutlet(
         leftIcon: const [
-          Icons.insert_chart_outlined_rounded,
-          Icons.access_time_sharp,
-          Icons.access_time_sharp,
-          Icons.access_time_sharp,
+          CustomIcon.chartCurvedIcon,
+          CustomIcon.timesquareIcon,
+          CustomIcon.timesquareIcon,
+          CustomIcon.timesquareIcon,
         ],
         listTabBar: const [
           'Ringkasan',
@@ -122,9 +122,9 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
       title: 'Tab Bar Detail Inventori',
       widget: TabBarDetailOutlet(
         leftIcon: const [
-          Icons.insert_chart_outlined_rounded,
+          CustomIcon.chartCurvedIcon,
           CustomIcon.boxIcon,
-          Icons.access_time_sharp,
+          CustomIcon.timesquareIcon,
         ],
         listTabBar: const [
           'Ringkasan',

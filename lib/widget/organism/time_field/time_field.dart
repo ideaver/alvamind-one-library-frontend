@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
@@ -8,6 +9,26 @@ import '../../molecule/app_chips.dart';
 import '../../molecule/app_text_field.dart';
 
 class TimeField extends StatefulWidget {
+  final void Function(String) onChangedStartCalendar;
+  final void Function()? onEditingCompleteStartCalendar;
+  final void Function(String) onChangedEndCalendar;
+  final void Function()? onEditingCompleteEndCalendar;
+  final void Function(String) onChangedStartTime;
+  final void Function()? onEditingCompleteStartTime;
+  final void Function(String) onChangedEndTime;
+  final void Function()? onEditingCompleteEndTime;
+
+  const TimeField({
+    required this.onChangedEndCalendar,
+    required this.onChangedStartCalendar,
+    this.onEditingCompleteEndCalendar,
+    this.onEditingCompleteStartCalendar,
+    required this.onChangedEndTime,
+    required this.onChangedStartTime,
+    this.onEditingCompleteEndTime,
+    this.onEditingCompleteStartTime,
+  });
+
   @override
   State<TimeField> createState() => _TimeFieldState();
 }
@@ -22,13 +43,21 @@ class _TimeFieldState extends State<TimeField> {
       child: Column(
         children: [
           timeFieldChild(
-            Icons.calendar_month_sharp,
+            CustomIcon.calendarIcon,
+            widget.onChangedStartCalendar,
+            widget.onEditingCompleteStartCalendar ?? () {},
+            widget.onChangedStartCalendar,
+            widget.onEditingCompleteEndCalendar ?? () {},
           ),
           SizedBox(
             height: AppSizes.padding,
           ),
           timeFieldChild(
             Icons.access_time,
+            widget.onChangedStartTime,
+            widget.onEditingCompleteStartTime ?? () {},
+            widget.onChangedStartTime,
+            widget.onEditingCompleteEndTime ?? () {},
           ),
           SizedBox(
             height: AppSizes.padding,
@@ -72,7 +101,13 @@ class _TimeFieldState extends State<TimeField> {
     );
   }
 
-  Widget timeFieldChild(IconData icon) {
+  Widget timeFieldChild(
+    IconData icon,
+    void Function(String) onChangedStart,
+    void Function() onEditingCompleteStart,
+    void Function(String) onChangedEnd,
+    void Function() onEditingCompleteEnd,
+  ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -93,7 +128,8 @@ class _TimeFieldState extends State<TimeField> {
                 hintText: 'Mulai...',
                 suffixIcon: icon,
                 iconsColor: AppColors.black,
-                onEditingComplete: () {},
+                onChanged: onChangedStart,
+                onEditingComplete: onEditingCompleteStart,
               ),
             ],
           ),
@@ -118,7 +154,8 @@ class _TimeFieldState extends State<TimeField> {
                 hintText: 'Selesai...',
                 suffixIcon: icon,
                 iconsColor: AppColors.black,
-                onEditingComplete: () {},
+                onChanged: onChangedEnd,
+                onEditingComplete: onEditingCompleteEnd,
               ),
             ],
           ),

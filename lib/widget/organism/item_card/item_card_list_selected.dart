@@ -12,7 +12,7 @@ import '../../molecule/app_icon_button.dart';
 import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_progress_line.dart';
 
-class ItemCardListSelected extends StatelessWidget {
+class ItemCardListSelected extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final bool? isList;
   final bool? isSelected;
@@ -30,10 +30,12 @@ class ItemCardListSelected extends StatelessWidget {
   final String? labelingText;
   final String? starImageCount;
   final double? labelingCount;
+  final Color? selectedButtonColor;
   final List<BoxShadow>? boxShadow;
   final void Function()? onTapRightButton;
   final void Function()? onTapLeftButton;
   final void Function()? onTapCard;
+  final void Function()? onTapSelectedButton;
 
   const ItemCardListSelected({
     super.key,
@@ -58,39 +60,46 @@ class ItemCardListSelected extends StatelessWidget {
     this.isStatus = false,
     this.onTapCard,
     this.boxShadow,
+    this.selectedButtonColor,
+    this.onTapSelectedButton,
   });
 
+  @override
+  State<ItemCardListSelected> createState() => _ItemCardListSelectedState();
+}
+
+class _ItemCardListSelectedState extends State<ItemCardListSelected> {
   @override
   Widget build(BuildContext context) {
     return Ink(
       decoration: BoxDecoration(
-        color: AppColors.primary,
+        color: widget.isSelected == true ? widget.selectedButtonColor ?? AppColors.primary : AppColors.transparent,
         borderRadius: BorderRadius.circular(30),
-        boxShadow: boxShadow ?? [],
+        boxShadow: widget.boxShadow ?? [],
       ),
       child: Padding(
-        padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.all(0),
+        padding: widget.isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.all(0),
         child: Column(
           children: [
             AppInkContainer(
-              onTap: onTapCard ?? () {},
-              padding: padding ?? EdgeInsets.all(AppSizes.padding),
+              onTap: widget.onTapCard ?? () {},
+              padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
               backgroundColor: AppColors.white,
               borderRadius: BorderRadius.circular(30),
               child: horizontalMode(),
             ),
-            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
-            isSelected == true
+            widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+            widget.isSelected == true
                 ? AppButton(
                     padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 4),
                     text: 'Dipilih',
-                    borderColor: AppColors.primary,
+                    borderColor: AppColors.transparent,
                     rightIcon: Icons.check_box_rounded,
-                    borderWidth: 0,
-                    onTap: () {},
+                    buttonColor: widget.selectedButtonColor ?? AppColors.primary,
+                    onTap: widget.onTapSelectedButton ?? () {},
                   )
                 : const SizedBox.shrink(),
-            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+            widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
           ],
         ),
       ),
@@ -128,7 +137,7 @@ class ItemCardListSelected extends StatelessWidget {
             )
           ],
         ),
-        isStatus == true ? buttonDown() : const SizedBox.shrink(),
+        widget.isStatus == true ? buttonDown() : const SizedBox.shrink(),
       ],
     );
   }
@@ -143,14 +152,14 @@ class ItemCardListSelected extends StatelessWidget {
         ),
         //
         // isList
-        isStatus == true
+        widget.isStatus == true
             ? AppProgressLine(
-                value: labelingCount ?? 20,
+                value: widget.labelingCount ?? 20,
                 maxValue: 100,
-                label: labelingText ?? 'Labeling',
+                label: widget.labelingText ?? 'Labeling',
               )
             : const SizedBox.shrink(),
-        isStatus == true
+        widget.isStatus == true
             ? SizedBox(
                 height: AppSizes.padding,
               )
@@ -162,8 +171,8 @@ class ItemCardListSelected extends StatelessWidget {
           children: [
             Expanded(
               child: AppButton(
-                onTap: onTapLeftButton ?? () {},
-                text: textLeftButton ?? '',
+                onTap: widget.onTapLeftButton ?? () {},
+                text: widget.textLeftButton ?? '',
                 rounded: true,
                 borderWidth: 2,
                 borderColor: AppColors.primary,
@@ -177,11 +186,11 @@ class ItemCardListSelected extends StatelessWidget {
             ),
             Expanded(
               child: AppButton(
-                onTap: onTapRightButton ?? () {},
+                onTap: widget.onTapRightButton ?? () {},
                 padding: EdgeInsets.symmetric(
                   vertical: AppSizes.padding / 2.5,
                 ),
-                text: textRightButton ?? '',
+                text: widget.textRightButton ?? '',
                 textColor: AppColors.primary,
                 buttonColor: AppColors.white,
                 borderWidth: 2,
@@ -201,10 +210,10 @@ class ItemCardListSelected extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          title,
+          widget.title,
           style: AppTextStyle.bold(size: 20),
         ),
-        isList == true ? heartButton() : const SizedBox.shrink(),
+        widget.isList == true ? heartButton() : const SizedBox.shrink(),
       ],
     );
   }
@@ -220,7 +229,7 @@ class ItemCardListSelected extends StatelessWidget {
               width: AppSizes.padding / 2,
             ),
             Text(
-              typeItem ?? 'Pakaian',
+              widget.typeItem ?? 'Pakaian',
               style: AppTextStyle.regular(
                 size: 14,
               ),
@@ -240,7 +249,7 @@ class ItemCardListSelected extends StatelessWidget {
               width: AppSizes.padding / 2,
             ),
             Text(
-              timeWork ?? '3 Hari Kerja',
+              widget.timeWork ?? '3 Hari Kerja',
               style: AppTextStyle.regular(
                 size: 14,
               ),
@@ -252,7 +261,7 @@ class ItemCardListSelected extends StatelessWidget {
   }
 
   Widget customIcon4Circle() {
-    return Column(
+    return const Column(
       children: [
         Row(
           children: [
@@ -315,7 +324,7 @@ class ItemCardListSelected extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
-          textPrice ?? '',
+          widget.textPrice ?? '',
           style: AppTextStyle.bold(
             size: 24,
             color: AppColors.primary,
@@ -324,7 +333,7 @@ class ItemCardListSelected extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(4.0),
           child: Text(
-            statusPrice ?? '',
+            widget.statusPrice ?? '',
             style: AppTextStyle.medium(
               size: 10,
               color: AppColors.blackLv4,
@@ -335,15 +344,21 @@ class ItemCardListSelected extends StatelessWidget {
     );
   }
 
+  IconData heartIcon = CustomIcon.heartIcon;
+
   Widget heartButton() {
     return AppIconButton(
       padding: EdgeInsets.all(0),
       buttonColor: AppColors.transparent,
-      icon: const Icon(
-        CustomIcon.heartIcon,
+      icon: Icon(
+        heartIcon,
         color: AppColors.primary,
       ),
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
+        });
+      },
     );
   }
 }

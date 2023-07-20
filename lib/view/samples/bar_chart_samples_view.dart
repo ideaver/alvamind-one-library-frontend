@@ -5,6 +5,7 @@ import '../../app/theme/app_sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../widget/organism/bar_chart/bar_chart.dart';
+import '../../widget/organism/bar_chart/bar_chart_group_data.dart';
 import '../../widget/organism/bar_chart/chart.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 
@@ -42,73 +43,68 @@ class _BarChartSamplesViewState extends State<BarChartSamplesView> {
     return SampleWrapper(
       title: 'Bar Chart Omzet',
       widget: BarChart(
-        textTypeChart: 'Omzet',
-        textDateRange: '1 Jan 2023 - 31 Juli 2023',
-        countTotal: 'Rp. 687.375.337',
-        countTransaction: '1000',
-        tagBar: TagsOrganism(
-          listChips: const [
-            'Drop Service',
-            'Self Service',
-            'Delivery',
-            'Home Service',
-          ],
-          selected: -1,
-          onTap: (value) {
-            // TODO
-            setState(() {
-              tagSelected = value;
-            });
-          },
-        ),
-        barChart: tagSelected == 0
-            ? Chart(
-                chartData: [
-                  ChartData('Jan', 14, 11, 18, 23),
-                  ChartData('Feb', 18, 6, 6, 24),
-                  ChartData('Mar', 16, 10, 15, 20),
-                  ChartData('Apr', 12, 10, 14, 20),
-                  ChartData('Mei', 10, 16, 8, 14),
-                  ChartData('Jun', 18, 16, 18, 24),
-                  ChartData('Jul', 21, 16, 8, 8),
-                ],
-              )
-            : tagSelected == 1
-                ? Chart(
-                    chartData: [
-                      ChartData('Jan', 12, 10, 14, 20),
-                      ChartData('Feb', 14, 12, 18, 23),
-                      ChartData('Mar', 16, 10, 15, 20),
-                      ChartData('Apr', 18, 26, 18, 24),
-                      ChartData('Mei', 18, 4, 6, 24),
-                      ChartData('Jun', 10, 6, 8, 14),
-                      ChartData('Jul', 51, 16, 8, 8),
-                    ],
-                  )
-                : tagSelected == 2
-                    ? Chart(
-                        chartData: [
-                          ChartData('Jan', 18, 16, 18, 24),
-                          ChartData('Feb', 12, 10, 14, 20),
-                          ChartData('Mar', 21, 16, 8, 8),
-                          ChartData('Apr', 18, 6, 6, 24),
-                          ChartData('Mei', 16, 10, 15, 20),
-                          ChartData('Jun', 10, 16, 8, 14),
-                          ChartData('Jul', 14, 11, 18, 23),
-                        ],
-                      )
-                    : Chart(
-                        chartData: [
-                          ChartData('Jan', 12, 10, 14, 20),
-                          ChartData('Feb', 14, 11, 18, 23),
-                          ChartData('Mar', 16, 10, 15, 20),
-                          ChartData('Apr', 18, 16, 18, 24),
-                          ChartData('Mei', 18, 6, 6, 24),
-                          ChartData('Jun', 10, 16, 8, 14),
-                          ChartData('Jul', 21, 16, 8, 8),
-                        ],
-                      ),
-      ),
+          textTypeChart: 'Omzet',
+          textDateRange: '1 Jan 2023 - 31 Juli 2023',
+          countTotal: 'Rp. 687.375.337',
+          countTransaction: '1000',
+          tagBar: TagsOrganism(
+            listChips: const [
+              'Drop Service',
+              'Self Service',
+              'Delivery',
+              'Home Service',
+            ],
+            selected: -1,
+            onTap: (value) {
+              // TODO
+              setState(() {
+                tagSelected = value;
+              });
+            },
+          ),
+          barChart: tagSelected == 0
+              ? Chart(
+                  listValueChart: [
+                    generateGroupDataOmzet(0, 1, 2, 2, 2),
+                    generateGroupDataOmzet(1, 2, 1, 1.2, 2),
+                    generateGroupDataOmzet(2, 1, 2, 1.2, 2),
+                    generateGroupDataOmzet(3, 2, 2, 1.1, 2),
+                    generateGroupDataOmzet(4, 2, 1, 1.4, 2),
+                    generateGroupDataOmzet(5, 2, 2, 1.4, 2),
+                  ],
+                )
+              : tagSelected == 1
+                  ? Chart(
+                      listValueChart: [
+                        generateGroupDataOmzet(0, 1, 2, 2, 2),
+                        generateGroupDataOmzet(1, 2, 1, 1.2, 2),
+                        generateGroupDataOmzet(2, 2, 2, 1.4, 2),
+                        generateGroupDataOmzet(3, 1, 2, 1.2, 2),
+                        generateGroupDataOmzet(4, 2, 1, 1.4, 2),
+                        generateGroupDataOmzet(5, 2, 2, 1.1, 2),
+                      ],
+                    )
+                  : tagSelected == 2
+                      ? Chart(
+                          listValueChart: [
+                            generateGroupDataOmzet(0, 2, 1, 1.2, 2),
+                            generateGroupDataOmzet(1, 1, 2, 2, 2),
+                            generateGroupDataOmzet(2, 2, 2, 1.1, 2),
+                            generateGroupDataOmzet(3, 2, 2, 1.4, 2),
+                            generateGroupDataOmzet(4, 1, 2, 1.2, 2),
+                            generateGroupDataOmzet(5, 2, 1, 1.4, 2),
+                          ],
+                        )
+                      : Chart(
+                          listValueChart: [
+                            generateGroupDataOmzet(0, 2, 1, 1.2, 2),
+                            generateGroupDataOmzet(1, 2, 1, 1.4, 2),
+                            generateGroupDataOmzet(2, 1, 2, 1.2, 2),
+                            generateGroupDataOmzet(3, 1, 2, 2, 2),
+                            generateGroupDataOmzet(4, 2, 2, 1.1, 2),
+                            generateGroupDataOmzet(5, 2, 2, 1.4, 2),
+                          ],
+                        )),
     );
   }
 
@@ -116,46 +112,45 @@ class _BarChartSamplesViewState extends State<BarChartSamplesView> {
     return SampleWrapper(
       title: 'Bar Chart Laba',
       widget: BarChart(
-          textTypeChart: 'Laba Rugi',
-          textDateRange: '1 Jan 2023 - 31 Juli 2023',
-          countTotal: '- Rp687.375.337',
-          countTotalColor: AppColors.redLv1,
-          countTransaction: '1000',
-          tagBar: TagsOrganism(
-            listChips: const [
-              'Pemasukan',
-              'Pengeluaran',
-            ],
-            onTap: (value) {
-              // TODO
-              setState(() {
-                tagSelected2 = value;
-              });
-            },
-          ),
-          barChart: tagSelected2 == 0
-              ? Chart(
-                  chartData: [
-                    ChartData('Jan', 14, 11, 18, 23),
-                    ChartData('Feb', 18, 6, 6, 24),
-                    ChartData('Mar', 16, 10, 15, 20),
-                    ChartData('Apr', 12, 10, 14, 20),
-                    ChartData('Mei', 10, 16, 8, 14),
-                    ChartData('Jun', 18, 16, 18, 24),
-                    ChartData('Jul', 21, 16, 8, 8),
-                  ],
-                )
-              : Chart(
-                  chartData: [
-                    ChartData('Jan', 12, 10, 14, 20),
-                    ChartData('Feb', 14, 12, 18, 23),
-                    ChartData('Mar', 16, 10, 15, 20),
-                    ChartData('Apr', 18, 26, 18, 24),
-                    ChartData('Mei', 18, 4, 6, 24),
-                    ChartData('Jun', 10, 6, 8, 14),
-                    ChartData('Jul', 51, 16, 8, 8),
-                  ],
-                )),
+        textTypeChart: 'Laba Rugi',
+        textDateRange: '1 Jan 2023 - 31 Juli 2023',
+        countTotal: '- Rp687.375.337',
+        countTotalColor: AppColors.redLv1,
+        countTransaction: '1000',
+        tagBar: TagsOrganism(
+          listChips: const [
+            'Pemasukan',
+            'Pengeluaran',
+          ],
+          onTap: (value) {
+            // TODO
+            setState(() {
+              tagSelected2 = value;
+            });
+          },
+        ),
+        barChart: tagSelected2 == 0
+            ? Chart(
+                listValueChart: [
+                  generateGroupDataOmzet(0, 1, 2, 2, 2),
+                  generateGroupDataOmzet(1, 2, 2, 1.1, 2),
+                  generateGroupDataOmzet(4, 2, 2, 1.4, 2),
+                  generateGroupDataOmzet(2, 2, 1, 1.4, 2),
+                  generateGroupDataOmzet(3, 1, 2, 1.2, 2),
+                  generateGroupDataOmzet(5, 2, 1, 1.2, 2),
+                ],
+              )
+            : Chart(
+                listValueChart: [
+                  generateGroupDataOmzet(0, 1, 2, 2, 2),
+                  generateGroupDataOmzet(1, 1, 2, 1.2, 2),
+                  generateGroupDataOmzet(2, 2, 1, 1.4, 2),
+                  generateGroupDataOmzet(3, 2, 2, 1.1, 2),
+                  generateGroupDataOmzet(4, 2, 2, 1.4, 2),
+                  generateGroupDataOmzet(5, 2, 1, 1.2, 2),
+                ],
+              ),
+      ),
     );
   }
 }

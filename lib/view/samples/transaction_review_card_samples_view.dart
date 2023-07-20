@@ -42,7 +42,7 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
     return SampleWrapper(
       title: 'List Card Progress',
       widget: ListCard(
-        leftIcon: CustomIcon.walletIcon,
+        leftIcon: CustomIcon.walletBoldIcon,
         rightIcon: Icons.chevron_right_rounded,
         title: 'Selasa, 23 Juni 2023',
         subtitle: 'Status Complain',
@@ -61,7 +61,7 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
     return SampleWrapper(
       title: 'List Card Flow',
       widget: ListCardFlow(
-        leftIcon: CustomIcon.walletIcon,
+        leftIcon: Icons.show_chart_rounded,
         leftTitle: 'Inflow',
         title: 'Rp 10.123.567',
         subtitle: '+10% Naik dari bulan lalu',
@@ -88,7 +88,7 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
   }
 
   Widget cardReview() {
-    return SampleWrapper(
+    return const SampleWrapper(
       title: 'Card Review',
       widget: CardReview(
         numberStar: 4,

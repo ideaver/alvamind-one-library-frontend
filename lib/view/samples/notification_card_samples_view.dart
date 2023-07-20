@@ -45,7 +45,7 @@ class _NotificationCardSamplesViewState extends State<NotificationCardSamplesVie
         timeNotification: '20:49 PM',
         iconColor: AppColors.primary,
         backgroundColorIcon: AppColors.blueLv5,
-        iconNotification: CustomIcon.documentIcon,
+        iconNotification: CustomIcon.documentBoldIcon,
         textNotification: 'Selamat pesanan anda telah kami buat. anda bisa langsung mengceknya.',
         onTap: () {
           // TODO
@@ -64,7 +64,7 @@ class _NotificationCardSamplesViewState extends State<NotificationCardSamplesVie
         timeNotification: '20:49 PM',
         iconColor: AppColors.primary,
         backgroundColorIcon: AppColors.blueLv5,
-        iconNotification: CustomIcon.documentIcon,
+        iconNotification: CustomIcon.documentBoldIcon,
         textNotification: 'Selamat pesanan anda telah kami buat. anda bisa langsung mengceknya.',
         onTap: () {
           // TODO

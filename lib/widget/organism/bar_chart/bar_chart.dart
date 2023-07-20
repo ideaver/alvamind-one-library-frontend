@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:alvamind_library/widget/molecule/app_card_container.dart';
 import 'package:flutter/material.dart';
 import 'package:alvamind_library/app/theme/app_text_style.dart';
@@ -55,7 +56,7 @@ class BarChart extends StatelessWidget {
                   AppIconButton(
                       buttonColor: AppColors.blueLv5,
                       icon: const Icon(
-                        Icons.insert_chart_outlined_rounded,
+                        CustomIcon.chartBoldIcon,
                         color: AppColors.primary,
                       ),
                       onTap: () {}),
