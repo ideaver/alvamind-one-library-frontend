@@ -52,6 +52,7 @@ class _TabsContainerSamplesViewState extends State<TabsContainerSamplesView> {
       title: 'Outlet Tab Container',
       widget: AppCardContainer(
         padding: EdgeInsets.all(0),
+        backgroundColor: AppColors.transparent,
         child: Column(
           children: [
             TabBarDetailOutlet(

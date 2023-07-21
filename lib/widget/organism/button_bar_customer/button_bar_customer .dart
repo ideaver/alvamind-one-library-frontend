@@ -177,7 +177,7 @@ class ButtonBarCustomer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                  height: 60,
+                  height: 65,
                   width: MediaQuery.of(context).size.width - AppSizes.padding * 4,
                   child: GridView.builder(
                     physics: NeverScrollableScrollPhysics(),

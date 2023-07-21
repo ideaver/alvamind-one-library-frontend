@@ -23,6 +23,7 @@ class CommentListCard extends StatelessWidget {
   final void Function()? functionLike;
   final void Function()? functionRespon;
   final void Function()? functionRightButton;
+  final EdgeInsets? padding;
 
   const CommentListCard({
     super.key,
@@ -39,14 +40,16 @@ class CommentListCard extends StatelessWidget {
     this.textComment,
     this.imageAvatar,
     this.countLike,
+    this.padding,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(
-        AppSizes.padding,
-      ),
+      padding: padding ??
+          EdgeInsets.all(
+            AppSizes.padding,
+          ),
       child: Column(
         children: [
           headerComment(),
