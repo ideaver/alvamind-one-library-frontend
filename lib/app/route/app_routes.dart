@@ -140,7 +140,6 @@ class AppRoutes {
     TableOrganismSamplesView.routeName: (context) => const TableOrganismSamplesView(),
     TableWithExportFilterSamplesView.routeName: (context) => const TableWithExportFilterSamplesView(),
     BarChartSamplesView.routeName: (context) => const BarChartSamplesView(),
-    OutletSummaryBodySamplesView.routeName: (context) => const OutletSummaryBodySamplesView(),
     ReviewTabsSamplesView.routeName: (context) => const ReviewTabsSamplesView(),
     GalleryTabsSamplesView.routeName: (context) => const GalleryTabsSamplesView(),
     TabsContainerSamplesView.routeName: (context) => const TabsContainerSamplesView(),
@@ -150,6 +149,7 @@ class AppRoutes {
     ComplainListBodySamplesView.routeName: (context) => const ComplainListBodySamplesView(),
     CustomerListBodySamplesView.routeName: (context) => const CustomerListBodySamplesView(),
     OperasionalListBodySamplesView.routeName: (context) => const OperasionalListBodySamplesView(),
+    OutletSummaryBodySamplesView.routeName: (context) => const OutletSummaryBodySamplesView(),
     UserProfileSummaryBodySamplesView.routeName: (context) => const UserProfileSummaryBodySamplesView(),
     OutletListBodySamplesView.routeName: (context) => const OutletListBodySamplesView(),
   };

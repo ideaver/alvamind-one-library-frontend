@@ -158,7 +158,7 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
             barChart: tagSelected == 0
                 ? Chart(
                     listValueChart: [
-                      generateGroupDataOmzet(0, 1, 2, 2, 2),
+                      generateGroupDataOmzet(0, 1, 3, 2, 2),
                       generateGroupDataOmzet(1, 2, 1, 1.2, 2),
                       generateGroupDataOmzet(2, 1, 2, 1.2, 2),
                       generateGroupDataOmzet(3, 2, 2, 1.1, 2),
@@ -190,10 +190,10 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
                           )
                         : Chart(
                             listValueChart: [
-                              generateGroupDataOmzet(0, 1, 2, 2, 2),
+                              generateGroupDataOmzet(0, 1, 1, 2, 2),
                               generateGroupDataOmzet(1, 2, 1, 1.2, 2),
                               generateGroupDataOmzet(2, 1, 2, 1.2, 2),
-                              generateGroupDataOmzet(3, 2, 2, 1.1, 2),
+                              generateGroupDataOmzet(3, 2, 1, 1.1, 2),
                               generateGroupDataOmzet(4, 2, 1, 1.4, 2),
                               generateGroupDataOmzet(5, 2, 2, 1.4, 2),
                             ],
@@ -222,7 +222,7 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
           barChart: tagSelected2 == 0
               ? Chart(
                   listValueChart: [
-                    generateGroupDataProfit(0, 4, 5),
+                    generateGroupDataProfit(0, 5, 5),
                     generateGroupDataProfit(1, 4, 2),
                     generateGroupDataProfit(4, 2, 2),
                     generateGroupDataProfit(2, 2, 1),

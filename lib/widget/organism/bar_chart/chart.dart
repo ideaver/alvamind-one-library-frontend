@@ -105,7 +105,15 @@ class Chart extends StatelessWidget {
                     ),
                   ),
                 ),
-                barTouchData: BarTouchData(enabled: true),
+                barTouchData: BarTouchData(
+                    enabled: true,
+                    touchTooltipData: BarTouchTooltipData(
+                        tooltipBgColor: AppColors.white,
+                        tooltipRoundedRadius: 10,
+                        tooltipBorder: const BorderSide(
+                          width: 1,
+                          color: AppColors.primary,
+                        ))),
                 borderData: FlBorderData(show: false),
                 gridData: const FlGridData(show: false),
                 barGroups: listValueChart,

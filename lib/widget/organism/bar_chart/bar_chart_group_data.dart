@@ -1,4 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
 
@@ -6,7 +7,7 @@ const homeServiceColor = AppColors.brownLv1;
 const deliveryColor = AppColors.orangeLv1;
 const selfServiceColor = AppColors.cyanLv1;
 const dropServiceColor = AppColors.primary;
-const betweenSpace = 0.2;
+const betweenSpace = -0.2;
 
 BarChartGroupData generateGroupDataOmzet(
   int x,
@@ -20,29 +21,41 @@ BarChartGroupData generateGroupDataOmzet(
     groupVertically: true,
     barRods: [
       BarChartRodData(
-        fromY: 0,
-        toY: homeService,
-        color: homeServiceColor,
-        width: 12,
-      ),
+          fromY: homeService + betweenSpace + dropService + betweenSpace + selfService + betweenSpace,
+          toY: homeService + betweenSpace + dropService + betweenSpace + selfService + betweenSpace + delivery,
+          color: deliveryColor,
+          width: 18,
+          borderSide: BorderSide(
+            width: 4,
+            color: AppColors.white,
+          )),
       BarChartRodData(
-        fromY: homeService + betweenSpace,
-        toY: homeService + betweenSpace + dropService,
-        color: dropServiceColor,
-        width: 12,
-      ),
+          fromY: homeService + betweenSpace + dropService + betweenSpace,
+          toY: homeService + betweenSpace + dropService + betweenSpace + selfService,
+          color: selfServiceColor,
+          width: 18,
+          borderSide: BorderSide(
+            width: 4,
+            color: AppColors.white,
+          )),
       BarChartRodData(
-        fromY: homeService + betweenSpace + dropService + betweenSpace,
-        toY: homeService + betweenSpace + dropService + betweenSpace + selfService,
-        color: selfServiceColor,
-        width: 12,
-      ),
+          fromY: homeService + betweenSpace,
+          toY: homeService + betweenSpace + dropService,
+          color: dropServiceColor,
+          width: 18,
+          borderSide: BorderSide(
+            width: 4,
+            color: AppColors.white,
+          )),
       BarChartRodData(
-        fromY: homeService + betweenSpace + dropService + betweenSpace + selfService + betweenSpace,
-        toY: homeService + betweenSpace + dropService + betweenSpace + selfService + betweenSpace + delivery,
-        color: deliveryColor,
-        width: 12,
-      ),
+          fromY: 0,
+          toY: homeService,
+          color: homeServiceColor,
+          width: 18,
+          borderSide: BorderSide(
+            width: 4,
+            color: AppColors.white,
+          )),
     ],
   );
 }
@@ -60,17 +73,23 @@ BarChartGroupData generateGroupDataProfit(
     groupVertically: true,
     barRods: [
       BarChartRodData(
-        fromY: 0,
-        toY: income,
-        color: incomeColor,
-        width: 12,
-      ),
+          fromY: income + betweenSpace,
+          toY: income + betweenSpace + spending,
+          color: spendingColor,
+          width: 18,
+          borderSide: BorderSide(
+            width: 4,
+            color: AppColors.white,
+          )),
       BarChartRodData(
-        fromY: income + betweenSpace,
-        toY: income + betweenSpace + spending,
-        color: spendingColor,
-        width: 12,
-      ),
+          fromY: 0,
+          toY: income,
+          color: incomeColor,
+          width: 18,
+          borderSide: BorderSide(
+            width: 4,
+            color: AppColors.white,
+          )),
     ],
   );
 }
