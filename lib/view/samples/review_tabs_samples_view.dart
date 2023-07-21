@@ -99,7 +99,7 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
                 subtitleUser: 'Occuptaion',
                 countLike: '431',
                 countStaruser: '${i + 3}',
-                imageAvatar: randomImage,
+                imageAvatar: 'https://picsum.photos/id/1$i/100/200',
                 textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
                 dateComment: '6 hours ago',
                 isImage: true,
@@ -108,8 +108,8 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
                     ...List.generate(3, (i) {
                       return Padding(
                         padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : EdgeInsets.all(0),
-                        child: const AppImage(
-                          image: randomImage,
+                        child: AppImage(
+                          image: 'https://picsum.photos/id/2$i/200/200',
                           width: 70,
                           height: 70,
                           borderRadius: 24,

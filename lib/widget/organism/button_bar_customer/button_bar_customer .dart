@@ -180,26 +180,25 @@ class ButtonBarCustomer extends StatelessWidget {
                   height: 60,
                   width: MediaQuery.of(context).size.width - AppSizes.padding * 4,
                   child: GridView.builder(
+                    physics: NeverScrollableScrollPhysics(),
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 5,
                     ),
                     itemBuilder: (_, index) => Container(
-                      padding: index != 2 ? EdgeInsets.only(top: AppSizes.padding / 3) : EdgeInsets.all(0),
+                      padding: index != 2 ? EdgeInsets.only(top: AppSizes.padding / 3) : const EdgeInsets.all(0),
                       child: listButton[index],
                     ),
                     itemCount: 5,
                   )),
             ],
           ),
-          SizedBox(height: AppSizes.padding / 1.2),
+          SizedBox(height: AppSizes.padding / 1.5),
           AppDivider(
-            padding: EdgeInsets.symmetric(
-              horizontal: AppSizes.padding * 6,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.padding * 6),
             thickness: 4,
             color: AppColors.blackLv7,
           ),
-          SizedBox(height: AppSizes.padding / 4),
+          SizedBox(height: AppSizes.padding / 2),
         ],
       ),
     );

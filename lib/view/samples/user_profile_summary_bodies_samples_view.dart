@@ -110,7 +110,7 @@ class _UserProfileSummaryBodySamplesViewState extends State<UserProfileSummaryBo
                               bottom: AppSizes.padding,
                             ),
                       child: ListCard(
-                        leftIcon: CustomIcon.walletIcon,
+                        leftIcon: CustomIcon.walletBoldIcon,
                         rightIcon: Icons.chevron_right_rounded,
                         title: 'Selasa, 23 Juni 2023',
                         subtitle: 'Status Complain',
@@ -154,7 +154,7 @@ class _UserProfileSummaryBodySamplesViewState extends State<UserProfileSummaryBo
                         leftItem: AppIconButton(
                             buttonColor: i == 0 ? AppColors.blueLv5 : AppColors.redLv5.withOpacity(0.3),
                             icon: Icon(
-                              CustomIcon.walletBoldIcon,
+                              i == 0 ? CustomIcon.walletBoldIcon : Icons.logout,
                               color: i == 0 ? AppColors.primary : AppColors.redLv1,
                               size: 16,
                             ),

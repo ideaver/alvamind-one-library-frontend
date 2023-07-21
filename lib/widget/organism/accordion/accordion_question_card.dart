@@ -25,7 +25,7 @@ class QuestionText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: padding == null
-          ? EdgeInsets.only(
+          ? const EdgeInsets.only(
               top: 16,
               bottom: 22,
               right: 22,

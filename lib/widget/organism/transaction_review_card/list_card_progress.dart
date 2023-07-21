@@ -18,6 +18,7 @@ class ListCard extends StatefulWidget {
   final bool? isSubtitle;
   final void Function()? onTapChevronButton;
   final void Function()? onTapCard;
+  final List<BoxShadow>? boxShadow;
   const ListCard({
     super.key,
     required this.title,
@@ -30,6 +31,7 @@ class ListCard extends StatefulWidget {
     this.leftIconColor,
     this.rightIconColor,
     this.isSubtitle = true,
+    this.boxShadow,
   });
 
   @override
@@ -42,14 +44,15 @@ class _ListCardState extends State<ListCard> {
     return AppInkContainer(
       onTap: widget.onTapCard ?? () {},
       backgroundColor: AppColors.white,
-      boxShadow: const [
-        BoxShadow(
-          color: AppColors.blackLv7,
-          offset: Offset(0, 4),
-          blurRadius: 60,
-          spreadRadius: 0,
-        ),
-      ],
+      boxShadow: widget.boxShadow ??
+          [
+            const BoxShadow(
+              color: AppColors.blackLv7,
+              offset: Offset(0, 4),
+              blurRadius: 60,
+              spreadRadius: 0,
+            ),
+          ],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

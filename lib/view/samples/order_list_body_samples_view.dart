@@ -83,7 +83,17 @@ class _OrderListBodySamplesViewState extends State<OrderListBodySamplesView> {
                     title: 'Alasan',
                     dateTime: '12 : 30 PM',
                     location: 'Tokyo, Jepang',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                    boxShadow: const [
+                      BoxShadow(
+                        color: AppColors.blackLv7,
+                        offset: Offset(0, 4),
+                        blurRadius: 60,
+                        spreadRadius: -10,
+                      ),
+                    ],
                     orderCard: OrderCard(
+                      image: 'https://picsum.photos/id/3$i/200/400',
                       padding: EdgeInsets.all(0),
                       backgroundColor: AppColors.transparent,
                       starImageCount: '50',

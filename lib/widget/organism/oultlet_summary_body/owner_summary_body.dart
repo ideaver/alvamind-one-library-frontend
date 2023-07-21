@@ -6,7 +6,7 @@ import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../atom/app_statistic_square.dart';
 
-class OutletSummaryBody extends StatefulWidget {
+class OwnerSummaryBody extends StatefulWidget {
   final int countMachine;
   final int countEmployees;
   final int countConsument;
@@ -15,7 +15,7 @@ class OutletSummaryBody extends StatefulWidget {
   final Widget statusComplainWidget;
   final Widget deleteButton;
 
-  const OutletSummaryBody({
+  const OwnerSummaryBody({
     required this.barChart,
     required this.deleteButton,
     required this.statusComplainWidget,
@@ -26,13 +26,13 @@ class OutletSummaryBody extends StatefulWidget {
   });
 
   @override
-  State<OutletSummaryBody> createState() => _OutletSummaryBodyState();
+  State<OwnerSummaryBody> createState() => _OwnerSummaryBodyState();
 }
 
 int tagSelected = 0;
 int tagSelected2 = 0;
 
-class _OutletSummaryBodyState extends State<OutletSummaryBody> {
+class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
   @override
   Widget build(BuildContext context) {
     List<Widget> listStatistic = [

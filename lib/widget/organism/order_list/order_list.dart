@@ -79,26 +79,28 @@ class _OrderListState extends State<OrderList> {
                       child: widget.map ?? const Center(),
                     ),
                     SizedBox(height: AppSizes.padding),
-                    AppExpansionListTile(
-                      title: widget.title ?? 'Alasan',
-                      expand: true,
-                      backgroundColor: Colors.white,
-                      boxShadow: const [
+                    AppCardContainer(
+                      padding: EdgeInsets.all(0),
+                      boxShadow: [
                         BoxShadow(
-                          color: AppColors.blackLv7,
+                          color: AppColors.blackLv7.withOpacity(0.5),
                           offset: Offset(0, 4),
-                          blurRadius: 40,
-                          spreadRadius: -10,
-                        ),
-                      ],
-                      children: [
-                        QuestionText(
-                          text: widget.description ??
-                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                          color: AppColors.black,
-                          padding: const EdgeInsets.all(0),
+                          blurRadius: 60,
+                          spreadRadius: 0,
                         )
                       ],
+                      child: AppExpansionListTile(
+                        title: widget.title ?? 'Alasan',
+                        expand: true,
+                        children: [
+                          QuestionText(
+                            text: widget.description ?? '',
+                            color: AppColors.black,
+                            backgroundColor: AppColors.transparent,
+                            padding: const EdgeInsets.all(0),
+                          )
+                        ],
+                      ),
                     ),
                     SizedBox(height: AppSizes.padding),
                   ],

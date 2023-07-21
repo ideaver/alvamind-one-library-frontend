@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_sizes.dart';
-import '../../widget/atom/app_image.dart';
 import '../../widget/molecule/app_image_ink.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 import 'sample_wrapper.dart';
@@ -68,7 +67,7 @@ class _GalleryTabsSamplesViewState extends State<GalleryTabsSamplesView> {
                 return Padding(
                   padding: EdgeInsets.all(AppSizes.padding / 3),
                   child: AppImageInk(
-                    image: randomImage,
+                    image: 'https://picsum.photos/id/2$index/200/200',
                   ),
                 );
               }),

@@ -11,10 +11,10 @@ import '../../molecule/app_progress_line.dart';
 import '../../molecule/app_tags.dart';
 
 class OrderCard extends StatelessWidget {
-  final String title;
+  final double? labelingCount;
+  final double? tagBorderWidth;
   final EdgeInsetsGeometry? padding;
-  final bool? isProgress;
-  final bool? isDone;
+  final String title;
   final String? dateDone;
   final String? textPrice;
   final String? statusPrice;
@@ -24,12 +24,11 @@ class OrderCard extends StatelessWidget {
   final String? textLeftButton;
   final String? textRightButton;
   final String? labelingText;
-  final double? labelingCount;
   final String? starImageCount;
+  final String? tagText;
+  final String? image;
   final Color? backgroundColor;
   final Color? tagColor;
-  final String? tagText;
-  final double? tagBorderWidth;
   final Color? tagBorderColor;
   final Color? tagTextColor;
   final Color? leftButtonColor;
@@ -38,6 +37,8 @@ class OrderCard extends StatelessWidget {
   final Color? leftButtonTextColor;
   final Color? rightButtonTextColor;
   final Color? rightButtonBorderColor;
+  final bool? isProgress;
+  final bool? isDone;
   final void Function()? onTapRightButton;
   final void Function()? onTapLeftButton;
 
@@ -72,6 +73,7 @@ class OrderCard extends StatelessWidget {
     this.rightButtonBorderColor,
     this.rightButtonColor,
     this.rightButtonTextColor,
+    this.image,
   });
 
   @override
@@ -215,7 +217,7 @@ class OrderCard extends StatelessWidget {
   Widget imageCard() {
     return AppCard(
       onTap: () {},
-      backgroundImage: randomImage,
+      backgroundImage: image ?? randomImage,
       height: 100,
       width: 100,
       borderRadius: 20,

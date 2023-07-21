@@ -1,27 +1,31 @@
-import 'package:alvamind_library/widget/organism/outlet_tab_bodies/outlet_summary_body.dart';
+import 'package:alvamind_library/widget/organism/oultlet_summary_body/owner_summary_body.dart';
+import 'package:alvamind_library/widget/organism/oultlet_summary_body/public_summary_body.dart';
 import 'package:flutter/material.dart';
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 
+import '../../widget/atom/app_image.dart';
 import '../../widget/molecule/app_button.dart';
 import '../../widget/organism/bar_chart/bar_chart.dart';
 import '../../widget/organism/bar_chart/bar_chart_group_data.dart';
 import '../../widget/organism/bar_chart/chart.dart';
+import '../../widget/organism/comments_and_reviews/comments_list.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
+import '../../widget/organism/transaction_review_card/card_review.dart';
 import '../../widget/organism/transaction_review_card/list_card_progress.dart';
 import 'sample_wrapper.dart';
 
-class OutletTabBodiesSamplesView extends StatefulWidget {
-  const OutletTabBodiesSamplesView({Key? key}) : super(key: key);
+class OutletSummaryBodySamplesView extends StatefulWidget {
+  const OutletSummaryBodySamplesView({Key? key}) : super(key: key);
 
-  static const routeName = '/organism-outlet-tab-bodies-samples';
+  static const routeName = '/organism-outlet-summary-body-samples';
 
   @override
-  State<OutletTabBodiesSamplesView> createState() => _OutletTabBodiesSamplesViewState();
+  State<OutletSummaryBodySamplesView> createState() => _OutletSummaryBodySamplesViewState();
 }
 
-class _OutletTabBodiesSamplesViewState extends State<OutletTabBodiesSamplesView> {
+class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,17 +35,18 @@ class _OutletTabBodiesSamplesViewState extends State<OutletTabBodiesSamplesView>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            outletSummaryBody(),
+            ownerSummary(),
+            publicSummary(),
           ],
         ),
       ),
     );
   }
 
-  Widget outletSummaryBody() {
+  Widget ownerSummary() {
     return SampleWrapper(
-      title: 'OutletSummaryBody',
-      widget: OutletSummaryBody(
+      title: 'Owner Summary',
+      widget: OwnerSummaryBody(
         countMachine: 15,
         countConsument: 100,
         countEmployees: 100,
@@ -66,6 +71,63 @@ class _OutletTabBodiesSamplesViewState extends State<OutletTabBodiesSamplesView>
           buttonColor: AppColors.redLv1.withOpacity(0.2),
           onTap: () {},
         ),
+      ),
+    );
+  }
+
+  Widget publicSummary() {
+    return SampleWrapper(
+      title: 'Public Summary',
+      widget: PublicSummaryBody(
+        termsCondtionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatioaboris nisi ut Selengkapnya...',
+        addressText: 'Grand City St. 100, New York, United States',
+        countImages: '30+',
+        images: [
+          ...List.generate(3, (i) {
+            return 'https://picsum.photos/id/5$i/100/200';
+          })
+        ],
+        onTapGalleryMore: () {
+          // TODO
+        },
+        onTapReviewMore: () {
+          // TODO
+        },
+        childrenReview: [
+          const CardReview(
+            numberStar: 4,
+            countStar: '4.6',
+            countReview: '120',
+          ),
+          SizedBox(height: AppSizes.padding * 2),
+          CommentListCard(
+            isComment: true,
+            titleUser: 'Shizuka Otomo',
+            subtitleUser: 'Occuptaion',
+            countLike: '431',
+            countStaruser: '0',
+            imageAvatar: randomImage,
+            textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+            dateComment: '6 hours ago',
+            isImage: true,
+            image: Row(
+              children: [
+                ...List.generate(3, (i) {
+                  return Padding(
+                    padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : EdgeInsets.all(0),
+                    child: AppImage(
+                      image: 'https://picsum.photos/id/1$i/100/200',
+                      width: 70,
+                      height: 70,
+                      borderRadius: 24,
+                      backgroundColor: AppColors.redLv5,
+                    ),
+                  );
+                }),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

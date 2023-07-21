@@ -39,6 +39,7 @@ class _OrderListSamplesViewState extends State<OrderListSamplesView> {
       widget: OrderList(
         title: 'Alasan',
         dateTime: '12 : 30 PM',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         location: 'Tokyo, Jepang',
         orderCard: OrderCard(
           padding: EdgeInsets.all(0),

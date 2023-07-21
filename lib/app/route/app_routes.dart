@@ -18,6 +18,7 @@ import '../../view/samples/dialog_samples_view.dart';
 import '../../view/samples/divider_samples_view.dart';
 import '../../view/samples/dotted_border_sample_view.dart';
 import '../../view/samples/dropdown_samples_view.dart';
+import '../../view/samples/employee_attedance_list_body_samples_viiew.dart';
 import '../../view/samples/gallery_tabs_samples_view.dart';
 import '../../view/samples/icon_button_samples_view.dart';
 import '../../view/samples/illustration_state_samples_view.dart';
@@ -37,7 +38,7 @@ import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_list_body_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/outlet_hero_samples_view.dart';
-import '../../view/samples/outlet_tab_bodies.dart';
+import '../../view/samples/outlet_summmary_body_samples_view.dart';
 import '../../view/samples/owner_outlet_card_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
 import '../../view/samples/pin_point_samples_view.dart';
@@ -135,12 +136,13 @@ class AppRoutes {
     TableOrganismSamplesView.routeName: (context) => const TableOrganismSamplesView(),
     TableWithExportFilterSamplesView.routeName: (context) => const TableWithExportFilterSamplesView(),
     BarChartSamplesView.routeName: (context) => const BarChartSamplesView(),
-    OutletTabBodiesSamplesView.routeName: (context) => const OutletTabBodiesSamplesView(),
+    OutletSummaryBodySamplesView.routeName: (context) => const OutletSummaryBodySamplesView(),
     ReviewTabsSamplesView.routeName: (context) => const ReviewTabsSamplesView(),
     GalleryTabsSamplesView.routeName: (context) => const GalleryTabsSamplesView(),
     TabsContainerSamplesView.routeName: (context) => const TabsContainerSamplesView(),
     ServiceTabsSamplesView.routeName: (context) => const ServiceTabsSamplesView(),
     OrderListBodySamplesView.routeName: (context) => const OrderListBodySamplesView(),
     UserProfileSummaryBodySamplesView.routeName: (context) => const UserProfileSummaryBodySamplesView(),
+    EmployeeAttedanceListBodySamplesView.routeName: (context) => const EmployeeAttedanceListBodySamplesView(),
   };
 }

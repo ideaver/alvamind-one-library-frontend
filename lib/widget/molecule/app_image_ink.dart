@@ -27,6 +27,7 @@ class AppImageInk extends StatelessWidget {
             color: color ?? AppColors.blueLv4,
             image: DecorationImage(
               image: NetworkImage(image),
+              fit: BoxFit.cover,
             )),
       ),
     );

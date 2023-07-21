@@ -83,7 +83,6 @@ class CustomIcon {
   static const IconData walletIcon = IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData threeUserIcon = IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData withdrawBoldIcon = IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData walletBoldIcon = IconData(0xe820, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sendBoldIcon = IconData(0xe821, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData voiceBoldIcon = IconData(0xe822, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData chatBoldIcon = IconData(0xe823, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -95,4 +94,5 @@ class CustomIcon {
   static const IconData chartCurvedIcon = IconData(0xe829, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData speakerIcon = IconData(0xe82a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData documentBoldIcon = IconData(0xe82b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData walletBoldIcon = IconData(0xe82c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -15,6 +15,7 @@ class UserProfileCard extends StatelessWidget {
   final String? countBalance;
   final String? employeePlace;
   final String? employeeJob;
+  final String? image;
 
   final bool? onlyEmployee;
   final bool? onlyBalance;
@@ -37,6 +38,7 @@ class UserProfileCard extends StatelessWidget {
     this.onTapWithDrawButton,
     this.onTapDetailButton,
     this.idUser,
+    this.image,
     this.nameUser,
     this.employeeJob,
     this.employeePlace,
@@ -162,8 +164,8 @@ class UserProfileCard extends StatelessWidget {
                 ),
               ],
             ),
-            const CircleAvatar(
-              backgroundImage: NetworkImage(randomImage),
+            CircleAvatar(
+              backgroundImage: NetworkImage(image ?? randomImage),
               maxRadius: 25,
             )
           ],

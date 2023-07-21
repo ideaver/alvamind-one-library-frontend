@@ -75,6 +75,7 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
           title: 'Alasan',
           dateTime: '12 : 30 PM',
           location: 'Tokyo, Jepang',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           boxShadow: const [
             BoxShadow(
               color: AppColors.blackLv7,
