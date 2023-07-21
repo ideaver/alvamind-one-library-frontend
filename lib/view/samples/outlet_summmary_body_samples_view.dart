@@ -101,6 +101,7 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
           ),
           SizedBox(height: AppSizes.padding * 2),
           CommentListCard(
+            padding: EdgeInsets.all(0),
             isComment: true,
             titleUser: 'Shizuka Otomo',
             subtitleUser: 'Occuptaion',

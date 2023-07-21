@@ -94,13 +94,14 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
           return Column(
             children: [
               CommentListCard(
+                padding: EdgeInsets.symmetric(vertical: AppSizes.padding),
                 isComment: true,
                 titleUser: dummyName[i],
                 subtitleUser: 'Occuptaion',
                 countLike: '431',
                 countStaruser: '${i + 3}',
                 imageAvatar: 'https://picsum.photos/id/1$i/100/200',
-                textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+                textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore o eiusmod tempor incididunt ut labore et dolore.',
                 dateComment: '6 hours ago',
                 isImage: true,
                 image: Row(

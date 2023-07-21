@@ -48,7 +48,7 @@ class CommentListCard extends StatelessWidget {
     return Container(
       padding: padding ??
           EdgeInsets.all(
-            AppSizes.padding,
+            0,
           ),
       child: Column(
         children: [
