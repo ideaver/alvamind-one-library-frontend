@@ -14,6 +14,8 @@ import '../../view/samples/chat_form_samples_view.dart';
 import '../../view/samples/checkbox_samples_view.dart';
 import '../../view/samples/chips_samples_view.dart';
 import '../../view/samples/comment_and_review_list_samples_view.dart';
+import '../../view/samples/complain_list_body_samples_view..dart';
+import '../../view/samples/customer_list_body_samples_view.dart';
 import '../../view/samples/dialog_samples_view.dart';
 import '../../view/samples/divider_samples_view.dart';
 import '../../view/samples/dotted_border_sample_view.dart';
@@ -33,11 +35,13 @@ import '../../view/samples/modal_samples_view.dart';
 import '../../view/samples/notification_card_samples_view.dart';
 import '../../view/samples/notification_list_body.dart';
 import '../../view/samples/operasional_card_samples_view.dart';
+import '../../view/samples/operasional_list_body_samples_view.dart';
 import '../../view/samples/order_card_samples_view.dart';
 import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_list_body_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/outlet_hero_samples_view.dart';
+import '../../view/samples/outlet_list_body_samples_view.dart';
 import '../../view/samples/outlet_summmary_body_samples_view.dart';
 import '../../view/samples/owner_outlet_card_samples_view.dart';
 import '../../view/samples/payment_samples_view.dart';
@@ -142,7 +146,11 @@ class AppRoutes {
     TabsContainerSamplesView.routeName: (context) => const TabsContainerSamplesView(),
     ServiceTabsSamplesView.routeName: (context) => const ServiceTabsSamplesView(),
     OrderListBodySamplesView.routeName: (context) => const OrderListBodySamplesView(),
-    UserProfileSummaryBodySamplesView.routeName: (context) => const UserProfileSummaryBodySamplesView(),
     EmployeeAttedanceListBodySamplesView.routeName: (context) => const EmployeeAttedanceListBodySamplesView(),
+    ComplainListBodySamplesView.routeName: (context) => const ComplainListBodySamplesView(),
+    CustomerListBodySamplesView.routeName: (context) => const CustomerListBodySamplesView(),
+    OperasionalListBodySamplesView.routeName: (context) => const OperasionalListBodySamplesView(),
+    UserProfileSummaryBodySamplesView.routeName: (context) => const UserProfileSummaryBodySamplesView(),
+    OutletListBodySamplesView.routeName: (context) => const OutletListBodySamplesView(),
   };
 }

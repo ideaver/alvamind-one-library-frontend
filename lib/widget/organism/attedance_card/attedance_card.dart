@@ -69,7 +69,7 @@ class AttedanceCard extends StatelessWidget {
                         color: AppColors.primary,
                       ),
                       borderRadius: 15,
-                      buttonColor: AppColors.blueLv4,
+                      buttonColor: AppColors.blueLv5,
                       onTap: () {},
                     ),
                     SizedBox(
@@ -107,7 +107,7 @@ class AttedanceCard extends StatelessWidget {
                         color: AppColors.primary,
                       ),
                       borderRadius: 15,
-                      buttonColor: AppColors.blueLv4,
+                      buttonColor: AppColors.blueLv5,
                       onTap: () {},
                     ),
                     SizedBox(

@@ -15,6 +15,7 @@ class OrderTypeInfo extends StatelessWidget {
   final double? backgroundSize;
   final bool? withOrder;
   final bool? onlyOrder;
+  final bool? isCustomer;
   final void Function()? deliveryButton;
   final void Function()? dropButton;
   final void Function()? selfButton;
@@ -31,6 +32,7 @@ class OrderTypeInfo extends StatelessWidget {
     this.fontSize,
     this.iconSize,
     this.onlyOrder = false,
+    this.isCustomer = false,
   });
 
   @override
@@ -70,7 +72,7 @@ class OrderTypeInfo extends StatelessWidget {
             : Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  detailInfo(countMachine ?? '', 'Mesin aktif'),
+                  detailInfo(countMachine ?? '', isCustomer == true ? 'Transaksi' : 'Mesin aktif'),
                   Container(
                     margin: const EdgeInsets.symmetric(
                       horizontal: 12,
@@ -79,7 +81,7 @@ class OrderTypeInfo extends StatelessWidget {
                     width: 1,
                     color: AppColors.blackLv4,
                   ),
-                  detailInfo(countCustomers ?? '', 'Konsumen'),
+                  detailInfo(countCustomers ?? '', isCustomer == true ? 'Ulasan' : 'Konsumen'),
                   Container(
                     margin: const EdgeInsets.symmetric(
                       horizontal: 12,
@@ -88,7 +90,7 @@ class OrderTypeInfo extends StatelessWidget {
                     width: 1,
                     color: AppColors.blackLv4,
                   ),
-                  detailInfo(countEmployees ?? '', 'Karyawan'),
+                  detailInfo(countEmployees ?? '', isCustomer == true ? 'Komplain' : 'Karyawan'),
                 ],
               ),
       ],
@@ -114,14 +116,18 @@ class OrderTypeInfo extends StatelessWidget {
         ),
         Row(
           children: [
-            const Icon(
-              Icons.circle,
-              size: 10,
-              color: AppColors.blackLv6,
-            ),
-            SizedBox(
-              width: AppSizes.padding / 4,
-            ),
+            isCustomer == true
+                ? const SizedBox.shrink()
+                : const Icon(
+                    Icons.circle,
+                    size: 10,
+                    color: AppColors.blackLv6,
+                  ),
+            isCustomer == true
+                ? const SizedBox.shrink()
+                : SizedBox(
+                    width: AppSizes.padding / 4,
+                  ),
             Text(
               subtitle,
               softWrap: true,

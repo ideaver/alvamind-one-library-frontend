@@ -31,6 +31,7 @@ class ItemCardListSelected extends StatefulWidget {
   final String? textRightButton;
   final String? labelingText;
   final String? starImageCount;
+  final String? image;
   final double? labelingCount;
   final Color? selectedButtonColor;
   final List<BoxShadow>? boxShadow;
@@ -66,6 +67,7 @@ class ItemCardListSelected extends StatefulWidget {
     this.onTapSelectedButton,
     this.rightItem,
     this.withCustomItem = false,
+    this.image,
   });
 
   @override
@@ -308,7 +310,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
   Widget imageCard(double width, double height) {
     return AppCard(
       onTap: () {},
-      backgroundImage: randomImage,
+      backgroundImage: widget.image ?? randomImage,
       height: width,
       width: height,
       borderRadius: 20,

@@ -40,10 +40,10 @@ class _OwnerOutletCardSamplesViewState extends State<OwnerOutletCardSamplesView>
       widget: OwnerOutletCard(
         title: 'Cuci Kering',
         starImageCount: '4.8',
-        isSelected: true,
         morePayment: 'Rp2.500',
         shuttlePayment: 'Free',
         textButton: 'Dipilih',
+        isSelected: true,
         functionButton: () {
           // TODO
         },
@@ -56,10 +56,10 @@ class _OwnerOutletCardSamplesViewState extends State<OwnerOutletCardSamplesView>
           address: 'Jl. Sukamenak DPR RI KOM...',
           isProfile: true,
           isOwner: true,
-          functionLeftButton: () {
+          onTapLeftButton: () {
             // TODO
           },
-          functionRightButton: () {
+          onTapRightButton: () {
             // TODO
           },
           detailInfoCard: OrderTypeInfo(

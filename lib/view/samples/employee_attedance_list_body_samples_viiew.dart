@@ -24,6 +24,7 @@ class _EmployeeAttedanceListBodySamplesViewState extends State<EmployeeAttedance
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('Employee Ateedance List Body Samples')),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(AppSizes.padding),
@@ -87,13 +88,13 @@ class _EmployeeAttedanceListBodySamplesViewState extends State<EmployeeAttedance
                   // TODO
                 },
               ),
-              SizedBox(height: AppSizes.padding),
+              SizedBox(height: AppSizes.padding * 1.5),
               const AppTags(
                 text: '2 Agustus 2023',
-                color: AppColors.blackLv6,
+                color: AppColors.blackLv8,
                 textColor: AppColors.blackLv3,
               ),
-              SizedBox(height: AppSizes.padding),
+              SizedBox(height: AppSizes.padding * 1.5),
               ...List.generate(3, (i) {
                 return Padding(
                   padding: i == 2
@@ -104,7 +105,11 @@ class _EmployeeAttedanceListBodySamplesViewState extends State<EmployeeAttedance
                   child: AttedanceCard(
                     dateAttedance: '2 Agustus 2023',
                     timeStart: '08:00 AM',
-                    timeEnd: '18:00 PM',
+                    timeEnd: i == 1
+                        ? '-'
+                        : i == 2
+                            ? '-'
+                            : '18:00 PM',
                     statusTags: AppTags(
                       text: i == 1
                           ? 'Terlambat'

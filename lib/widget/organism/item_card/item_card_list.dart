@@ -33,9 +33,12 @@ class ItemCardList extends StatefulWidget {
   final Color? tagColor;
   final String? dateProfileItem;
   final bool? isOwner;
+  final bool? isCustomer;
   final Widget? detailInfoCard;
-  final void Function()? functionRightButton;
-  final void Function()? functionLeftButton;
+  final String? image;
+  final List<BoxShadow>? boxShadow;
+  final void Function()? onTapRightButton;
+  final void Function()? onTapLeftButton;
   final void Function()? onTapCard;
 
   const ItemCardList({
@@ -44,14 +47,15 @@ class ItemCardList extends StatefulWidget {
     this.isVertical = false,
     this.isProfile = false,
     this.isOwner = false,
+    this.isCustomer = false,
     this.padding,
     this.dataProgress,
     this.address,
     this.dateProgress,
     this.isList,
     this.statusPrice,
-    this.functionLeftButton,
-    this.functionRightButton,
+    this.onTapLeftButton,
+    this.onTapRightButton,
     this.labelingText,
     this.labelingCount,
     this.statustProgressText,
@@ -64,6 +68,8 @@ class ItemCardList extends StatefulWidget {
     this.tagText,
     this.detailInfoCard,
     this.onTapCard,
+    this.boxShadow,
+    this.image,
   });
 
   @override
@@ -77,6 +83,7 @@ class _ItemCardListState extends State<ItemCardList> {
       onTap: widget.onTapCard ?? () {},
       padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
       backgroundColor: AppColors.white,
+      boxShadow: widget.boxShadow,
       borderRadius: BorderRadius.circular(30),
       child: widget.isVertical == true ? verticalMode() : horizontalMode(),
     );
@@ -177,13 +184,15 @@ class _ItemCardListState extends State<ItemCardList> {
                     widget.dateProfileItem ?? 'Berdiri 2023',
                     style: AppTextStyle.regular(size: 10),
                   ),
-                  AppTags(
-                    text: widget.tagText ?? 'Premium',
-                    color: widget.tagColor ?? AppColors.orangeLv1,
-                    fontSize: 10,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    borderRadius: 8,
-                  ),
+                  widget.isCustomer == true
+                      ? const SizedBox.shrink()
+                      : AppTags(
+                          text: widget.tagText ?? 'Premium',
+                          color: widget.tagColor ?? AppColors.orangeLv1,
+                          fontSize: 10,
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                          borderRadius: 8,
+                        ),
                 ],
               )
             : const SizedBox.shrink(),
@@ -200,7 +209,7 @@ class _ItemCardListState extends State<ItemCardList> {
               widget.title,
               style: AppTextStyle.bold(size: 20),
             ),
-            heartButton(),
+            widget.isCustomer == true ? const SizedBox.shrink() : heartButton(),
           ],
         ),
       ],
@@ -210,7 +219,7 @@ class _ItemCardListState extends State<ItemCardList> {
   Widget imageCard(double width, double height) {
     return AppCard(
       onTap: () {},
-      backgroundImage: randomImage,
+      backgroundImage: widget.image ?? randomImage,
       height: width,
       width: height,
       borderRadius: 20,
@@ -304,7 +313,7 @@ class _ItemCardListState extends State<ItemCardList> {
           children: [
             Expanded(
               child: AppButton(
-                onTap: widget.functionLeftButton ?? () {},
+                onTap: widget.onTapLeftButton ?? () {},
                 text: widget.textLeftButton ?? '',
                 rounded: true,
                 borderWidth: 2,
@@ -319,7 +328,7 @@ class _ItemCardListState extends State<ItemCardList> {
             ),
             Expanded(
               child: AppButton(
-                onTap: widget.functionRightButton ?? () {},
+                onTap: widget.onTapRightButton ?? () {},
                 padding: EdgeInsets.symmetric(
                   vertical: AppSizes.padding / 2.5,
                 ),
