@@ -2,6 +2,7 @@ import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
 import 'package:alvamind_library/widget/molecule/app_text_field.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
@@ -229,7 +230,7 @@ class _TableWithExportFilterSamplesViewState extends State<TableWithExportFilter
               AppIconButton(
                 borderRadius: 15,
                 icon: const Icon(
-                  Icons.sim_card_download_rounded,
+                  CustomIcon.paperDownloadIcon,
                   color: AppColors.white,
                 ),
                 onTap: () {},

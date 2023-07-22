@@ -154,7 +154,7 @@ class UserProfileCard extends StatelessWidget {
                     ),
                     AppIconButton(
                         icon: const Icon(
-                          Icons.copy_outlined,
+                          CustomIcon.copyIcon,
                           size: 16,
                           color: Colors.white,
                         ),

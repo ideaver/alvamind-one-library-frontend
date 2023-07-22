@@ -162,7 +162,7 @@ class _DummyContentState extends State<DummyContent> {
           bottom: 125,
           left: 170,
           child: Opacity(
-            opacity: 0.5,
+            opacity: 0.3,
             child: Image.asset(
               AppAssets.cubeImage,
               width: 100,
@@ -174,7 +174,7 @@ class _DummyContentState extends State<DummyContent> {
           top: 247,
           left: 223,
           child: Opacity(
-            opacity: 0.5,
+            opacity: 0.3,
             child: Image.asset(
               AppAssets.cubeImage,
               width: 100,
