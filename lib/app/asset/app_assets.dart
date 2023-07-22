@@ -100,4 +100,5 @@ class CustomIcon {
   static const IconData paperDownloadIcon = IconData(0xe82f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData copyIcon = IconData(0xe830, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData downloadIcon = IconData(0xe831, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData infoSquareIcon = IconData(0xe832, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -14,13 +14,17 @@ class PaymentCard extends StatefulWidget {
   final String? textTags;
   final String title;
   final String? subtitle;
-  final IconData? icon;
   final Color? iconColor;
   final Color? backgroundColor;
   final Color? titleColor;
   final Color? subtitleColor;
+  final IconData? icon;
+  final BorderRadius? borderRadius;
   final List<BoxShadow>? boxShadow;
+  final EdgeInsets? padding;
   final Widget? rightButton;
+  final TextStyle? titleStyle;
+  final TextStyle? subtitleStyle;
   final void Function()? onTap;
   final void Function()? onTapIconButton;
 
@@ -39,6 +43,10 @@ class PaymentCard extends StatefulWidget {
     this.backgroundColor,
     this.rightButton,
     this.boxShadow,
+    this.padding,
+    this.subtitleStyle,
+    this.titleStyle,
+    this.borderRadius,
     required this.title,
   });
 
@@ -50,9 +58,11 @@ class _PaymentCardState extends State<PaymentCard> {
   @override
   Widget build(BuildContext context) {
     return AppInkContainer(
+      padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
       boxShadow: widget.boxShadow ?? [],
       onTap: widget.onTap ?? () {},
       backgroundColor: widget.backgroundColor,
+      borderRadius: widget.borderRadius,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -71,9 +81,10 @@ class _PaymentCardState extends State<PaymentCard> {
                 children: [
                   Text(
                     widget.title,
-                    style: AppTextStyle.bold(
-                      size: 18,
-                    ),
+                    style: widget.titleStyle ??
+                        AppTextStyle.bold(
+                          size: 18,
+                        ),
                   ),
                   widget.subtitle != null
                       ? SizedBox(
@@ -83,10 +94,11 @@ class _PaymentCardState extends State<PaymentCard> {
                   widget.subtitle != null
                       ? Text(
                           widget.subtitle!,
-                          style: AppTextStyle.regular(
-                            size: 14,
-                            color: AppColors.blackLv5,
-                          ),
+                          style: widget.subtitleStyle ??
+                              AppTextStyle.regular(
+                                size: 14,
+                                color: AppColors.blackLv5,
+                              ),
                         )
                       : const SizedBox.shrink(),
                 ],

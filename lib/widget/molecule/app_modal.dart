@@ -1,6 +1,5 @@
+import 'package:alvamind_library/widget/molecule/app_range_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_core/theme.dart';
-import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
@@ -327,35 +326,22 @@ class _AppModalWidgetState extends State<AppModalWidget> {
     );
   }
 
-  SfRangeValues _values = const SfRangeValues(0, 5);
+  double _low = 5;
+  double _up = 10;
 
   Widget sliderWay() {
     return Padding(
-      padding: EdgeInsets.only(top: AppSizes.padding * 2),
-      child: SfRangeSliderTheme(
-        data: SfRangeSliderThemeData(
-          tooltipBackgroundColor: AppColors.primary,
-          thumbColor: AppColors.white,
-          thumbStrokeColor: AppColors.primary,
-          thumbStrokeWidth: 4,
-        ),
-        child: SfRangeSlider(
-          min: 0,
-          max: 10,
-          values: _values,
-          tooltipShape: const SfRectangularTooltipShape(),
-          tooltipTextFormatterCallback: (actualValue, formattedText) {
-            return '${actualValue.round()} KM';
-          },
-          enableTooltip: true,
-          shouldAlwaysShowTooltip: true,
-          onChanged: (dynamic values) {
+        padding: EdgeInsets.only(top: AppSizes.padding * 2),
+        child: AppRangeSlider(
+          lowerValue: _low,
+          upperValue: _up,
+          onDragging: (handlerIndex, lowerValue, upperValue) {
             setState(() {
-              _values = values;
+              _low = lowerValue;
+              _up = upperValue;
             });
+            // TODO
           },
-        ),
-      ),
-    );
+        ));
   }
 }

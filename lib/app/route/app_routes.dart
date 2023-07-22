@@ -40,6 +40,7 @@ import '../../view/samples/order_card_samples_view.dart';
 import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_list_body_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
+import '../../view/samples/outlet_hero_category_samples_view.dart';
 import '../../view/samples/outlet_hero_samples_view.dart';
 import '../../view/samples/outlet_list_body_samples_view.dart';
 import '../../view/samples/outlet_summmary_body_samples_view.dart';
@@ -136,6 +137,7 @@ class AppRoutes {
     BodySamplesView.routeName: (context) => const BodySamplesView(),
     ChatFormSamplesView.routeName: (context) => const ChatFormSamplesView(),
     OutletHeroSamplesView.routeName: (context) => const OutletHeroSamplesView(),
+    OutletHeroCategorySamplesView.routeName: (context) => const OutletHeroCategorySamplesView(),
     NotificationListBodySamplesView.routeName: (context) => const NotificationListBodySamplesView(),
     StepsSamplesView.routeName: (context) => const StepsSamplesView(),
     TabDetailOutletSamplesView.routeName: (context) => const TabDetailOutletSamplesView(),
