@@ -71,7 +71,9 @@ import '../../view/samples/toggle_samples_view.dart';
 import '../../view/samples/tool_tip_menu_samples_view.dart';
 import '../../view/samples/transaction_info_sample_view.dart';
 import '../../view/samples/transaction_review_card_samples_view.dart';
+import '../../view/samples/user_profile_container_employee_samples_view.dart';
 import '../../view/samples/user_profile_summary_bodies_samples_view.dart';
+import '../../view/samples/user_profille_container_samples_viiew.dart';
 
 // App routes
 class AppRoutes {
@@ -152,5 +154,7 @@ class AppRoutes {
     OutletSummaryBodySamplesView.routeName: (context) => const OutletSummaryBodySamplesView(),
     UserProfileSummaryBodySamplesView.routeName: (context) => const UserProfileSummaryBodySamplesView(),
     OutletListBodySamplesView.routeName: (context) => const OutletListBodySamplesView(),
+    UserProfileContainerSamplesView.routeName: (context) => const UserProfileContainerSamplesView(),
+    UserProfileContainerEmployeeSamplesView.routeName: (context) => const UserProfileContainerEmployeeSamplesView(),
   };
 }

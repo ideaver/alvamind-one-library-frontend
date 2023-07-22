@@ -150,7 +150,7 @@ class _TableOrganismSamplesViewState extends State<TableOrganismSamplesView> {
         TableModel(data: 'SO-23425', flex: 2),
         TableModel(
             expanded: false,
-            child: AppTags(
+            child: const AppTags(
               text: 'Berhasil',
               color: AppColors.transparent,
               textColor: AppColors.greenLv1,
