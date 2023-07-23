@@ -28,6 +28,7 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             modalPopUp(),
+            modalPopUpCustom(),
             modalPopUpWithMiniTitle(),
             modalPopUpWithAddress(),
             modalPopUpWithPrice(),
@@ -70,6 +71,32 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
                 child: AppButton(
                   onTap: () {},
                   text: 'Yes, Logout',
+                  rounded: true,
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget modalPopUpCustom() {
+    return SampleWrapper(
+      title: 'Modal PopUp Custom',
+      widget: AppButton(
+        text: 'Modal PopUp Custom',
+        onTap: () {
+          final navigator = Navigator.of(context);
+          AppModal.show(
+            navigator,
+            price: false,
+            backgroundColor: AppColors.white,
+            children: [
+              Expanded(
+                child: AppButton(
+                  onTap: () {},
+                  text: 'Berikutnya',
                   rounded: true,
                 ),
               ),

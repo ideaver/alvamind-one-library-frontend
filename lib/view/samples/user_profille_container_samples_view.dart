@@ -1,3 +1,4 @@
+import 'package:alvamind_library/widget/molecule/app_nested_body.dart';
 import 'package:alvamind_library/widget/organism/table_organism/table_history_trasaction.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
 import '../../widget/atom/app_avatar.dart';
 import '../../widget/atom/app_image.dart';
+import '../../widget/molecule/app_button.dart';
 import '../../widget/molecule/app_card_container.dart';
 import '../../widget/molecule/app_column_ink.dart';
 import '../../widget/molecule/app_dialog.dart';
@@ -39,33 +41,17 @@ List<String> dummyName = [
   'Kawaki Tenma',
 ];
 
+int tabBarSelected = 0;
+int tagSelected = 0;
+int tagSelected1 = 0;
+
 class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSamplesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('User Profile Container Samples')),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(AppSizes.padding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            userProfileContainerTab(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  int tabBarSelected = 0;
-  int tagSelected = 0;
-  int tagSelected1 = 0;
-
-  Widget userProfileContainerTab() {
-    return SampleWrapper(
-      title: 'User Profile Container Outer List',
-      widget: AppColumnInk(
-        children: [
-          TabBarDetailOutlet(
+        appBar: AppBar(title: const Text('User Profile Container Samples')),
+        body: AppNestedScrollView(
+          title: TabBarDetailOutlet(
             leftIcon: const [
               CustomIcon.chartCurvedIcon,
               CustomIcon.timesquareIcon,
@@ -90,7 +76,15 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
               });
             },
           ),
-          SizedBox(height: AppSizes.padding * 2),
+          body: userProfileContainerTab(),
+        ));
+  }
+
+  Widget userProfileContainerTab() {
+    return SampleWrapper(
+      title: 'User Profile Container Outer List',
+      widget: AppColumnInk(
+        children: [
           tabBarSelected == 0
               ? userProfileTabContainer()
               : tabBarSelected == 1
@@ -455,6 +449,41 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
               onTapRightButton: () {
                 // TODO
               },
+              showButton: false,
+              customWidget: [
+                Expanded(
+                  child: AppButton(
+                    onTap: () {},
+                    text: 'Lihat Detail',
+                    rounded: true,
+                    textColor: AppColors.white,
+                    borderWidth: 2,
+                    buttonColor: AppColors.primary,
+                    borderColor: AppColors.primary,
+                    padding: EdgeInsets.symmetric(
+                      vertical: AppSizes.padding / 2.5,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: AppSizes.padding / 2,
+                ),
+                Expanded(
+                  child: AppButton(
+                    onTap: () {},
+                    padding: EdgeInsets.symmetric(
+                      vertical: AppSizes.padding / 2.5,
+                    ),
+                    rightIcon: CustomIcon.chatBoldIcon,
+                    text: 'Diskusi',
+                    textColor: AppColors.primary,
+                    borderWidth: 2,
+                    buttonColor: AppColors.white,
+                    borderColor: AppColors.primary,
+                    rounded: true,
+                  ),
+                ),
+              ],
             ),
           );
         })

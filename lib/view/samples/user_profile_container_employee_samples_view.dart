@@ -1,3 +1,4 @@
+import 'package:alvamind_library/widget/molecule/app_nested_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';
@@ -17,7 +18,7 @@ import '../../widget/organism/tab _detail_outlet/tab_detail_outlet.dart';
 import '../../widget/organism/table_organism/table_history_trasaction.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 import '../../widget/organism/transaction_review_card/list_card_progress.dart';
-import 'sample_wrapper.dart';
+import '../../widget/organism/transaction_review_card/list_transaction.dart';
 
 class UserProfileContainerEmployeeSamplesView extends StatefulWidget {
   const UserProfileContainerEmployeeSamplesView({Key? key}) : super(key: key);
@@ -32,28 +33,9 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('User Profile Container Employee Samples')),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(AppSizes.padding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            userProfileContainerTab(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  int tabBarSelected = 0;
-  int tagSelected = 0;
-
-  Widget userProfileContainerTab() {
-    return SampleWrapper(
-      title: 'User Profile Container Employee List',
-      widget: AppColumnInk(
-        children: [
-          TabBarDetailOutlet(
+        appBar: AppBar(title: const Text('User Profile Container Employee Samples')),
+        body: AppNestedScrollView(
+          title: TabBarDetailOutlet(
             leftIcon: const [
               CustomIcon.chartCurvedIcon,
               CustomIcon.timesquareIcon,
@@ -73,19 +55,70 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
               });
             },
           ),
-          SizedBox(height: AppSizes.padding * 2),
-          tabBarSelected == 0
-              ? Center()
-              : tabBarSelected == 1
-                  ? employeeAttedanceListBody()
-                  : tabBarSelected == 2
-                      ? tableHistory()
-                      : tableHistory()
+          body: userProfileContainerTab(),
+        ));
+  }
+
+  int tabBarSelected = 0;
+  int tagSelected = 0;
+
+  Widget userProfileContainerTab() {
+    return AppColumnInk(
+      children: [
+        tabBarSelected == 0
+            ? userProfileTabContainer()
+            : tabBarSelected == 1
+                ? employeeAttedanceListBody()
+                : tabBarSelected == 2
+                    ? tableHistory()
+                    : tableHistory()
+      ],
+    );
+  }
+
+  Widget userProfileTabContainer() {
+    return AppCardContainer(
+      backgroundColor: AppColors.transparent,
+      padding: EdgeInsets.all(0),
+      child: Column(
+        children: [
+          const ListTransaction(
+            email: 'nakama@gmail.com',
+            number: '+62534234432',
+            gender: 'Perempuan',
+            registerDate: '19 Mei 2023',
+            status: 'Aktif',
+            statusColor: AppColors.greenLv1,
+          ),
+          SizedBox(height: AppSizes.padding * 1.5),
+          ...List.generate(3, (i) {
+            return Padding(
+              padding: EdgeInsets.only(bottom: AppSizes.padding * 1.5),
+              child: ListCard(
+                isSubtitle: i == 0 ? false : null,
+                leftIcon: i == 0 ? Icons.location_on_rounded : CustomIcon.walletBoldIcon,
+                leftIconColor: i == 0 ? AppColors.greenLv1 : null,
+                rightIcon: Icons.chevron_right_rounded,
+                title: i == 0
+                    ? 'Alamat'
+                    : i == 1
+                        ? 'No Rekening'
+                        : 'Selasa, 23 Juni 2023',
+                subtitle: 'Status Complain',
+                textTags: i == 0 ? '4' : 'Proses',
+                onTapChevronButton: () {
+                  // TODO
+                },
+                onTapCard: () {
+                  // TODO
+                },
+              ),
+            );
+          })
         ],
       ),
     );
   }
-
 // ======
 
   Widget tableHistory() {

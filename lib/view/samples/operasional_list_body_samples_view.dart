@@ -55,6 +55,7 @@ class _OperasionalListBodySamplesViewState extends State<OperasionalListBodySamp
                 dayTitle: dayList[index],
                 time: '08.00 - 17.00',
                 isDisabled: index == 4 ? true : false,
+                onChangedToggle: (value) {},
               ),
             );
           })

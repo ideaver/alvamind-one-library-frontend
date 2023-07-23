@@ -34,9 +34,15 @@ class ItemCardListSelected extends StatefulWidget {
   final String? image;
   final double? labelingCount;
   final Color? selectedButtonColor;
+  final BorderRadius? borderRadiusSelected;
+  final BorderRadius? borderRadius;
+  final IconData? iconHeartButton;
+  final Color? iconHeartColor;
   final List<BoxShadow>? boxShadow;
+  final Widget? customSelectedButton;
   final void Function()? onTapRightButton;
   final void Function()? onTapLeftButton;
+  final void Function()? onTapHeartButton;
   final void Function()? onTapCard;
   final void Function()? onTapSelectedButton;
 
@@ -68,6 +74,12 @@ class ItemCardListSelected extends StatefulWidget {
     this.rightItem,
     this.withCustomItem = false,
     this.image,
+    this.borderRadius,
+    this.borderRadiusSelected,
+    this.iconHeartButton,
+    this.iconHeartColor,
+    this.onTapHeartButton,
+    this.customSelectedButton,
   });
 
   @override
@@ -80,32 +92,34 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
     return Ink(
       decoration: BoxDecoration(
         color: widget.isSelected == true ? widget.selectedButtonColor ?? AppColors.primary : AppColors.transparent,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: widget.borderRadiusSelected ?? BorderRadius.circular(30),
         boxShadow: widget.boxShadow ?? [],
       ),
       child: Padding(
-        padding: widget.isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.all(0),
+        padding: widget.isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : const EdgeInsets.all(0),
         child: Column(
           children: [
             AppInkContainer(
               onTap: widget.onTapCard ?? () {},
               padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
               backgroundColor: AppColors.white,
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
               child: horizontalMode(),
             ),
-            widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+            widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
             widget.isSelected == true
-                ? AppButton(
-                    padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 4),
-                    text: 'Dipilih',
-                    borderColor: AppColors.transparent,
-                    rightIcon: Icons.check_box_rounded,
-                    buttonColor: widget.selectedButtonColor ?? AppColors.primary,
-                    onTap: widget.onTapSelectedButton ?? () {},
-                  )
+                ? widget.customSelectedButton == null
+                    ? AppButton(
+                        padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 4),
+                        text: 'Dipilih',
+                        borderColor: widget.selectedButtonColor ?? AppColors.transparent,
+                        rightIcon: Icons.check_box_rounded,
+                        buttonColor: widget.selectedButtonColor ?? AppColors.primary,
+                        onTap: widget.onTapSelectedButton ?? () {},
+                      )
+                    : widget.customSelectedButton!
                 : const SizedBox.shrink(),
-            widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+            widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
           ],
         ),
       ),
@@ -127,9 +141,11 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   headItem(),
-                  SizedBox(
-                    height: AppSizes.padding / 2,
-                  ),
+                  widget.isSelected == false
+                      ? const SizedBox.shrink()
+                      : SizedBox(
+                          height: AppSizes.padding / 2,
+                        ),
                   Flex(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     direction: Axis.horizontal,
@@ -232,40 +248,46 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            customIcon4Circle(),
-            SizedBox(
-              width: AppSizes.padding / 2,
-            ),
-            Text(
-              widget.typeItem ?? 'Pakaian',
-              style: AppTextStyle.regular(
-                size: 14,
+        widget.typeItem == null
+            ? const SizedBox.shrink()
+            : Row(
+                children: [
+                  customIcon4Circle(),
+                  SizedBox(
+                    width: AppSizes.padding / 2,
+                  ),
+                  Text(
+                    widget.typeItem ?? 'Pakaian',
+                    style: AppTextStyle.regular(
+                      size: 14,
+                    ),
+                  )
+                ],
               ),
-            )
-          ],
-        ),
-        SizedBox(
-          height: AppSizes.padding / 4,
-        ),
-        Row(
-          children: [
-            Icon(
-              Icons.access_time_sharp,
-              size: 16,
-            ),
-            SizedBox(
-              width: AppSizes.padding / 2,
-            ),
-            Text(
-              widget.timeWork ?? '3 Hari Kerja',
-              style: AppTextStyle.regular(
-                size: 14,
+        widget.typeItem == null
+            ? const SizedBox.shrink()
+            : SizedBox(
+                height: AppSizes.padding / 4,
               ),
-            )
-          ],
-        ),
+        widget.timeWork == null
+            ? const SizedBox.shrink()
+            : Row(
+                children: [
+                  const Icon(
+                    Icons.access_time_sharp,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: AppSizes.padding / 2,
+                  ),
+                  Text(
+                    widget.timeWork ?? '3 Hari Kerja',
+                    style: AppTextStyle.regular(
+                      size: 14,
+                    ),
+                  )
+                ],
+              ),
       ],
     );
   }
@@ -361,14 +383,15 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
       padding: EdgeInsets.all(0),
       buttonColor: AppColors.transparent,
       icon: Icon(
-        heartIcon,
-        color: AppColors.primary,
+        widget.iconHeartButton ?? heartIcon,
+        color: widget.iconHeartColor ?? AppColors.primary,
       ),
-      onTap: () {
-        setState(() {
-          heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
-        });
-      },
+      onTap: widget.onTapHeartButton ??
+          () {
+            setState(() {
+              heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
+            });
+          },
     );
   }
 }

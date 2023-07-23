@@ -9,12 +9,12 @@ class AppRangeSlider extends StatefulWidget {
   final double? min;
   final double? max;
   final Widget? leftSuffix;
-  final Widget? leftPreffix;
+  final Widget? leftPrefix;
   final Widget? rightSuffix;
   final Widget? rightPrefix;
   final dynamic Function(int, dynamic, dynamic) onDragging;
-  // final dynamic Function(int, dynamic, dynamic)? onDragStarted;
-  // final dynamic Function(int, dynamic, dynamic)? onDragCompleted;
+  final dynamic Function(int, dynamic, dynamic)? onDragStarted;
+  final dynamic Function(int, dynamic, dynamic)? onDragCompleted;
 
   const AppRangeSlider({
     required this.lowerValue,
@@ -22,12 +22,12 @@ class AppRangeSlider extends StatefulWidget {
     required this.onDragging,
     this.min,
     this.max,
-    this.leftPreffix,
+    this.leftPrefix,
     this.leftSuffix,
     this.rightPrefix,
     this.rightSuffix,
-    // this.onDragCompleted,
-    // this.onDragStarted,
+    this.onDragCompleted,
+    this.onDragStarted,
   });
 
   @override
@@ -68,7 +68,7 @@ class _AppRangeSliderState extends State<AppRangeSlider> {
           leftSuffix: widget.leftSuffix,
           rightSuffix: widget.rightSuffix,
           rightPrefix: widget.rightPrefix,
-          leftPrefix: widget.leftPreffix,
+          leftPrefix: widget.leftPrefix,
           alwaysShowTooltip: true,
           boxStyle: RangeSliderFlutterTooltipBox(
               decoration: BoxDecoration(
@@ -92,6 +92,23 @@ class _AppRangeSliderState extends State<AppRangeSlider> {
 
         setState(() {});
       },
+      onDragCompleted: (handlerIndex, lowerValue, upperValue) {
+        widget.onDragCompleted ??
+            (
+              handlerIndex,
+              lowerValue,
+              upperValue
+            );
+      },
+      onDragStarted: ((handlerIndex, lowerValue, upperValue) {
+        widget.onDragStarted ??
+            (
+              handlerIndex,
+              lowerValue,
+              upperValue
+            );
+        ;
+      }),
     );
   }
 }

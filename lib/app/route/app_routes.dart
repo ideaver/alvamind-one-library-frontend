@@ -74,7 +74,7 @@ import '../../view/samples/transaction_info_sample_view.dart';
 import '../../view/samples/transaction_review_card_samples_view.dart';
 import '../../view/samples/user_profile_container_employee_samples_view.dart';
 import '../../view/samples/user_profile_summary_bodies_samples_view.dart';
-import '../../view/samples/user_profille_container_samples_viiew.dart';
+import '../../view/samples/user_profille_container_samples_view.dart';
 
 // App routes
 class AppRoutes {

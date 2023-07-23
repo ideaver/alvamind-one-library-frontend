@@ -13,11 +13,13 @@ import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_tags.dart';
 
 class ItemCardList extends StatefulWidget {
-  final String title;
   final EdgeInsetsGeometry? padding;
   final bool? isList;
   final bool? isVertical;
   final bool? isProfile;
+  final bool? isOwner;
+  final bool? isCustomer;
+  final String title;
   final String? address;
   final String? textPrice;
   final String? statusPrice;
@@ -27,50 +29,24 @@ class ItemCardList extends StatefulWidget {
   final String? textLeftButton;
   final String? textRightButton;
   final String? labelingText;
-  final double? labelingCount;
   final String? starImageCount;
   final String? tagText;
-  final Color? tagColor;
+  final double? labelingCount;
   final String? dateProfileItem;
-  final bool? isOwner;
-  final bool? isCustomer;
-  final Widget? detailInfoCard;
   final String? image;
+  final Color? tagColor;
+  final Color? backgroundColor;
+  final BorderRadius? borderRadius;
+  final Widget? detailInfoCard;
+  final IconData? iconHeartButton;
+  final Color? iconHeartColor;
   final List<BoxShadow>? boxShadow;
   final void Function()? onTapRightButton;
   final void Function()? onTapLeftButton;
+  final void Function()? onTapHearButton;
   final void Function()? onTapCard;
 
-  const ItemCardList({
-    super.key,
-    required this.title,
-    this.isVertical = false,
-    this.isProfile = false,
-    this.isOwner = false,
-    this.isCustomer = false,
-    this.padding,
-    this.dataProgress,
-    this.address,
-    this.dateProgress,
-    this.isList,
-    this.statusPrice,
-    this.onTapLeftButton,
-    this.onTapRightButton,
-    this.labelingText,
-    this.labelingCount,
-    this.statustProgressText,
-    this.textLeftButton,
-    this.textPrice,
-    this.textRightButton,
-    this.starImageCount,
-    this.dateProfileItem,
-    this.tagColor,
-    this.tagText,
-    this.detailInfoCard,
-    this.onTapCard,
-    this.boxShadow,
-    this.image,
-  });
+  const ItemCardList({super.key, required this.title, this.isVertical = false, this.isProfile = false, this.isOwner = false, this.isCustomer = false, this.padding, this.dataProgress, this.address, this.dateProgress, this.isList, this.statusPrice, this.onTapLeftButton, this.onTapRightButton, this.labelingText, this.labelingCount, this.statustProgressText, this.textLeftButton, this.textPrice, this.textRightButton, this.starImageCount, this.dateProfileItem, this.tagColor, this.tagText, this.detailInfoCard, this.onTapCard, this.boxShadow, this.image, this.backgroundColor, this.borderRadius, this.iconHeartButton, this.onTapHearButton, this.iconHeartColor});
 
   @override
   State<ItemCardList> createState() => _ItemCardListState();
@@ -82,9 +58,9 @@ class _ItemCardListState extends State<ItemCardList> {
     return AppInkContainer(
       onTap: widget.onTapCard ?? () {},
       padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
-      backgroundColor: AppColors.white,
+      backgroundColor: widget.backgroundColor ?? AppColors.white,
       boxShadow: widget.boxShadow,
-      borderRadius: BorderRadius.circular(30),
+      borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
       child: widget.isVertical == true ? verticalMode() : horizontalMode(),
     );
   }
@@ -168,7 +144,7 @@ class _ItemCardListState extends State<ItemCardList> {
             )
           ],
         ),
-        widget.isOwner == true ? buttonDown() : SizedBox.shrink(),
+        widget.isOwner == true ? buttonDown() : const SizedBox.shrink(),
       ],
     );
   }
@@ -278,17 +254,18 @@ class _ItemCardListState extends State<ItemCardList> {
   IconData heartIcon = CustomIcon.heartIcon;
   Widget heartButton() {
     return AppIconButton(
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       buttonColor: AppColors.transparent,
       icon: Icon(
-        heartIcon,
-        color: AppColors.primary,
+        widget.iconHeartButton ?? heartIcon,
+        color: widget.iconHeartColor ?? AppColors.primary,
       ),
-      onTap: () {
-        setState(() {
-          heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
-        });
-      },
+      onTap: widget.onTapHearButton ??
+          () {
+            setState(() {
+              heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
+            });
+          },
     );
   }
 

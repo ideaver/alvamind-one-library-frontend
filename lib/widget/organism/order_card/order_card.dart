@@ -45,6 +45,7 @@ class OrderCard extends StatelessWidget {
   final void Function()? onTapRightButton;
   final void Function()? onTapLeftButton;
   final List<BoxShadow>? boxShadow;
+  final List<Widget>? customWidget;
 
   const OrderCard({
     super.key,
@@ -81,6 +82,7 @@ class OrderCard extends StatelessWidget {
     this.boxShadow,
     this.showButton = true,
     this.showProgressLine = true,
+    this.customWidget,
   });
 
   @override
@@ -102,8 +104,12 @@ class OrderCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    isProgress == true ? statusProgress() : SizedBox.shrink(),
-                    isProgress == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                    isProgress == true
+                        ? dateProgress == null
+                            ? const SizedBox.shrink()
+                            : statusProgress()
+                        : SizedBox.shrink(),
+                    isProgress == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
                     //
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,16 +121,18 @@ class OrderCard extends StatelessWidget {
                           overflow: TextOverflow.fade,
                           style: AppTextStyle.bold(size: 20),
                         ),
-                        isDone == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                        isDone == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
                         isDone == true
-                            ? Text(
-                                dateDone ?? '',
-                                softWrap: true,
-                                maxLines: 3,
-                                overflow: TextOverflow.fade,
-                                style: AppTextStyle.regular(size: 14),
-                              )
-                            : SizedBox.shrink(),
+                            ? dateDone == null
+                                ? const SizedBox.shrink()
+                                : Text(
+                                    dateDone ?? '',
+                                    softWrap: true,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.fade,
+                                    style: AppTextStyle.regular(size: 14),
+                                  )
+                            : const SizedBox.shrink(),
                         SizedBox(height: AppSizes.padding / 2),
                         priceStatus(),
                       ],
@@ -159,7 +167,7 @@ class OrderCard extends StatelessWidget {
               : const SizedBox.shrink(),
           //
           //
-
+          // button down
           showButton == true
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -198,6 +206,12 @@ class OrderCard extends StatelessWidget {
                   ],
                 )
               : const SizedBox.shrink(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ...customWidget ?? [],
+            ],
+          )
         ],
       ),
     );
@@ -274,16 +288,18 @@ class OrderCard extends StatelessWidget {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Text(
-            statusPrice ?? '',
-            style: AppTextStyle.medium(
-              size: 10,
-              color: AppColors.blackLv4,
-            ),
-          ),
-        ),
+        statusPrice == null
+            ? const SizedBox.shrink()
+            : Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  statusPrice ?? '',
+                  style: AppTextStyle.medium(
+                    size: 10,
+                    color: AppColors.blackLv4,
+                  ),
+                ),
+              ),
         isDone == true
             ? SizedBox(
                 width: AppSizes.padding / 4,

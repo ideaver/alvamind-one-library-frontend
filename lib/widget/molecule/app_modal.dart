@@ -15,7 +15,7 @@ class AppModal {
     EdgeInsetsGeometry? padding,
     EdgeInsetsGeometry? margin,
     BorderRadiusGeometry? borderRadius,
-    required String title,
+    String? title,
     String? subtitle,
     String? titleAddress,
     String? subtitleAddress,
@@ -73,7 +73,7 @@ class AppModalWidget extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final BorderRadiusGeometry? borderRadius;
-  final String title;
+  final String? title;
   final String? subtitle;
   final String? titleAddress;
   final String? subtitleAddress;
@@ -114,7 +114,7 @@ class AppModalWidget extends StatefulWidget {
     this.statusPrice,
     this.priceButton,
     required this.children,
-    required this.title,
+    this.title,
   });
 
   @override
@@ -152,21 +152,25 @@ class _AppModalWidgetState extends State<AppModalWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  widget.title,
-                  style: AppTextStyle.bold(
-                    size: 24,
-                    color: widget.titleColor ?? Colors.black,
-                  ),
-                ),
-                AppDivider(
-                  thickness: 1,
-                  color: const Color(0xFFEEEEEE),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppSizes.padding / 3,
-                    vertical: AppSizes.padding,
-                  ),
-                ),
+                widget.title == null
+                    ? const SizedBox.shrink()
+                    : Text(
+                        widget.title ?? '',
+                        style: AppTextStyle.bold(
+                          size: 24,
+                          color: widget.titleColor ?? Colors.black,
+                        ),
+                      ),
+                widget.title == null
+                    ? const SizedBox.shrink()
+                    : AppDivider(
+                        thickness: 1,
+                        color: const Color(0xFFEEEEEE),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: AppSizes.padding / 3,
+                          vertical: AppSizes.padding,
+                        ),
+                      ),
                 //
                 // subtitle text
                 //
@@ -335,6 +339,20 @@ class _AppModalWidgetState extends State<AppModalWidget> {
         child: AppRangeSlider(
           lowerValue: _low,
           upperValue: _up,
+          leftSuffix: Text(
+            ' KM',
+            style: AppTextStyle.medium(
+              size: 14,
+              color: AppColors.white,
+            ),
+          ),
+          rightSuffix: Text(
+            ' KM',
+            style: AppTextStyle.medium(
+              size: 14,
+              color: AppColors.white,
+            ),
+          ),
           onDragging: (handlerIndex, lowerValue, upperValue) {
             setState(() {
               _low = lowerValue;

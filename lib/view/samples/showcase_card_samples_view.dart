@@ -26,6 +26,8 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             creditCard(),
+            creditCardCustom(),
+            creditCardCustom1(),
             bannerCard(),
             userProfileCard(),
             userProfileCardEmployee(),
@@ -44,6 +46,37 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         numberCard: '1234 5678 9123 1211',
         nameCard: 'Situmorang',
         expiryDateCard: '10/23',
+        onTapEditButton: () {
+          // TODO
+        },
+      ),
+    );
+  }
+
+  Widget creditCardCustom() {
+    return SampleWrapper(
+      title: 'Credit Card Custom',
+      widget: UserCreditCard(
+        numberCard: '1234 5678 9123 1211',
+        nameCard: 'Situmorang',
+        expiryDateCard: '10/23',
+        showTag: false,
+        showButton: false,
+        onTapEditButton: () {
+          // TODO
+        },
+      ),
+    );
+  }
+
+  Widget creditCardCustom1() {
+    return SampleWrapper(
+      title: 'Credit Card Custom1',
+      widget: UserCreditCard(
+        numberCard: '1234 5678 9123 1211',
+        nameCard: 'Situmorang',
+        showTag: false,
+        showButton: false,
         onTapEditButton: () {
           // TODO
         },

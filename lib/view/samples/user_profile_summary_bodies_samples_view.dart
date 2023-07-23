@@ -43,7 +43,7 @@ class _UserProfileSummaryBodySamplesViewState extends State<UserProfileSummaryBo
 
   Widget userProfileSummaryBody() {
     return SampleWrapper(
-        title: 'Service Tab ',
+        title: 'User Profile Summary Body  ',
         widget: AppCardContainer(
           backgroundColor: AppColors.transparent,
           padding: EdgeInsets.all(0),

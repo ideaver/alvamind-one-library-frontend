@@ -6,8 +6,13 @@ import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_icon_button.dart';
 
 class ServiceCategory extends StatelessWidget {
+  final double? height;
+  final int? crossAxisCount;
+
   ServiceCategory({
     super.key,
+    this.height,
+    this.crossAxisCount,
   });
 
   final categoryMenusUp = [
@@ -40,6 +45,7 @@ class ServiceCategory extends StatelessWidget {
         scale: 1.3,
       ),
       text: 'Alat Ibadah',
+      buttonColor: AppColors.blueLv5,
       textStyle: AppTextStyle.medium(size: 14),
       onTap: () {},
     ),
@@ -103,12 +109,12 @@ class ServiceCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 180,
+        height: height ?? 180,
         width: MediaQuery.of(context).size.width,
         child: GridView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
+            crossAxisCount: crossAxisCount ?? 4,
           ),
           itemBuilder: (_, index) => Container(
             child: categoryMenusUp[index],

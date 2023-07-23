@@ -1,5 +1,4 @@
 import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:alvamind_library/widget/molecule/app_tabbar.dart';
 
 import 'package:flutter/material.dart';
@@ -12,6 +11,7 @@ class TabBarDetailOutlet extends StatefulWidget {
   final bool? isSelected;
   final List<IconData>? leftIcon;
   final List<IconData>? rightIcon;
+  final TabController? controller;
   final void Function(int)? onTap;
 
   TabBarDetailOutlet({
@@ -23,6 +23,7 @@ class TabBarDetailOutlet extends StatefulWidget {
     this.leftIcon,
     this.rightIcon,
     this.isSelected,
+    this.controller,
   });
 
   @override
@@ -35,29 +36,40 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
+
+    return DefaultTabController(
+      length: widget.listTabBar.length,
+      child: TabBar(
+        controller: widget.controller,
+        isScrollable: true,
+        physics: const BouncingScrollPhysics(),
+        indicatorColor: AppColors.primary,
+        indicatorSize: TabBarIndicatorSize.label,
+        indicator: const BoxDecoration(
+            border: Border(
+                bottom: BorderSide(
+          color: AppColors.primary,
+          width: 3,
+        ))),
+        indicatorPadding: EdgeInsets.all(2),
+        onTap: (value) {
+          setState(() {
+            tabBarSelected = value;
+            widget.onTap!(tabBarSelected);
+          });
+        },
+        tabs: [
           ...List.generate(widget.listTabBar.length, (index) {
-            return Padding(
-              padding: index == widget.listTabBar.length - 1 ? EdgeInsets.all(0) : EdgeInsets.only(right: AppSizes.padding),
-              child: AppTabBar(
-                leftIcon: widget.leftIcon![index],
-                fontSize: widget.fontSize ?? 16,
-                text: widget.listTabBar[index],
-                onTap: () {
-                  setState(() {
-                    tabBarSelected = index;
-                    widget.onTap!(tabBarSelected);
-                  });
-                },
-                textColor: tabBarSelected == index ? AppColors.primary : AppColors.blackLv6,
-                leftIconColor: tabBarSelected == index ? AppColors.primary : AppColors.blackLv6,
-                dividerColor: tabBarSelected == index ? AppColors.primary : AppColors.blackLv6,
-              ),
+            return AppTabBar(
+              leftIcon: widget.leftIcon![index],
+              fontSize: widget.fontSize ?? 16,
+              text: widget.listTabBar[index],
+              textColor: tabBarSelected == index ? AppColors.primary : AppColors.blackLv6,
+              leftIconColor: tabBarSelected == index ? AppColors.primary : AppColors.blackLv6,
+              dividerColor: AppColors.blackLv7,
+              divider: tabBarSelected == index ? false : true,
             );
-          }),
+          })
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/widget/molecule/app_ink_container.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_sizes.dart';
@@ -17,7 +17,7 @@ class AppTabBar extends StatelessWidget {
   final Color? rightIconColor;
   final Color? dividerColor;
   final EdgeInsetsGeometry? dividerPadding;
-  final void Function()? onTap;
+  final bool? divider;
 
   const AppTabBar({
     super.key,
@@ -32,63 +32,60 @@ class AppTabBar extends StatelessWidget {
     this.dividerColor,
     this.rightIconColor,
     this.dividerPadding,
-    this.onTap,
+    this.divider = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return AppInkContainer(
-      padding: EdgeInsets.all(0),
-      onTap: onTap ?? () {},
-      borderRadius: BorderRadius.circular(0),
-      child: Container(
-        padding: EdgeInsets.only(
-          bottom: AppSizes.padding / 2,
-          right: AppSizes.padding,
-          left: AppSizes.padding,
-        ),
-        decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(
-          color: dividerColor ?? AppColors.primary,
-          width: 2,
-        ))),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            leftIcon == null
-                ? const SizedBox.shrink()
-                : Icon(
-                    leftIcon,
-                    size: leftIconSize,
-                    color: leftIconColor,
-                  ),
-            leftIcon == null
-                ? const SizedBox.shrink()
-                : SizedBox(
-                    width: AppSizes.padding / 2,
-                  ),
-            Text(
-              text,
-              style: AppTextStyle.bold(
-                size: fontSize ?? 18,
-                color: textColor,
-              ),
+    return Container(
+      padding: EdgeInsets.only(
+        bottom: AppSizes.padding / 1.5,
+        right: AppSizes.padding,
+        left: AppSizes.padding,
+      ),
+      decoration: BoxDecoration(
+          border: divider == false
+              ? Border.all(width: 0, color: AppColors.transparent)
+              : Border(
+                  bottom: BorderSide(
+                  color: dividerColor ?? AppColors.primary,
+                  width: 3,
+                ))),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          leftIcon == null
+              ? const SizedBox.shrink()
+              : Icon(
+                  leftIcon,
+                  size: leftIconSize,
+                  color: leftIconColor,
+                ),
+          leftIcon == null
+              ? const SizedBox.shrink()
+              : SizedBox(
+                  width: AppSizes.padding / 2,
+                ),
+          Text(
+            text,
+            style: AppTextStyle.bold(
+              size: fontSize ?? 18,
+              color: textColor,
             ),
-            rightIcon == null
-                ? const SizedBox.shrink()
-                : SizedBox(
-                    width: AppSizes.padding / 2,
-                  ),
-            rightIcon == null
-                ? const SizedBox.shrink()
-                : Icon(
-                    rightIcon,
-                    size: rightIconSize,
-                    color: rightIconColor,
-                  ),
-          ],
-        ),
+          ),
+          rightIcon == null
+              ? const SizedBox.shrink()
+              : SizedBox(
+                  width: AppSizes.padding / 2,
+                ),
+          rightIcon == null
+              ? const SizedBox.shrink()
+              : Icon(
+                  rightIcon,
+                  size: rightIconSize,
+                  color: rightIconColor,
+                ),
+        ],
       ),
     );
   }

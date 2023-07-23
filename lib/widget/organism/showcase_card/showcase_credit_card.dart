@@ -11,15 +11,21 @@ import '../../molecule/app_tags.dart';
 class UserCreditCard extends StatelessWidget {
   final String numberCard;
   final String nameCard;
-  final String expiryDateCard;
-  final void Function() onTapEditButton;
+  final String? image;
+  final void Function()? onTapEditButton;
+  final String? expiryDateCard;
+  final bool? showButton;
+  final bool? showTag;
 
   const UserCreditCard({
     super.key,
     required this.numberCard,
-    required this.expiryDateCard,
     required this.nameCard,
-    required this.onTapEditButton,
+    this.expiryDateCard,
+    this.onTapEditButton,
+    this.image,
+    this.showButton = true,
+    this.showTag = true,
   });
 
   @override
@@ -99,12 +105,14 @@ class UserCreditCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              AppAssets.logoCreditCard,
+              image ?? AppAssets.logoCreditCard,
             ),
-            AppTags(
-              text: 'Utama',
-              color: AppColors.orangeLv1,
-            )
+            showTag == false
+                ? const SizedBox.shrink()
+                : const AppTags(
+                    text: 'Utama',
+                    color: AppColors.orangeLv1,
+                  )
           ],
         ),
         SizedBox(height: AppSizes.padding * 2),
@@ -117,14 +125,16 @@ class UserCreditCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             textContent('Card Holder name', nameCard),
-            textContent('Expiry date', expiryDateCard),
-            AppButton(
-              text: 'Edit',
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 3),
-              buttonColor: AppColors.white,
-              textColor: AppColors.primary,
-              onTap: onTapEditButton,
-            )
+            expiryDateCard == null ? const SizedBox.shrink() : textContent('Expiry date', expiryDateCard ?? ''),
+            showButton == false
+                ? const SizedBox.shrink()
+                : AppButton(
+                    text: 'Edit',
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 3),
+                    buttonColor: AppColors.white,
+                    textColor: AppColors.primary,
+                    onTap: onTapEditButton ?? () {},
+                  )
           ],
         )
       ],

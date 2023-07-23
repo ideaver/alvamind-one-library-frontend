@@ -92,6 +92,7 @@ class _TabsContainerSamplesViewState extends State<TabsContainerSamplesView> {
                       dayTitle: dayList[index],
                       time: '08.00 - 17.00',
                       isDisabled: index == 4 ? true : false,
+                      onChangedToggle: (value) {},
                     ),
                   );
                 })

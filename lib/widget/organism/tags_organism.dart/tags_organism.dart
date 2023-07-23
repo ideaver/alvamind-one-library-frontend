@@ -16,7 +16,17 @@ class TagsOrganism extends StatefulWidget {
   final void Function(int)? onTap;
   int? selected;
 
-  TagsOrganism({super.key, required this.listChips, required this.onTap, this.padding, this.fontSize, this.leftIcon, this.isSelected, this.selected, this.selectedColor});
+  TagsOrganism({
+    super.key,
+    required this.listChips,
+    required this.onTap,
+    this.padding,
+    this.fontSize,
+    this.leftIcon,
+    this.isSelected,
+    this.selected,
+    this.selectedColor,
+  });
 
   @override
   State<TagsOrganism> createState() => _TagsOrganismState();
@@ -29,6 +39,7 @@ class _TagsOrganismState extends State<TagsOrganism> {
     // TODO: implement build
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
+      physics: BouncingScrollPhysics(),
       child: Row(
         children: [
           ...List.generate(widget.listChips.length, (index) {

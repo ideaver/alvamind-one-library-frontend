@@ -1,8 +1,10 @@
 import 'package:alvamind_library/widget/molecule/app_column_ink.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
+import '../../widget/molecule/app_button.dart';
 import '../../widget/organism/order_card/order_card.dart';
 import 'sample_wrapper.dart';
 
@@ -55,6 +57,7 @@ class _ComplainListBodySamplesViewState extends State<ComplainListBodySamplesVie
                 title: 'Barokah Laundry',
                 isProgress: true,
                 showProgressLine: false,
+                showButton: false,
                 textPrice: 'Rp42.431',
                 statusPrice: '/00 days',
                 dateProgress: '2 Agustus 2023',
@@ -76,12 +79,40 @@ class _ComplainListBodySamplesViewState extends State<ComplainListBodySamplesVie
                         ? AppColors.primary
                         : AppColors.greenLv1,
                 labelingCount: 40,
-                onTapLeftButton: () {
-                  // TODO
-                },
-                onTapRightButton: () {
-                  // TODO
-                },
+                customWidget: [
+                  Expanded(
+                    child: AppButton(
+                      onTap: () {},
+                      text: 'Lihat Detail',
+                      rounded: true,
+                      textColor: AppColors.white,
+                      borderWidth: 2,
+                      buttonColor: AppColors.primary,
+                      borderColor: AppColors.primary,
+                      padding: EdgeInsets.symmetric(
+                        vertical: AppSizes.padding / 2.5,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: AppSizes.padding / 2,
+                  ),
+                  Expanded(
+                    child: AppButton(
+                      onTap: () {},
+                      padding: EdgeInsets.symmetric(
+                        vertical: AppSizes.padding / 2.5,
+                      ),
+                      rightIcon: CustomIcon.chatBoldIcon,
+                      text: 'Diskusi',
+                      textColor: AppColors.primary,
+                      borderWidth: 2,
+                      buttonColor: AppColors.white,
+                      borderColor: AppColors.primary,
+                      rounded: true,
+                    ),
+                  ),
+                ],
               ),
             );
           })

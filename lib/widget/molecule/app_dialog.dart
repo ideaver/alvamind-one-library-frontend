@@ -121,8 +121,6 @@ class AppDialogWidget extends StatelessWidget {
   final String? leftButtonText;
   final String? rightButtonText;
   final Color backgroundColor;
-  final Function()? onTapLeftButton;
-  final Function()? onTapRightButton;
   final bool dismissible;
   final bool showButtons;
   final bool enableRightButton;
@@ -130,6 +128,8 @@ class AppDialogWidget extends StatelessWidget {
   final Color leftButtonTextColor;
   final Color rightButtonTextColor;
   final double? elevation;
+  final Function()? onTapLeftButton;
+  final Function()? onTapRightButton;
 
   const AppDialogWidget({
     Key? key,
@@ -302,6 +302,8 @@ class AppDialogCustomWidget extends StatelessWidget {
   final Color? titleColor;
   final Color? subtitleColor;
   final Axis? directionButton;
+
+  final List<Widget>? itemBottom;
   final void Function()? functionButton;
   final void Function()? functionSecondButton;
 
@@ -321,6 +323,7 @@ class AppDialogCustomWidget extends StatelessWidget {
     this.subtitleColor,
     required this.title,
     this.titleColor,
+    this.itemBottom,
   });
 
   @override
@@ -359,21 +362,22 @@ class AppDialogCustomWidget extends StatelessWidget {
             SizedBox(height: AppSizes.padding * 1.5),
             Flex(
               direction: directionButton ?? Axis.vertical,
-              children: [
-                AppButton(
-                  onTap: functionButton ?? () {},
-                  text: 'button',
-                  rounded: true,
-                ),
-                SizedBox(height: AppSizes.padding / 2),
-                AppButton(
-                  onTap: functionSecondButton ?? () {},
-                  text: 'Button',
-                  textColor: AppColors.primary,
-                  buttonColor: AppColors.blueLv5,
-                  rounded: true,
-                ),
-              ],
+              children: itemBottom ??
+                  [
+                    AppButton(
+                      onTap: functionButton ?? () {},
+                      text: 'button',
+                      rounded: true,
+                    ),
+                    SizedBox(height: AppSizes.padding / 2),
+                    AppButton(
+                      onTap: functionSecondButton ?? () {},
+                      text: 'Button',
+                      textColor: AppColors.primary,
+                      buttonColor: AppColors.blueLv5,
+                      rounded: true,
+                    ),
+                  ],
             ),
           ],
         ),
