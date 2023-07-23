@@ -100,7 +100,7 @@ class TableHistoryTransaction extends StatelessWidget {
     ];
     List<List<TableModel>> data2 = [
       ...List.generate(
-        7,
+        dataLength,
         (index) => [
           TableModel(
               data: '-Rp 432.532',

@@ -32,7 +32,7 @@ class ListTransaction extends StatelessWidget {
           color: AppColors.blackLv7,
           offset: Offset(0, 4),
           blurRadius: 60,
-          spreadRadius: 0,
+          spreadRadius: -40,
         ),
       ],
       child: Column(

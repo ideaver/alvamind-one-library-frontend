@@ -103,8 +103,8 @@ class _ComplainListBodySamplesViewState extends State<ComplainListBodySamplesVie
                       padding: EdgeInsets.symmetric(
                         vertical: AppSizes.padding / 2.5,
                       ),
-                      rightIcon: CustomIcon.chatBoldIcon,
-                      text: 'Diskusi',
+                      leftIcon: CustomIcon.chatBoldIcon,
+                      text: 'Diskusi (2)',
                       textColor: AppColors.primary,
                       borderWidth: 2,
                       buttonColor: AppColors.white,

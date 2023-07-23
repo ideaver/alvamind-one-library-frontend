@@ -33,6 +33,7 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppColors.white,
         appBar: AppBar(title: const Text('User Profile Container Employee Samples')),
         body: AppNestedScrollView(
           title: TabBarDetailOutlet(
@@ -71,7 +72,8 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
                 ? employeeAttedanceListBody()
                 : tabBarSelected == 2
                     ? tableHistory()
-                    : tableHistory()
+                    : tableHistory(),
+        SizedBox(height: AppSizes.padding * 4)
       ],
     );
   }

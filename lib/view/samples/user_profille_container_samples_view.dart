@@ -24,7 +24,6 @@ import '../../widget/organism/tab _detail_outlet/tab_detail_outlet.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 import '../../widget/organism/transaction_review_card/list_card_progress.dart';
 import '../../widget/organism/transaction_review_card/list_transaction.dart';
-import 'sample_wrapper.dart';
 
 class UserProfileContainerSamplesView extends StatefulWidget {
   const UserProfileContainerSamplesView({Key? key}) : super(key: key);
@@ -81,29 +80,27 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
   }
 
   Widget userProfileContainerTab() {
-    return SampleWrapper(
-      title: 'User Profile Container Outer List',
-      widget: AppColumnInk(
-        children: [
-          tabBarSelected == 0
-              ? userProfileTabContainer()
-              : tabBarSelected == 1
-                  ? orderListBody()
-                  : tabBarSelected == 2
-                      ? tableHistory()
-                      : tabBarSelected == 3
-                          ? outerList()
-                          : tabBarSelected == 4
-                              ? reviewTabs()
-                              : complainList()
-        ],
-      ),
+    return AppColumnInk(
+      children: [
+        tabBarSelected == 0
+            ? userDataProfile()
+            : tabBarSelected == 1
+                ? orderList()
+                : tabBarSelected == 2
+                    ? userTableHistory()
+                    : tabBarSelected == 3
+                        ? outerListBody()
+                        : tabBarSelected == 4
+                            ? reviewTabs()
+                            : complainList(),
+        SizedBox(height: AppSizes.padding * 4)
+      ],
     );
   }
 
 // ======
 
-  Widget tableHistory() {
+  Widget userTableHistory() {
     return AppColumnInk(children: [
       Row(
         children: [
@@ -136,7 +133,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
   }
 
 //
-  Widget userProfileTabContainer() {
+  Widget userDataProfile() {
     return AppCardContainer(
       backgroundColor: AppColors.transparent,
       padding: EdgeInsets.all(0),
@@ -302,7 +299,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
   }
 
 //
-  Widget orderListBody() {
+  Widget orderList() {
     return Ink(
       child: Column(
         children: [
@@ -474,8 +471,8 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                     padding: EdgeInsets.symmetric(
                       vertical: AppSizes.padding / 2.5,
                     ),
-                    rightIcon: CustomIcon.chatBoldIcon,
-                    text: 'Diskusi',
+                    leftIcon: CustomIcon.chatBoldIcon,
+                    text: 'Diskusi (2)',
                     textColor: AppColors.primary,
                     borderWidth: 2,
                     buttonColor: AppColors.white,
@@ -492,7 +489,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
   }
 
 //
-  Widget outerList() {
+  Widget outerListBody() {
     return AppColumnInk(
       children: [
         AppTextField(
