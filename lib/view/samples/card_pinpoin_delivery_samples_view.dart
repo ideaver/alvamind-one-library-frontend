@@ -60,10 +60,10 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
             deliveryAddress: 'Zabiniec 12/222, 31-215\nCracow, Poland',
             deliveryTime: 'Hari ini, 21 Juni 2023',
           ),
-          functionCallButton: () {
+          onTapCallButton: () {
             // TODO
           },
-          functionChatButton: () {
+          onTapChatButton: () {
             // TODO
           },
           idCourier: 'Joole D Kurir',

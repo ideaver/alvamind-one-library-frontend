@@ -8,13 +8,13 @@ class CourierContent extends StatelessWidget {
   final String nameCourier;
   final String idCourier;
   final Widget deliveryAddress;
-  final void Function() functionChatButton;
-  final void Function() functionCallButton;
+  final void Function() onTapChatButton;
+  final void Function() onTapCallButton;
 
   const CourierContent({
     super.key,
-    required this.functionCallButton,
-    required this.functionChatButton,
+    required this.onTapCallButton,
+    required this.onTapChatButton,
     required this.idCourier,
     required this.nameCourier,
     required this.deliveryAddress,
@@ -31,8 +31,8 @@ class CourierContent extends StatelessWidget {
           title: 'Joole D Kurir',
           subtitle: 'ID #12345098',
           image: randomImage,
-          functionCallButton: functionCallButton,
-          functionChatButton: functionChatButton,
+          onTapCallButton: onTapCallButton,
+          onTapChatButton: onTapChatButton,
         ),
       ],
     );

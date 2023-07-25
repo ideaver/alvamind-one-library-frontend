@@ -53,6 +53,8 @@ class _BodySamplesViewState extends State<BodySamplesView> {
                 isList: true,
                 textPrice: 'Rp7rb',
                 statusPrice: '/kg',
+                typeItem: 'Pakaian',
+                timeWork: '3 Hari Kerja',
                 dateProgress: '2 Agustus 2023',
                 textLeftButton: 'Detail Pesanan',
                 textRightButton: 'Lacak Pengiriman',

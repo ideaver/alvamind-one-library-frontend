@@ -19,13 +19,13 @@ class AccountList extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final EdgeInsets? padding;
   final Color? backgroundColor;
-  final void Function()? functionChatButton;
-  final void Function()? functionCallButton;
+  final void Function()? onTapChatButton;
+  final void Function()? onTapCallButton;
 
   const AccountList({
     super.key,
-    this.functionCallButton,
-    this.functionChatButton,
+    this.onTapCallButton,
+    this.onTapChatButton,
     this.image,
     this.subtitle,
     this.title,
@@ -101,7 +101,7 @@ class AccountList extends StatelessWidget {
                                   CustomIcon.chatIcon,
                                   color: AppColors.primary,
                                 ),
-                                onTap: functionChatButton ?? () {},
+                                onTap: onTapChatButton ?? () {},
                               ),
                             ),
                             SizedBox(
@@ -115,7 +115,7 @@ class AccountList extends StatelessWidget {
                                   CustomIcon.contactIcon,
                                   color: AppColors.primary,
                                 ),
-                                onTap: functionChatButton ?? () {},
+                                onTap: onTapChatButton ?? () {},
                               ),
                             ),
                           ],
@@ -123,7 +123,8 @@ class AccountList extends StatelessWidget {
                       )
               ],
             ),
-          )
+          ),
+          rightButton == false ? rightItem! : const SizedBox.shrink(),
         ],
       ),
     );
