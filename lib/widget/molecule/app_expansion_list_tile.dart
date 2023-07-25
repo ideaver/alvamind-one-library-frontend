@@ -16,12 +16,13 @@ class AppExpansionListTile extends StatefulWidget {
   final Color? buttonDropColor;
   final Color? iconColor;
   final Color? backgroundColor;
-  final bool expand;
   final List<Widget> children;
   final EdgeInsetsGeometry? paddingChild;
   final Widget? moreItem;
   final Widget? leftItem;
   final bool? divider;
+  final bool expand;
+  final bool? isDisabled;
   final List<BoxShadow>? boxShadow;
 
   const AppExpansionListTile({
@@ -43,6 +44,7 @@ class AppExpansionListTile extends StatefulWidget {
     this.subtitleDownColor,
     this.boxShadow,
     this.paddingChild,
+    this.isDisabled = true,
   }) : super(key: key);
 
   @override
@@ -88,10 +90,14 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () {
-                    isExpanded = !isExpanded;
-                    setState(() {});
-                  },
+                  onTap: widget.isDisabled == true
+                      ? () {
+                          isExpanded = true;
+                        }
+                      : () {
+                          isExpanded = !isExpanded;
+                          setState(() {});
+                        },
                   child: Container(
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
