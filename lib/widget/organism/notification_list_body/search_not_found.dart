@@ -36,6 +36,7 @@ class NotFoundWidget extends StatelessWidget {
             ),
             Text(
               subtitle,
+              textAlign: TextAlign.center,
               style: AppTextStyle.regular(size: 16),
             ),
           ],
