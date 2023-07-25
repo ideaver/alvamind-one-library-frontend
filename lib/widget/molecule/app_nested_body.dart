@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppNestedScrollView extends StatelessWidget {
   final Widget body;
-  final Widget? title;
+  final Widget? titleFlexible;
   final Widget? background;
   final EdgeInsets? titlePadding;
   final double? expandedTitleScale;
@@ -12,11 +12,13 @@ class AppNestedScrollView extends StatelessWidget {
   final double? elevation;
   final bool? pinned;
   final EdgeInsets? padding;
+  final Widget? title;
+  final Widget? leading;
 
   const AppNestedScrollView({
     super.key,
     required this.body,
-    this.title,
+    this.titleFlexible,
     this.background,
     this.titlePadding,
     this.expandedTitleScale,
@@ -25,6 +27,8 @@ class AppNestedScrollView extends StatelessWidget {
     this.expandedHeight,
     this.pinned,
     this.padding,
+    this.leading,
+    this.title,
   });
 
   @override
@@ -40,8 +44,10 @@ class AppNestedScrollView extends StatelessWidget {
             expandedHeight: expandedHeight ?? 50,
             collapsedHeight: collapseHeight ?? 70,
             elevation: elevation ?? 0.5,
+            leading: leading ?? Center() ,
+            title: title ?? Center() ,
             flexibleSpace: FlexibleSpaceBar(
-              title: title ?? const SizedBox.shrink(),
+              title: titleFlexible ?? const SizedBox.shrink(),
               background: background ?? const SizedBox.shrink(),
               expandedTitleScale: 1,
               titlePadding: titlePadding ?? EdgeInsets.all(AppSizes.padding),

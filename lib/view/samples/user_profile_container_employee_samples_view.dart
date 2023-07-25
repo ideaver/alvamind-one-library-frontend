@@ -36,7 +36,7 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
         backgroundColor: AppColors.white,
         appBar: AppBar(title: const Text('User Profile Container Employee Samples')),
         body: AppNestedScrollView(
-          title: TabBarDetailOutlet(
+          titleFlexible: TabBarDetailOutlet(
             leftIcon: const [
               CustomIcon.chartCurvedIcon,
               CustomIcon.timesquareIcon,

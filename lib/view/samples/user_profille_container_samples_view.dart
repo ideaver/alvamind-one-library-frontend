@@ -50,7 +50,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
     return Scaffold(
         appBar: AppBar(title: const Text('User Profile Container Samples')),
         body: AppNestedScrollView(
-          title: TabBarDetailOutlet(
+          titleFlexible: TabBarDetailOutlet(
             leftIcon: const [
               CustomIcon.chartCurvedIcon,
               CustomIcon.timesquareIcon,
