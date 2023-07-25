@@ -43,8 +43,8 @@ class AppNestedScrollView extends StatelessWidget {
           SliverAppBar(
             automaticallyImplyLeading: false,
             pinned: pinned ?? true,
-            expandedHeight: expandedHeight ?? 50,
-            collapsedHeight: collapseHeight ?? 70,
+            expandedHeight: expandedHeight ?? null,
+            collapsedHeight: collapseHeight ?? null,
             elevation: elevation ?? 0.5,
             leading: leading ?? Center(),
             centerTitle: centerTitle ?? false,
