@@ -40,6 +40,7 @@ class _TagsOrganismState extends State<TagsOrganism> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return SingleChildScrollView(
+      padding: widget.paddingTagsBody ?? EdgeInsets.zero,
       scrollDirection: Axis.horizontal,
       physics: BouncingScrollPhysics(),
       child: Row(
