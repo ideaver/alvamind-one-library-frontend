@@ -51,7 +51,12 @@ class AppNestedScrollView extends StatelessWidget {
             title: title ?? Center(),
             flexibleSpace: FlexibleSpaceBar(
               title: titleFlexible ?? const SizedBox.shrink(),
-              background: background ?? const SizedBox.shrink(),
+              background: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  background ?? const SizedBox.shrink(),
+                ],
+              ),
               expandedTitleScale: 1,
               titlePadding: titlePadding ?? EdgeInsets.all(AppSizes.padding),
             ),
