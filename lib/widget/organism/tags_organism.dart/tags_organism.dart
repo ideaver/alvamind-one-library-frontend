@@ -9,6 +9,7 @@ import '../../../app/theme/app_colors.dart';
 class TagsOrganism extends StatefulWidget {
   final List<String> listChips;
   final EdgeInsets? padding;
+  final EdgeInsets? paddingTagsBody;
   final double? fontSize;
   final bool? isSelected;
   final IconData? leftIcon;
@@ -26,6 +27,7 @@ class TagsOrganism extends StatefulWidget {
     this.isSelected,
     this.selected,
     this.selectedColor,
+    this.paddingTagsBody,
   });
 
   @override
