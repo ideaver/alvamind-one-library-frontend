@@ -1,6 +1,5 @@
 import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/atom/app_image.dart';
+import 'package:alvamind_library/widget/organism/notification_list_body/search_not_found.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
@@ -122,30 +121,10 @@ class _NotificationListBodyState extends State<NotificationListBody> {
                           }),
                         ],
                       )
-                    : Column(
-                        children: [
-                          SizedBox(height: AppSizes.padding * 4),
-                          const AppImage(
-                            image: AppAssets.boardPaperImage,
-                            imgProvider: ImgProvider.assetImage,
-                          ),
-                          SizedBox(height: AppSizes.padding * 4),
-                          Column(
-                            children: [
-                              Text(
-                                'Kosong',
-                                style: AppTextStyle.bold(size: 24),
-                              ),
-                              SizedBox(
-                                height: AppSizes.padding,
-                              ),
-                              Text(
-                                'Anda belum memiliki notifikasi saat ini',
-                                style: AppTextStyle.regular(size: 16),
-                              ),
-                            ],
-                          )
-                        ],
+                    : NotFoundWidget(
+                        image: AppAssets.boardPaperImage,
+                        title: 'Kosong',
+                        subtitle: 'Anda belum memiliki notifikasi saat ini',
                       )
       ],
     );
