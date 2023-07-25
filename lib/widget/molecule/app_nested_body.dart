@@ -14,7 +14,6 @@ class AppNestedScrollView extends StatelessWidget {
   final bool? centerTitle;
   final EdgeInsets? padding;
   final Widget? title;
-  final Widget? leading;
 
   const AppNestedScrollView({
     super.key,
@@ -28,7 +27,6 @@ class AppNestedScrollView extends StatelessWidget {
     this.expandedHeight,
     this.pinned,
     this.padding,
-    this.leading,
     this.title,
     this.centerTitle,
   });
@@ -46,7 +44,6 @@ class AppNestedScrollView extends StatelessWidget {
             expandedHeight: expandedHeight ?? null,
             collapsedHeight: collapseHeight ?? null,
             elevation: elevation ?? 0.5,
-            leading: leading ?? SizedBox.shrink(),
             centerTitle: centerTitle ?? false,
             title: title ?? SizedBox.shrink(),
             flexibleSpace: FlexibleSpaceBar(
