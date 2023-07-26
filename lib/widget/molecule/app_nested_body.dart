@@ -14,6 +14,7 @@ class AppNestedScrollView extends StatelessWidget {
   final bool? centerTitle;
   final EdgeInsets? padding;
   final Widget? title;
+  final ScrollPhysics? physics;
 
   const AppNestedScrollView({
     super.key,
@@ -29,6 +30,7 @@ class AppNestedScrollView extends StatelessWidget {
     this.padding,
     this.title,
     this.centerTitle,
+    this.physics,
   });
 
   @override
@@ -61,7 +63,7 @@ class AppNestedScrollView extends StatelessWidget {
         ];
       },
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: physics ?? const BouncingScrollPhysics(),
         padding: padding ??
             EdgeInsets.only(
               top: AppSizes.padding,
