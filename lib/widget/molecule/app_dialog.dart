@@ -291,39 +291,42 @@ class AppDialogWidget extends StatelessWidget {
 // Custom Dialog
 class AppDialogCustomWidget extends StatelessWidget {
   final String? image;
+  final String title;
+  final String subtitle;
+  final String? textButton;
+  final String? textSecondButton;
   final ImgProvider imgProvider;
   final IconData? icon;
   final Color? backgroundColor;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final BorderRadiusGeometry? borderRadius;
-  final String title;
-  final String subtitle;
   final Color? titleColor;
   final Color? subtitleColor;
   final Axis? directionButton;
-
   final List<Widget>? itemBottom;
-  final void Function()? functionButton;
-  final void Function()? functionSecondButton;
+  final void Function()? onTapButton;
+  final void Function()? onTapSecondButton;
 
   const AppDialogCustomWidget({
     super.key,
+    required this.title,
+    required this.subtitle,
     this.backgroundColor,
     this.borderRadius,
     this.directionButton,
-    this.functionButton,
-    this.functionSecondButton,
     this.icon,
     this.image,
     this.imgProvider = ImgProvider.assetImage,
     this.margin,
     this.padding,
-    required this.subtitle,
     this.subtitleColor,
-    required this.title,
     this.titleColor,
     this.itemBottom,
+    this.textButton,
+    this.textSecondButton,
+    this.onTapButton,
+    this.onTapSecondButton,
   });
 
   @override
@@ -365,14 +368,14 @@ class AppDialogCustomWidget extends StatelessWidget {
               children: itemBottom ??
                   [
                     AppButton(
-                      onTap: functionButton ?? () {},
-                      text: 'button',
+                      onTap: onTapButton ?? () {},
+                      text: textButton ?? 'button',
                       rounded: true,
                     ),
                     SizedBox(height: AppSizes.padding / 2),
                     AppButton(
-                      onTap: functionSecondButton ?? () {},
-                      text: 'Button',
+                      onTap: onTapSecondButton ?? () {},
+                      text: textSecondButton ?? 'Button',
                       textColor: AppColors.primary,
                       buttonColor: AppColors.blueLv5,
                       rounded: true,
