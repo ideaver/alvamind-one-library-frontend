@@ -9,14 +9,17 @@ import '../../molecule/app_chips.dart';
 import '../../molecule/app_text_field.dart';
 
 class TimeField extends StatefulWidget {
-  final void Function(String) onChangedStartCalendar;
+  final void Function(String)? onChangedStartCalendar;
   final void Function()? onEditingCompleteStartCalendar;
-  final void Function(String) onChangedEndCalendar;
+  final void Function(String)? onChangedEndCalendar;
   final void Function()? onEditingCompleteEndCalendar;
-  final void Function(String) onChangedStartTime;
+  final void Function(String)? onChangedStartTime;
   final void Function()? onEditingCompleteStartTime;
-  final void Function(String) onChangedEndTime;
+  final void Function(String)? onChangedEndTime;
   final void Function()? onEditingCompleteEndTime;
+  final List<AppChips>? listTimeChips;
+  final bool? showCalendarField;
+  final bool? showTimeField;
 
   const TimeField({
     required this.onChangedEndCalendar,
@@ -27,6 +30,9 @@ class TimeField extends StatefulWidget {
     required this.onChangedStartTime,
     this.onEditingCompleteEndTime,
     this.onEditingCompleteStartTime,
+    this.listTimeChips,
+    this.showCalendarField = true,
+    this.showTimeField = true,
   });
 
   @override
@@ -42,23 +48,29 @@ class _TimeFieldState extends State<TimeField> {
     return AppCardContainer(
       child: Column(
         children: [
-          timeFieldChild(
-            CustomIcon.calendarIcon,
-            widget.onChangedStartCalendar,
-            widget.onEditingCompleteStartCalendar ?? () {},
-            widget.onChangedStartCalendar,
-            widget.onEditingCompleteEndCalendar ?? () {},
-          ),
-          SizedBox(
-            height: AppSizes.padding,
-          ),
-          timeFieldChild(
-            Icons.access_time,
-            widget.onChangedStartTime,
-            widget.onEditingCompleteStartTime ?? () {},
-            widget.onChangedStartTime,
-            widget.onEditingCompleteEndTime ?? () {},
-          ),
+          widget.showCalendarField == false
+              ? const SizedBox.shrink()
+              : timeFieldChild(
+                  CustomIcon.calendarIcon,
+                  widget.onChangedStartCalendar ?? (String) {},
+                  widget.onEditingCompleteStartCalendar ?? () {},
+                  widget.onChangedStartCalendar ?? (String) {},
+                  widget.onEditingCompleteEndCalendar ?? () {},
+                ),
+          widget.showCalendarField == false
+              ? const SizedBox.shrink()
+              : SizedBox(
+                  height: AppSizes.padding,
+                ),
+          widget.showTimeField == false
+              ? const SizedBox.shrink()
+              : timeFieldChild(
+                  Icons.access_time,
+                  widget.onChangedStartTime ?? (String) {},
+                  widget.onEditingCompleteStartTime ?? () {},
+                  widget.onChangedStartTime ?? (String) {},
+                  widget.onEditingCompleteEndTime ?? () {},
+                ),
           SizedBox(
             height: AppSizes.padding,
           ),
@@ -76,19 +88,21 @@ class _TimeFieldState extends State<TimeField> {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
                 child: Row(
                   children: [
-                    ...List.generate(4, (index) {
+                    ...List.generate(widget.listTimeChips?.length ?? 4, (index) {
                       return Padding(
                         padding: index == 3 ? EdgeInsets.all(0) : EdgeInsets.only(right: AppSizes.padding),
-                        child: AppChips(
-                            text: '${09 + index}:00 AM',
-                            onTap: () {
-                              setState(() {
-                                chipsSelected = index;
-                              });
-                            },
-                            isSelected: chipsSelected == index ? true : false),
+                        child: widget.listTimeChips?[index] ??
+                            AppChips(
+                                text: '${09 + index}:00 AM',
+                                onTap: () {
+                                  setState(() {
+                                    chipsSelected = index;
+                                  });
+                                },
+                                isSelected: chipsSelected == index ? true : false),
                       );
                     })
                   ],
