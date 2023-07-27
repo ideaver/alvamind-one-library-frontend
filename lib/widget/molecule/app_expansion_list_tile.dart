@@ -44,7 +44,7 @@ class AppExpansionListTile extends StatefulWidget {
     this.subtitleDownColor,
     this.boxShadow,
     this.paddingChild,
-    this.isDisabled = true,
+    this.isDisabled = false,
   }) : super(key: key);
 
   @override

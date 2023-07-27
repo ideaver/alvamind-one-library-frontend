@@ -7,8 +7,15 @@ import '../../molecule/app_expansion_list_tile.dart';
 import '../accordion/accordion_question_card.dart';
 
 class TermsConditionList extends StatelessWidget {
+  final List<String>? title;
+  final List<String>? subtitle;
+  final bool? isDisabled;
+
   const TermsConditionList({
     super.key,
+    this.title,
+    this.subtitle,
+    this.isDisabled,
   });
 
   @override
@@ -28,15 +35,16 @@ class TermsConditionList extends StatelessWidget {
         ),
         ...List.generate(4, (i) {
           return Padding(
-            padding: i == 4 ? EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
+            padding: i == 4 ? const EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
             child: AppExpansionListTile(
-              title: '${i + 1} . Lorem ipsum dolor sit amet ',
+              isDisabled: isDisabled,
+              title: title?[i] ?? '${i + 1} . Lorem ipsum dolor sit amet ',
               titleColor: AppColors.black,
               expand: true,
               backgroundColor: AppColors.white,
               children: [
                 QuestionText(
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                  text: subtitle?[i] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                   color: AppColors.black,
                   padding: EdgeInsets.all(AppSizes.padding / 10),
                   backgroundColor: AppColors.transparent,
