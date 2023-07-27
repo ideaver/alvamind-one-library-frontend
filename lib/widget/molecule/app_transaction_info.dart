@@ -64,7 +64,7 @@ class AppTransactionInfo extends StatelessWidget {
                           buttonColor: AppColors.transparent,
                           icon: Icon(
                             Icons.file_copy_outlined,
-                            color: transactionStatusColor,
+                            color: AppColors.primary,
                             size: 18,
                           ),
                           onTap: onTapCopyButton ?? () {},

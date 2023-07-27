@@ -21,6 +21,7 @@ class TimeField extends StatefulWidget {
   final bool? showCalendarField;
   final bool? showTimeField;
   final EdgeInsets? padding;
+  final EdgeInsets? paddingScroll;
 
   const TimeField({
     this.onChangedEndCalendar,
@@ -35,6 +36,7 @@ class TimeField extends StatefulWidget {
     this.showCalendarField = true,
     this.showTimeField = true,
     this.padding,
+    this.paddingScroll,
   });
 
   @override
@@ -48,7 +50,7 @@ class _TimeFieldState extends State<TimeField> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return AppCardContainer(
-      padding: widget.padding,
+      padding: EdgeInsets.all(0),
       child: Column(
         children: [
           widget.showCalendarField == false
@@ -80,10 +82,13 @@ class _TimeFieldState extends State<TimeField> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Waktu Mulai',
-                style: AppTextStyle.bold(
-                  size: 20,
+              Padding(
+                padding: widget.padding ?? EdgeInsets.symmetric(horizontal: AppSizes.padding),
+                child: Text(
+                  'Waktu Mulai',
+                  style: AppTextStyle.bold(
+                    size: 20,
+                  ),
                 ),
               ),
               SizedBox(
@@ -92,6 +97,7 @@ class _TimeFieldState extends State<TimeField> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
+                padding: widget.paddingScroll ?? EdgeInsets.zero,
                 child: Row(
                   children: [
                     ...List.generate(widget.listTimeChips?.length ?? 4, (index) {
@@ -125,59 +131,62 @@ class _TimeFieldState extends State<TimeField> {
     void Function(String) onChangedEnd,
     void Function() onEditingCompleteEnd,
   ) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Mulai',
-                style: AppTextStyle.bold(
-                  size: 20,
+    return Padding(
+      padding: widget.padding ?? EdgeInsets.symmetric(horizontal: AppSizes.padding),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Mulai',
+                  style: AppTextStyle.bold(
+                    size: 20,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: AppSizes.padding,
-              ),
-              AppTextField(
-                hintText: 'Mulai...',
-                suffixIcon: icon,
-                iconsColor: AppColors.black,
-                onChanged: onChangedStart,
-                onEditingComplete: onEditingCompleteStart,
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          width: AppSizes.padding,
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Selesai',
-                style: AppTextStyle.bold(
-                  size: 20,
+                SizedBox(
+                  height: AppSizes.padding,
                 ),
-              ),
-              SizedBox(
-                height: AppSizes.padding,
-              ),
-              AppTextField(
-                hintText: 'Selesai...',
-                suffixIcon: icon,
-                iconsColor: AppColors.black,
-                onChanged: onChangedEnd,
-                onEditingComplete: onEditingCompleteEnd,
-              ),
-            ],
+                AppTextField(
+                  hintText: 'Mulai...',
+                  suffixIcon: icon,
+                  iconsColor: AppColors.black,
+                  onChanged: onChangedStart,
+                  onEditingComplete: onEditingCompleteStart,
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+          SizedBox(
+            width: AppSizes.padding,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Selesai',
+                  style: AppTextStyle.bold(
+                    size: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: AppSizes.padding,
+                ),
+                AppTextField(
+                  hintText: 'Selesai...',
+                  suffixIcon: icon,
+                  iconsColor: AppColors.black,
+                  onChanged: onChangedEnd,
+                  onEditingComplete: onEditingCompleteEnd,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

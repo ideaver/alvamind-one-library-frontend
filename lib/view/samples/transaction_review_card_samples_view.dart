@@ -31,6 +31,7 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
             listCardProgress(),
             listCardFlow(),
             listTransaction(),
+            listTransaction1(),
             cardReview(),
           ],
         ),
@@ -83,6 +84,21 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
         registerDate: '19 Mei 2023',
         status: 'Aktif',
         statusColor: AppColors.greenLv1,
+      ),
+    );
+  }
+
+  Widget listTransaction1() {
+    return const SampleWrapper(
+      title: 'List Transaction',
+      widget: ListTransaction(
+        isTransaction: true,
+        transactionId: 'nakama@gmail.com',
+        adminPayment: '+62534234432',
+        bill: 'Perempuan',
+        count: '19 Mei 2023',
+        status: 'Belum Terbayar',
+        statusColor: AppColors.redLv1,
       ),
     );
   }

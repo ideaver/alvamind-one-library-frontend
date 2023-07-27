@@ -7,12 +7,12 @@ import '../atom/app_divider.dart';
 
 class AppExpansionListTile extends StatefulWidget {
   final String title;
-  final Color? titleColor;
   final String? subtitle;
   final String? subtitleDown;
+  final IconData? icon;
+  final Color? titleColor;
   final Color? subtitleColor;
   final Color? subtitleDownColor;
-  final IconData? icon;
   final Color? buttonDropColor;
   final Color? iconColor;
   final Color? backgroundColor;
@@ -24,6 +24,7 @@ class AppExpansionListTile extends StatefulWidget {
   final bool expand;
   final bool? isDisabled;
   final List<BoxShadow>? boxShadow;
+  final CrossAxisAlignment? crossAxisAlignmentChild;
 
   const AppExpansionListTile({
     Key? key,
@@ -45,6 +46,7 @@ class AppExpansionListTile extends StatefulWidget {
     this.boxShadow,
     this.paddingChild,
     this.isDisabled = false,
+    this.crossAxisAlignmentChild,
   }) : super(key: key);
 
   @override
@@ -184,6 +186,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                     ? Padding(
                         padding: widget.paddingChild ?? EdgeInsets.all(0),
                         child: Column(
+                          crossAxisAlignment: widget.crossAxisAlignmentChild ?? CrossAxisAlignment.center,
                           children: [
                             ...widget.children,
                           ],
