@@ -31,6 +31,8 @@ class ButtonBarCustomer extends StatelessWidget {
   final void Function() onTapButtonRightOut;
 
   final int? index;
+  final double? height;
+  final double? gapTopButtonCenter;
   final List<BoxShadow>? boxShadow;
 
   const ButtonBarCustomer({
@@ -55,6 +57,8 @@ class ButtonBarCustomer extends StatelessWidget {
     this.textCenterColor,
     this.index,
     this.boxShadow,
+    this.height,
+    this.gapTopButtonCenter,
   });
 
   @override
@@ -206,7 +210,7 @@ class ButtonBarCustomer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                  height: 70,
+                  height: height ?? 70,
                   width: MediaQuery.of(context).size.width - AppSizes.padding * 2,
                   child: GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -214,7 +218,7 @@ class ButtonBarCustomer extends StatelessWidget {
                       crossAxisCount: 5,
                     ),
                     itemBuilder: (_, index) => Container(
-                      padding: index != 2 ? EdgeInsets.only(top: AppSizes.padding / 3) : const EdgeInsets.all(0),
+                      padding: index != 2 ? EdgeInsets.only(top: gapTopButtonCenter ?? AppSizes.padding / 3) : const EdgeInsets.all(0),
                       child: listButton[index],
                     ),
                     itemCount: 5,
