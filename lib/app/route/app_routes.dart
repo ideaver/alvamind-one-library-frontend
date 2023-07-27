@@ -8,6 +8,7 @@ import '../../view/samples/bar_chart_samples_view.dart';
 import '../../view/samples/body_samples_view.dart';
 import '../../view/samples/button_customer_bar_samples_view.dart';
 import '../../view/samples/button_samples_view.dart';
+import '../../view/samples/calendar_samples_view.dart';
 import '../../view/samples/card_pinpoin_delivery_samples_view.dart';
 import '../../view/samples/category_menu_samples_view.dart';
 import '../../view/samples/chat_form_samples_view.dart';
@@ -158,5 +159,6 @@ class AppRoutes {
     OutletListBodySamplesView.routeName: (context) => const OutletListBodySamplesView(),
     UserProfileContainerSamplesView.routeName: (context) => const UserProfileContainerSamplesView(),
     UserProfileContainerEmployeeSamplesView.routeName: (context) => const UserProfileContainerEmployeeSamplesView(),
+    CalendarSamplesView.routeName: (context) => const CalendarSamplesView(),
   };
 }
