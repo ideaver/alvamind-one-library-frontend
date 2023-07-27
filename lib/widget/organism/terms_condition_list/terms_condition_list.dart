@@ -10,12 +10,14 @@ class TermsConditionList extends StatelessWidget {
   final List<String>? title;
   final List<String>? subtitle;
   final bool? isDisabled;
+  final bool? withHeadTitle;
 
   const TermsConditionList({
     super.key,
     this.title,
     this.subtitle,
     this.isDisabled,
+    this.withHeadTitle = false,
   });
 
   @override
@@ -23,16 +25,20 @@ class TermsConditionList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Terms Condition List',
-          style: AppTextStyle.bold(
-            size: 32,
-            color: AppColors.black,
-          ),
-        ),
-        SizedBox(
-          height: AppSizes.padding,
-        ),
+        withHeadTitle == false
+            ? const SizedBox.shrink()
+            : Text(
+                'Terms Condition List',
+                style: AppTextStyle.bold(
+                  size: 32,
+                  color: AppColors.black,
+                ),
+              ),
+        withHeadTitle == false
+            ? const SizedBox.shrink()
+            : SizedBox(
+                height: AppSizes.padding,
+              ),
         ...List.generate(4, (i) {
           return Padding(
             padding: i == 4 ? const EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
