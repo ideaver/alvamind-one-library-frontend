@@ -79,6 +79,7 @@ class AccountList extends StatelessWidget {
                             subtitle ?? '',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
+                            softWrap: true,
                             style: AppTextStyle.medium(
                               size: 14,
                               color: AppColors.blackLv5,
