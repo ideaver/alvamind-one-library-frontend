@@ -20,19 +20,21 @@ class TimeField extends StatefulWidget {
   final List<AppChips>? listTimeChips;
   final bool? showCalendarField;
   final bool? showTimeField;
+  final EdgeInsets? padding;
 
   const TimeField({
-    required this.onChangedEndCalendar,
-    required this.onChangedStartCalendar,
+    this.onChangedEndCalendar,
+    this.onChangedStartCalendar,
     this.onEditingCompleteEndCalendar,
     this.onEditingCompleteStartCalendar,
-    required this.onChangedEndTime,
-    required this.onChangedStartTime,
+    this.onChangedEndTime,
+    this.onChangedStartTime,
     this.onEditingCompleteEndTime,
     this.onEditingCompleteStartTime,
     this.listTimeChips,
     this.showCalendarField = true,
     this.showTimeField = true,
+    this.padding,
   });
 
   @override
@@ -46,6 +48,7 @@ class _TimeFieldState extends State<TimeField> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return AppCardContainer(
+      padding: widget.padding,
       child: Column(
         children: [
           widget.showCalendarField == false
