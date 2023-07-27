@@ -88,7 +88,7 @@ class _BodySamplesViewState extends State<BodySamplesView> {
                   rightButton: false,
                   image: randomImage,
                   title: 'Barokah Laundry',
-                  subtitle: 'Sebaiknya memint......',
+                  subtitle: 'Sebaiknya memindsfsdfsfdfsdfsfhfsjdfjksfjkhfjkfhsdjkh.',
                   rightItem: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [

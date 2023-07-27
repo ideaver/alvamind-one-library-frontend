@@ -61,35 +61,41 @@ class AccountList extends StatelessWidget {
                 SizedBox(
                   width: AppSizes.padding,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title ?? '',
-                      style: titleTextStyle ?? AppTextStyle.bold(size: 18),
-                    ),
-                    subtitle == null
-                        ? const SizedBox.shrink()
-                        : SizedBox(
-                            height: AppSizes.padding / 4,
-                          ),
-                    subtitle == null
-                        ? const SizedBox.shrink()
-                        : Expanded(
-                            child: Text(
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title ?? '',
+                        style: titleTextStyle ?? AppTextStyle.bold(size: 18),
+                      ),
+                      subtitle == null
+                          ? const SizedBox.shrink()
+                          : SizedBox(
+                              height: AppSizes.padding / 4,
+                            ),
+                      subtitle == null
+                          ? const SizedBox.shrink()
+                          : Text(
                               subtitle ?? '',
                               maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
                               softWrap: true,
+                              overflow: TextOverflow.ellipsis,
                               style: AppTextStyle.medium(
                                 size: 14,
                                 color: AppColors.blackLv5,
                               ),
                             ),
-                          ),
-                  ],
+                    ],
+                  ),
                 ),
                 //
+                rightButton == false
+                    ? SizedBox(
+                        width: AppSizes.padding * 4,
+                      )
+                    : const SizedBox.shrink(),
+
                 rightButton == false
                     ? const SizedBox.shrink()
                     : Expanded(
