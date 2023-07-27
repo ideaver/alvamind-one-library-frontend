@@ -75,14 +75,16 @@ class AccountList extends StatelessWidget {
                           ),
                     subtitle == null
                         ? const SizedBox.shrink()
-                        : Text(
-                            subtitle ?? '',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            softWrap: true,
-                            style: AppTextStyle.medium(
-                              size: 14,
-                              color: AppColors.blackLv5,
+                        : Expanded(
+                            child: Text(
+                              subtitle ?? '',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              softWrap: true,
+                              style: AppTextStyle.medium(
+                                size: 14,
+                                color: AppColors.blackLv5,
+                              ),
                             ),
                           ),
                   ],
