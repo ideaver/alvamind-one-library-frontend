@@ -38,6 +38,7 @@ class OrderCard extends StatelessWidget {
   final Color? leftButtonTextColor;
   final Color? rightButtonTextColor;
   final Color? rightButtonBorderColor;
+  final Color? labelingColor;
   final bool? isProgress;
   final bool? isDone;
   final bool? showButton;
@@ -78,6 +79,7 @@ class OrderCard extends StatelessWidget {
     this.rightButtonBorderColor,
     this.rightButtonColor,
     this.rightButtonTextColor,
+    this.labelingColor,
     this.image,
     this.boxShadow,
     this.showButton = true,
@@ -152,6 +154,7 @@ class OrderCard extends StatelessWidget {
           isProgress == true
               ? showProgressLine == true
                   ? AppProgressLine(
+                      lineColor: labelingColor ?? AppColors.primary,
                       value: labelingCount ?? 20,
                       maxValue: 100,
                       label: labelingText ?? 'Labeling',

@@ -34,6 +34,7 @@ class ItemCardListSelected extends StatefulWidget {
   final String? image;
   final double? labelingCount;
   final Color? selectedButtonColor;
+  final Color? labelingColor;
   final BorderRadius? borderRadiusSelected;
   final BorderRadius? borderRadius;
   final IconData? iconHeartButton;
@@ -80,6 +81,7 @@ class ItemCardListSelected extends StatefulWidget {
     this.iconHeartColor,
     this.onTapHeartButton,
     this.customSelectedButton,
+    this.labelingColor,
   });
 
   @override
@@ -176,6 +178,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
         // isList
         widget.isStatus == true
             ? AppProgressLine(
+                lineColor: widget.labelingColor ?? AppColors.primary,
                 value: widget.labelingCount ?? 20,
                 maxValue: 100,
                 label: widget.labelingText ?? 'Labeling',

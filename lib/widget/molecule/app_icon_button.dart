@@ -64,8 +64,8 @@ class AppIconButton extends StatelessWidget {
                   gradient: LinearGradient(
                       colors: gradient ??
                           [
-                            AppColors.primary,
-                            AppColors.primary,
+                            AppColors.transparent,
+                            AppColors.transparent,
                           ]),
                   borderRadius: BorderRadius.circular(borderRadius),
                   border: borderWidth != null
