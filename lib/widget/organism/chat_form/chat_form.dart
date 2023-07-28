@@ -75,7 +75,7 @@ class _ChatFormState extends State<ChatForm> {
             ],
           ),
           child: AppIconButton(
-            padding: EdgeInsets.all(18),
+            padding: EdgeInsets.all(16),
             gradient: const [
               AppColors.blueLv2,
               AppColors.blueLv1,
