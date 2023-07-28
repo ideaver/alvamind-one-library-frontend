@@ -164,9 +164,11 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                         Row(
                           children: [
                             widget.moreItem != null ? widget.moreItem! : const SizedBox.shrink(),
-                            const SizedBox(
-                              width: 12,
-                            ),
+                            widget.showExpandButton == false
+                                ? const SizedBox.shrink()
+                                : const SizedBox(
+                                    width: 12,
+                                  ),
                             widget.showExpandButton == false
                                 ? const SizedBox.shrink()
                                 : Icon(
