@@ -69,7 +69,7 @@ class ButtonBarCustomer extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         onTap: onTapButtonLeftOut,
         child: AppIconButton(
-          padding: EdgeInsets.only(top: AppSizes.padding / 2),
+          padding: EdgeInsets.only(top: AppSizes.padding / 1.5),
           paddingText: const EdgeInsets.only(top: 2),
           icon: Icon(
             size: 20,
@@ -91,7 +91,7 @@ class ButtonBarCustomer extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         onTap: onTapButtonLeftIn,
         child: AppIconButton(
-          padding: EdgeInsets.only(top: AppSizes.padding / 2),
+          padding: EdgeInsets.only(top: AppSizes.padding / 1.5),
           paddingText: const EdgeInsets.only(top: 2),
           icon: Icon(
             size: 20,
@@ -120,7 +120,7 @@ class ButtonBarCustomer extends StatelessWidget {
             shape: BoxShape.circle,
           ),
           child: AppIconButton(
-            padding: EdgeInsets.only(top: AppSizes.padding / 2),
+            padding: EdgeInsets.only(top: AppSizes.padding / 1.5),
             paddingText: const EdgeInsets.only(top: 2),
             icon: Icon(
               size: 20,
@@ -152,7 +152,7 @@ class ButtonBarCustomer extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         onTap: onTapButtonRightIn,
         child: AppIconButton(
-          padding: EdgeInsets.only(top: AppSizes.padding / 2),
+          padding: EdgeInsets.only(top: AppSizes.padding / 1.5),
           paddingText: const EdgeInsets.only(top: 2),
           icon: Icon(
             iconRightIn,
@@ -174,7 +174,7 @@ class ButtonBarCustomer extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         onTap: onTapButtonRightOut,
         child: AppIconButton(
-          padding: EdgeInsets.only(top: AppSizes.padding / 2),
+          padding: EdgeInsets.only(top: AppSizes.padding / 1.5),
           paddingText: const EdgeInsets.only(top: 2),
           icon: Icon(
             iconRightOut,
