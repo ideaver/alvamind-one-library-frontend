@@ -39,28 +39,20 @@ class _ChatFormState extends State<ChatForm> {
         Expanded(
           child: Material(
             color: AppColors.transparent,
-            child: Stack(
-              alignment: Alignment.centerRight,
-              children: [
-                AppTextField(
-                  hintText: widget.textPlaceholder,
-                  textInputType: TextInputType.text,
-                  prefixIcon: Icons.insert_emoticon,
-                  onChanged: widget.onChanged ??
-                      (value) {
-                        setState(() {
-                          showRightButton = true;
-                        });
-                      },
-                  onEditingComplete: () {
-                    showRightButton = true;
+            child: AppTextField(
+              hintText: widget.textPlaceholder,
+              textInputType: TextInputType.text,
+              prefixIcon: Icons.insert_emoticon,
+              suffixWidget: rightButton(),
+              onChanged: widget.onChanged ??
+                  (value) {
+                    setState(() {
+                      showRightButton = true;
+                    });
                   },
-                ),
-                Positioned(
-                  right: AppSizes.padding,
-                  child: rightButton(),
-                ),
-              ],
+              onEditingComplete: () {
+                showRightButton = true;
+              },
             ),
           ),
         ),
@@ -111,7 +103,7 @@ class _ChatFormState extends State<ChatForm> {
           icon: Icon(
             Icons.add,
             size: 18,
-            color: showRightButton ? AppColors.primary : AppColors.blackLv4,
+            color: AppColors.primary,
           ),
           onTap: widget.onTapAddButton ?? () {},
         ),
@@ -124,7 +116,7 @@ class _ChatFormState extends State<ChatForm> {
           icon: Icon(
             Icons.camera_alt,
             size: 18,
-            color: showRightButton ? AppColors.primary : AppColors.blackLv4,
+            color: AppColors.primary,
           ),
           onTap: widget.onTapCameraButton ?? () {},
         ),
