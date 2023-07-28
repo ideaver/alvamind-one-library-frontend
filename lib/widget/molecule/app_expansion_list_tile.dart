@@ -6,7 +6,7 @@ import '../../app/theme/app_text_style.dart';
 import '../atom/app_divider.dart';
 
 class AppExpansionListTile extends StatefulWidget {
-  final String title;
+  final String? title;
   final String? subtitle;
   final String? subtitleDown;
   final IconData? icon;
@@ -28,8 +28,8 @@ class AppExpansionListTile extends StatefulWidget {
 
   const AppExpansionListTile({
     Key? key,
-    required this.title,
     required this.children,
+    this.title,
     this.icon,
     this.backgroundColor,
     this.titleColor,
@@ -137,13 +137,15 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                                         ),
                                       )
                                     : const SizedBox.shrink(),
-                                Text(
-                                  widget.title,
-                                  style: AppTextStyle.bold(
-                                    size: 18,
-                                    color: widget.titleColor,
-                                  ),
-                                ),
+                                widget.title == null
+                                    ? const SizedBox.shrink()
+                                    : Text(
+                                        widget.title ?? '',
+                                        style: AppTextStyle.bold(
+                                          size: 18,
+                                          color: widget.titleColor,
+                                        ),
+                                      ),
                                 widget.subtitleDown != null
                                     ? Text(
                                         widget.subtitleDown!,
