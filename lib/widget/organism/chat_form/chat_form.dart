@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -27,8 +28,9 @@ class ChatForm extends StatefulWidget {
   State<ChatForm> createState() => _ChatFormState();
 }
 
+bool showRightButton = false;
+
 class _ChatFormState extends State<ChatForm> {
-  bool showRightButton = true;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -37,50 +39,28 @@ class _ChatFormState extends State<ChatForm> {
         Expanded(
           child: Material(
             color: AppColors.transparent,
-            child: AppTextField(
-              hintText: widget.textPlaceholder,
-              textInputType: TextInputType.text,
-              prefixIcon: Icons.insert_emoticon,
-              suffixWidget: Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  AppIconButton(
-                    padding: EdgeInsets.all(0),
-                    buttonColor: AppColors.transparent,
-                    icon: const Icon(
-                      Icons.add,
-                      size: 18,
-                      color: AppColors.blackLv4,
-                    ),
-                    onTap: widget.onTapAddButton ?? () {},
-                  ),
-                  SizedBox(
-                    width: AppSizes.padding / 2,
-                  ),
-                  AppIconButton(
-                    buttonColor: AppColors.transparent,
-                    padding: EdgeInsets.all(0),
-                    icon: const Icon(
-                      Icons.camera_alt,
-                      size: 18,
-                      color: AppColors.blackLv4,
-                    ),
-                    onTap: widget.onTapCameraButton ?? () {},
-                  ),
-                ],
-              ),
-              onChanged: widget.onChanged ??
-                  (value) {
-                    setState(() {
-                      showRightButton = false;
-                      ;
-                    });
+            child: Stack(
+              alignment: Alignment.centerRight,
+              children: [
+                AppTextField(
+                  hintText: widget.textPlaceholder,
+                  textInputType: TextInputType.text,
+                  prefixIcon: Icons.insert_emoticon,
+                  onChanged: widget.onChanged ??
+                      (value) {
+                        setState(() {
+                          showRightButton = true;
+                        });
+                      },
+                  onEditingComplete: () {
+                    showRightButton = true;
                   },
-              onEditingComplete: () {
-                showRightButton = true;
-              },
+                ),
+                Positioned(
+                  right: AppSizes.padding,
+                  child: rightButton(),
+                ),
+              ],
             ),
           ),
         ),
@@ -109,12 +89,45 @@ class _ChatFormState extends State<ChatForm> {
               AppColors.blueLv1,
             ],
             icon: const Icon(
-              Icons.send,
+              CustomIcon.sendBoldIcon,
               color: AppColors.white,
             ),
             onTap: widget.onTapSendButton ?? () {},
           ),
         )
+      ],
+    );
+  }
+
+  Widget rightButton() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        AppIconButton(
+          padding: EdgeInsets.all(0),
+          buttonColor: AppColors.transparent,
+          icon: Icon(
+            Icons.add,
+            size: 18,
+            color: showRightButton ? AppColors.primary : AppColors.blackLv4,
+          ),
+          onTap: widget.onTapAddButton ?? () {},
+        ),
+        SizedBox(
+          width: AppSizes.padding / 2,
+        ),
+        AppIconButton(
+          buttonColor: AppColors.transparent,
+          padding: EdgeInsets.all(0),
+          icon: Icon(
+            Icons.camera_alt,
+            size: 18,
+            color: showRightButton ? AppColors.primary : AppColors.blackLv4,
+          ),
+          onTap: widget.onTapCameraButton ?? () {},
+        ),
       ],
     );
   }

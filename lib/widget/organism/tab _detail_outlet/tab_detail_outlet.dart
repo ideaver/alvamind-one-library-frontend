@@ -61,7 +61,7 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
         tabs: [
           ...List.generate(widget.listTabBar.length, (index) {
             return AppTabBar(
-              leftIcon: widget.leftIcon![index],
+              leftIcon: widget.leftIcon?[index] ?? null,
               fontSize: widget.fontSize ?? 16,
               text: widget.listTabBar[index],
               textColor: tabBarSelected == index ? AppColors.primary : AppColors.blackLv6,
