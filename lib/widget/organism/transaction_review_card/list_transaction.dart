@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -15,6 +16,10 @@ class ListTransaction extends StatelessWidget {
   final String? bill;
   final String? count;
   final String? status;
+  final String? orderId;
+  final String? complainId;
+  final String? dateComplain;
+  final String? consument;
   final Color? statusColor;
   final bool? isTransaction;
   final List<BoxShadow>? boxShadow;
@@ -22,6 +27,8 @@ class ListTransaction extends StatelessWidget {
   final void Function()? onTapCopyEmail;
   final void Function()? onTapCopyTransactionId;
   final void Function()? onTapCopyCount;
+  final void Function()? onTapCopyOrderId;
+  final void Function()? onTapCopyComplainId;
 
   const ListTransaction({
     super.key,
@@ -41,6 +48,12 @@ class ListTransaction extends StatelessWidget {
     this.onTapCopyNumber,
     this.onTapCopyTransactionId,
     this.boxShadow,
+    this.complainId,
+    this.consument,
+    this.dateComplain,
+    this.onTapCopyComplainId,
+    this.onTapCopyOrderId,
+    this.orderId,
   });
 
   @override
@@ -146,6 +159,53 @@ class ListTransaction extends StatelessWidget {
           onTapCopyButton: onTapCopyCount ?? () {},
           transactionStatus: status ?? '',
           transactionStatusColor: statusColor ?? AppColors.greenLv1,
+        ),
+      ],
+    );
+  }
+
+  complain() {
+    return Column(
+      children: [
+        AppTransactionInfo(
+          dotChillPadding: EdgeInsets.all(0),
+          dotColor: AppColors.transparent,
+          textTitle: 'ID Komplain',
+          transactionId: complainId ?? '',
+          transactionStatus: 'Paid',
+          onlyTrasactionId: true,
+          onTapCopyButton: onTapCopyComplainId ?? () {},
+        ),
+        AppTransactionInfo(
+          dotChillPadding: EdgeInsets.all(0),
+          dotColor: AppColors.transparent,
+          textTitle: 'Tanggal Komplain',
+          transactionId: dateComplain ?? '',
+          transactionStatus: 'Paid',
+          withIcon: false,
+          onlyTrasactionId: true,
+        ),
+        const AppDivider(
+          color: AppColors.blackLv7,
+        ),
+        AppTransactionInfo(
+          dotChillPadding: EdgeInsets.all(0),
+          dotColor: AppColors.transparent,
+          textTitle: 'ID Order',
+          transactionId: orderId ?? '',
+          transactionStatus: 'Paid',
+          onlyTrasactionId: true,
+          onTapCopyButton: onTapCopyOrderId ?? () {},
+        ),
+        AppTransactionInfo(
+          dotChillPadding: EdgeInsets.all(0),
+          dotColor: AppColors.transparent,
+          textTitle: 'Konsumen',
+          transactionId: consument ?? '',
+          transactionIdStyle: AppTextStyle.bold(size: 16, color: AppColors.primary),
+          withIcon: false,
+          transactionStatus: '',
+          onlyTrasactionId: true,
         ),
       ],
     );

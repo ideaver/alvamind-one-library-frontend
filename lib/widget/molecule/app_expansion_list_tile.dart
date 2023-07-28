@@ -23,6 +23,7 @@ class AppExpansionListTile extends StatefulWidget {
   final bool? divider;
   final bool expand;
   final bool? isDisabled;
+  final bool? showExpandButton;
   final List<BoxShadow>? boxShadow;
   final CrossAxisAlignment? crossAxisAlignmentChild;
 
@@ -46,6 +47,7 @@ class AppExpansionListTile extends StatefulWidget {
     this.boxShadow,
     this.paddingChild,
     this.isDisabled = false,
+    this.showExpandButton = true,
     this.crossAxisAlignmentChild,
   }) : super(key: key);
 
@@ -67,7 +69,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
     return AnimatedContainer(
       height: isExpanded
           ? null
-          : widget.subtitle != null
+          : widget.subtitle != null && widget.title != null
               ? 74
               : 58,
       duration: const Duration(milliseconds: 300),
@@ -165,11 +167,13 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                             const SizedBox(
                               width: 12,
                             ),
-                            Icon(
-                              isExpanded ? CustomIcon.iconArrowDown : CustomIcon.iconArrowRight,
-                              color: widget.buttonDropColor == null ? Colors.blue : widget.buttonDropColor,
-                              size: 18,
-                            ),
+                            widget.showExpandButton == false
+                                ? const SizedBox.shrink()
+                                : Icon(
+                                    isExpanded ? CustomIcon.iconArrowDown : CustomIcon.iconArrowRight,
+                                    color: widget.buttonDropColor == null ? Colors.blue : widget.buttonDropColor,
+                                    size: 18,
+                                  ),
                           ],
                         ),
                       ],

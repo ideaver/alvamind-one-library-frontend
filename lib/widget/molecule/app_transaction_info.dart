@@ -16,6 +16,7 @@ class AppTransactionInfo extends StatelessWidget {
   final EdgeInsets? dotChillPadding;
   final bool? onlyTrasactionId;
   final bool? withIcon;
+  final TextStyle? transactionIdStyle;
   final Function()? onTapCopyButton;
 
   const AppTransactionInfo({
@@ -29,6 +30,7 @@ class AppTransactionInfo extends StatelessWidget {
     this.onlyTrasactionId,
     this.textTitle,
     this.withIcon = true,
+    this.transactionIdStyle,
   }) : super(key: key);
 
   @override
@@ -52,9 +54,10 @@ class AppTransactionInfo extends StatelessWidget {
                 children: [
                   Text(
                     transactionId,
-                    style: AppTextStyle.bodyLarge(
-                      fontWeight: AppFontWeight.semibold,
-                    ),
+                    style: transactionIdStyle ??
+                        AppTextStyle.bodyLarge(
+                          fontWeight: AppFontWeight.semibold,
+                        ),
                   ),
                   withIcon == false ? const SizedBox.shrink() : const SizedBox(width: 8),
                   withIcon == false
