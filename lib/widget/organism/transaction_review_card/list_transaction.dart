@@ -22,6 +22,7 @@ class ListTransaction extends StatelessWidget {
   final String? consument;
   final Color? statusColor;
   final bool? isTransaction;
+  final bool? isComplain;
   final List<BoxShadow>? boxShadow;
   final void Function()? onTapCopyNumber;
   final void Function()? onTapCopyEmail;
@@ -42,6 +43,7 @@ class ListTransaction extends StatelessWidget {
     this.bill,
     this.count,
     this.isTransaction = false,
+    this.isComplain = false,
     this.transactionId,
     this.onTapCopyCount,
     this.onTapCopyEmail,
@@ -69,7 +71,11 @@ class ListTransaction extends StatelessWidget {
                 spreadRadius: -40,
               ),
             ],
-        child: isTransaction == true ? transaction() : userDetail());
+        child: isTransaction == true
+            ? transaction()
+            : isComplain == true
+                ? complain()
+                : userDetail());
   }
 
   userDetail() {
