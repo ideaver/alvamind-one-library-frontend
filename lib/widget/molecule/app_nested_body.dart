@@ -16,6 +16,7 @@ class AppNestedScrollView extends StatelessWidget {
   final Widget? title;
   final ScrollPhysics? physics;
   final ScrollController? controller;
+  final int? lengthTab;
 
   const AppNestedScrollView({
     super.key,
@@ -33,47 +34,51 @@ class AppNestedScrollView extends StatelessWidget {
     this.centerTitle,
     this.physics,
     this.controller,
+    this.lengthTab,
   });
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return NestedScrollView(
-      physics: const BouncingScrollPhysics(),
-      headerSliverBuilder: (context, innerBoxIsScrolled) {
-        return [
-          SliverAppBar(
-            automaticallyImplyLeading: false,
-            pinned: pinned ?? true,
-            expandedHeight: expandedHeight ?? null,
-            collapsedHeight: collapseHeight ?? null,
-            elevation: elevation ?? 0.5,
-            centerTitle: centerTitle ?? false,
-            title: title ?? SizedBox.shrink(),
-            flexibleSpace: FlexibleSpaceBar(
-              title: titleFlexible ?? const SizedBox.shrink(),
-              background: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  background ?? const SizedBox.shrink(),
-                ],
+    return DefaultTabController(
+      length: lengthTab ?? 0,
+      child: NestedScrollView(
+        physics: const BouncingScrollPhysics(),
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              pinned: pinned ?? true,
+              expandedHeight: expandedHeight ?? null,
+              collapsedHeight: collapseHeight ?? null,
+              elevation: elevation ?? 0.5,
+              centerTitle: centerTitle ?? false,
+              title: title ?? SizedBox.shrink(),
+              flexibleSpace: FlexibleSpaceBar(
+                title: titleFlexible ?? const SizedBox.shrink(),
+                background: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    background ?? const SizedBox.shrink(),
+                  ],
+                ),
+                expandedTitleScale: 1,
+                titlePadding: titlePadding ?? EdgeInsets.all(AppSizes.padding),
               ),
-              expandedTitleScale: 1,
-              titlePadding: titlePadding ?? EdgeInsets.all(AppSizes.padding),
             ),
-          ),
-        ];
-      },
-      body: SingleChildScrollView(
-        controller: controller,
-        physics: physics ?? const BouncingScrollPhysics(),
-        padding: padding ??
-            EdgeInsets.only(
-              top: AppSizes.padding,
-              right: AppSizes.padding,
-              left: AppSizes.padding,
-            ),
-        child: body,
+          ];
+        },
+        body: SingleChildScrollView(
+          controller: controller,
+          physics: physics ?? const BouncingScrollPhysics(),
+          padding: padding ??
+              EdgeInsets.only(
+                top: AppSizes.padding,
+                right: AppSizes.padding,
+                left: AppSizes.padding,
+              ),
+          child: body,
+        ),
       ),
     );
   }
