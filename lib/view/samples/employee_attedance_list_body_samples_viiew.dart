@@ -90,7 +90,7 @@ class _EmployeeAttedanceListBodySamplesViewState extends State<EmployeeAttedance
               ),
               SizedBox(height: AppSizes.padding * 1.5),
               const AppTags(
-                text: '2 Agustus 2023',
+                text: 'Hari ini',
                 color: AppColors.blackLv8,
                 textColor: AppColors.blackLv3,
               ),

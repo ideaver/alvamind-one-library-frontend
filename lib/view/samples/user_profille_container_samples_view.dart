@@ -16,7 +16,7 @@ import '../../widget/molecule/app_expansion_list_tile.dart';
 import '../../widget/molecule/app_icon_button.dart';
 import '../../widget/molecule/app_text_field.dart';
 import '../../widget/organism/accordion/accordion_question_card.dart';
-import '../../widget/organism/button_bar_customer/button_bar_customer .dart';
+import '../../widget/organism/chat_form/chat_form.dart';
 import '../../widget/organism/comments_and_reviews/comments_list.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
 import '../../widget/organism/order_card/order_card.dart';
@@ -48,39 +48,44 @@ int tagSelected1 = 0;
 class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSamplesView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        bottomNavigationBar: buttonBottomBar(),
-        appBar: AppBar(title: const Text('User Profile Container Samples')),
-        body: AppNestedScrollView(
-          collapseHeight: 80,
-          expandedHeight: 80,
-          titleFlexible: TabBarDetailOutlet(
-            leftIcon: const [
-              CustomIcon.chartCurvedIcon,
-              CustomIcon.timesquareIcon,
-              CustomIcon.timesquareIcon,
-              CustomIcon.documentIcon,
-              Icons.star_border_rounded,
-              Icons.image_outlined,
-              Icons.image_outlined,
-            ],
-            listTabBar: const [
-              'Ringkasan',
-              'Pemesanan',
-              'Riwayat Wallet',
-              'Favorit',
-              'Ulasan',
-              'Komplain'
-            ],
-            onTap: (value) {
-              // TODO
-              setState(() {
-                tabBarSelected = value;
-              });
-            },
-          ),
-          body: userProfileContainerTab(),
-        ));
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Scaffold(
+            appBar: AppBar(title: const Text('User Profile Container Samples')),
+            body: AppNestedScrollView(
+              collapseHeight: 80,
+              expandedHeight: 80,
+              titleFlexible: TabBarDetailOutlet(
+                leftIcon: const [
+                  CustomIcon.chartCurvedIcon,
+                  CustomIcon.timesquareIcon,
+                  CustomIcon.timesquareIcon,
+                  CustomIcon.documentIcon,
+                  Icons.star_border_rounded,
+                  Icons.image_outlined,
+                  Icons.image_outlined,
+                ],
+                listTabBar: const [
+                  'Ringkasan',
+                  'Pemesanan',
+                  'Riwayat Wallet',
+                  'Favorit',
+                  'Ulasan',
+                  'Komplain'
+                ],
+                onTap: (value) {
+                  // TODO
+                  setState(() {
+                    tabBarSelected = value;
+                  });
+                },
+              ),
+              body: userProfileContainerTab(),
+            )),
+        bottomChatForm()
+      ],
+    );
   }
 
   Widget userProfileContainerTab() {
@@ -103,59 +108,24 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
   }
 
 // ======
-  int _index = -1;
-  Widget buttonBottomBar() {
-    return SizedBox(
-      height: 100,
-      child: ButtonBarCustomer(
-        index: _index,
 
-        //
-        iconLeftOut: CustomIcon.homeIcon,
-        textLeftOut: 'Beranda',
-        onTapButtonLeftOut: () {
-          // TODO
-          setState(() {
-            _index = 0;
-          });
-        },
-        //
-        iconLeftIn: CustomIcon.documentIcon,
-        textLeftIn: 'Order',
-        onTapButtonLeftIn: () {
-          // TODO
-          setState(() {
-            _index = 1;
-          });
-        },
-        //
-        iconCenter: CustomIcon.scanIcon,
-        textCenter: 'Scan',
-        iconCenterColor: AppColors.white,
-        textCenterColor: AppColors.white,
-        iconCenterBackgroundColor: AppColors.primary,
-        onTapButtonCenter: () {
-          // TODO
-        },
-        //
-        iconRightIn: CustomIcon.chatIcon,
-        textRightIn: 'Chat',
-        onTapButtonRightIn: () {
-          // TODO
-          setState(() {
-            _index = 3;
-          });
-        },
-        //
-        iconRightOut: Icons.settings,
-        textRightOut: 'Pengaturan',
-        onTapButtonRightOut: () {
-          // TODO
-          setState(() {
-            _index = 4;
-          });
-        },
-        //
+  Widget bottomChatForm() {
+    return SizedBox(
+      height: 70,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.padding),
+        child: ChatForm(
+          textPlaceholder: 'Type a message ....',
+          onTapAddButton: () {
+            // TODO
+          },
+          onTapCameraButton: () {
+            // TODO
+          },
+          onTapSendButton: () {
+            // TODO
+          },
+        ),
       ),
     );
   }
