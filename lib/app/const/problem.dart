@@ -1,6 +1,6 @@
 import 'package:alvamind_library/model/complain_model.dart';
 
-List<ComplainModel> solution = const [
+List<ComplainModel> problem = const [
   ComplainModel(
     textComplain: 'Kehilangan',
     codeComplain: '011',
