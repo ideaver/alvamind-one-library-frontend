@@ -69,7 +69,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
     return AnimatedContainer(
       height: isExpanded
           ? null
-          : widget.subtitle != null && widget.title != null
+          : widget.subtitle != null || widget.title != null
               ? 74
               : 58,
       duration: const Duration(milliseconds: 300),
