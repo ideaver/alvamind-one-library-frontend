@@ -36,9 +36,13 @@ class ItemCardList extends StatefulWidget {
   final String? image;
   final Color? tagColor;
   final Color? backgroundColor;
+  final Color? leftButtonColor;
+  final Color? rightButtonColor;
   final BorderRadius? borderRadius;
   final Widget? detailInfoCard;
   final IconData? iconHeartButton;
+  final IconData? leftIconButton;
+  final IconData? rightIconButton;
   final Color? iconHeartColor;
   final List<BoxShadow>? boxShadow;
   final void Function()? onTapRightButton;
@@ -46,7 +50,45 @@ class ItemCardList extends StatefulWidget {
   final void Function()? onTapHearButton;
   final void Function()? onTapCard;
 
-  const ItemCardList({super.key, required this.title, this.isVertical = false, this.isProfile = false, this.isOwner = false, this.isCustomer = false, this.padding, this.dataProgress, this.address, this.dateProgress, this.isList, this.statusPrice, this.onTapLeftButton, this.onTapRightButton, this.labelingText, this.labelingCount, this.statustProgressText, this.textLeftButton, this.textPrice, this.textRightButton, this.starImageCount, this.dateProfileItem, this.tagColor, this.tagText, this.detailInfoCard, this.onTapCard, this.boxShadow, this.image, this.backgroundColor, this.borderRadius, this.iconHeartButton, this.onTapHearButton, this.iconHeartColor});
+  const ItemCardList({
+    super.key,
+    required this.title,
+    this.isVertical = false,
+    this.isProfile = false,
+    this.isOwner = false,
+    this.isCustomer = false,
+    this.padding,
+    this.dataProgress,
+    this.address,
+    this.dateProgress,
+    this.isList,
+    this.statusPrice,
+    this.onTapLeftButton,
+    this.onTapRightButton,
+    this.labelingText,
+    this.labelingCount,
+    this.statustProgressText,
+    this.textLeftButton,
+    this.textPrice,
+    this.textRightButton,
+    this.starImageCount,
+    this.dateProfileItem,
+    this.tagColor,
+    this.tagText,
+    this.detailInfoCard,
+    this.onTapCard,
+    this.boxShadow,
+    this.image,
+    this.backgroundColor,
+    this.borderRadius,
+    this.iconHeartButton,
+    this.onTapHearButton,
+    this.iconHeartColor,
+    this.leftButtonColor,
+    this.leftIconButton,
+    this.rightButtonColor,
+    this.rightIconButton,
+  });
 
   @override
   State<ItemCardList> createState() => _ItemCardListState();
@@ -102,7 +144,7 @@ class _ItemCardListState extends State<ItemCardList> {
                     SizedBox(
                       width: AppSizes.padding,
                     ),
-                    heartButton(),
+                    widget.isList == false ? const SizedBox.shrink() : heartButton(),
                   ],
                 ),
               ),
@@ -281,9 +323,11 @@ class _ItemCardListState extends State<ItemCardList> {
         // isList
         widget.detailInfoCard ?? const SizedBox.shrink(),
         //
-        SizedBox(
-          height: AppSizes.padding,
-        ),
+        widget.detailInfoCard == null
+            ? const SizedBox.shrink()
+            : SizedBox(
+                height: AppSizes.padding,
+              ),
         //
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -294,7 +338,8 @@ class _ItemCardListState extends State<ItemCardList> {
                 text: widget.textLeftButton ?? '',
                 rounded: true,
                 borderWidth: 2,
-                borderColor: AppColors.primary,
+                leftIcon: widget.leftIconButton,
+                borderColor: widget.leftButtonColor ?? AppColors.primary,
                 padding: EdgeInsets.symmetric(
                   vertical: AppSizes.padding / 2.5,
                 ),
@@ -311,7 +356,8 @@ class _ItemCardListState extends State<ItemCardList> {
                 ),
                 text: widget.textRightButton ?? '',
                 textColor: AppColors.primary,
-                buttonColor: AppColors.white,
+                leftIcon: widget.rightIconButton,
+                buttonColor: widget.rightButtonColor ?? AppColors.white,
                 borderWidth: 2,
                 borderColor: AppColors.primary,
                 rounded: true,
