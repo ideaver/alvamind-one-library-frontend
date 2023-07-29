@@ -1,7 +1,7 @@
 import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:flutter/material.dart';
 
-class AppNestedScrollView extends StatelessWidget {
+class AppNestedScrollView extends StatefulWidget {
   final Widget body;
   final Widget? titleFlexible;
   final Widget? background;
@@ -38,47 +38,56 @@ class AppNestedScrollView extends StatelessWidget {
   });
 
   @override
+  State<AppNestedScrollView> createState() => _AppNestedScrollViewState();
+}
+
+class _AppNestedScrollViewState extends State<AppNestedScrollView> {
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return DefaultTabController(
-      length: lengthTab ?? 0,
+      length: widget.lengthTab ?? 0,
       child: NestedScrollView(
-        physics: const NeverScrollableScrollPhysics(),
+        controller: widget.controller,
+        physics: const BouncingScrollPhysics(),
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
-            SliverAppBar(
-              automaticallyImplyLeading: false,
-              pinned: pinned ?? true,
-              expandedHeight: expandedHeight ?? null,
-              collapsedHeight: collapseHeight ?? null,
-              elevation: elevation ?? 0.5,
-              centerTitle: centerTitle ?? false,
-              title: title ?? SizedBox.shrink(),
-              flexibleSpace: FlexibleSpaceBar(
-                title: titleFlexible ?? const SizedBox.shrink(),
-                background: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    background ?? const SizedBox.shrink(),
-                  ],
-                ),
-                expandedTitleScale: 1,
-                titlePadding: titlePadding ?? EdgeInsets.all(AppSizes.padding),
-              ),
-            ),
+            sliverAppBarWidget()
           ];
         },
         body: SingleChildScrollView(
-          controller: controller,
-          physics: physics ?? const BouncingScrollPhysics(),
-          padding: padding ??
+          physics: widget.physics ?? BouncingScrollPhysics(),
+          padding: widget.padding ??
               EdgeInsets.only(
                 top: AppSizes.padding,
                 right: AppSizes.padding,
                 left: AppSizes.padding,
               ),
-          child: body,
+          child: widget.body,
         ),
+      ),
+    );
+  }
+
+  Widget sliverAppBarWidget() {
+    return SliverAppBar(
+      automaticallyImplyLeading: false,
+      pinned: widget.pinned ?? false,
+      expandedHeight: widget.expandedHeight ?? null,
+      collapsedHeight: widget.collapseHeight ?? null,
+      elevation: widget.elevation ?? 0.5,
+      centerTitle: widget.centerTitle ?? false,
+      title: widget.title ?? SizedBox.shrink(),
+      flexibleSpace: FlexibleSpaceBar(
+        title: widget.titleFlexible ?? const SizedBox.shrink(),
+        background: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            widget.background ?? const SizedBox.shrink(),
+          ],
+        ),
+        expandedTitleScale: 1,
+        titlePadding: widget.titlePadding ?? EdgeInsets.all(AppSizes.padding),
       ),
     );
   }
