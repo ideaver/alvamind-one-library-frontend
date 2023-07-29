@@ -72,7 +72,7 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
   Widget sliverAppBarWidget() {
     return SliverAppBar(
       automaticallyImplyLeading: false,
-      pinned: widget.pinned ?? false,
+      pinned: widget.pinned ?? true,
       expandedHeight: widget.expandedHeight ?? null,
       collapsedHeight: widget.collapseHeight ?? null,
       elevation: widget.elevation ?? 0.5,
