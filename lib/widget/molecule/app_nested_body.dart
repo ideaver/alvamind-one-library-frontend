@@ -43,8 +43,7 @@ class AppNestedScrollView extends StatelessWidget {
     return DefaultTabController(
       length: lengthTab ?? 0,
       child: NestedScrollView(
-        controller: controller,
-        physics: const BouncingScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
