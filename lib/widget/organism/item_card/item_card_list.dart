@@ -37,7 +37,9 @@ class ItemCardList extends StatefulWidget {
   final Color? tagColor;
   final Color? backgroundColor;
   final Color? leftButtonColor;
+  final Color? leftTextButtonColor;
   final Color? rightButtonColor;
+  final Color? rightTextButtonColor;
   final BorderRadius? borderRadius;
   final Widget? detailInfoCard;
   final IconData? iconHeartButton;
@@ -88,6 +90,8 @@ class ItemCardList extends StatefulWidget {
     this.leftIconButton,
     this.rightButtonColor,
     this.rightIconButton,
+    this.leftTextButtonColor,
+    this.rightTextButtonColor,
   });
 
   @override
