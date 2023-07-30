@@ -339,7 +339,8 @@ class _ItemCardListState extends State<ItemCardList> {
                 rounded: true,
                 borderWidth: 2,
                 leftIcon: widget.leftIconButton,
-                borderColor: widget.leftButtonColor ?? AppColors.primary,
+                buttonColor: widget.leftButtonColor ?? AppColors.primary,
+                borderColor: AppColors.primary,
                 padding: EdgeInsets.symmetric(
                   vertical: AppSizes.padding / 2.5,
                 ),
