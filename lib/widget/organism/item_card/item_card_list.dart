@@ -144,7 +144,7 @@ class _ItemCardListState extends State<ItemCardList> {
                     SizedBox(
                       width: AppSizes.padding,
                     ),
-                    widget.isList == false ? const SizedBox.shrink() : heartButton(),
+                    heartButton(),
                   ],
                 ),
               ),
@@ -227,7 +227,7 @@ class _ItemCardListState extends State<ItemCardList> {
               widget.title,
               style: AppTextStyle.bold(size: 20),
             ),
-            widget.isCustomer == true ? const SizedBox.shrink() : heartButton(),
+            widget.isCustomer == true || widget.isList == false ? const SizedBox.shrink() : heartButton(),
           ],
         ),
       ],
