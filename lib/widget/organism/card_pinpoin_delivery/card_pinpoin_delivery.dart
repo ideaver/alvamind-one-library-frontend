@@ -17,7 +17,7 @@ class CardPinPoinDelivery extends StatelessWidget {
   final String? countLocationUser;
 
   final void Function()? functionEditButton;
-  final void Function()? onChanged;
+  final void Function(String)? onChanged;
 
   const CardPinPoinDelivery({
     super.key,
@@ -75,6 +75,7 @@ class CardPinPoinDelivery extends StatelessWidget {
           child: AddressCard(
             countLocationUser: countLocationUser ?? 'Lokasi anda ( dalam 10 km )',
             locationUser: locationUser ?? 'Margahayu, Bandung',
+            onChanged: onChanged ?? (String) {},
           ),
         ),
         SizedBox(height: AppSizes.padding),
@@ -112,11 +113,13 @@ class CardPinPoinDelivery extends StatelessWidget {
 class AddressCard extends StatelessWidget {
   final String? locationUser;
   final String? countLocationUser;
+  final void Function(String)? onChanged;
 
   const AddressCard({
     super.key,
     this.countLocationUser,
     this.locationUser,
+    this.onChanged,
   });
 
   @override
@@ -128,9 +131,13 @@ class AddressCard extends StatelessWidget {
           locationUser ?? 'Margahayu, Bandung',
         ),
         SizedBox(height: AppSizes.padding),
-        const AppTextField(
+        AppTextField(
           hintText: 'Cari Alamat...',
           prefixIcon: Icons.search,
+          onChanged: onChanged ??
+              (text) {
+                // TODO
+              },
         ),
       ],
     );
