@@ -72,18 +72,9 @@ class CardPinPoinDelivery extends StatelessWidget {
               spreadRadius: 0,
             ),
           ],
-          child: Column(
-            children: [
-              widgetAddress(
-                countLocationUser ?? 'Lokasi anda ( dalam 10 km )',
-                locationUser ?? 'Margahayu, Bandung',
-              ),
-              SizedBox(height: AppSizes.padding),
-              const AppTextField(
-                hintText: 'Cari Alamat...',
-                prefixIcon: Icons.search,
-              ),
-            ],
+          child: AddressCard(
+            countLocationUser: countLocationUser ?? 'Lokasi anda ( dalam 10 km )',
+            locationUser: locationUser ?? 'Margahayu, Bandung',
           ),
         ),
         SizedBox(height: AppSizes.padding),
@@ -116,39 +107,67 @@ class CardPinPoinDelivery extends StatelessWidget {
       ],
     );
   }
+}
 
-  Widget widgetAddress(String titleAddress, String subtitleAddress) {
+class AddressCard extends StatelessWidget {
+  final String? locationUser;
+  final String? countLocationUser;
+
+  const AddressCard({
+    super.key,
+    this.countLocationUser,
+    this.locationUser,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            const Icon(
-              Icons.location_pin,
-              size: 14,
-              color: AppColors.primary,
-            ),
-            SizedBox(
-              width: AppSizes.padding / 2,
-            ),
-            Text(
-              titleAddress,
-              style: AppTextStyle.regular(
-                size: 14,
-              ),
-            ),
-          ],
+        widgetAddress(
+          countLocationUser ?? 'Lokasi anda ( dalam 10 km )',
+          locationUser ?? 'Margahayu, Bandung',
         ),
-        SizedBox(
-          height: AppSizes.padding / 4,
-        ),
-        Text(
-          subtitleAddress,
-          style: AppTextStyle.bold(
-            size: 16,
-          ),
+        SizedBox(height: AppSizes.padding),
+        const AppTextField(
+          hintText: 'Cari Alamat...',
+          prefixIcon: Icons.search,
         ),
       ],
     );
   }
+}
+
+Widget widgetAddress(String titleAddress, String subtitleAddress) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Row(
+        children: [
+          const Icon(
+            Icons.location_pin,
+            size: 14,
+            color: AppColors.primary,
+          ),
+          SizedBox(
+            width: AppSizes.padding / 2,
+          ),
+          Text(
+            titleAddress,
+            style: AppTextStyle.regular(
+              size: 14,
+            ),
+          ),
+        ],
+      ),
+      SizedBox(
+        height: AppSizes.padding / 4,
+      ),
+      Text(
+        subtitleAddress,
+        style: AppTextStyle.bold(
+          size: 16,
+        ),
+      ),
+    ],
+  );
 }
