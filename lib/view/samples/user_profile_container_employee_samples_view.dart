@@ -29,17 +29,38 @@ class UserProfileContainerEmployeeSamplesView extends StatefulWidget {
   State<UserProfileContainerEmployeeSamplesView> createState() => _UserProfileContainerEmployeeSamplesViewState();
 }
 
-class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileContainerEmployeeSamplesView> {
+TabController? _tabController;
+
+class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileContainerEmployeeSamplesView> with SingleTickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+    _tabController?.addListener(_handleTabChange);
+  }
+
+  void _handleTabChange() {
+    print("Selected tab index: ${_tabController?.index}");
+  }
+
+  @override
+  void dispose() {
+    _tabController?.removeListener(_handleTabChange);
+    _tabController?.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.white,
         appBar: AppBar(title: const Text('User Profile Container Employee Samples')),
         body: AppNestedScrollView(
-          lengthTab: 6,
+          lengthTab: 4,
           collapseHeight: 80,
           expandedHeight: 80,
           titleFlexible: TabBarDetailOutlet(
+            controller: _tabController,
             leftIcon: const [
               CustomIcon.chartCurvedIcon,
               CustomIcon.timesquareIcon,
@@ -67,17 +88,17 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
   int tagSelected = 0;
 
   Widget userProfileContainerTab() {
-    return AppColumnInk(
-      children: [
-        tabBarSelected == 0
-            ? userProfileTabContainer()
-            : tabBarSelected == 1
-                ? employeeAttedanceListBody()
-                : tabBarSelected == 2
-                    ? tableHistory()
-                    : tableHistory(),
-        SizedBox(height: AppSizes.padding * 4)
-      ],
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: TabBarView(
+        controller: _tabController,
+        children: [
+          userProfileTabContainer(),
+          employeeAttedanceListBody(),
+          tableHistory(),
+          tableHistory(),
+        ],
+      ),
     );
   }
 

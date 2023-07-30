@@ -1,5 +1,6 @@
 import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/widget/molecule/app_tabbar.dart';
+import 'package:alvamind_library/app/theme/app_sizes.dart';
+import 'package:alvamind_library/app/theme/app_text_style.dart';
 
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class TabBarDetailOutlet extends StatefulWidget {
   final List<IconData>? leftIcon;
   final List<IconData>? rightIcon;
   final TabController? controller;
+
   final void Function(int)? onTap;
 
   TabBarDetailOutlet({
@@ -42,14 +44,16 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
       isScrollable: true,
       physics: const BouncingScrollPhysics(),
       indicatorColor: AppColors.primary,
-      indicatorSize: TabBarIndicatorSize.label,
+      indicatorSize: TabBarIndicatorSize.tab,
+      labelColor: AppColors.primary,
+      unselectedLabelColor: AppColors.blackLv6,
       indicator: const BoxDecoration(
           border: Border(
               bottom: BorderSide(
         color: AppColors.primary,
         width: 3,
       ))),
-      indicatorPadding: EdgeInsets.all(2),
+      labelStyle: AppTextStyle.bold(size: 16),
       onTap: (value) {
         setState(() {
           tabBarSelected = value;
@@ -58,16 +62,31 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
       },
       tabs: [
         ...List.generate(widget.listTabBar.length, (index) {
-          return Tab(
-            child: AppTabBar(
-              leftIcon: widget.leftIcon?[index] ?? null,
-              fontSize: widget.fontSize ?? 16,
-              text: widget.listTabBar[index],
-              textColor: tabBarSelected == index ? AppColors.primary : AppColors.blackLv6,
-              leftIconColor: tabBarSelected == index ? AppColors.primary : AppColors.blackLv6,
-              dividerColor: AppColors.blackLv7,
-              divider: tabBarSelected == index ? false : true,
-            ),
+          // return Tab(
+          //   child: AppTabBar(
+          //     leftIcon: widget.leftIcon?[index] ?? null,
+          //     fontSize: widget.fontSize ?? 16,
+          //     text: widget.listTabBar[index],
+          //     textColor: widget.controller?.index == index ? AppColors.primary : AppColors.blackLv6,
+          //     leftIconColor: widget.controller?.index == index ? AppColors.primary : AppColors.blackLv6,
+          //     dividerColor: AppColors.blackLv7,
+          //     divider: widget.controller?.index == index ? false : true,
+          //   ),
+          // );
+          return Row(
+            children: [
+              Tab(
+                icon: Icon(
+                  widget.leftIcon?[index],
+                ),
+              ),
+              SizedBox(
+                width: AppSizes.padding / 2,
+              ),
+              Tab(
+                text: widget.listTabBar[index],
+              )
+            ],
           );
         })
       ],
