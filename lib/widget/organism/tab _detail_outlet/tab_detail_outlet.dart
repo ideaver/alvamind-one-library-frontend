@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class TabBarDetailOutlet extends StatefulWidget {
   final List listTabBar;
   final EdgeInsets? padding;
+  final EdgeInsets? labelPadding;
   final double? fontSize;
   final bool? isSelected;
   final List<IconData>? leftIcon;
@@ -26,6 +27,7 @@ class TabBarDetailOutlet extends StatefulWidget {
     this.rightIcon,
     this.isSelected,
     this.controller,
+    this.labelPadding,
   });
 
   @override
@@ -76,14 +78,18 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
           // );
           return Row(
             children: [
-              Tab(
-                icon: Icon(
-                  widget.leftIcon?[index],
-                ),
-              ),
-              SizedBox(
-                width: AppSizes.padding / 2,
-              ),
+              widget.leftIcon == null
+                  ? const SizedBox.shrink()
+                  : Tab(
+                      icon: Icon(
+                        widget.leftIcon?[index],
+                      ),
+                    ),
+              widget.leftIcon == null
+                  ? const SizedBox.shrink()
+                  : SizedBox(
+                      width: AppSizes.padding / 2,
+                    ),
               Tab(
                 text: widget.listTabBar[index],
               )
