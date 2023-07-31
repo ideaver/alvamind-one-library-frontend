@@ -49,7 +49,7 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
       isScrollable: true,
       physics: const BouncingScrollPhysics(),
       indicatorColor: AppColors.primary,
-      indicatorSize: widget.indicatorSize ?? TabBarIndicatorSize.tab,
+      indicatorSize: widget.indicatorSize == null ? null : TabBarIndicatorSize.tab,
       labelColor: AppColors.primary,
       unselectedLabelColor: AppColors.blackLv6,
       indicator: const BoxDecoration(
