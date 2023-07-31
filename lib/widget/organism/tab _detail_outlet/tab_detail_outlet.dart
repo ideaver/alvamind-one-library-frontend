@@ -49,7 +49,7 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
       isScrollable: true,
       physics: const BouncingScrollPhysics(),
       indicatorColor: AppColors.primary,
-      indicatorSize: widget.indicatorSize == null ? null : TabBarIndicatorSize.tab,
+      indicatorSize: widget.indicatorSize ?? TabBarIndicatorSize.tab,
       labelColor: AppColors.primary,
       unselectedLabelColor: AppColors.blackLv6,
       indicator: const BoxDecoration(
@@ -78,25 +78,25 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
           //     divider: widget.controller?.index == index ? false : true,
           //   ),
           // );
-          return Row(
-            children: [
-              widget.leftIcon == null
-                  ? const SizedBox.shrink()
-                  : Tab(
+          return widget.leftIcon == null
+              ? Tab(
+                  text: widget.listTabBar[index],
+                )
+              : Row(
+                  children: [
+                    Tab(
                       icon: Icon(
                         widget.leftIcon?[index],
                       ),
                     ),
-              widget.leftIcon == null
-                  ? const SizedBox.shrink()
-                  : SizedBox(
+                    SizedBox(
                       width: AppSizes.padding / 2,
                     ),
-              Tab(
-                text: widget.listTabBar[index],
-              )
-            ],
-          );
+                    Tab(
+                      text: widget.listTabBar[index],
+                    )
+                  ],
+                );
         })
       ],
     );
