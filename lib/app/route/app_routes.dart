@@ -31,6 +31,7 @@ import '../../view/samples/input_search_samples_view.dart';
 import '../../view/samples/item_cards_samples_view.dart';
 import '../../view/samples/loading_samples_view.dart';
 import '../../view/samples/logo_samples_view.dart';
+import '../../view/samples/map_samples_view.dart';
 import '../../view/samples/message_bubble_samples_view.dart';
 import '../../view/samples/modal_samples_view.dart';
 import '../../view/samples/notification_card_samples_view.dart';
@@ -160,5 +161,6 @@ class AppRoutes {
     UserProfileContainerSamplesView.routeName: (context) => const UserProfileContainerSamplesView(),
     UserProfileContainerEmployeeSamplesView.routeName: (context) => const UserProfileContainerEmployeeSamplesView(),
     CalendarSamplesView.routeName: (context) => const CalendarSamplesView(),
+    MapSamplesView.routeName: (context) => const MapSamplesView(),
   };
 }
