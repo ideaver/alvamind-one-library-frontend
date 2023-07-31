@@ -14,6 +14,7 @@ class TabBarDetailOutlet extends StatefulWidget {
   final List<IconData>? leftIcon;
   final List<IconData>? rightIcon;
   final TabController? controller;
+  final TabBarIndicatorSize? indicatorSize;
 
   final void Function(int)? onTap;
 
@@ -28,6 +29,7 @@ class TabBarDetailOutlet extends StatefulWidget {
     this.isSelected,
     this.controller,
     this.labelPadding,
+    this.indicatorSize,
   });
 
   @override
@@ -47,7 +49,7 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
       isScrollable: true,
       physics: const BouncingScrollPhysics(),
       indicatorColor: AppColors.primary,
-      indicatorSize: TabBarIndicatorSize.tab,
+      indicatorSize: widget.indicatorSize ?? TabBarIndicatorSize.tab,
       labelColor: AppColors.primary,
       unselectedLabelColor: AppColors.blackLv6,
       indicator: const BoxDecoration(
