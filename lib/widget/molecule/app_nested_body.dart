@@ -17,6 +17,8 @@ class AppNestedScrollView extends StatefulWidget {
   final ScrollPhysics? physics;
   final ScrollController? controller;
   final int? lengthTab;
+  final CrossAxisAlignment? bgCrossAxisAlignment;
+  final MainAxisAlignment? bgMainAxisAlignment;
 
   const AppNestedScrollView({
     super.key,
@@ -35,6 +37,8 @@ class AppNestedScrollView extends StatefulWidget {
     this.physics,
     this.controller,
     this.lengthTab,
+    this.bgMainAxisAlignment,
+    this.bgCrossAxisAlignment,
   });
 
   @override
@@ -81,7 +85,8 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
       flexibleSpace: FlexibleSpaceBar(
         title: widget.titleFlexible ?? const SizedBox.shrink(),
         background: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: widget.bgCrossAxisAlignment ?? CrossAxisAlignment.center,
+          mainAxisAlignment: widget.bgMainAxisAlignment ?? MainAxisAlignment.center,
           children: [
             widget.background ?? const SizedBox.shrink(),
           ],
