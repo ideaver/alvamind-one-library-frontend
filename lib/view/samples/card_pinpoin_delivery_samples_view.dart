@@ -44,7 +44,7 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
         functionEditButton: () {
           // TODO
         },
-        onChanged: () {
+        onChanged: (String) {
           // TODO
         },
         //

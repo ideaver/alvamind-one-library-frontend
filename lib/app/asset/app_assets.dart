@@ -101,4 +101,7 @@ class CustomIcon {
   static const IconData copyIcon = IconData(0xe830, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData downloadIcon = IconData(0xe831, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData infoSquareIcon = IconData(0xe832, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData categoryIcon = IconData(0xe833, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData messageicon = IconData(0xe834, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData arrowLeftIcon = IconData(0xe835, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
