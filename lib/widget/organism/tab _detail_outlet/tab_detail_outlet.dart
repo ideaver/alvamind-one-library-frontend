@@ -40,6 +40,7 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
     // TODO: implement build
 
     return TabBar(
+      padding: widget.padding ?? EdgeInsets.zero,
       controller: widget.controller,
       isScrollable: true,
       physics: const BouncingScrollPhysics(),
