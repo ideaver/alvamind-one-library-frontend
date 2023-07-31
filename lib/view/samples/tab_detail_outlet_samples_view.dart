@@ -29,6 +29,7 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
             tabBarDetailUserProfile(),
             tabBarDetailEmployee(),
             tabBarDetailInventori(),
+            tabBarDetailCustom(),
           ],
         ),
       ),
@@ -38,28 +39,31 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
   Widget tabBarOutletDetail() {
     return SampleWrapper(
       title: 'Tab Bar Detail Outlet',
-      widget: TabBarDetailOutlet(
-        leftIcon: const [
-          CustomIcon.chartCurvedIcon,
-          CustomIcon.timesquareIcon,
-          CustomIcon.documentIcon,
-          CustomIcon.documentIcon,
-          Icons.image_outlined,
-          Icons.star_border_rounded,
-          CustomIcon.documentIcon,
-        ],
-        listTabBar: const [
-          'Ringkasan',
-          'Jadwal',
-          'Layanan',
-          'Promo',
-          'Gallery',
-          'Ulasan',
-          'Ketentuan',
-        ],
-        onTap: (value) {
-          // TODO
-        },
+      widget: DefaultTabController(
+        length: 7,
+        child: TabBarDetailOutlet(
+          leftIcon: const [
+            CustomIcon.chartCurvedIcon,
+            CustomIcon.timesquareIcon,
+            CustomIcon.documentIcon,
+            CustomIcon.documentIcon,
+            Icons.image_outlined,
+            Icons.star_border_rounded,
+            CustomIcon.documentIcon,
+          ],
+          listTabBar: const [
+            'Ringkasan',
+            'Jadwal',
+            'Layanan',
+            'Promo',
+            'Gallery',
+            'Ulasan',
+            'Ketentuan',
+          ],
+          onTap: (value) {
+            // TODO
+          },
+        ),
       ),
     );
   }
@@ -67,29 +71,32 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
   Widget tabBarDetailUserProfile() {
     return SampleWrapper(
       title: 'Tab Bar Detail User Profile',
-      widget: TabBarDetailOutlet(
-        leftIcon: const [
-          CustomIcon.chartCurvedIcon,
-          CustomIcon.timesquareIcon,
-          CustomIcon.timesquareIcon,
-          CustomIcon.timesquareIcon,
-          CustomIcon.documentIcon,
-          Icons.star_border_rounded,
-          Icons.image_outlined,
-          Icons.image_outlined,
-        ],
-        listTabBar: const [
-          'Ringkasan',
-          'Pemesanan',
-          'Pembayaran',
-          'Riwayat Wallet',
-          'Favorit',
-          'Ulasan',
-          'Komplain'
-        ],
-        onTap: (value) {
-          // TODO
-        },
+      widget: DefaultTabController(
+        length: 7,
+        child: TabBarDetailOutlet(
+          leftIcon: const [
+            CustomIcon.chartCurvedIcon,
+            CustomIcon.timesquareIcon,
+            CustomIcon.timesquareIcon,
+            CustomIcon.timesquareIcon,
+            CustomIcon.documentIcon,
+            Icons.star_border_rounded,
+            Icons.image_outlined,
+            Icons.image_outlined,
+          ],
+          listTabBar: const [
+            'Ringkasan',
+            'Pemesanan',
+            'Pembayaran',
+            'Riwayat Wallet',
+            'Favorit',
+            'Ulasan',
+            'Komplain'
+          ],
+          onTap: (value) {
+            // TODO
+          },
+        ),
       ),
     );
   }
@@ -97,22 +104,25 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
   Widget tabBarDetailEmployee() {
     return SampleWrapper(
       title: 'Tab Bar Detail Employee',
-      widget: TabBarDetailOutlet(
-        leftIcon: const [
-          CustomIcon.chartCurvedIcon,
-          CustomIcon.timesquareIcon,
-          CustomIcon.timesquareIcon,
-          CustomIcon.timesquareIcon,
-        ],
-        listTabBar: const [
-          'Ringkasan',
-          'Presensi',
-          'Gaji',
-          'Komisi',
-        ],
-        onTap: (value) {
-          // TODO
-        },
+      widget: DefaultTabController(
+        length: 4,
+        child: TabBarDetailOutlet(
+          leftIcon: const [
+            CustomIcon.chartCurvedIcon,
+            CustomIcon.timesquareIcon,
+            CustomIcon.timesquareIcon,
+            CustomIcon.timesquareIcon,
+          ],
+          listTabBar: const [
+            'Ringkasan',
+            'Presensi',
+            'Gaji',
+            'Komisi',
+          ],
+          onTap: (value) {
+            // TODO
+          },
+        ),
       ),
     );
   }
@@ -120,20 +130,42 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
   Widget tabBarDetailInventori() {
     return SampleWrapper(
       title: 'Tab Bar Detail Inventori',
-      widget: TabBarDetailOutlet(
-        leftIcon: const [
-          CustomIcon.chartCurvedIcon,
-          CustomIcon.boxIcon,
-          CustomIcon.timesquareIcon,
-        ],
-        listTabBar: const [
-          'Ringkasan',
-          'Item Inventori',
-          'Riwayat Pembelian',
-        ],
-        onTap: (value) {
-          // TODO
-        },
+      widget: DefaultTabController(
+        length: 3,
+        child: TabBarDetailOutlet(
+          leftIcon: const [
+            CustomIcon.chartCurvedIcon,
+            CustomIcon.boxIcon,
+            CustomIcon.timesquareIcon,
+          ],
+          listTabBar: const [
+            'Ringkasan',
+            'Item Inventori',
+            'Riwayat Pembelian',
+          ],
+          onTap: (value) {
+            // TODO
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget tabBarDetailCustom() {
+    return SampleWrapper(
+      title: 'Tab Bar Detail Custom',
+      widget: DefaultTabController(
+        length: 2,
+        child: TabBarDetailOutlet(
+          isScrollable: false,
+          listTabBar: const [
+            'Aktif',
+            'Selesai'
+          ],
+          onTap: (value) {
+            // TODO
+          },
+        ),
       ),
     );
   }
