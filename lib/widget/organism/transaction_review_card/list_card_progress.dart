@@ -9,7 +9,7 @@ import '../../molecule/app_tags.dart';
 
 class ListCard extends StatefulWidget {
   final String title;
-  final String subtitle;
+  final String? subtitle;
   final IconData? rightIcon;
   final IconData? leftIcon;
   final Color? leftIconColor;
@@ -20,10 +20,13 @@ class ListCard extends StatefulWidget {
   final void Function()? onTapCard;
   final List<BoxShadow>? boxShadow;
   final Widget? moreWidget;
+  final Color? tagColor;
+  final Color? tagBorderColor;
+  final Color? tagTextColor;
   const ListCard({
     super.key,
     required this.title,
-    required this.subtitle,
+    this.subtitle,
     this.rightIcon,
     this.leftIcon,
     this.textTags,
@@ -34,6 +37,9 @@ class ListCard extends StatefulWidget {
     this.isSubtitle = true,
     this.boxShadow,
     this.moreWidget,
+    this.tagBorderColor,
+    this.tagColor,
+    this.tagTextColor,
   });
 
   @override
@@ -81,7 +87,7 @@ class _ListCardState extends State<ListCard> {
                           widget.isSubtitle == false
                               ? const SizedBox.shrink()
                               : Text(
-                                  widget.subtitle,
+                                  widget.subtitle ?? '',
                                   style: AppTextStyle.medium(size: 14),
                                 ),
                           Text(
@@ -101,9 +107,9 @@ class _ListCardState extends State<ListCard> {
                 children: [
                   AppTags(
                     text: widget.textTags ?? '',
-                    color: AppColors.white,
-                    textColor: AppColors.primary,
-                    borderColor: AppColors.primary,
+                    color: widget.tagColor ?? AppColors.white,
+                    textColor: widget.tagTextColor ?? AppColors.primary,
+                    borderColor: widget.tagBorderColor ?? AppColors.primary,
                     borderWidth: 1,
                   ),
                   SizedBox(width: AppSizes.padding / 4),
