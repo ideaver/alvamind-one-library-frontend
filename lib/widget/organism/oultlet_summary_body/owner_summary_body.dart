@@ -89,8 +89,9 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
     return Column(
       children: [
         SizedBox(
-          height: 380,
+          height: 360,
           child: GridView.builder(
+            physics: NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),

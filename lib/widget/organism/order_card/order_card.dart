@@ -7,7 +7,7 @@ import '../../atom/app_divider.dart';
 import '../../atom/app_image.dart';
 import '../../molecule/app_button.dart';
 import '../../molecule/app_card.dart';
-import '../../molecule/app_card_container.dart';
+import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_progress_line.dart';
 import '../../molecule/app_tags.dart';
 
@@ -89,7 +89,7 @@ class OrderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCardContainer(
+    return AppInkContainer(
       padding: padding ?? EdgeInsets.all(AppSizes.padding),
       backgroundColor: backgroundColor ?? AppColors.white,
       borderRadius: BorderRadius.circular(20),

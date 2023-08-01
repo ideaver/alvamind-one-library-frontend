@@ -40,13 +40,14 @@ class ItemCardList extends StatefulWidget {
   final Color? leftTextButtonColor;
   final Color? rightButtonColor;
   final Color? rightTextButtonColor;
+  final Color? iconHeartColor;
   final BorderRadius? borderRadius;
   final Widget? detailInfoCard;
   final IconData? iconHeartButton;
   final IconData? leftIconButton;
   final IconData? rightIconButton;
-  final Color? iconHeartColor;
   final List<BoxShadow>? boxShadow;
+  final Widget? customButton;
   final void Function()? onTapRightButton;
   final void Function()? onTapLeftButton;
   final void Function()? onTapHearButton;
@@ -92,6 +93,7 @@ class ItemCardList extends StatefulWidget {
     this.rightIconButton,
     this.leftTextButtonColor,
     this.rightTextButtonColor,
+    this.customButton,
   });
 
   @override
@@ -190,7 +192,11 @@ class _ItemCardListState extends State<ItemCardList> {
             )
           ],
         ),
-        widget.isOwner == true ? buttonDown() : const SizedBox.shrink(),
+        widget.isOwner == true
+            ? widget.customButton != null
+                ? widget.customButton ?? buttonDown()
+                : buttonDown()
+            : const SizedBox.shrink(),
       ],
     );
   }

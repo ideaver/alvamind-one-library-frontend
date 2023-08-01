@@ -19,6 +19,7 @@ class ListCard extends StatefulWidget {
   final void Function()? onTapChevronButton;
   final void Function()? onTapCard;
   final List<BoxShadow>? boxShadow;
+  final Widget? moreWidget;
   const ListCard({
     super.key,
     required this.title,
@@ -32,6 +33,7 @@ class ListCard extends StatefulWidget {
     this.rightIconColor,
     this.isSubtitle = true,
     this.boxShadow,
+    this.moreWidget,
   });
 
   @override
@@ -53,63 +55,72 @@ class _ListCardState extends State<ListCard> {
               spreadRadius: 0,
             ),
           ],
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          Expanded(
-            child: Row(
-              children: [
-                Icon(
-                  widget.leftIcon,
-                  color: widget.leftIconColor ?? AppColors.primary,
-                ),
-                SizedBox(
-                  width: AppSizes.padding,
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      widget.isSubtitle == false
-                          ? const SizedBox.shrink()
-                          : Text(
-                              widget.subtitle,
-                              style: AppTextStyle.medium(size: 14),
-                            ),
-                      Text(
-                        widget.title,
-                        softWrap: true,
-                        overflow: TextOverflow.fade,
-                        maxLines: 2,
-                        style: AppTextStyle.bold(size: 18),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppTags(
-                text: widget.textTags ?? '',
-                color: AppColors.white,
-                textColor: AppColors.primary,
-                borderColor: AppColors.primary,
-                borderWidth: 1,
-              ),
-              SizedBox(width: AppSizes.padding / 4),
-              AppIconButton(
-                padding: const EdgeInsets.all(0),
-                buttonColor: AppColors.transparent,
-                icon: Icon(
-                  widget.rightIcon,
-                  color: widget.rightIconColor ?? AppColors.blackLv2,
+              Expanded(
+                child: Row(
+                  children: [
+                    widget.leftIcon == null
+                        ? const SizedBox.shrink()
+                        : Icon(
+                            widget.leftIcon,
+                            color: widget.leftIconColor ?? AppColors.primary,
+                          ),
+                    widget.leftIcon == null
+                        ? const SizedBox.shrink()
+                        : SizedBox(
+                            width: AppSizes.padding,
+                          ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          widget.isSubtitle == false
+                              ? const SizedBox.shrink()
+                              : Text(
+                                  widget.subtitle,
+                                  style: AppTextStyle.medium(size: 14),
+                                ),
+                          Text(
+                            widget.title,
+                            softWrap: true,
+                            overflow: TextOverflow.fade,
+                            maxLines: 2,
+                            style: AppTextStyle.bold(size: 18),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                onTap: widget.onTapChevronButton ?? () {},
+              ),
+              Row(
+                children: [
+                  AppTags(
+                    text: widget.textTags ?? '',
+                    color: AppColors.white,
+                    textColor: AppColors.primary,
+                    borderColor: AppColors.primary,
+                    borderWidth: 1,
+                  ),
+                  SizedBox(width: AppSizes.padding / 4),
+                  AppIconButton(
+                    padding: const EdgeInsets.all(0),
+                    buttonColor: AppColors.transparent,
+                    icon: Icon(
+                      widget.rightIcon,
+                      color: widget.rightIconColor ?? AppColors.blackLv2,
+                    ),
+                    onTap: widget.onTapChevronButton ?? () {},
+                  )
+                ],
               )
             ],
-          )
+          ),
+          widget.moreWidget ?? const SizedBox.shrink()
         ],
       ),
     );
