@@ -48,6 +48,7 @@ class ItemCardList extends StatefulWidget {
   final IconData? rightIconButton;
   final List<BoxShadow>? boxShadow;
   final Widget? customButton;
+  final double? fontSizeButton;
   final void Function()? onTapRightButton;
   final void Function()? onTapLeftButton;
   final void Function()? onTapHearButton;
@@ -94,6 +95,7 @@ class ItemCardList extends StatefulWidget {
     this.leftTextButtonColor,
     this.rightTextButtonColor,
     this.customButton,
+    this.fontSizeButton,
   });
 
   @override
@@ -349,6 +351,7 @@ class _ItemCardListState extends State<ItemCardList> {
                 rounded: true,
                 textColor: widget.leftTextButtonColor ?? AppColors.white,
                 borderWidth: 2,
+                fontSize: widget.fontSizeButton ?? 16,
                 leftIcon: widget.leftIconButton,
                 buttonColor: widget.leftButtonColor ?? AppColors.primary,
                 borderColor: AppColors.primary,
@@ -367,6 +370,7 @@ class _ItemCardListState extends State<ItemCardList> {
                   vertical: AppSizes.padding / 2.5,
                 ),
                 text: widget.textRightButton ?? '',
+                fontSize: widget.fontSizeButton ?? 16,
                 textColor: widget.rightTextButtonColor ?? AppColors.primary,
                 leftIcon: widget.rightIconButton,
                 buttonColor: widget.rightButtonColor ?? AppColors.white,
