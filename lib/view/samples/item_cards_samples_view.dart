@@ -94,7 +94,7 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
-        address: 'Jl. Sukamenak DPR RI KOM...',
+        address: 'Jl. Sukamenak DPR RI KOM',
         isProfile: true,
       ),
     );

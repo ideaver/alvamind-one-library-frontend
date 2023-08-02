@@ -140,14 +140,12 @@ class _ItemCardListState extends State<ItemCardList> {
               SizedBox(
                 height: AppSizes.padding / 2,
               ),
-              Expanded(
-                child: Text(
-                  widget.address ?? 'City, Country',
-                  style: AppTextStyle.regular(size: 12),
-                  softWrap: true,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+              Text(
+                widget.address ?? 'City, Country',
+                style: AppTextStyle.regular(size: 12),
+                softWrap: true,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               SizedBox(
                 height: AppSizes.padding / 2,
@@ -190,9 +188,14 @@ class _ItemCardListState extends State<ItemCardList> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     direction: Axis.horizontal,
                     children: [
-                      Text(
-                        widget.address ?? 'City, Country',
-                        style: AppTextStyle.medium(size: 14),
+                      Expanded(
+                        child: Text(
+                          widget.address ?? 'City, Country',
+                          style: AppTextStyle.medium(size: 14),
+                          softWrap: true,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       priceStatus(),
                     ],
