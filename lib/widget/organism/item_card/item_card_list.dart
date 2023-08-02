@@ -133,6 +133,9 @@ class _ItemCardListState extends State<ItemCardList> {
               Text(
                 widget.title,
                 style: AppTextStyle.bold(size: 20),
+                softWrap: true,
+                maxLines: 2,
+                overflow: TextOverflow.clip,
               ),
               SizedBox(
                 height: AppSizes.padding / 2,
@@ -140,6 +143,9 @@ class _ItemCardListState extends State<ItemCardList> {
               Text(
                 widget.address ?? 'City, Country',
                 style: AppTextStyle.regular(size: 12),
+                softWrap: true,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
               SizedBox(
                 height: AppSizes.padding / 2,
