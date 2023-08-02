@@ -44,7 +44,7 @@ class AppNestedScrollView extends StatefulWidget {
     this.bgMainAxisAlignment,
     this.bgCrossAxisAlignment,
     this.moreHeaderSlivers,
-    this.isScroll,
+    this.isScroll = true,
     this.floating,
     this.snap,
   });
