@@ -16,6 +16,7 @@ class AppExpansionListTile extends StatefulWidget {
   final Color? buttonDropColor;
   final Color? iconColor;
   final Color? backgroundColor;
+  final Color? childrenColor;
   final List<Widget> children;
   final EdgeInsetsGeometry? paddingChild;
   final Widget? moreItem;
@@ -51,6 +52,7 @@ class AppExpansionListTile extends StatefulWidget {
     this.showExpandButton = true,
     this.crossAxisAlignmentChild,
     this.gap = false,
+    this.childrenColor,
   }) : super(key: key);
 
   @override
@@ -109,7 +111,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                   child: Container(
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
-                      color: widget.backgroundColor,
+                      color: widget.childrenColor ?? widget.backgroundColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
