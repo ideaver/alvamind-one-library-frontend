@@ -12,6 +12,9 @@ class AppNestedScrollView extends StatefulWidget {
   final double? elevation;
   final bool? pinned;
   final bool? centerTitle;
+  final bool? isScroll;
+  final bool? floating;
+  final bool? snap;
   final EdgeInsets? padding;
   final Widget? title;
   final ScrollPhysics? physics;
@@ -19,6 +22,7 @@ class AppNestedScrollView extends StatefulWidget {
   final int? lengthTab;
   final CrossAxisAlignment? bgCrossAxisAlignment;
   final MainAxisAlignment? bgMainAxisAlignment;
+  final List<Widget>? moreHeaderSlivers;
 
   const AppNestedScrollView({
     super.key,
@@ -39,6 +43,10 @@ class AppNestedScrollView extends StatefulWidget {
     this.lengthTab,
     this.bgMainAxisAlignment,
     this.bgCrossAxisAlignment,
+    this.moreHeaderSlivers,
+    this.isScroll,
+    this.floating,
+    this.snap,
   });
 
   @override
@@ -53,22 +61,25 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
       length: widget.lengthTab ?? 0,
       child: NestedScrollView(
         controller: widget.controller,
-        physics: const BouncingScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
-            sliverAppBarWidget()
+            sliverAppBarWidget(),
+            ...widget.moreHeaderSlivers ?? [],
           ];
         },
-        body: SingleChildScrollView(
-          physics: widget.physics ?? BouncingScrollPhysics(),
-          padding: widget.padding ??
-              EdgeInsets.only(
-                top: AppSizes.padding,
-                right: AppSizes.padding,
-                left: AppSizes.padding,
-              ),
-          child: widget.body,
-        ),
+        body: widget.isScroll == true
+            ? SingleChildScrollView(
+                physics: widget.physics ?? BouncingScrollPhysics(),
+                padding: widget.padding ??
+                    EdgeInsets.only(
+                      top: AppSizes.padding,
+                      right: AppSizes.padding,
+                      left: AppSizes.padding,
+                    ),
+                child: widget.body,
+              )
+            : widget.body,
       ),
     );
   }
@@ -77,6 +88,8 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
     return SliverAppBar(
       automaticallyImplyLeading: false,
       pinned: widget.pinned ?? true,
+      floating: widget.floating ?? false,
+      snap: widget.snap ?? false,
       expandedHeight: widget.expandedHeight ?? null,
       collapsedHeight: widget.collapseHeight ?? null,
       elevation: widget.elevation ?? 0.5,

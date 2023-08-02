@@ -61,6 +61,8 @@ dependencies:
   range_slider_flutter: ^0.0.2
   calendar_date_picker2: ^0.5.2
   google_maps_flutter: ^2.4.0
+  sticky_headers: ^0.3.0+2
+  sliver_tools: ^0.2.12
 
 
 
