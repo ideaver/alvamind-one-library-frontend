@@ -280,7 +280,7 @@ class _ItemCardListState extends State<ItemCardList> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           widget.showTag == false
-              ? const SizedBox.shrink()
+              ? const Center()
               : Align(
                   alignment: Alignment.centerRight,
                   child: AppTags(
