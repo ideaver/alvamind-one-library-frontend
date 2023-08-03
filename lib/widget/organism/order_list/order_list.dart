@@ -28,6 +28,7 @@ class OrderList extends StatefulWidget {
   final double? mapZoom;
   final MapType? mapType;
   final Set<Marker>? mapMarker;
+  final Set<Circle>? mapCircle;
   final Function(LatLng)? onTapMap;
 
   const OrderList({
@@ -44,6 +45,7 @@ class OrderList extends StatefulWidget {
     this.mapType,
     this.mapZoom,
     this.mapMarker,
+    this.mapCircle,
     this.onTapMap,
   });
 
