@@ -18,6 +18,7 @@ class ItemCardListSelected extends StatefulWidget {
   final bool? isSelected;
   final bool? isStatus;
   final bool? withCustomItem;
+  final bool? showButton;
   final Widget? rightItem;
   final String title;
   final String? timeWork;
@@ -67,6 +68,7 @@ class ItemCardListSelected extends StatefulWidget {
     this.isSelected,
     this.timeWork,
     this.typeItem,
+    this.showButton = true,
     this.isStatus = false,
     this.onTapCard,
     this.boxShadow,
@@ -185,46 +187,50 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
               )
             : const SizedBox.shrink(),
         widget.isStatus == true
-            ? SizedBox(
-                height: AppSizes.padding,
-              )
+            ? widget.showButton == false
+                ? const SizedBox.shrink()
+                : SizedBox(
+                    height: AppSizes.padding,
+                  )
             : const SizedBox.shrink(),
         //
         //
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: AppButton(
-                onTap: widget.onTapLeftButton ?? () {},
-                text: widget.textLeftButton ?? '',
-                rounded: true,
-                borderWidth: 2,
-                borderColor: AppColors.primary,
-                padding: EdgeInsets.symmetric(
-                  vertical: AppSizes.padding / 2.5,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: AppSizes.padding / 2,
-            ),
-            Expanded(
-              child: AppButton(
-                onTap: widget.onTapRightButton ?? () {},
-                padding: EdgeInsets.symmetric(
-                  vertical: AppSizes.padding / 2.5,
-                ),
-                text: widget.textRightButton ?? '',
-                textColor: AppColors.primary,
-                buttonColor: AppColors.white,
-                borderWidth: 2,
-                borderColor: AppColors.primary,
-                rounded: true,
-              ),
-            ),
-          ],
-        )
+        widget.showButton == false
+            ? const SizedBox.shrink()
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: AppButton(
+                      onTap: widget.onTapLeftButton ?? () {},
+                      text: widget.textLeftButton ?? '',
+                      rounded: true,
+                      borderWidth: 2,
+                      borderColor: AppColors.primary,
+                      padding: EdgeInsets.symmetric(
+                        vertical: AppSizes.padding / 2.5,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: AppSizes.padding / 2,
+                  ),
+                  Expanded(
+                    child: AppButton(
+                      onTap: widget.onTapRightButton ?? () {},
+                      padding: EdgeInsets.symmetric(
+                        vertical: AppSizes.padding / 2.5,
+                      ),
+                      text: widget.textRightButton ?? '',
+                      textColor: AppColors.primary,
+                      buttonColor: AppColors.white,
+                      borderWidth: 2,
+                      borderColor: AppColors.primary,
+                      rounded: true,
+                    ),
+                  ),
+                ],
+              )
       ],
     );
   }
