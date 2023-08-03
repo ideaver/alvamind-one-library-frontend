@@ -127,8 +127,7 @@ class _AppDropDownState extends State<AppDropDown> {
       onEditingComplete: widget.onEditingComplete,
       enabled: false,
       contentPadding: widget.contentPadding,
-      disabledColor:
-          widget.enabled ? widget.fillColor : widget.disabledFillColor,
+      disabledColor: widget.enabled ? widget.fillColor : widget.disabledFillColor,
       hintText: widget.hintText,
       hintStyle: widget.hintStyle,
       textStyle: widget.textStyle,
@@ -136,9 +135,8 @@ class _AppDropDownState extends State<AppDropDown> {
       prefixWidget: widget.prefixWidget,
       suffixIcon: widget.suffixIcon ?? Icons.arrow_drop_down_rounded,
       suffixWidget: widget.suffixWidget,
-      iconsSize: widget.suffixIcon != null ? widget.iconsSize : 32,
-      iconsColor:
-          widget.enabled ? widget.iconsColor : widget.iconsDisabledColor,
+      iconsSize: widget.suffixIcon != null || widget.prefixIcon != null ? widget.iconsSize : 32,
+      iconsColor: widget.enabled ? widget.iconsColor : widget.iconsDisabledColor,
       borderRadius: widget.borderRadius,
       fillColor: widget.fillColor,
     );
