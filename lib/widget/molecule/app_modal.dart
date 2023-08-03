@@ -36,6 +36,7 @@ class AppModal {
     showModalBottomSheet(
       context: navigator.context,
       isScrollControlled: true,
+      
       // isScrollControlled: true,
       backgroundColor: AppColors.transparent,
       builder: (context) {
