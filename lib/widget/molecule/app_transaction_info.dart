@@ -50,33 +50,37 @@ class AppTransactionInfo extends StatelessWidget {
                   fontWeight: AppFontWeight.medium,
                 ),
               ),
-              Row(
-                children: [
-                  Text(
-                    transactionId,
-                    textAlign: TextAlign.right,
-                    softWrap: true,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: transactionIdStyle ??
-                        AppTextStyle.bodyLarge(
-                          fontWeight: AppFontWeight.semibold,
-                        ),
-                  ),
-                  withIcon == false ? const SizedBox.shrink() : const SizedBox(width: 8),
-                  withIcon == false
-                      ? const SizedBox.shrink()
-                      : AppIconButton(
-                          padding: EdgeInsets.zero,
-                          buttonColor: AppColors.transparent,
-                          icon: Icon(
-                            Icons.file_copy_outlined,
-                            color: AppColors.primary,
-                            size: 18,
-                          ),
-                          onTap: onTapCopyButton ?? () {},
-                        )
-                ],
+              Expanded(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        transactionId,
+                        textAlign: TextAlign.end,
+                        softWrap: true,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: transactionIdStyle ??
+                            AppTextStyle.bodyLarge(
+                              fontWeight: AppFontWeight.semibold,
+                            ),
+                      ),
+                    ),
+                    withIcon == false ? const SizedBox.shrink() : const SizedBox(width: 8),
+                    withIcon == false
+                        ? const SizedBox.shrink()
+                        : AppIconButton(
+                            padding: EdgeInsets.zero,
+                            buttonColor: AppColors.transparent,
+                            icon: Icon(
+                              Icons.file_copy_outlined,
+                              color: AppColors.primary,
+                              size: 18,
+                            ),
+                            onTap: onTapCopyButton ?? () {},
+                          )
+                  ],
+                ),
               ),
             ],
           ),
