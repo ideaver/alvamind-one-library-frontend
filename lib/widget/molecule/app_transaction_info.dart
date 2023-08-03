@@ -54,6 +54,10 @@ class AppTransactionInfo extends StatelessWidget {
                 children: [
                   Text(
                     transactionId,
+                    textAlign: TextAlign.right,
+                    softWrap: true,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: transactionIdStyle ??
                         AppTextStyle.bodyLarge(
                           fontWeight: AppFontWeight.semibold,
