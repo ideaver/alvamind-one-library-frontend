@@ -72,7 +72,7 @@ class AppTransactionInfo extends StatelessWidget {
                         : AppIconButton(
                             padding: EdgeInsets.zero,
                             buttonColor: AppColors.transparent,
-                            icon: Icon(
+                            icon: const  Icon(
                               Icons.file_copy_outlined,
                               color: AppColors.primary,
                               size: 18,
