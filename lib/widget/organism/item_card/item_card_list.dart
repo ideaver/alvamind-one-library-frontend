@@ -19,6 +19,8 @@ class ItemCardList extends StatefulWidget {
   final bool? isProfile;
   final bool? isOwner;
   final bool? isCustomer;
+  final bool? showHeartButton;
+  final bool? showTag;
   final String title;
   final String? address;
   final String? textPrice;
@@ -61,6 +63,8 @@ class ItemCardList extends StatefulWidget {
     this.isProfile = false,
     this.isOwner = false,
     this.isCustomer = false,
+    this.showHeartButton = true,
+    this.showTag = true,
     this.padding,
     this.dataProgress,
     this.address,
@@ -250,7 +254,11 @@ class _ItemCardListState extends State<ItemCardList> {
               widget.title,
               style: AppTextStyle.bold(size: 20),
             ),
-            widget.isCustomer == true || widget.isList == false ? const SizedBox.shrink() : heartButton(),
+            widget.isCustomer == true || widget.isList == false
+                ? const SizedBox.shrink()
+                : widget.showHeartButton == false
+                    ? const SizedBox.shrink()
+                    : heartButton(),
           ],
         ),
       ],
@@ -271,19 +279,21 @@ class _ItemCardListState extends State<ItemCardList> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Align(
-            alignment: Alignment.centerRight,
-            child: AppTags(
-              text: widget.starImageCount ?? '',
-              color: AppColors.blackLv9.withOpacity(0.54),
-              borderRadius: 100,
-              textColor: AppColors.primary,
-              leftIcon: Icons.star,
-              iconsColor: AppColors.orangeLv1,
-              fontSize: 10,
-              padding: EdgeInsets.all(AppSizes.padding / 4),
-            ),
-          ),
+          widget.showTag == false
+              ? const SizedBox.shrink()
+              : Align(
+                  alignment: Alignment.centerRight,
+                  child: AppTags(
+                    text: widget.starImageCount ?? '',
+                    color: AppColors.blackLv9.withOpacity(0.54),
+                    borderRadius: 100,
+                    textColor: AppColors.primary,
+                    leftIcon: Icons.star,
+                    iconsColor: AppColors.orangeLv1,
+                    fontSize: 10,
+                    padding: EdgeInsets.all(AppSizes.padding / 4),
+                  ),
+                ),
         ],
       ),
     );
