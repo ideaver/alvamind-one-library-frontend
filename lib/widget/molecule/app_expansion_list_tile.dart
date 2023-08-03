@@ -111,7 +111,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                   child: Container(
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
-                      color: widget.childrenColor ?? widget.backgroundColor,
+                      color: widget.childrenColor == null ? AppColors.transparent : widget.backgroundColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
