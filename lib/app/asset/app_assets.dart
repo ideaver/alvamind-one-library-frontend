@@ -23,6 +23,7 @@ class AppAssets {
   static const String walletIcon = 'assets/images/payment/wallet-icon.png';
   static const String moneyIcon = 'assets/images/payment/money-icon.png';
   static const String appleIcon = 'assets/images/payment/apple-icon.png';
+  static const String scanPayIcon = 'assets/images/payment/scan-icon.png';
 
   // App State Illustration
   static const String boardPaperImage = 'assets/images/board-paper.png';
