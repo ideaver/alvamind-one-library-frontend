@@ -18,6 +18,7 @@ class ItemCardListSelected extends StatefulWidget {
   final bool? isSelected;
   final bool? isStatus;
   final bool? withCustomItem;
+  final bool? showLabel;
   final bool? showButton;
   final Widget? rightItem;
   final String title;
@@ -76,6 +77,7 @@ class ItemCardListSelected extends StatefulWidget {
     this.onTapSelectedButton,
     this.rightItem,
     this.withCustomItem = false,
+    this.showLabel = true,
     this.image,
     this.borderRadius,
     this.borderRadiusSelected,
@@ -179,12 +181,14 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
         //
         // isList
         widget.isStatus == true
-            ? AppProgressLine(
-                lineColor: widget.labelingColor ?? AppColors.primary,
-                value: widget.labelingCount ?? 20,
-                maxValue: 100,
-                label: widget.labelingText ?? 'Labeling',
-              )
+            ? widget.showLabel == false
+                ? const SizedBox.shrink()
+                : AppProgressLine(
+                    lineColor: widget.labelingColor ?? AppColors.primary,
+                    value: widget.labelingCount ?? 20,
+                    maxValue: 100,
+                    label: widget.labelingText ?? 'Labeling',
+                  )
             : const SizedBox.shrink(),
         widget.isStatus == true
             ? widget.showButton == false
