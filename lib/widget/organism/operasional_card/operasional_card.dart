@@ -15,6 +15,7 @@ class OperasionalCard extends StatefulWidget {
   final String? text;
   bool? isDisabled;
   final bool? isCustom;
+  final bool? withSubtitle;
   final void Function()? chipCloseButton;
   final dynamic Function(bool) onChanged;
 
@@ -27,6 +28,7 @@ class OperasionalCard extends StatefulWidget {
     this.chipCloseButton,
     this.isCustom,
     this.title,
+    this.withSubtitle = true,
     required this.onChanged,
   });
 
@@ -138,12 +140,12 @@ class _OperasionalCardState extends State<OperasionalCard> {
                               ),
                       ],
                     ),
-              widget.isDisabled == true
+              widget.isDisabled == true || widget.withSubtitle == false
                   ? const SizedBox.shrink()
                   : SizedBox(
                       height: AppSizes.padding,
                     ),
-              widget.isDisabled == true
+              widget.isDisabled == true || widget.withSubtitle == false
                   ? const SizedBox.shrink()
                   : Text(
                       widget.text ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
