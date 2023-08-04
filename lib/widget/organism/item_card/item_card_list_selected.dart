@@ -191,7 +191,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
                   )
             : const SizedBox.shrink(),
         widget.isStatus == true
-            ? widget.showButton == false
+            ? widget.showButton == false || widget.showLabel == false
                 ? const SizedBox.shrink()
                 : SizedBox(
                     height: AppSizes.padding,
