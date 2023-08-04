@@ -38,14 +38,14 @@ class NotificationCard extends StatelessWidget {
     // TODO: implement build
     return AppInkContainer(
       onTap: onTap,
-      padding: EdgeInsets.all(AppSizes.padding / 2),
+      padding: padding ?? EdgeInsets.all(AppSizes.padding / 2),
       backgroundColor: AppColors.transparent,
       borderRadius: BorderRadius.circular(0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppLongCard(
-            padding: padding ?? EdgeInsets.all(0),
+            padding: EdgeInsets.all(0),
             backgroundColor: AppColors.transparent,
             children: [
               Expanded(
