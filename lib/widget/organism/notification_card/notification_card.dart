@@ -19,7 +19,7 @@ class NotificationCard extends StatelessWidget {
   final Color? iconColor;
   final IconData? iconNotification;
   final void Function() onTap;
-
+  final EdgeInsets? padding;
   const NotificationCard({
     required this.dateNotification,
     required this.timeNotification,
@@ -30,6 +30,7 @@ class NotificationCard extends StatelessWidget {
     this.backgroundColorIcon,
     this.iconColor,
     this.iconNotification,
+    this.padding,
   });
 
   @override
@@ -37,14 +38,14 @@ class NotificationCard extends StatelessWidget {
     // TODO: implement build
     return AppInkContainer(
       onTap: onTap,
-      padding: EdgeInsets.all(2),
+      padding: EdgeInsets.all(AppSizes.padding / 2),
       backgroundColor: AppColors.transparent,
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: BorderRadius.circular(0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppLongCard(
-            padding: EdgeInsets.all(0),
+            padding: padding ?? EdgeInsets.all(0),
             backgroundColor: AppColors.transparent,
             children: [
               Expanded(
