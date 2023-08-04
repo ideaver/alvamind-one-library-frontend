@@ -38,6 +38,50 @@ class AppAssets {
   static const String loadingGif = 'assets/images/loading.gif';
   static const String emptyPlaceholder = 'assets/images/empty_placeholder.png';
 
+  static const bankAnzImgPath = 'assets/images/bank/anz.png';
+  static const bankBSIImgPath = 'assets/images/bank/bsi.png';
+  static const bankBCAImgPath = 'assets/images/bank/bca.png';
+  static const bankBIImgPath = 'assets/images/bank/bi.png';
+  static const bankBJBImgPath = 'assets/images/bank/bjb.png';
+  static const bankBNIImgPath = 'assets/images/bank/bni.png';
+  static const bankBRIImgPath = 'assets/images/bank/bri.png';
+  static const bankBTNImgPath = 'assets/images/bank/btn.png';
+  static const bankBukopinImgPath = 'assets/images/bank/bukopin.png';
+  static const bankCimbImgPath = 'assets/images/bank/cimb.png';
+  static const bankCitiImgPath = 'assets/images/bank/citi.png';
+  static const bankDanamonImgPath = 'assets/images/bank/danamon.png';
+  static const bankDigibankImgPath = 'assets/images/bank/digibank.png';
+  static const bankHsbcImgPath = 'assets/images/bank/hsbc.png';
+  static const bankJagoImgPath = 'assets/images/bank/jago.png';
+  static const bankJeniusImgPath = 'assets/images/bank/jenius.png';
+  static const bankMandiriImgPath = 'assets/images/bank/mandiri.png';
+  static const bankMaybankImgPath = 'assets/images/bank/maybank.png';
+  static const bankMegaImgPath = 'assets/images/bank/mega.png';
+  static const bankOCBCImgPath = 'assets/images/bank/ocbc.png';
+  static const bankPaninImgPath = 'assets/images/bank/panin.png';
+  static const bankPermataImgPath = 'assets/images/bank/permata.png';
+  static const bankStandardCharteredImgPath = 'assets/images/bank/standard chartered.png';
+  static const bankUOBImgPath = 'assets/images/bank/uob.png';
+  // EWALLET
+
+  static const ewalApplePayImgPath = 'assets/images/ewallet/applepay.png';
+  static const ewalBluePayImgPath = 'assets/images/ewallet/bluepay.png';
+  static const ewalCashbacImgPath = 'assets/images/ewallet/cashbac.png';
+  static const ewalCahlezImgPath = 'assets/images/ewallet/cashlez.png';
+  static const ewalDanaImgPath = 'assets/images/ewallet/dana.png';
+  static const ewalFlipImgPath = 'assets/images/ewallet/flip.png';
+  static const ewalGopayImgPath = 'assets/images/ewallet/gopay.png';
+  static const ewalGPayImgPath = 'assets/images/ewallet/gpay.png';
+  static const ewalKudoImgPath = 'assets/images/ewallet/kudo.png';
+  static const ewalLinkAjaImgPath = 'assets/images/ewallet/linkaja.png';
+  static const ewalOvoImgPath = 'assets/images/ewallet/ovo.png';
+  static const ewalPayfazzImgPath = 'assets/images/ewallet/payfazz.png';
+  static const ewalPaypalImgPath = 'assets/images/ewallet/paypal.png';
+  static const ewalPayproImgPath = 'assets/images/ewallet/paypro.png';
+  static const ewalPaytrenImgPath = 'assets/images/ewallet/paytren.png';
+  static const ewalShoopeepayImgPath = 'assets/images/ewallet/shopeepay.png';
+  static const ewalUangkuImgPath = 'assets/images/ewallet/uangku.png';
+
   // Financial provider logo
   // static const String visa = 'assets/visa.png';
 

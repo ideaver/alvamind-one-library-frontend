@@ -102,6 +102,8 @@ flutter:
   assets:
     - assets/images/
     - assets/images/payment/
+    - assets/images/bank/
+    - assets/images/ewallet/
     - assets/icons/
     - assets/icons/flags/
     - assets/icons/category/
