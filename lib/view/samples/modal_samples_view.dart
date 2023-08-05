@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
+import '../../widget/atom/app_avatar.dart';
+import '../../widget/atom/app_divider.dart';
+import '../../widget/atom/app_image.dart';
 import '../../widget/molecule/app_button.dart';
+import '../../widget/molecule/app_column_ink.dart';
 import '../../widget/molecule/app_modal.dart';
+import '../../widget/molecule/app_text_field.dart';
+import '../../widget/organism/review/star_checked.dart';
 import 'sample_wrapper.dart';
 
 class ModalPopupButtonSamplesView extends StatefulWidget {
@@ -29,6 +36,7 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
           children: [
             modalPopUp(),
             modalPopUpCustom(),
+            modalPopUpCustomHeight(),
             modalPopUpWithMiniTitle(),
             modalPopUpWithAddress(),
             modalPopUpWithPrice(),
@@ -275,6 +283,120 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
           );
         },
       ),
+    );
+  }
+
+  Widget modalPopUpCustomHeight() {
+    return SampleWrapper(
+      title: 'Modal PopUp Custom Height',
+      widget: AppButton(
+        text: 'Modal PopUp Custom Height',
+        onTap: () {
+          final navigator = Navigator.of(context);
+          AppModal.show(
+            navigator,
+            price: false,
+            // height: MediaQuery.of(context).size.height,
+            backgroundColor: AppColors.white,
+            moreWidget: [
+              reviewForm()
+            ],
+            children: [
+              Expanded(
+                child: AppButton(
+                  onTap: () {},
+                  text: 'Berikutnya',
+                  rounded: true,
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget reviewForm() {
+    return AppColumnInk(
+      children: [
+        SizedBox(height: AppSizes.padding * 1.5),
+        textHeadline(
+            'Kebersihan',
+            [
+              StarChecked(onTapStar: (value) {
+                // TODO
+              }),
+            ],
+            CrossAxisAlignment.center),
+        SizedBox(height: AppSizes.padding * 1.5),
+        textHeadline(
+            'Kualitas',
+            [
+              StarChecked(onTapStar: (value) {
+                // TODO
+              }),
+            ],
+            CrossAxisAlignment.center),
+        SizedBox(height: AppSizes.padding * 1.5),
+        textHeadline(
+            'Kecepatan',
+            [
+              StarChecked(onTapStar: (value) {
+                // TODO
+              }),
+            ],
+            CrossAxisAlignment.center),
+        const AppDivider(
+          thickness: 2,
+          color: AppColors.blackLv8,
+        ),
+        textHeadline(
+            'Unggah Foto',
+            [
+              Row(
+                children: [
+                  ...List.generate(3, (index) {
+                    return AppAvatar(
+                      size: 100,
+                      image: randomImage,
+                      showIconButton: true,
+                      icon: CustomIcon.editPenIcon,
+                      borderWidth: 0,
+                    );
+                  })
+                ],
+              )
+            ],
+            CrossAxisAlignment.start),
+        const AppDivider(
+          thickness: 2,
+          color: AppColors.blackLv8,
+        ),
+        textHeadline(
+            'Tuliskan Review Ke Toko Ini',
+            [
+              AppTextField(
+                hintText: 'Masukkan Review disini...',
+                maxLines: 5,
+                onChanged: (value) {
+                  // TODO
+                },
+              ),
+            ],
+            CrossAxisAlignment.start),
+        SizedBox(height: AppSizes.padding * 1.5),
+      ],
+    );
+  }
+
+  Widget textHeadline(String title, List<Widget> widget, CrossAxisAlignment crossAxisAlignment) {
+    return AppColumnInk(
+      crossAxisAlignment: crossAxisAlignment,
+      children: [
+        Text(title, style: AppTextStyle.bold(size: 18)),
+        SizedBox(height: AppSizes.padding),
+        ...widget,
+      ],
     );
   }
 }

@@ -37,8 +37,6 @@ class AppModal {
     showModalBottomSheet(
       context: navigator.context,
       isScrollControlled: true,
-
-      // isScrollControlled: true,
       backgroundColor: AppColors.transparent,
       builder: (context) {
         return AppModalWidget(
@@ -130,117 +128,125 @@ class AppModalWidget extends StatefulWidget {
 class _AppModalWidgetState extends State<AppModalWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.height,
-      decoration: BoxDecoration(
-        color: widget.backgroundColor ?? AppColors.white,
-        borderRadius: widget.borderRadius ??
-            const BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
-            ),
-      ),
-      child: Padding(
-        padding: widget.padding ??
-            EdgeInsets.symmetric(
-              vertical: AppSizes.padding,
-              horizontal: AppSizes.padding,
-            ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AppDivider(
-              thickness: 4,
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
-            ),
-            SizedBox(height: AppSizes.padding),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                widget.title == null
-                    ? const SizedBox.shrink()
-                    : Text(
-                        widget.title ?? '',
-                        style: AppTextStyle.bold(
-                          size: 24,
-                          color: widget.titleColor ?? Colors.black,
-                        ),
-                      ),
-                widget.title == null
-                    ? const SizedBox.shrink()
-                    : AppDivider(
-                        thickness: 1,
-                        color: const Color(0xFFEEEEEE),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppSizes.padding / 3,
-                          vertical: AppSizes.padding,
-                        ),
-                      ),
-                //
-                // subtitle text
-                //
-                widget.miniTitle != null
-                    ? Text(
-                        widget.miniTitle ?? '',
-                        textAlign: TextAlign.center,
-                        style: AppTextStyle.bold(size: 18, color: widget.miniTitleColor ?? AppColors.black),
-                      )
-                    : const SizedBox.shrink(),
-                widget.miniTitle != null
-                    ? SizedBox(
-                        height: AppSizes.padding,
-                      )
-                    : const SizedBox.shrink(),
-                widget.subtitle != null
-                    ? Text(
-                        widget.subtitle ?? '',
-                        textAlign: TextAlign.start,
-                        style: AppTextStyle.regular(size: 14, color: widget.subtitleColor ?? AppColors.black),
-                      )
-                    : const SizedBox.shrink(),
-
-                widget.subtitle != null
-                    ? SizedBox(
-                        height: AppSizes.padding,
-                      )
-                    : const SizedBox.shrink(),
-                //
-                // address
-                //
-                ...widget.moreWidget ?? [],
-                widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
-                widget.slider == true ? sliderWay() : const SizedBox.shrink(),
-
-                Flex(
-                  direction: widget.directionButton ?? Axis.horizontal,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ...widget.children,
-                    widget.price == false
-                        ? const SizedBox.shrink()
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              widgetPrice(),
-                              Expanded(
-                                child: AppButton(
-                                  rounded: true,
-                                  text: 'Pesan',
-                                  onTap: widget.priceButton ??
-                                      () {
-                                        // TODO
-                                      },
-                                ),
+    return Padding(
+      padding: EdgeInsets.only(top: AppSizes.padding * 4),
+      child: Container(
+        height: widget.height,
+        decoration: BoxDecoration(
+          color: widget.backgroundColor ?? AppColors.white,
+          borderRadius: widget.borderRadius ??
+              const BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(40),
+              ),
+        ),
+        child: Padding(
+          padding: widget.padding ??
+              EdgeInsets.symmetric(
+                vertical: AppSizes.padding,
+                horizontal: AppSizes.padding,
+              ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppDivider(
+                thickness: 4,
+                padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
+              ),
+              SizedBox(height: AppSizes.padding),
+              Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      widget.title == null
+                          ? const SizedBox.shrink()
+                          : Text(
+                              widget.title ?? '',
+                              style: AppTextStyle.bold(
+                                size: 24,
+                                color: widget.titleColor ?? Colors.black,
                               ),
-                            ],
-                          ),
-                  ],
+                            ),
+                      widget.title == null
+                          ? const SizedBox.shrink()
+                          : AppDivider(
+                              thickness: 1,
+                              color: const Color(0xFFEEEEEE),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: AppSizes.padding / 3,
+                                vertical: AppSizes.padding,
+                              ),
+                            ),
+                      //
+                      // subtitle text
+                      //
+                      widget.miniTitle != null
+                          ? Text(
+                              widget.miniTitle ?? '',
+                              textAlign: TextAlign.center,
+                              style: AppTextStyle.bold(size: 18, color: widget.miniTitleColor ?? AppColors.black),
+                            )
+                          : const SizedBox.shrink(),
+                      widget.miniTitle != null
+                          ? SizedBox(
+                              height: AppSizes.padding,
+                            )
+                          : const SizedBox.shrink(),
+                      widget.subtitle != null
+                          ? Text(
+                              widget.subtitle ?? '',
+                              textAlign: TextAlign.start,
+                              style: AppTextStyle.regular(size: 14, color: widget.subtitleColor ?? AppColors.black),
+                            )
+                          : const SizedBox.shrink(),
+
+                      widget.subtitle != null
+                          ? SizedBox(
+                              height: AppSizes.padding,
+                            )
+                          : const SizedBox.shrink(),
+                      //
+                      // address
+                      //
+                      ...widget.moreWidget ?? [],
+                      widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
+                      widget.slider == true ? sliderWay() : const SizedBox.shrink(),
+
+                      Flex(
+                        direction: widget.directionButton ?? Axis.horizontal,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ...widget.children,
+                          widget.price == false
+                              ? const SizedBox.shrink()
+                              : Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    widgetPrice(),
+                                    Expanded(
+                                      child: AppButton(
+                                        rounded: true,
+                                        text: 'Pesan',
+                                        onTap: widget.priceButton ??
+                                            () {
+                                              // TODO
+                                            },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );
