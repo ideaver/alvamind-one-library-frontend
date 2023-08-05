@@ -11,6 +11,7 @@ class AppModal {
   static Future<void> show(
     NavigatorState navigator, {
     IconData? icon,
+    double? height,
     Color? backgroundColor,
     EdgeInsetsGeometry? padding,
     EdgeInsetsGeometry? margin,
@@ -44,6 +45,7 @@ class AppModal {
           backgroundColor: backgroundColor,
           borderRadius: borderRadius,
           directionButton: directionButton,
+          height: height,
           icon: icon,
           margin: margin,
           padding: padding,
@@ -75,6 +77,7 @@ class AppModalWidget extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final BorderRadiusGeometry? borderRadius;
+  final double? height;
   final String? title;
   final String? subtitle;
   final String? titleAddress;
@@ -115,6 +118,7 @@ class AppModalWidget extends StatefulWidget {
     this.textPrice,
     this.statusPrice,
     this.priceButton,
+    this.height,
     required this.children,
     this.title,
   });
@@ -127,6 +131,7 @@ class _AppModalWidgetState extends State<AppModalWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: widget.height,
       decoration: BoxDecoration(
         color: widget.backgroundColor ?? AppColors.white,
         borderRadius: widget.borderRadius ??
