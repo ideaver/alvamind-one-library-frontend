@@ -150,6 +150,7 @@ class _AppModalWidgetState extends State<AppModalWidget> {
             ),
             SizedBox(height: AppSizes.padding),
             SingleChildScrollView(
+              scrollDirection: Axis.vertical,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
