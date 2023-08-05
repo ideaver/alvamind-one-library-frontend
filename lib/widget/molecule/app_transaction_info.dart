@@ -17,6 +17,7 @@ class AppTransactionInfo extends StatelessWidget {
   final bool? onlyTrasactionId;
   final bool? withIcon;
   final TextStyle? transactionIdStyle;
+  final TextStyle? textTitleStyle;
   final Function()? onTapCopyButton;
 
   const AppTransactionInfo({
@@ -31,6 +32,7 @@ class AppTransactionInfo extends StatelessWidget {
     this.textTitle,
     this.withIcon = true,
     this.transactionIdStyle,
+    this.textTitleStyle,
   }) : super(key: key);
 
   @override
@@ -46,9 +48,10 @@ class AppTransactionInfo extends StatelessWidget {
             children: [
               Text(
                 textTitle ?? 'Transaction ID',
-                style: AppTextStyle.bodyMedium(
-                  fontWeight: AppFontWeight.medium,
-                ),
+                style: textTitleStyle ??
+                    AppTextStyle.bodyMedium(
+                      fontWeight: AppFontWeight.medium,
+                    ),
               ),
               Expanded(
                 child: Row(
@@ -72,7 +75,7 @@ class AppTransactionInfo extends StatelessWidget {
                         : AppIconButton(
                             padding: EdgeInsets.zero,
                             buttonColor: AppColors.transparent,
-                            icon: const  Icon(
+                            icon: const Icon(
                               Icons.file_copy_outlined,
                               color: AppColors.primary,
                               size: 18,
