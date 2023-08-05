@@ -296,20 +296,12 @@ class _ModalPopupButtonSamplesViewState extends State<ModalPopupButtonSamplesVie
           AppModal.show(
             navigator,
             price: false,
-            // height: MediaQuery.of(context).size.height,
+            isScrolled: true,
             backgroundColor: AppColors.white,
             moreWidget: [
               reviewForm()
             ],
-            children: [
-              Expanded(
-                child: AppButton(
-                  onTap: () {},
-                  text: 'Berikutnya',
-                  rounded: true,
-                ),
-              ),
-            ],
+            children: [],
           );
         },
       ),

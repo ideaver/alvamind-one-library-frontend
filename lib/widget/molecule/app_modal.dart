@@ -32,6 +32,7 @@ class AppModal {
     bool? slider,
     String? textPrice,
     String? statusPrice,
+    bool? isScrolled,
     void Function()? priceButton,
   }) async {
     showModalBottomSheet(
@@ -63,6 +64,7 @@ class AppModal {
           priceButton: priceButton,
           title: title,
           children: children,
+          isScrolled: isScrolled,
         );
       },
     );
@@ -92,6 +94,7 @@ class AppModalWidget extends StatefulWidget {
   final bool? slider;
   final String? textPrice;
   final String? statusPrice;
+  final bool? isScrolled;
   final void Function()? priceButton;
 
   const AppModalWidget({
@@ -117,6 +120,7 @@ class AppModalWidget extends StatefulWidget {
     this.statusPrice,
     this.priceButton,
     this.height,
+    this.isScrolled = false,
     required this.children,
     this.title,
   });
@@ -131,7 +135,6 @@ class _AppModalWidgetState extends State<AppModalWidget> {
     return Padding(
       padding: EdgeInsets.only(top: AppSizes.padding * 4),
       child: Container(
-        height: widget.height,
         decoration: BoxDecoration(
           color: widget.backgroundColor ?? AppColors.white,
           borderRadius: widget.borderRadius ??
@@ -154,101 +157,107 @@ class _AppModalWidgetState extends State<AppModalWidget> {
                 padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
               ),
               SizedBox(height: AppSizes.padding),
-              Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      widget.title == null
-                          ? const SizedBox.shrink()
-                          : Text(
-                              widget.title ?? '',
-                              style: AppTextStyle.bold(
-                                size: 24,
-                                color: widget.titleColor ?? Colors.black,
-                              ),
-                            ),
-                      widget.title == null
-                          ? const SizedBox.shrink()
-                          : AppDivider(
-                              thickness: 1,
-                              color: const Color(0xFFEEEEEE),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: AppSizes.padding / 3,
-                                vertical: AppSizes.padding,
-                              ),
-                            ),
-                      //
-                      // subtitle text
-                      //
-                      widget.miniTitle != null
-                          ? Text(
-                              widget.miniTitle ?? '',
-                              textAlign: TextAlign.center,
-                              style: AppTextStyle.bold(size: 18, color: widget.miniTitleColor ?? AppColors.black),
-                            )
-                          : const SizedBox.shrink(),
-                      widget.miniTitle != null
-                          ? SizedBox(
-                              height: AppSizes.padding,
-                            )
-                          : const SizedBox.shrink(),
-                      widget.subtitle != null
-                          ? Text(
-                              widget.subtitle ?? '',
-                              textAlign: TextAlign.start,
-                              style: AppTextStyle.regular(size: 14, color: widget.subtitleColor ?? AppColors.black),
-                            )
-                          : const SizedBox.shrink(),
-
-                      widget.subtitle != null
-                          ? SizedBox(
-                              height: AppSizes.padding,
-                            )
-                          : const SizedBox.shrink(),
-                      //
-                      // address
-                      //
-                      ...widget.moreWidget ?? [],
-                      widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
-                      widget.slider == true ? sliderWay() : const SizedBox.shrink(),
-
-                      Flex(
-                        direction: widget.directionButton ?? Axis.horizontal,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ...widget.children,
-                          widget.price == false
-                              ? const SizedBox.shrink()
-                              : Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    widgetPrice(),
-                                    Expanded(
-                                      child: AppButton(
-                                        rounded: true,
-                                        text: 'Pesan',
-                                        onTap: widget.priceButton ??
-                                            () {
-                                              // TODO
-                                            },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                        ],
+              widget.isScrolled == false
+                  ? modalBody()
+                  : Expanded(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: modalBody(),
                       ),
-                    ],
-                  ),
-                ),
-              ),
+                    ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget modalBody() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        widget.title == null
+            ? const SizedBox.shrink()
+            : Text(
+                widget.title ?? '',
+                style: AppTextStyle.bold(
+                  size: 24,
+                  color: widget.titleColor ?? Colors.black,
+                ),
+              ),
+        widget.title == null
+            ? const SizedBox.shrink()
+            : AppDivider(
+                thickness: 1,
+                color: const Color(0xFFEEEEEE),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.padding / 3,
+                  vertical: AppSizes.padding,
+                ),
+              ),
+        //
+        // subtitle text
+        //
+        widget.miniTitle != null
+            ? Text(
+                widget.miniTitle ?? '',
+                textAlign: TextAlign.center,
+                style: AppTextStyle.bold(size: 18, color: widget.miniTitleColor ?? AppColors.black),
+              )
+            : const SizedBox.shrink(),
+        widget.miniTitle != null
+            ? SizedBox(
+                height: AppSizes.padding,
+              )
+            : const SizedBox.shrink(),
+        widget.subtitle != null
+            ? Text(
+                widget.subtitle ?? '',
+                textAlign: TextAlign.start,
+                style: AppTextStyle.regular(size: 14, color: widget.subtitleColor ?? AppColors.black),
+              )
+            : const SizedBox.shrink(),
+
+        widget.subtitle != null
+            ? SizedBox(
+                height: AppSizes.padding,
+              )
+            : const SizedBox.shrink(),
+        //
+        // address
+        //
+        ...widget.moreWidget ?? [],
+        widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
+        widget.slider == true ? sliderWay() : const SizedBox.shrink(),
+
+        Flex(
+          direction: widget.directionButton ?? Axis.horizontal,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ...widget.children,
+            widget.price == false
+                ? const SizedBox.shrink()
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      widgetPrice(),
+                      Expanded(
+                        child: AppButton(
+                          rounded: true,
+                          text: 'Pesan',
+                          onTap: widget.priceButton ??
+                              () {
+                                // TODO
+                              },
+                        ),
+                      ),
+                    ],
+                  ),
+          ],
+        ),
+      ],
     );
   }
 
