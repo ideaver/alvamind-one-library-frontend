@@ -12,20 +12,22 @@ class UserCreditCard extends StatelessWidget {
   final String numberCard;
   final String nameCard;
   final String? image;
-  final void Function()? onTapEditButton;
   final String? expiryDateCard;
   final bool? showButton;
   final bool? showTag;
+  final Gradient? gradient;
+  final void Function()? onTapEditButton;
 
   const UserCreditCard({
     super.key,
     required this.numberCard,
     required this.nameCard,
     this.expiryDateCard,
-    this.onTapEditButton,
+    this.gradient,
     this.image,
     this.showButton = true,
     this.showTag = true,
+    this.onTapEditButton,
   });
 
   @override
@@ -36,10 +38,11 @@ class UserCreditCard extends StatelessWidget {
           padding: EdgeInsets.all(AppSizes.padding * 2),
           borderRadius: BorderRadius.circular(40),
           backgroundColor: AppColors.blueLv1,
-          gradient: const LinearGradient(colors: [
-            AppColors.blueLv2,
-            AppColors.blueLv1,
-          ]),
+          gradient: gradient ??
+              const LinearGradient(colors: [
+                AppColors.blueLv2,
+                AppColors.blueLv1,
+              ]),
           child: content(),
         ),
         // mini cube
