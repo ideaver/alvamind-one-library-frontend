@@ -13,9 +13,11 @@ class UserCreditCard extends StatelessWidget {
   final String nameCard;
   final String? image;
   final String? expiryDateCard;
+  final double? imageSize;
   final bool? showButton;
   final bool? showTag;
   final Gradient? gradient;
+  final List<BoxShadow>? boxShadow;
   final void Function()? onTapEditButton;
 
   const UserCreditCard({
@@ -25,9 +27,11 @@ class UserCreditCard extends StatelessWidget {
     this.expiryDateCard,
     this.gradient,
     this.image,
+    this.boxShadow,
     this.showButton = true,
     this.showTag = true,
     this.onTapEditButton,
+    this.imageSize,
   });
 
   @override
@@ -38,6 +42,7 @@ class UserCreditCard extends StatelessWidget {
           padding: EdgeInsets.all(AppSizes.padding * 2),
           borderRadius: BorderRadius.circular(40),
           backgroundColor: AppColors.blueLv1,
+          boxShadow: boxShadow ?? [],
           gradient: gradient ??
               const LinearGradient(colors: [
                 AppColors.blueLv2,
@@ -109,6 +114,8 @@ class UserCreditCard extends StatelessWidget {
           children: [
             Image.asset(
               image ?? AppAssets.logoCreditCard,
+              width: imageSize,
+              height: imageSize,
             ),
             showTag == false
                 ? const SizedBox.shrink()
