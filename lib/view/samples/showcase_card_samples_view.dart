@@ -33,6 +33,7 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
             userProfileCardEmployee(),
             userProfileCardOnly(),
             userProfileCardWallet(),
+            userProfileCardSaldo(),
           ],
         ),
       ),
@@ -169,6 +170,17 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         onTapPayButton: () {
           // TODO
         },
+      ),
+    );
+  }
+
+  Widget userProfileCardSaldo() {
+    return const SampleWrapper(
+      title: 'User Profil Card Saldo',
+      widget: UserProfileCard(
+        onlyBalance: true,
+        onlySaldo: true,
+        countBalance: 'Rp12.689.000',
       ),
     );
   }

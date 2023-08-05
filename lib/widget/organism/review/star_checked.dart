@@ -43,7 +43,7 @@ class _StarCheckedState extends State<StarChecked> {
             padding: EdgeInsets.all(AppSizes.padding / 4),
             onTap: () {
               if (index >= -1) {
-                isChecked[0] == true && isChecked[1] == false
+                index == 0 && isChecked[0] == true && isChecked[1] == false
                     ? isChecked = [
                         ...List.generate(5, (val) {
                           return false;

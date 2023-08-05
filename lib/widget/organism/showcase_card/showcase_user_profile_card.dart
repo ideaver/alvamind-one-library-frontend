@@ -20,6 +20,7 @@ class UserProfileCard extends StatelessWidget {
   final bool? onlyEmployee;
   final bool? onlyBalance;
   final bool? onlyUser;
+  final bool? onlySaldo;
 
   final void Function()? onTapCopyButton;
   final void Function()? onTapHistoryButton;
@@ -42,6 +43,7 @@ class UserProfileCard extends StatelessWidget {
     this.nameUser,
     this.employeeJob,
     this.employeePlace,
+    this.onlySaldo = false,
     this.onlyBalance = false,
     this.onlyEmployee = false,
     this.onlyUser = false,
@@ -178,7 +180,7 @@ class UserProfileCard extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: onlySaldo == true ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,56 +210,62 @@ class UserProfileCard extends StatelessWidget {
                 ),
               ],
             ),
-            AppButton(
-              text: 'Riwayat',
-              fontSize: 10,
-              borderColor: Colors.white,
-              borderWidth: 1,
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
-              onTap: onTapHistoryButton ?? () {},
-            )
+            onlySaldo == true
+                ? const SizedBox.shrink()
+                : AppButton(
+                    text: 'Riwayat',
+                    fontSize: 10,
+                    borderColor: Colors.white,
+                    borderWidth: 1,
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
+                    onTap: onTapHistoryButton ?? () {},
+                  )
           ],
         ),
-        SizedBox(
-          height: AppSizes.padding,
-        ),
-        AppCardContainer(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              AppIconButton(
-                icon: const Icon(
-                  Icons.add_box_rounded,
-                  color: AppColors.primary,
-                ),
-                onTap: onTapTopUpButton ?? () {},
-                buttonColor: AppColors.blueLv4,
-                textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
-                text: 'Top Up',
+        onlySaldo == true
+            ? const SizedBox.shrink()
+            : SizedBox(
+                height: AppSizes.padding,
               ),
-              AppIconButton(
-                icon: const Icon(
-                  CustomIcon.withdrawBoldIcon,
-                  color: AppColors.primary,
+        onlySaldo == true
+            ? const SizedBox.shrink()
+            : AppCardContainer(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    AppIconButton(
+                      icon: const Icon(
+                        Icons.add_box_rounded,
+                        color: AppColors.primary,
+                      ),
+                      onTap: onTapTopUpButton ?? () {},
+                      buttonColor: AppColors.blueLv4,
+                      textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
+                      text: 'Top Up',
+                    ),
+                    AppIconButton(
+                      icon: const Icon(
+                        CustomIcon.withdrawBoldIcon,
+                        color: AppColors.primary,
+                      ),
+                      onTap: onTapWithDrawButton ?? () {},
+                      buttonColor: AppColors.blueLv4,
+                      text: 'Withdrawal',
+                      textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
+                    ),
+                    AppIconButton(
+                      icon: const Icon(
+                        CustomIcon.scanIcon,
+                        color: AppColors.primary,
+                      ),
+                      onTap: onTapPayButton ?? () {},
+                      textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
+                      buttonColor: AppColors.blueLv4,
+                      text: 'Bayar',
+                    ),
+                  ],
                 ),
-                onTap: onTapWithDrawButton ?? () {},
-                buttonColor: AppColors.blueLv4,
-                text: 'Withdrawal',
-                textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
-              ),
-              AppIconButton(
-                icon: const Icon(
-                  CustomIcon.scanIcon,
-                  color: AppColors.primary,
-                ),
-                onTap: onTapPayButton ?? () {},
-                textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
-                buttonColor: AppColors.blueLv4,
-                text: 'Bayar',
-              ),
-            ],
-          ),
-        )
+              )
       ],
     );
   }
