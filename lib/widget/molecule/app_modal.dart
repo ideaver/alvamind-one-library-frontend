@@ -159,7 +159,7 @@ class _AppModalWidgetState extends State<AppModalWidget> {
               SizedBox(height: AppSizes.padding),
               widget.isScrolled == false
                   ? modalBody()
-                  : Expanded(
+                  : Flexible(
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: modalBody(),
