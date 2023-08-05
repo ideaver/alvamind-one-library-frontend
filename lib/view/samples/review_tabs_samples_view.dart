@@ -1,4 +1,5 @@
 import 'package:alvamind_library/widget/molecule/app_card_container.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
@@ -8,6 +9,7 @@ import '../../widget/atom/app_image.dart';
 import '../../widget/molecule/app_expansion_list_tile.dart';
 import '../../widget/organism/accordion/accordion_question_card.dart';
 import '../../widget/organism/comments_and_reviews/comments_list.dart';
+import '../../widget/organism/review/star_checked.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 import '../../widget/organism/transaction_review_card/card_review.dart';
 import 'sample_wrapper.dart';
@@ -38,6 +40,7 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             reviewTabs(),
+            starChecked(),
           ],
         ),
       ),
@@ -171,6 +174,14 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
           );
         }),
       ],
+    );
+  }
+
+  Widget starChecked() {
+    return StarChecked(
+      onTapStar: (value) {
+        print(value);
+      },
     );
   }
 }
