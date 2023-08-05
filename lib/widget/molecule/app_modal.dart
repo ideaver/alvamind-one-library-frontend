@@ -135,22 +135,22 @@ class _AppModalWidgetState extends State<AppModalWidget> {
               topRight: Radius.circular(40),
             ),
       ),
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: widget.padding ??
-              EdgeInsets.symmetric(
-                vertical: AppSizes.padding,
-                horizontal: AppSizes.padding,
-              ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              AppDivider(
-                thickness: 4,
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
-              ),
-              SizedBox(height: AppSizes.padding),
-              Column(
+      child: Padding(
+        padding: widget.padding ??
+            EdgeInsets.symmetric(
+              vertical: AppSizes.padding,
+              horizontal: AppSizes.padding,
+            ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AppDivider(
+              thickness: 4,
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
+            ),
+            SizedBox(height: AppSizes.padding),
+            SingleChildScrollView(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -236,8 +236,8 @@ class _AppModalWidgetState extends State<AppModalWidget> {
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
