@@ -13,6 +13,8 @@ class AppCarouselSlider extends StatefulWidget {
   final Curve? autoPlayCurve;
   final Duration? autoPlayAnimationDuration;
   final bool? enableInfiniteScroll;
+  final Color? indicatorActiveColor;
+  final Color? indicatorColor;
 
   const AppCarouselSlider({
     super.key,
@@ -24,6 +26,8 @@ class AppCarouselSlider extends StatefulWidget {
     this.enableInfiniteScroll,
     this.viewportFraction,
     this.height,
+    this.indicatorActiveColor,
+    this.indicatorColor,
   });
 
   @override
@@ -31,14 +35,14 @@ class AppCarouselSlider extends StatefulWidget {
 }
 
 class _AppCarouselSliderState extends State<AppCarouselSlider> {
+  int _current = 0;
   @override
   Widget build(BuildContext context) {
-    int _current = 0;
     // TODO: implement build
     return Stack(children: [
       CarouselSlider(
         options: CarouselOptions(
-          height: widget.height ?? null ,
+          height: widget.height ?? null,
           autoPlay: widget.autoPlay ?? true,
           initialPage: 0,
           enlargeCenterPage: false,
@@ -66,8 +70,8 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
             size: const Size.square(7.0),
             activeSize: const Size(30.0, 7.0),
             activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-            color: AppColors.white.withOpacity(0.50),
-            activeColor: AppColors.white,
+            color: widget.indicatorColor ?? AppColors.white.withOpacity(0.50),
+            activeColor: widget.indicatorActiveColor ?? AppColors.white,
             spacing: const EdgeInsets.all(4),
           ),
         ),
