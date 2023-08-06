@@ -73,7 +73,7 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
       elevation: widget.elevation ?? 0.5,
       centerTitle: widget.centerTitle ?? false,
       title: widget.title ?? SizedBox.shrink(),
-      bottom: widget.bottom!,
+      bottom: widget.bottom ?? null,
       flexibleSpace: FlexibleSpaceBar(
         title: widget.titleFlexible ?? const SizedBox.shrink(),
         background: Column(
