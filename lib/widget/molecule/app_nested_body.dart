@@ -5,6 +5,7 @@ class AppNestedScrollView extends StatefulWidget {
   final Widget body;
   final Widget? titleFlexible;
   final Widget? background;
+  final Color? backgroundColor;
   final EdgeInsets? titlePadding;
   final double? expandedTitleScale;
   final double? expandedHeight;
@@ -25,7 +26,32 @@ class AppNestedScrollView extends StatefulWidget {
   final MainAxisAlignment? bgMainAxisAlignment;
   final List<Widget>? moreHeaderSlivers;
 
-  const AppNestedScrollView({super.key, required this.body, this.titleFlexible, this.background, this.titlePadding, this.expandedTitleScale, this.collapseHeight, this.elevation, this.expandedHeight, this.pinned, this.padding, this.title, this.centerTitle, this.physics, this.controller, this.lengthTab, this.bgMainAxisAlignment, this.bgCrossAxisAlignment, this.moreHeaderSlivers, this.isScroll = true, this.floating, this.snap, this.bottom});
+  const AppNestedScrollView({
+    super.key,
+    required this.body,
+    this.titleFlexible,
+    this.background,
+    this.titlePadding,
+    this.expandedTitleScale,
+    this.collapseHeight,
+    this.elevation,
+    this.expandedHeight,
+    this.pinned,
+    this.padding,
+    this.title,
+    this.centerTitle,
+    this.physics,
+    this.controller,
+    this.lengthTab,
+    this.bgMainAxisAlignment,
+    this.bgCrossAxisAlignment,
+    this.moreHeaderSlivers,
+    this.isScroll = true,
+    this.floating,
+    this.snap,
+    this.bottom,
+    this.backgroundColor,
+  });
 
   @override
   State<AppNestedScrollView> createState() => _AppNestedScrollViewState();
@@ -66,6 +92,7 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
     return SliverAppBar(
       automaticallyImplyLeading: false,
       pinned: widget.pinned ?? true,
+      backgroundColor: widget.backgroundColor ?? null,
       floating: widget.floating ?? false,
       snap: widget.snap ?? false,
       expandedHeight: widget.expandedHeight ?? null,
