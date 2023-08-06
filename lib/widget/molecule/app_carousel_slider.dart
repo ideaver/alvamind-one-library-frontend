@@ -9,6 +9,7 @@ class AppCarouselSlider extends StatefulWidget {
   final CarouselController? carouselController;
   final bool? autoPlay;
   final double? viewportFraction;
+  final double? height;
   final Curve? autoPlayCurve;
   final Duration? autoPlayAnimationDuration;
   final bool? enableInfiniteScroll;
@@ -22,6 +23,7 @@ class AppCarouselSlider extends StatefulWidget {
     this.autoPlayCurve,
     this.enableInfiniteScroll,
     this.viewportFraction,
+    this.height,
   });
 
   @override
@@ -36,6 +38,7 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
     return Stack(children: [
       CarouselSlider(
         options: CarouselOptions(
+          height: widget.height ?? null ,
           autoPlay: widget.autoPlay ?? true,
           initialPage: 0,
           enlargeCenterPage: false,
