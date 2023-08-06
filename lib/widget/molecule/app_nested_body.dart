@@ -15,6 +15,7 @@ class AppNestedScrollView extends StatefulWidget {
   final bool? isScroll;
   final bool? floating;
   final bool? snap;
+  final PreferredSizeWidget? bottom;
   final EdgeInsets? padding;
   final Widget? title;
   final ScrollPhysics? physics;
@@ -24,30 +25,7 @@ class AppNestedScrollView extends StatefulWidget {
   final MainAxisAlignment? bgMainAxisAlignment;
   final List<Widget>? moreHeaderSlivers;
 
-  const AppNestedScrollView({
-    super.key,
-    required this.body,
-    this.titleFlexible,
-    this.background,
-    this.titlePadding,
-    this.expandedTitleScale,
-    this.collapseHeight,
-    this.elevation,
-    this.expandedHeight,
-    this.pinned,
-    this.padding,
-    this.title,
-    this.centerTitle,
-    this.physics,
-    this.controller,
-    this.lengthTab,
-    this.bgMainAxisAlignment,
-    this.bgCrossAxisAlignment,
-    this.moreHeaderSlivers,
-    this.isScroll = true,
-    this.floating,
-    this.snap,
-  });
+  const AppNestedScrollView({super.key, required this.body, this.titleFlexible, this.background, this.titlePadding, this.expandedTitleScale, this.collapseHeight, this.elevation, this.expandedHeight, this.pinned, this.padding, this.title, this.centerTitle, this.physics, this.controller, this.lengthTab, this.bgMainAxisAlignment, this.bgCrossAxisAlignment, this.moreHeaderSlivers, this.isScroll = true, this.floating, this.snap, this.bottom});
 
   @override
   State<AppNestedScrollView> createState() => _AppNestedScrollViewState();
@@ -95,6 +73,7 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
       elevation: widget.elevation ?? 0.5,
       centerTitle: widget.centerTitle ?? false,
       title: widget.title ?? SizedBox.shrink(),
+      bottom: widget.bottom!,
       flexibleSpace: FlexibleSpaceBar(
         title: widget.titleFlexible ?? const SizedBox.shrink(),
         background: Column(
