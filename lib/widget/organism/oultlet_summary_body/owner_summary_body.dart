@@ -93,20 +93,19 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
     ];
     // TODO: implement build
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(
-          height: widget.height ?? 360,
-          child: GridView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-            ),
-            itemBuilder: (_, index) => Container(
-              margin: EdgeInsets.all(AppSizes.padding / 2),
-              child: listStatistic[index],
-            ),
-            itemCount: 4,
+        GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
           ),
+          itemBuilder: (_, index) => Container(
+            margin: EdgeInsets.all(AppSizes.padding / 2),
+            child: listStatistic[index],
+          ),
+          itemCount: 4,
+          shrinkWrap: true,
         ),
         SizedBox(height: AppSizes.padding),
         widget.barChart,
