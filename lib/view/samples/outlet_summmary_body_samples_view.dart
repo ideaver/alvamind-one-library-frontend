@@ -141,6 +141,7 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
             textDateRange: '1 Jan 2023 - 31 Juli 2023',
             countTotal: 'Rp. 687.375.337',
             countTransaction: '1000',
+            onTapItem: (value) {},
             tagBar: TagsOrganism(
               listChips: const [
                 'Drop Service',
@@ -208,6 +209,7 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
           countTotal: '- Rp687.375.337',
           countTotalColor: AppColors.redLv1,
           countTransaction: '1000',
+          onTapItem: (value) {},
           tagBar: TagsOrganism(
             listChips: const [
               'Pemasukan',

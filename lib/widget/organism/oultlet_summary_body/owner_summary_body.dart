@@ -14,6 +14,7 @@ class OwnerSummaryBody extends StatefulWidget {
   final Widget barChart;
   final Widget statusComplainWidget;
   final Widget deleteButton;
+  final double? height;
 
   const OwnerSummaryBody({
     required this.barChart,
@@ -23,6 +24,7 @@ class OwnerSummaryBody extends StatefulWidget {
     required this.countEmployees,
     required this.countMachine,
     required this.countTransaction,
+    this.height,
   });
 
   @override
@@ -47,6 +49,7 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
         icon: CustomIcon.speakerIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 18,
+        padding: const EdgeInsets.all(20),
       ),
       AppStatisticSquare(
         title: 'KARYAWAN',
@@ -59,6 +62,7 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
         icon: Icons.person,
         iconColor: AppColors.primary,
         borderRadiusCircle: 18,
+        padding: const EdgeInsets.all(20),
       ),
       AppStatisticSquare(
         title: 'KONSUMEN',
@@ -71,6 +75,7 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
         icon: CustomIcon.threeUserBoldIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 18,
+        padding: const EdgeInsets.all(20),
       ),
       AppStatisticSquare(
         title: 'TRASANKSI',
@@ -83,13 +88,14 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
         icon: CustomIcon.documentBoldIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 15,
+        padding: const EdgeInsets.all(20),
       ),
     ];
     // TODO: implement build
     return Column(
       children: [
         SizedBox(
-          height: 360,
+          height: widget.height ?? 360,
           child: GridView.builder(
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

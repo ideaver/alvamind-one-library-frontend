@@ -21,6 +21,7 @@ class BarChart extends StatelessWidget {
   final String? countTransaction;
   final Widget tagBar;
   final Widget barChart;
+  final dynamic Function(dynamic) onTapItem;
 
   const BarChart({
     super.key,
@@ -31,6 +32,7 @@ class BarChart extends StatelessWidget {
     this.countTransaction,
     this.textDateRange,
     this.countTotalColor,
+    required this.onTapItem,
   });
 
   @override
@@ -51,23 +53,30 @@ class BarChart extends StatelessWidget {
           AppLongCard(
             padding: const EdgeInsets.all(0),
             children: [
-              Row(
-                children: [
-                  AppIconButton(
-                      buttonColor: AppColors.blueLv5,
-                      icon: const Icon(
-                        CustomIcon.chartBoldIcon,
-                        color: AppColors.primary,
+              Expanded(
+                child: Row(
+                  children: [
+                    AppIconButton(
+                        buttonColor: AppColors.blueLv5,
+                        icon: const Icon(
+                          CustomIcon.chartBoldIcon,
+                          color: AppColors.primary,
+                        ),
+                        onTap: () {}),
+                    SizedBox(
+                      width: AppSizes.padding / 1.5,
+                    ),
+                    Expanded(
+                      child: Text(
+                        textTypeChart,
+                        softWrap: true,
+                        maxLines: 2,
+                        overflow: TextOverflow.clip,
+                        style: AppTextStyle.bold(size: 24),
                       ),
-                      onTap: () {}),
-                  SizedBox(
-                    width: AppSizes.padding,
-                  ),
-                  Text(
-                    textTypeChart,
-                    style: AppTextStyle.bold(size: 24),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
               Container(
                 width: 160,
@@ -76,6 +85,7 @@ class BarChart extends StatelessWidget {
                   iconsColor: AppColors.black,
                   onTapItem: (item) {
                     _country = countries.firstWhere((e) => e.countryCode == item.value);
+                    onTapItem(_country);
                   },
                   hintText: '6 Bulan Terakhir',
                   hintStyle: AppTextStyle.bold(size: 14, color: AppColors.black),
