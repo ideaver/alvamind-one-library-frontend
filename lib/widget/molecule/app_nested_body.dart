@@ -66,6 +66,7 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
       child: NestedScrollView(
         controller: widget.controller,
         physics: const NeverScrollableScrollPhysics(),
+        floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             sliverAppBarWidget(),
@@ -94,6 +95,7 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
       pinned: widget.pinned ?? true,
       backgroundColor: widget.backgroundColor ?? null,
       floating: widget.floating ?? false,
+      excludeHeaderSemantics: true,
       snap: widget.snap ?? false,
       expandedHeight: widget.expandedHeight ?? null,
       collapsedHeight: widget.collapseHeight ?? null,
