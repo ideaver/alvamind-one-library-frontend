@@ -251,24 +251,21 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
           SizedBox(
             height: AppSizes.padding * 1.5,
           ),
-          StickyHeader(
-            header: Text('dsfssdsfs'),
-            content: ListTransaction(
-              email: 'nakama@gmail.com',
-              number: '+62534234432',
-              gender: 'Perempuan',
-              registerDate: '19 Mei 2023',
-              status: 'Aktif',
-              statusColor: AppColors.greenLv1,
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.blackLv7.withOpacity(0.5),
-                  offset: Offset(0, -10),
-                  blurRadius: 60,
-                  spreadRadius: 0,
-                ),
-              ],
-            ),
+          ListTransaction(
+            email: 'nakama@gmail.com',
+            number: '+62534234432',
+            gender: 'Perempuan',
+            registerDate: '19 Mei 2023',
+            status: 'Aktif',
+            statusColor: AppColors.greenLv1,
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.blackLv7.withOpacity(0.5),
+                offset: Offset(0, -10),
+                blurRadius: 60,
+                spreadRadius: 0,
+              ),
+            ],
           ),
           SizedBox(height: AppSizes.padding * 1.5),
           ...List.generate(3, (i) {

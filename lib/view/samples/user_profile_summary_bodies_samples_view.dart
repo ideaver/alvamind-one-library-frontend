@@ -25,15 +25,18 @@ class UserProfileSummaryBodySamplesView extends StatefulWidget {
 class _UserProfileSummaryBodySamplesViewState extends State<UserProfileSummaryBodySamplesView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('User Profile Summary Body Samples')),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(AppSizes.padding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            userProfileSummaryBody(),
-          ],
+    return DefaultTabController(
+      length: 7,
+      child: Scaffold(
+        appBar: AppBar(title: const Text('User Profile Summary Body Samples')),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.all(AppSizes.padding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              userProfileSummaryBody(),
+            ],
+          ),
         ),
       ),
     );
