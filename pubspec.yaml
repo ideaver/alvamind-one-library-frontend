@@ -64,6 +64,8 @@ dependencies:
   sticky_headers: ^0.3.0+2
   widget_to_marker: ^1.0.4
   sliver_tools: ^0.2.12
+  qr_code_scanner: ^1.0.1
+  camera_camera: ^3.0.0
 
 
 

@@ -77,6 +77,8 @@ import '../../view/samples/transaction_review_card_samples_view.dart';
 import '../../view/samples/user_profile_container_employee_samples_view.dart';
 import '../../view/samples/user_profile_summary_bodies_samples_view.dart';
 import '../../view/samples/user_profille_container_samples_view.dart';
+import '../../widget/organism/camera/camera.dart';
+import '../../widget/organism/qr_code_scanner/qr_code_scanner.dart';
 
 // App routes
 class AppRoutes {
@@ -162,5 +164,7 @@ class AppRoutes {
     UserProfileContainerEmployeeSamplesView.routeName: (context) => const UserProfileContainerEmployeeSamplesView(),
     CalendarSamplesView.routeName: (context) => const CalendarSamplesView(),
     MapSamplesView.routeName: (context) => const MapSamplesView(),
+    QRCodeScanner.routeName: (context) => const QRCodeScanner(),
+    AppCamera.routeName: (context) => const AppCamera(),
   };
 }

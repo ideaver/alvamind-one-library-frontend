@@ -305,6 +305,7 @@ class AppDialogCustomWidget extends StatelessWidget {
   final Color? subtitleColor;
   final Axis? directionButton;
   final List<Widget>? itemBottom;
+  final Widget? moreitem;
   final void Function()? onTapButton;
   final void Function()? onTapSecondButton;
 
@@ -327,6 +328,7 @@ class AppDialogCustomWidget extends StatelessWidget {
     this.textSecondButton,
     this.onTapButton,
     this.onTapSecondButton,
+    this.moreitem,
   });
 
   @override
@@ -380,6 +382,7 @@ class AppDialogCustomWidget extends StatelessWidget {
                       buttonColor: AppColors.blueLv5,
                       rounded: true,
                     ),
+                    moreitem ?? const SizedBox.shrink(),
                   ],
             ),
           ],
