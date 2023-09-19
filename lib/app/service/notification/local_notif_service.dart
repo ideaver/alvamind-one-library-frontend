@@ -6,6 +6,9 @@ import 'package:open_filex/open_filex.dart';
 import '../../utility/external_launcher.dart';
 import '../navigation/navigation_service.dart';
 
+// Local Notification Service
+// v.2.0.1
+// by Elriz Wiraswara
 
 class LocalNotifService {
   // This class is not meant to be instatiated or extended; this constructor
@@ -16,8 +19,7 @@ class LocalNotifService {
   static final localNotifPlugin = FlutterLocalNotificationsPlugin();
 
   // Initilaization settings
-  static const androidInitSettings =
-      AndroidInitializationSettings('@mipmap/ic_launcher');
+  static const androidInitSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
 
   static const iosInitSettings = DarwinInitializationSettings(
     requestAlertPermission: false,
@@ -26,44 +28,38 @@ class LocalNotifService {
   );
 
   // Notification details settings
-  static const androidNotifDetails = AndroidNotificationDetails(
-    // Change your app package name, channel name & desc
-    'com.app.laundry_net',
-    'LaundryNet Notification',
-    channelDescription: 'Notification channel for LaundryNet App',
-    importance: Importance.max,
-    priority: Priority.high,
-  );
+  static late AndroidNotificationDetails androidNotifDetails;
 
-  static const iosNotifDetails = DarwinNotificationDetails(
-    categoryIdentifier: 'categoryId',
-  );
+  static late DarwinNotificationDetails iosNotifDetails;
 
-  static const notificationDetails = NotificationDetails(
-    android: androidNotifDetails,
-    iOS: iosNotifDetails,
-  );
+  static late NotificationDetails notificationDetails;
 
-  static void onDidReceiveNotif(NotificationResponse res) async {
-    if (res.notificationResponseType ==
-        NotificationResponseType.selectedNotification) {
-      if (res.payload == null || res.payload == '') {
-        return;
-      }
+  static Future<void> initLocalNotifService({
+    required String packageName,
+    required String channelName,
+    String? categoryIdentifier,
+    String? description,
+    Importance importance = Importance.defaultImportance,
+    Priority priority = Priority.high,
+  }) async {
+    androidNotifDetails = androidNotifDetails = AndroidNotificationDetails(
+      packageName,
+      channelName,
+      channelDescription: description,
+      importance: importance,
+      priority: priority,
+    );
 
-      if (await File(res.payload!).exists()) {
-        OpenFilex.open(res.payload);
-      } else if (res.payload!.contains('http')) {
-        ExternalLauncher.openUrl(res.payload!);
-      } else {
-        NavigationService.navigatorKey.currentState?.pushNamed(res.payload!);
-      }
-    }
-  }
+    iosNotifDetails = iosNotifDetails = DarwinNotificationDetails(
+      categoryIdentifier: categoryIdentifier,
+    );
 
-  static Future<void> initLocalNotifService() async {
-    var notifAppLaunchDetails =
-        await localNotifPlugin.getNotificationAppLaunchDetails();
+    notificationDetails = notificationDetails = NotificationDetails(
+      android: androidNotifDetails,
+      iOS: iosNotifDetails,
+    );
+
+    var notifAppLaunchDetails = await localNotifPlugin.getNotificationAppLaunchDetails();
 
     if (notifAppLaunchDetails?.didNotificationLaunchApp ?? false) {
       onDidReceiveNotif(notifAppLaunchDetails!.notificationResponse!);
@@ -78,6 +74,22 @@ class LocalNotifService {
       initSettings,
       onDidReceiveNotificationResponse: onDidReceiveNotif,
     );
+  }
+
+  static void onDidReceiveNotif(NotificationResponse res) async {
+    if (res.notificationResponseType == NotificationResponseType.selectedNotification) {
+      if (res.payload == null || res.payload == '') {
+        return;
+      }
+
+      if (await File(res.payload!).exists()) {
+        OpenFilex.open(res.payload);
+      } else if (res.payload!.contains('http')) {
+        ExternalLauncher.openUrl(res.payload!);
+      } else {
+        NavigationService.navigatorKey.currentState?.pushNamed(res.payload!);
+      }
+    }
   }
 
   static Future<void> showNotification({

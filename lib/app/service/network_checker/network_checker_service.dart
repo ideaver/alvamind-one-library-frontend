@@ -1,13 +1,15 @@
 import 'dart:async';
 
 import 'package:connectivity/connectivity.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../../utility/console_log.dart';
 
 // App Network Checker
-// v.2.0.0
+// v.2.0.1
 // by Elriz Wiraswara
 
 class NetworkCheckerService extends ChangeNotifier {
@@ -19,13 +21,29 @@ class NetworkCheckerService extends ChangeNotifier {
     required NavigatorState navigator,
     Function(bool)? onHasInternet,
   }) async {
-    isConnected = await InternetConnectionChecker().hasConnection;
+    if (!kIsWeb) {
+      isConnected = await InternetConnectionChecker().hasConnection;
+    } else {
+      final res = await http.get(Uri.parse('www.google.com'));
+      if (res.statusCode == 200) {
+        isConnected = true;
+      } else {
+        isConnected = false;
+      }
+    }
 
-    _subscription = Connectivity()
-        .onConnectivityChanged
-        .listen((ConnectivityResult result) async {
+    _subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) async {
       if (result != ConnectivityResult.none) {
-        isConnected = await InternetConnectionChecker().hasConnection;
+        if (!kIsWeb) {
+          isConnected = await InternetConnectionChecker().hasConnection;
+        } else {
+          final res = await http.get(Uri.parse('www.google.com'));
+          if (res.statusCode == 200) {
+            isConnected = true;
+          } else {
+            isConnected = false;
+          }
+        }
 
         if (onHasInternet != null) {
           onHasInternet(isConnected);

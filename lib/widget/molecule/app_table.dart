@@ -14,6 +14,7 @@ class AppTable extends StatefulWidget {
   final Alignment alignment;
   final TextAlign textAlign;
   final double? width;
+  final double? height;
   final double borderRadius;
   final Color headerBackgroundColor;
   final EdgeInsets? headerPadding;
@@ -36,6 +37,7 @@ class AppTable extends StatefulWidget {
     this.alignment = Alignment.centerLeft,
     this.textAlign = TextAlign.left,
     this.width,
+    this.height,
     this.borderRadius = 0,
     this.headerBackgroundColor = AppColors.blackLv8,
     this.headerPadding,
@@ -96,9 +98,18 @@ class _AppTableState extends State<AppTable> {
                 child: Column(
                   children: [
                     widget.headerData != null ? header(widget.headerData!) : const SizedBox.shrink(),
-                    ...List.generate(widget.data.length, (i) {
-                      return row(widget.data[i]);
-                    })
+                    SizedBox(
+                      height: widget.height ?? AppSizes.screenSize.height,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            ...List.generate(widget.data.length, (i) {
+                              return row(widget.data[i]);
+                            })
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
