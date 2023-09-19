@@ -7,14 +7,15 @@ import '../../atom/app_divider.dart';
 import '../../atom/app_image.dart';
 import '../../molecule/app_button.dart';
 import '../../molecule/app_card.dart';
+import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_progress_line.dart';
 import '../../molecule/app_tags.dart';
 
 class OrderCard extends StatelessWidget {
-  final String title;
+  final double? labelingCount;
+  final double? tagBorderWidth;
   final EdgeInsetsGeometry? padding;
-  final bool? isProgress;
-  final bool? isDone;
+  final String title;
   final String? dateDone;
   final String? textPrice;
   final String? statusPrice;
@@ -24,17 +25,28 @@ class OrderCard extends StatelessWidget {
   final String? textLeftButton;
   final String? textRightButton;
   final String? labelingText;
-  final double? labelingCount;
   final String? starImageCount;
-  final Color? backgroundColor;
-  //
-  final Color? tagColor;
   final String? tagText;
-  final double? tagBorderWidth;
+  final String? image;
+  final Color? backgroundColor;
+  final Color? tagColor;
   final Color? tagBorderColor;
   final Color? tagTextColor;
-  final void Function()? functionRightButton;
-  final void Function()? functionLeftButton;
+  final Color? leftButtonColor;
+  final Color? rightButtonColor;
+  final Color? leftButtonBorderColor;
+  final Color? leftButtonTextColor;
+  final Color? rightButtonTextColor;
+  final Color? rightButtonBorderColor;
+  final Color? labelingColor;
+  final bool? isProgress;
+  final bool? isDone;
+  final bool? showButton;
+  final bool? showProgressLine;
+  final void Function()? onTapRightButton;
+  final void Function()? onTapLeftButton;
+  final List<BoxShadow>? boxShadow;
+  final List<Widget>? customWidget;
 
   const OrderCard({
     super.key,
@@ -46,8 +58,8 @@ class OrderCard extends StatelessWidget {
     this.dateProgress,
     this.isProgress,
     this.statusPrice,
-    this.functionLeftButton,
-    this.functionRightButton,
+    this.onTapLeftButton,
+    this.onTapRightButton,
     this.labelingText,
     this.labelingCount,
     this.statustProgressText,
@@ -61,16 +73,27 @@ class OrderCard extends StatelessWidget {
     this.tagColor,
     this.tagText,
     this.tagTextColor,
+    this.leftButtonBorderColor,
+    this.leftButtonColor,
+    this.leftButtonTextColor,
+    this.rightButtonBorderColor,
+    this.rightButtonColor,
+    this.rightButtonTextColor,
+    this.labelingColor,
+    this.image,
+    this.boxShadow,
+    this.showButton = true,
+    this.showProgressLine = true,
+    this.customWidget,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AppInkContainer(
       padding: padding ?? EdgeInsets.all(AppSizes.padding),
-      decoration: BoxDecoration(
-        color: backgroundColor ?? AppColors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
+      backgroundColor: backgroundColor ?? AppColors.white,
+      borderRadius: BorderRadius.circular(20),
+      boxShadow: boxShadow ?? [],
       child: Column(
         children: [
           Row(
@@ -83,8 +106,12 @@ class OrderCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    isProgress == true ? statusProgress() : SizedBox.shrink(),
-                    isProgress == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                    isProgress == true
+                        ? dateProgress == null
+                            ? const SizedBox.shrink()
+                            : statusProgress()
+                        : SizedBox.shrink(),
+                    isProgress == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
                     //
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,16 +123,18 @@ class OrderCard extends StatelessWidget {
                           overflow: TextOverflow.fade,
                           style: AppTextStyle.bold(size: 20),
                         ),
-                        isDone == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                        isDone == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
                         isDone == true
-                            ? Text(
-                                dateDone ?? '',
-                                softWrap: true,
-                                maxLines: 3,
-                                overflow: TextOverflow.fade,
-                                style: AppTextStyle.regular(size: 14),
-                              )
-                            : SizedBox.shrink(),
+                            ? dateDone == null
+                                ? const SizedBox.shrink()
+                                : Text(
+                                    dateDone ?? '',
+                                    softWrap: true,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.fade,
+                                    style: AppTextStyle.regular(size: 14),
+                                  )
+                            : const SizedBox.shrink(),
                         SizedBox(height: AppSizes.padding / 2),
                         priceStatus(),
                       ],
@@ -123,51 +152,67 @@ class OrderCard extends StatelessWidget {
           //
           // isProgress
           isProgress == true
-              ? AppProgressLine(
-                  value: labelingCount ?? 20,
-                  maxValue: 100,
-                  label: labelingText ?? 'Labeling',
-                )
+              ? showProgressLine == true
+                  ? AppProgressLine(
+                      lineColor: labelingColor ?? AppColors.primary,
+                      value: labelingCount ?? 20,
+                      maxValue: 100,
+                      label: labelingText ?? 'Labeling',
+                    )
+                  : const SizedBox.shrink()
               : const SizedBox.shrink(),
           isProgress == true
-              ? SizedBox(
-                  height: AppSizes.padding,
-                )
+              ? showProgressLine == true
+                  ? SizedBox(
+                      height: AppSizes.padding,
+                    )
+                  : const SizedBox.shrink()
               : const SizedBox.shrink(),
           //
           //
+          // button down
+          showButton == true
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: AppButton(
+                        onTap: onTapLeftButton ?? () {},
+                        text: textLeftButton ?? '',
+                        rounded: true,
+                        textColor: leftButtonTextColor ?? AppColors.white,
+                        borderWidth: 2,
+                        buttonColor: leftButtonColor ?? AppColors.primary,
+                        borderColor: leftButtonBorderColor ?? AppColors.primary,
+                        padding: EdgeInsets.symmetric(
+                          vertical: AppSizes.padding / 2.5,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: AppSizes.padding / 2,
+                    ),
+                    Expanded(
+                      child: AppButton(
+                        onTap: onTapRightButton ?? () {},
+                        padding: EdgeInsets.symmetric(
+                          vertical: AppSizes.padding / 2.5,
+                        ),
+                        text: textRightButton ?? '',
+                        textColor: rightButtonTextColor ?? AppColors.primary,
+                        borderWidth: 2,
+                        buttonColor: rightButtonColor ?? AppColors.white,
+                        borderColor: rightButtonBorderColor ?? AppColors.primary,
+                        rounded: true,
+                      ),
+                    ),
+                  ],
+                )
+              : const SizedBox.shrink(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
-                child: AppButton(
-                  onTap: functionLeftButton ?? () {},
-                  text: textLeftButton ?? '',
-                  rounded: true,
-                  borderWidth: 2,
-                  borderColor: AppColors.primary,
-                  padding: EdgeInsets.symmetric(
-                    vertical: AppSizes.padding / 2.5,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: AppSizes.padding / 2,
-              ),
-              Expanded(
-                child: AppButton(
-                  onTap: functionRightButton ?? () {},
-                  padding: EdgeInsets.symmetric(
-                    vertical: AppSizes.padding / 2.5,
-                  ),
-                  text: textRightButton ?? '',
-                  textColor: AppColors.primary,
-                  buttonColor: AppColors.white,
-                  borderWidth: 2,
-                  borderColor: AppColors.primary,
-                  rounded: true,
-                ),
-              ),
+              ...customWidget ?? [],
             ],
           )
         ],
@@ -193,7 +238,7 @@ class OrderCard extends StatelessWidget {
           color: tagColor ?? AppColors.white,
           textColor: tagTextColor ?? AppColors.primary,
           borderWidth: tagBorderWidth ?? 1,
-          borderColor: tagTextColor ?? AppColors.primary,
+          borderColor: tagBorderColor ?? AppColors.primary,
         ),
       ],
     );
@@ -202,7 +247,7 @@ class OrderCard extends StatelessWidget {
   Widget imageCard() {
     return AppCard(
       onTap: () {},
-      backgroundImage: randomImage,
+      backgroundImage: image ?? randomImage,
       height: 100,
       width: 100,
       borderRadius: 20,
@@ -246,16 +291,18 @@ class OrderCard extends StatelessWidget {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Text(
-            statusPrice ?? '',
-            style: AppTextStyle.medium(
-              size: 10,
-              color: AppColors.blackLv4,
-            ),
-          ),
-        ),
+        statusPrice == null
+            ? const SizedBox.shrink()
+            : Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  statusPrice ?? '',
+                  style: AppTextStyle.medium(
+                    size: 10,
+                    color: AppColors.blackLv4,
+                  ),
+                ),
+              ),
         isDone == true
             ? SizedBox(
                 width: AppSizes.padding / 4,

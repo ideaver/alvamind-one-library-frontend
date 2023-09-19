@@ -9,11 +9,15 @@ import '../../molecule/app_chips.dart';
 
 // ignore: must_be_immutable
 class OperasionalCard extends StatefulWidget {
+  final String? title;
   final String? dayTitle;
   final String? time;
   final String? text;
-  final void Function()? chipCloseButton;
   bool? isDisabled;
+  final bool? isCustom;
+  final bool? withSubtitle;
+  final void Function()? chipCloseButton;
+  final dynamic Function(bool) onChanged;
 
   OperasionalCard({
     super.key,
@@ -22,6 +26,10 @@ class OperasionalCard extends StatefulWidget {
     this.text,
     this.time,
     this.chipCloseButton,
+    this.isCustom,
+    this.title,
+    this.withSubtitle = true,
+    required this.onChanged,
   });
 
   @override
@@ -47,76 +55,97 @@ class _OperasionalCardState extends State<OperasionalCard> {
           ],
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      AppToggle(
-                        value: widget.isDisabled == true ? false : value1,
-                        onChanged: (val) {
-                          value1 = val;
-                          setState(() {
-                            value1 == false ? widget.isDisabled = true : widget.isDisabled = false;
-                          });
-                        },
-                      ),
-                      SizedBox(
-                        width: AppSizes.padding / 2,
-                      ),
-                      Text(
-                        widget.dayTitle ?? '',
-                        style: AppTextStyle.bold(size: 20),
-                      )
-                    ],
-                  ),
-                  widget.isDisabled == true
-                      ? AppChips(
-                          text: 'Tutup',
-                          fontSize: 14,
-                          textStyle: AppTextStyle.bold(
-                            size: 14,
-                            color: AppColors.blackLv3,
-                          ),
-                          selectedColor: AppColors.blackLv6,
-                          leftIcon: Icons.login_rounded,
-                          unselectedColor: AppColors.blackLv3,
-                          borderWidth: 0,
-                          padding: EdgeInsets.symmetric(
-                            vertical: AppSizes.padding / 2,
-                            horizontal: AppSizes.padding,
-                          ),
-                          onTap: widget.chipCloseButton ?? () {},
-                          isSelected: true,
-                        )
-                      : Row(
+              widget.isCustom == true
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          widget.title ?? '',
+                          style: AppTextStyle.bold(size: 20),
+                        ),
+                        AppToggle(
+                          value: widget.isDisabled == true ? false : value1,
+                          onChanged: (val) {
+                            value1 = val;
+                            setState(() {
+                              value1 == false ? widget.isDisabled = true : widget.isDisabled = false;
+                            });
+                            widget.onChanged(val);
+                          },
+                        ),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
                           children: [
-                            Text(
-                              widget.time ?? '',
-                              style: AppTextStyle.medium(size: 16),
+                            AppToggle(
+                              value: widget.isDisabled == true ? false : value1,
+                              onChanged: (val) {
+                                value1 = val;
+                                setState(() {
+                                  value1 == false ? widget.isDisabled = true : widget.isDisabled = false;
+                                });
+                                widget.onChanged(val);
+                              },
                             ),
                             SizedBox(
                               width: AppSizes.padding / 2,
                             ),
-                            AppToggle(
-                              value: value1,
-                              onChanged: (val) {
-                                value1 = val;
-                                setState(() {
-                                  widget.isDisabled == false ? widget.isDisabled = false : widget.isDisabled = true;
-                                });
-                              },
-                            ),
+                            Text(
+                              widget.dayTitle ?? '',
+                              style: AppTextStyle.bold(size: 20),
+                            )
                           ],
                         ),
-                ],
-              ),
-              widget.isDisabled == true
+                        widget.isDisabled == true
+                            ? AppChips(
+                                text: 'Tutup',
+                                fontSize: 14,
+                                textStyle: AppTextStyle.bold(
+                                  size: 14,
+                                  color: AppColors.blackLv3,
+                                ),
+                                selectedColor: AppColors.blackLv6,
+                                leftIcon: Icons.login_rounded,
+                                unselectedColor: AppColors.blackLv3,
+                                borderWidth: 0,
+                                padding: EdgeInsets.symmetric(
+                                  vertical: AppSizes.padding / 2,
+                                  horizontal: AppSizes.padding,
+                                ),
+                                onTap: widget.chipCloseButton ?? () {},
+                                isSelected: true,
+                              )
+                            : Row(
+                                children: [
+                                  Text(
+                                    widget.time ?? '',
+                                    style: AppTextStyle.medium(size: 16),
+                                  ),
+                                  SizedBox(
+                                    width: AppSizes.padding / 2,
+                                  ),
+                                  AppToggle(
+                                    value: value1,
+                                    onChanged: (val) {
+                                      value1 = val;
+                                      setState(() {
+                                        widget.isDisabled == false ? widget.isDisabled = false : widget.isDisabled = true;
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                      ],
+                    ),
+              widget.isDisabled == true || widget.withSubtitle == false
                   ? const SizedBox.shrink()
                   : SizedBox(
                       height: AppSizes.padding,
                     ),
-              widget.isDisabled == true
+              widget.isDisabled == true || widget.withSubtitle == false
                   ? const SizedBox.shrink()
                   : Text(
                       widget.text ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',

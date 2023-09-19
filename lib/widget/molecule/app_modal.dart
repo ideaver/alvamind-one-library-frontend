@@ -1,6 +1,5 @@
+import 'package:alvamind_library/widget/molecule/app_range_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_core/theme.dart';
-import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
@@ -12,11 +11,12 @@ class AppModal {
   static Future<void> show(
     NavigatorState navigator, {
     IconData? icon,
+    double? height,
     Color? backgroundColor,
     EdgeInsetsGeometry? padding,
     EdgeInsetsGeometry? margin,
     BorderRadiusGeometry? borderRadius,
-    required String title,
+    String? title,
     String? subtitle,
     String? titleAddress,
     String? subtitleAddress,
@@ -32,17 +32,19 @@ class AppModal {
     bool? slider,
     String? textPrice,
     String? statusPrice,
+    bool? isScrolled,
     void Function()? priceButton,
   }) async {
     showModalBottomSheet(
       context: navigator.context,
-      // isScrollControlled: true,
+      isScrollControlled: true,
       backgroundColor: AppColors.transparent,
       builder: (context) {
         return AppModalWidget(
           backgroundColor: backgroundColor,
           borderRadius: borderRadius,
           directionButton: directionButton,
+          height: height,
           icon: icon,
           margin: margin,
           padding: padding,
@@ -62,6 +64,7 @@ class AppModal {
           priceButton: priceButton,
           title: title,
           children: children,
+          isScrolled: isScrolled,
         );
       },
     );
@@ -74,7 +77,8 @@ class AppModalWidget extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final BorderRadiusGeometry? borderRadius;
-  final String title;
+  final double? height;
+  final String? title;
   final String? subtitle;
   final String? titleAddress;
   final String? subtitleAddress;
@@ -90,6 +94,7 @@ class AppModalWidget extends StatefulWidget {
   final bool? slider;
   final String? textPrice;
   final String? statusPrice;
+  final bool? isScrolled;
   final void Function()? priceButton;
 
   const AppModalWidget({
@@ -114,8 +119,10 @@ class AppModalWidget extends StatefulWidget {
     this.textPrice,
     this.statusPrice,
     this.priceButton,
+    this.height,
+    this.isScrolled = false,
     required this.children,
-    required this.title,
+    this.title,
   });
 
   @override
@@ -125,114 +132,132 @@ class AppModalWidget extends StatefulWidget {
 class _AppModalWidgetState extends State<AppModalWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: widget.backgroundColor ?? AppColors.white,
-        borderRadius: widget.borderRadius ??
-            const BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
-            ),
-      ),
-      child: Padding(
-        padding: widget.padding ??
-            EdgeInsets.symmetric(
-              vertical: AppSizes.padding,
-              horizontal: AppSizes.padding,
-            ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AppDivider(
-              thickness: 4,
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
-            ),
-            SizedBox(height: AppSizes.padding),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.title,
-                  style: AppTextStyle.bold(
-                    size: 24,
-                    color: widget.titleColor ?? Colors.black,
-                  ),
-                ),
-                AppDivider(
-                  thickness: 1,
-                  color: const Color(0xFFEEEEEE),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppSizes.padding / 3,
-                    vertical: AppSizes.padding,
-                  ),
-                ),
-                //
-                // subtitle text
-                //
-                widget.miniTitle != null
-                    ? Text(
-                        widget.miniTitle ?? '',
-                        textAlign: TextAlign.center,
-                        style: AppTextStyle.bold(size: 18, color: widget.miniTitleColor ?? AppColors.black),
-                      )
-                    : const SizedBox.shrink(),
-                widget.miniTitle != null
-                    ? SizedBox(
-                        height: AppSizes.padding,
-                      )
-                    : const SizedBox.shrink(),
-                widget.subtitle != null
-                    ? Text(
-                        widget.subtitle ?? '',
-                        textAlign: TextAlign.start,
-                        style: AppTextStyle.regular(size: 14, color: widget.subtitleColor ?? AppColors.black),
-                      )
-                    : const SizedBox.shrink(),
-
-                widget.subtitle != null
-                    ? SizedBox(
-                        height: AppSizes.padding,
-                      )
-                    : const SizedBox.shrink(),
-                //
-                // address
-                //
-                ...widget.moreWidget ?? [],
-                widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
-                widget.slider == true ? sliderWay() : const SizedBox.shrink(),
-
-                Flex(
-                  direction: widget.directionButton ?? Axis.horizontal,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ...widget.children,
-                    widget.price == false
-                        ? const SizedBox.shrink()
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              widgetPrice(),
-                              Expanded(
-                                child: AppButton(
-                                  rounded: true,
-                                  text: 'Pesan',
-                                  onTap: widget.priceButton ??
-                                      () {
-                                        // TODO
-                                      },
-                                ),
-                              ),
-                            ],
-                          ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+    return Padding(
+      padding: EdgeInsets.only(top: AppSizes.padding * 4),
+      child: Container(
+        decoration: BoxDecoration(
+          color: widget.backgroundColor ?? AppColors.white,
+          borderRadius: widget.borderRadius ??
+              const BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(40),
+              ),
+        ),
+        child: Padding(
+          padding: widget.padding ??
+              EdgeInsets.symmetric(
+                vertical: AppSizes.padding,
+                horizontal: AppSizes.padding,
+              ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppDivider(
+                thickness: 4,
+                padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
+              ),
+              SizedBox(height: AppSizes.padding),
+              widget.isScrolled == false
+                  ? modalBody()
+                  : Flexible(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: modalBody(),
+                      ),
+                    ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget modalBody() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        widget.title == null
+            ? const SizedBox.shrink()
+            : Text(
+                widget.title ?? '',
+                style: AppTextStyle.bold(
+                  size: 24,
+                  color: widget.titleColor ?? Colors.black,
+                ),
+              ),
+        widget.title == null
+            ? const SizedBox.shrink()
+            : AppDivider(
+                thickness: 1,
+                color: const Color(0xFFEEEEEE),
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.padding / 3,
+                  vertical: AppSizes.padding,
+                ),
+              ),
+        //
+        // subtitle text
+        //
+        widget.miniTitle != null
+            ? Text(
+                widget.miniTitle ?? '',
+                textAlign: TextAlign.center,
+                style: AppTextStyle.bold(size: 18, color: widget.miniTitleColor ?? AppColors.black),
+              )
+            : const SizedBox.shrink(),
+        widget.miniTitle != null
+            ? SizedBox(
+                height: AppSizes.padding,
+              )
+            : const SizedBox.shrink(),
+        widget.subtitle != null
+            ? Text(
+                widget.subtitle ?? '',
+                textAlign: TextAlign.start,
+                style: AppTextStyle.regular(size: 14, color: widget.subtitleColor ?? AppColors.black),
+              )
+            : const SizedBox.shrink(),
+
+        widget.subtitle != null
+            ? SizedBox(
+                height: AppSizes.padding,
+              )
+            : const SizedBox.shrink(),
+        //
+        // address
+        //
+        ...widget.moreWidget ?? [],
+        widget.textAddress ? widgetAddress() : const SizedBox.shrink(),
+        widget.slider == true ? sliderWay() : const SizedBox.shrink(),
+
+        Flex(
+          direction: widget.directionButton ?? Axis.horizontal,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ...widget.children,
+            widget.price == false
+                ? const SizedBox.shrink()
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      widgetPrice(),
+                      Expanded(
+                        child: AppButton(
+                          rounded: true,
+                          text: 'Pesan',
+                          onTap: widget.priceButton ??
+                              () {
+                                // TODO
+                              },
+                        ),
+                      ),
+                    ],
+                  ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -327,35 +352,36 @@ class _AppModalWidgetState extends State<AppModalWidget> {
     );
   }
 
-  SfRangeValues _values = const SfRangeValues(0, 5);
+  double _low = 5;
+  double _up = 10;
 
   Widget sliderWay() {
     return Padding(
-      padding: EdgeInsets.only(top: AppSizes.padding * 2),
-      child: SfRangeSliderTheme(
-        data: SfRangeSliderThemeData(
-          tooltipBackgroundColor: AppColors.primary,
-          thumbColor: AppColors.white,
-          thumbStrokeColor: AppColors.primary,
-          thumbStrokeWidth: 4,
-        ),
-        child: SfRangeSlider(
-          min: 0,
-          max: 10,
-          values: _values,
-          tooltipShape: const SfRectangularTooltipShape(),
-          tooltipTextFormatterCallback: (actualValue, formattedText) {
-            return '${actualValue.round()} KM';
-          },
-          enableTooltip: true,
-          shouldAlwaysShowTooltip: true,
-          onChanged: (dynamic values) {
+        padding: EdgeInsets.only(top: AppSizes.padding * 2),
+        child: AppRangeSlider(
+          lowerValue: _low,
+          upperValue: _up,
+          leftSuffix: Text(
+            ' KM',
+            style: AppTextStyle.medium(
+              size: 14,
+              color: AppColors.white,
+            ),
+          ),
+          rightSuffix: Text(
+            ' KM',
+            style: AppTextStyle.medium(
+              size: 14,
+              color: AppColors.white,
+            ),
+          ),
+          onDragging: (handlerIndex, lowerValue, upperValue) {
             setState(() {
-              _values = values;
+              _low = lowerValue;
+              _up = upperValue;
             });
+            // TODO
           },
-        ),
-      ),
-    );
+        ));
   }
 }

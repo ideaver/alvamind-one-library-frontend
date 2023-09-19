@@ -10,10 +10,14 @@ import 'app_tags.dart';
 class AppTransactionInfo extends StatelessWidget {
   final String transactionId;
   final String transactionStatus;
+  final String? textTitle;
   final Color? dotColor;
   final Color transactionStatusColor;
   final EdgeInsets? dotChillPadding;
   final bool? onlyTrasactionId;
+  final bool? withIcon;
+  final TextStyle? transactionIdStyle;
+  final TextStyle? textTitleStyle;
   final Function()? onTapCopyButton;
 
   const AppTransactionInfo({
@@ -25,6 +29,10 @@ class AppTransactionInfo extends StatelessWidget {
     this.dotChillPadding,
     this.dotColor,
     this.onlyTrasactionId,
+    this.textTitle,
+    this.withIcon = true,
+    this.transactionIdStyle,
+    this.textTitleStyle,
   }) : super(key: key);
 
   @override
@@ -39,31 +47,43 @@ class AppTransactionInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Transaction ID',
-                style: AppTextStyle.bodyMedium(
-                  fontWeight: AppFontWeight.medium,
-                ),
+                textTitle ?? 'Transaction ID',
+                style: textTitleStyle ??
+                    AppTextStyle.bodyMedium(
+                      fontWeight: AppFontWeight.medium,
+                    ),
               ),
-              Row(
-                children: [
-                  Text(
-                    transactionId,
-                    style: AppTextStyle.bodyLarge(
-                      fontWeight: AppFontWeight.semibold,
+              Expanded(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        transactionId,
+                        textAlign: TextAlign.end,
+                        softWrap: true,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: transactionIdStyle ??
+                            AppTextStyle.bodyLarge(
+                              fontWeight: AppFontWeight.semibold,
+                            ),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 8),
-                  AppIconButton(
-                    padding: EdgeInsets.zero,
-                    buttonColor: AppColors.transparent,
-                    icon: Icon(
-                      Icons.file_copy_outlined,
-                      color: transactionStatusColor,
-                      size: 18,
-                    ),
-                    onTap: onTapCopyButton ?? () {},
-                  )
-                ],
+                    withIcon == false ? const SizedBox.shrink() : const SizedBox(width: 8),
+                    withIcon == false
+                        ? const SizedBox.shrink()
+                        : AppIconButton(
+                            padding: EdgeInsets.zero,
+                            buttonColor: AppColors.transparent,
+                            icon: const Icon(
+                              Icons.file_copy_outlined,
+                              color: AppColors.primary,
+                              size: 18,
+                            ),
+                            onTap: onTapCopyButton ?? () {},
+                          )
+                  ],
+                ),
               ),
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
@@ -65,11 +66,11 @@ class AttedanceCard extends StatelessWidget {
                   children: [
                     AppIconButton(
                       icon: const Icon(
-                        Icons.login_rounded,
+                        CustomIcon.loginIcon,
                         color: AppColors.primary,
                       ),
                       borderRadius: 15,
-                      buttonColor: AppColors.blueLv4,
+                      buttonColor: AppColors.blueLv5,
                       onTap: () {},
                     ),
                     SizedBox(
@@ -103,11 +104,11 @@ class AttedanceCard extends StatelessWidget {
                   children: [
                     AppIconButton(
                       icon: const Icon(
-                        Icons.logout_rounded,
+                        CustomIcon.logoutIcon,
                         color: AppColors.primary,
                       ),
                       borderRadius: 15,
-                      buttonColor: AppColors.blueLv4,
+                      buttonColor: AppColors.blueLv5,
                       onTap: () {},
                     ),
                     SizedBox(

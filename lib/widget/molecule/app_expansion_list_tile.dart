@@ -6,27 +6,33 @@ import '../../app/theme/app_text_style.dart';
 import '../atom/app_divider.dart';
 
 class AppExpansionListTile extends StatefulWidget {
-  final String title;
-  final Color? titleColor;
+  final String? title;
   final String? subtitle;
   final String? subtitleDown;
+  final IconData? icon;
+  final Color? titleColor;
   final Color? subtitleColor;
   final Color? subtitleDownColor;
-  final IconData? icon;
   final Color? buttonDropColor;
   final Color? iconColor;
   final Color? backgroundColor;
-  final bool expand;
+  final Color? childrenColor;
   final List<Widget> children;
+  final EdgeInsetsGeometry? paddingChild;
   final Widget? moreItem;
   final Widget? leftItem;
   final bool? divider;
+  final bool expand;
+  final bool? isDisabled;
+  final bool? showExpandButton;
+  final bool? gap;
   final List<BoxShadow>? boxShadow;
+  final CrossAxisAlignment? crossAxisAlignmentChild;
 
   const AppExpansionListTile({
     Key? key,
     required this.children,
-    required this.title,
+    this.title,
     this.icon,
     this.backgroundColor,
     this.titleColor,
@@ -41,6 +47,12 @@ class AppExpansionListTile extends StatefulWidget {
     this.subtitleDown,
     this.subtitleDownColor,
     this.boxShadow,
+    this.paddingChild,
+    this.isDisabled = false,
+    this.showExpandButton = true,
+    this.crossAxisAlignmentChild,
+    this.gap = false,
+    this.childrenColor,
   }) : super(key: key);
 
   @override
@@ -59,9 +71,15 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height: isExpanded ? null : 58,
+      height: isExpanded
+          ? null
+          : widget.subtitle != null
+              ? 74
+              : widget.gap == true
+                  ? 74
+                  : 58,
       duration: const Duration(milliseconds: 300),
-      child: Container(
+      child: Ink(
         decoration: BoxDecoration(
           color: widget.backgroundColor,
           borderRadius: BorderRadius.circular(20),
@@ -82,14 +100,18 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () {
-                    isExpanded = !isExpanded;
-                    setState(() {});
-                  },
+                  onTap: widget.isDisabled == true
+                      ? () {
+                          isExpanded = true;
+                        }
+                      : () {
+                          isExpanded = !isExpanded;
+                          setState(() {});
+                        },
                   child: Container(
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
-                      color: widget.backgroundColor,
+                      color: widget.childrenColor == null ? widget.childrenColor : widget.backgroundColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
@@ -123,13 +145,15 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                                         ),
                                       )
                                     : const SizedBox.shrink(),
-                                Text(
-                                  widget.title,
-                                  style: AppTextStyle.bold(
-                                    size: 18,
-                                    color: widget.titleColor,
-                                  ),
-                                ),
+                                widget.title == null
+                                    ? const SizedBox.shrink()
+                                    : Text(
+                                        widget.title ?? '',
+                                        style: AppTextStyle.bold(
+                                          size: 18,
+                                          color: widget.titleColor,
+                                        ),
+                                      ),
                                 widget.subtitleDown != null
                                     ? Text(
                                         widget.subtitleDown!,
@@ -146,14 +170,18 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                         Row(
                           children: [
                             widget.moreItem != null ? widget.moreItem! : const SizedBox.shrink(),
-                            const SizedBox(
-                              width: 12,
-                            ),
-                            Icon(
-                              isExpanded ? CustomIcon.iconArrowDown : CustomIcon.iconArrowRight,
-                              color: widget.buttonDropColor == null ? Colors.blue : widget.buttonDropColor,
-                              size: 18,
-                            ),
+                            widget.showExpandButton == false
+                                ? const SizedBox.shrink()
+                                : const SizedBox(
+                                    width: 12,
+                                  ),
+                            widget.showExpandButton == false
+                                ? const SizedBox.shrink()
+                                : Icon(
+                                    isExpanded ? CustomIcon.iconArrowDown : CustomIcon.iconArrowRight,
+                                    color: widget.buttonDropColor == null ? Colors.blue : widget.buttonDropColor,
+                                    size: 18,
+                                  ),
                           ],
                         ),
                       ],
@@ -168,7 +196,17 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                           )
                         : const SizedBox.shrink()
                     : const SizedBox.shrink(),
-                ...widget.children,
+                isExpanded == true
+                    ? Padding(
+                        padding: widget.paddingChild ?? EdgeInsets.all(0),
+                        child: Column(
+                          crossAxisAlignment: widget.crossAxisAlignmentChild ?? CrossAxisAlignment.center,
+                          children: [
+                            ...widget.children,
+                          ],
+                        ),
+                      )
+                    : const SizedBox.shrink(),
               ],
             ),
           ),

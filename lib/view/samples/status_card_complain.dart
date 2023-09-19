@@ -38,7 +38,10 @@ class _StatusCardComplainSamplesViewState extends State<StatusCardComplainSample
       widget: StatusCardComplain(
         tagStatus: 'Solusi Diajukan',
         countStatus: 80,
-        functionButton: () {
+        onTapChevronButton: () {
+          // TODO
+        },
+        onTapCard: () {
           // TODO
         },
       ),

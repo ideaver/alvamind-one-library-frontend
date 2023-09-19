@@ -1,3 +1,4 @@
+import 'package:alvamind_library/widget/organism/order_type_info/profile_info.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
@@ -26,6 +27,7 @@ class _OrderTypeInfoSamplesViewState extends State<OrderTypeInfoSamplesView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             orderTypeInfo(),
+            orderTypeCustom(),
           ],
         ),
       ),
@@ -50,5 +52,20 @@ class _OrderTypeInfoSamplesViewState extends State<OrderTypeInfoSamplesView> {
         },
       ),
     );
+  }
+
+  Widget orderTypeCustom() {
+    return const SampleWrapper(
+        title: 'Profile Info Custom',
+        widget: ProfileInfo(
+          title: [
+            '3.415',
+            '3',
+          ],
+          subtitle: [
+            'Total Transaksi',
+            'Alamat',
+          ],
+        ));
   }
 }

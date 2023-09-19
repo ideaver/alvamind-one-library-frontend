@@ -1,3 +1,4 @@
+import 'package:alvamind_library/widget/molecule/app_ink_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -9,25 +10,24 @@ class PaymentMethodCard extends StatelessWidget {
   final String title;
   final String? chipText;
   final List<Widget> children;
-  final void Function()? functionChipButton;
+  final BorderRadius? borderRadius;
+  final void Function()? onTapEditButton;
 
   const PaymentMethodCard({
     super.key,
     required this.title,
     required this.children,
-    this.functionChipButton,
+    this.onTapEditButton,
     this.chipText,
+    this.borderRadius,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AppInkContainer(
       padding: EdgeInsets.all(AppSizes.padding),
-      decoration: BoxDecoration(
-        color: AppColors.blackLv10,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      width: MediaQuery.of(context).size.width,
+      backgroundColor: AppColors.blackLv10,
+      borderRadius: borderRadius ?? BorderRadius.circular(20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -41,7 +41,7 @@ class PaymentMethodCard extends StatelessWidget {
               AppChips(
                 borderWidth: 0,
                 text: chipText ?? 'Edit',
-                onTap: functionChipButton ?? () {},
+                onTap: onTapEditButton ?? () {},
                 isSelected: true,
                 leftIcon: Icons.mode_edit_rounded,
                 fontSize: 14,

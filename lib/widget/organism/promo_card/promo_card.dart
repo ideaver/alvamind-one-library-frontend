@@ -22,6 +22,7 @@ class PromoCard extends StatelessWidget {
   final void Function()? functionEditButton;
   final String? image;
   final bool? rightIcon;
+  final List<BoxShadow>? boxShadow;
 
   const PromoCard({
     super.key,
@@ -34,13 +35,18 @@ class PromoCard extends StatelessWidget {
     this.countPromo,
     this.detailDatePromo,
     this.functionEditButton,
+    this.boxShadow,
     required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: AppColors.white, borderRadius: BorderRadius.circular(30)),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: boxShadow ?? [],
+      ),
       child: Column(
         children: [
           AppLongCard(

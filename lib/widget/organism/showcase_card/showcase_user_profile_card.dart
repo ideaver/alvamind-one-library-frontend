@@ -15,31 +15,35 @@ class UserProfileCard extends StatelessWidget {
   final String? countBalance;
   final String? employeePlace;
   final String? employeeJob;
+  final String? image;
 
   final bool? onlyEmployee;
   final bool? onlyBalance;
   final bool? onlyUser;
+  final bool? onlySaldo;
 
-  final void Function()? functionCopyButton;
-  final void Function()? functionHistoryButton;
-  final void Function()? functionTopUpButton;
-  final void Function()? functionWithDrawButton;
-  final void Function()? functionPayButton;
-  final void Function()? functionDetailButton;
+  final void Function()? onTapCopyButton;
+  final void Function()? onTapHistoryButton;
+  final void Function()? onTapTopUpButton;
+  final void Function()? onTapWithDrawButton;
+  final void Function()? onTapPayButton;
+  final void Function()? onTapDetailButton;
 
   const UserProfileCard({
     super.key,
     this.countBalance,
-    this.functionCopyButton,
-    this.functionHistoryButton,
-    this.functionPayButton,
-    this.functionTopUpButton,
-    this.functionWithDrawButton,
-    this.functionDetailButton,
+    this.onTapCopyButton,
+    this.onTapHistoryButton,
+    this.onTapPayButton,
+    this.onTapTopUpButton,
+    this.onTapWithDrawButton,
+    this.onTapDetailButton,
     this.idUser,
+    this.image,
     this.nameUser,
     this.employeeJob,
     this.employeePlace,
+    this.onlySaldo = false,
     this.onlyBalance = false,
     this.onlyEmployee = false,
     this.onlyUser = false,
@@ -152,18 +156,18 @@ class UserProfileCard extends StatelessWidget {
                     ),
                     AppIconButton(
                         icon: const Icon(
-                          Icons.copy_outlined,
+                          CustomIcon.copyIcon,
                           size: 16,
                           color: Colors.white,
                         ),
                         buttonColor: AppColors.transparent,
-                        onTap: functionCopyButton ?? () {})
+                        onTap: onTapCopyButton ?? () {})
                   ],
                 ),
               ],
             ),
-            const CircleAvatar(
-              backgroundImage: NetworkImage(randomImage),
+            CircleAvatar(
+              backgroundImage: NetworkImage(image ?? randomImage),
               maxRadius: 25,
             )
           ],
@@ -176,7 +180,7 @@ class UserProfileCard extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: onlySaldo == true ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,56 +210,62 @@ class UserProfileCard extends StatelessWidget {
                 ),
               ],
             ),
-            AppButton(
-              text: 'Riwayat',
-              fontSize: 10,
-              borderColor: Colors.white,
-              borderWidth: 1,
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
-              onTap: functionHistoryButton ?? () {},
-            )
+            onlySaldo == true
+                ? const SizedBox.shrink()
+                : AppButton(
+                    text: 'Riwayat',
+                    fontSize: 10,
+                    borderColor: Colors.white,
+                    borderWidth: 1,
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
+                    onTap: onTapHistoryButton ?? () {},
+                  )
           ],
         ),
-        SizedBox(
-          height: AppSizes.padding,
-        ),
-        AppCardContainer(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              AppIconButton(
-                icon: const Icon(
-                  Icons.add_box,
-                  color: AppColors.primary,
-                ),
-                onTap: functionTopUpButton ?? () {},
-                buttonColor: AppColors.blueLv4,
-                textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
-                text: 'Top Up',
+        onlySaldo == true
+            ? const SizedBox.shrink()
+            : SizedBox(
+                height: AppSizes.padding,
               ),
-              AppIconButton(
-                icon: const Icon(
-                  Icons.local_play_rounded,
-                  color: AppColors.primary,
+        onlySaldo == true
+            ? const SizedBox.shrink()
+            : AppCardContainer(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    AppIconButton(
+                      icon: const Icon(
+                        Icons.add_box_rounded,
+                        color: AppColors.primary,
+                      ),
+                      onTap: onTapTopUpButton ?? () {},
+                      buttonColor: AppColors.blueLv4,
+                      textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
+                      text: 'Top Up',
+                    ),
+                    AppIconButton(
+                      icon: const Icon(
+                        CustomIcon.withdrawBoldIcon,
+                        color: AppColors.primary,
+                      ),
+                      onTap: onTapWithDrawButton ?? () {},
+                      buttonColor: AppColors.blueLv4,
+                      text: 'Withdrawal',
+                      textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
+                    ),
+                    AppIconButton(
+                      icon: const Icon(
+                        CustomIcon.scanIcon,
+                        color: AppColors.primary,
+                      ),
+                      onTap: onTapPayButton ?? () {},
+                      textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
+                      buttonColor: AppColors.blueLv4,
+                      text: 'Bayar',
+                    ),
+                  ],
                 ),
-                onTap: functionWithDrawButton ?? () {},
-                buttonColor: AppColors.blueLv4,
-                text: 'Withdrawal',
-                textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
-              ),
-              AppIconButton(
-                icon: const Icon(
-                  CustomIcon.scanIcon,
-                  color: AppColors.primary,
-                ),
-                onTap: functionPayButton ?? () {},
-                textStyle: AppTextStyle.bold(size: 14, color: AppColors.primary),
-                buttonColor: AppColors.blueLv4,
-                text: 'Bayar',
-              ),
-            ],
-          ),
-        )
+              )
       ],
     );
   }
@@ -299,7 +309,7 @@ class UserProfileCard extends StatelessWidget {
           borderColor: Colors.white,
           borderWidth: 1,
           padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
-          onTap: functionDetailButton ?? () {},
+          onTap: onTapDetailButton ?? () {},
         )
       ],
     );

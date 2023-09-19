@@ -42,6 +42,14 @@ class _CommentAndReviewListSamplesViewState extends State<CommentAndReviewListSa
     return SampleWrapper(
       title: 'Review Response',
       widget: AppExpansionListTile(
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.transparent,
+            offset: Offset(0, 0),
+            blurRadius: 0,
+            spreadRadius: 0,
+          ),
+        ],
         leftItem: Padding(
           padding: EdgeInsets.only(right: AppSizes.padding / 1.5),
           child: AppAvatar(
@@ -59,6 +67,14 @@ class _CommentAndReviewListSamplesViewState extends State<CommentAndReviewListSa
               left: AppSizes.padding,
               bottom: AppSizes.padding,
             ),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.blackLv7.withOpacity(0.5),
+                offset: Offset(0, 4),
+                blurRadius: 60,
+                spreadRadius: 0,
+              ),
+            ],
             borderRadius: BorderRadius.circular(16),
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
           )

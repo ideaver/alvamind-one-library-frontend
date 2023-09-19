@@ -44,7 +44,7 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
         functionEditButton: () {
           // TODO
         },
-        onChanged: () {
+        onChanged: (String) {
           // TODO
         },
         //
@@ -60,10 +60,10 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
             deliveryAddress: 'Zabiniec 12/222, 31-215\nCracow, Poland',
             deliveryTime: 'Hari ini, 21 Juni 2023',
           ),
-          functionCallButton: () {
+          onTapCallButton: () {
             // TODO
           },
-          functionChatButton: () {
+          onTapChatButton: () {
             // TODO
           },
           idCourier: 'Joole D Kurir',
@@ -75,6 +75,7 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
           title: 'Alasan',
           dateTime: '12 : 30 PM',
           location: 'Tokyo, Jepang',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           boxShadow: const [
             BoxShadow(
               color: AppColors.blackLv7,
@@ -101,10 +102,10 @@ class _CardPinPoinDeliverySamplesViewState extends State<CardPinPoinDeliverySamp
             tagTextColor: AppColors.white,
             tagColor: AppColors.greenLv3,
             tagBorderWidth: 0,
-            functionLeftButton: () {
+            onTapLeftButton: () {
               // TODO
             },
-            functionRightButton: () {
+            onTapRightButton: () {
               // TODO
             },
           ),

@@ -9,14 +9,19 @@ import '../../atom/app_image.dart';
 import '../../molecule/app_button.dart';
 import '../../molecule/app_card.dart';
 import '../../molecule/app_icon_button.dart';
+import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_tags.dart';
 
-class ItemCardList extends StatelessWidget {
-  final String title;
+class ItemCardList extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final bool? isList;
   final bool? isVertical;
   final bool? isProfile;
+  final bool? isOwner;
+  final bool? isCustomer;
+  final bool? showHeartButton;
+  final bool? showTag;
+  final String title;
   final String? address;
   final String? textPrice;
   final String? statusPrice;
@@ -26,15 +31,30 @@ class ItemCardList extends StatelessWidget {
   final String? textLeftButton;
   final String? textRightButton;
   final String? labelingText;
-  final double? labelingCount;
   final String? starImageCount;
   final String? tagText;
-  final Color? tagColor;
+  final double? labelingCount;
   final String? dateProfileItem;
-  final bool? isOwner;
+  final String? image;
+  final Color? tagColor;
+  final Color? backgroundColor;
+  final Color? leftButtonColor;
+  final Color? leftTextButtonColor;
+  final Color? rightButtonColor;
+  final Color? rightTextButtonColor;
+  final Color? iconHeartColor;
+  final BorderRadius? borderRadius;
   final Widget? detailInfoCard;
-  final void Function()? functionRightButton;
-  final void Function()? functionLeftButton;
+  final IconData? iconHeartButton;
+  final IconData? leftIconButton;
+  final IconData? rightIconButton;
+  final List<BoxShadow>? boxShadow;
+  final Widget? customButton;
+  final double? fontSizeButton;
+  final void Function()? onTapRightButton;
+  final void Function()? onTapLeftButton;
+  final void Function()? onTapHearButton;
+  final void Function()? onTapCard;
 
   const ItemCardList({
     super.key,
@@ -42,14 +62,17 @@ class ItemCardList extends StatelessWidget {
     this.isVertical = false,
     this.isProfile = false,
     this.isOwner = false,
+    this.isCustomer = false,
+    this.showHeartButton = true,
+    this.showTag = true,
     this.padding,
     this.dataProgress,
     this.address,
     this.dateProgress,
     this.isList,
     this.statusPrice,
-    this.functionLeftButton,
-    this.functionRightButton,
+    this.onTapLeftButton,
+    this.onTapRightButton,
     this.labelingText,
     this.labelingCount,
     this.statustProgressText,
@@ -61,17 +84,38 @@ class ItemCardList extends StatelessWidget {
     this.tagColor,
     this.tagText,
     this.detailInfoCard,
+    this.onTapCard,
+    this.boxShadow,
+    this.image,
+    this.backgroundColor,
+    this.borderRadius,
+    this.iconHeartButton,
+    this.onTapHearButton,
+    this.iconHeartColor,
+    this.leftButtonColor,
+    this.leftIconButton,
+    this.rightButtonColor,
+    this.rightIconButton,
+    this.leftTextButtonColor,
+    this.rightTextButtonColor,
+    this.customButton,
+    this.fontSizeButton,
   });
 
   @override
+  State<ItemCardList> createState() => _ItemCardListState();
+}
+
+class _ItemCardListState extends State<ItemCardList> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding ?? EdgeInsets.all(AppSizes.padding),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: isVertical == true ? verticalMode() : horizontalMode(),
+    return AppInkContainer(
+      onTap: widget.onTapCard ?? () {},
+      padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
+      backgroundColor: widget.backgroundColor ?? AppColors.white,
+      boxShadow: widget.boxShadow,
+      borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
+      child: widget.isVertical == true ? verticalMode() : horizontalMode(),
     );
   }
 
@@ -87,19 +131,25 @@ class ItemCardList extends StatelessWidget {
             height: AppSizes.padding,
           ),
           Flex(
-            direction: isVertical == true ? Axis.vertical : Axis.horizontal,
+            direction: widget.isVertical == true ? Axis.vertical : Axis.horizontal,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                widget.title,
                 style: AppTextStyle.bold(size: 20),
+                softWrap: true,
+                maxLines: 2,
+                overflow: TextOverflow.clip,
               ),
               SizedBox(
                 height: AppSizes.padding / 2,
               ),
               Text(
-                address ?? 'City, Country',
+                widget.address ?? 'City, Country',
                 style: AppTextStyle.regular(size: 12),
+                softWrap: true,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               SizedBox(
                 height: AppSizes.padding / 2,
@@ -142,9 +192,14 @@ class ItemCardList extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     direction: Axis.horizontal,
                     children: [
-                      Text(
-                        address ?? 'City, Country',
-                        style: AppTextStyle.medium(size: 14),
+                      Expanded(
+                        child: Text(
+                          widget.address ?? 'City, Country',
+                          style: AppTextStyle.medium(size: 14),
+                          softWrap: true,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       priceStatus(),
                     ],
@@ -154,7 +209,11 @@ class ItemCardList extends StatelessWidget {
             )
           ],
         ),
-        isOwner == true ? buttonDown() : SizedBox.shrink(),
+        widget.isOwner == true
+            ? widget.customButton != null
+                ? widget.customButton ?? buttonDown()
+                : buttonDown()
+            : const SizedBox.shrink(),
       ],
     );
   }
@@ -162,25 +221,27 @@ class ItemCardList extends StatelessWidget {
   Widget headItem() {
     return Column(
       children: [
-        isProfile == true
+        widget.isProfile == true
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    dateProfileItem ?? 'Berdiri 2023',
+                    widget.dateProfileItem ?? 'Berdiri 2023',
                     style: AppTextStyle.regular(size: 10),
                   ),
-                  AppTags(
-                    text: tagText ?? 'Premium',
-                    color: tagColor ?? AppColors.orangeLv1,
-                    fontSize: 10,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    borderRadius: 8,
-                  ),
+                  widget.isCustomer == true
+                      ? const SizedBox.shrink()
+                      : AppTags(
+                          text: widget.tagText ?? 'Premium',
+                          color: widget.tagColor ?? AppColors.orangeLv1,
+                          fontSize: 10,
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                          borderRadius: 8,
+                        ),
                 ],
               )
             : const SizedBox.shrink(),
-        isProfile == true
+        widget.isProfile == true
             ? SizedBox(
                 height: AppSizes.padding / 2,
               )
@@ -190,10 +251,14 @@ class ItemCardList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              title,
+              widget.title,
               style: AppTextStyle.bold(size: 20),
             ),
-            heartButton(),
+            widget.isCustomer == true || widget.isList == false
+                ? const SizedBox.shrink()
+                : widget.showHeartButton == false
+                    ? const SizedBox.shrink()
+                    : heartButton(),
           ],
         ),
       ],
@@ -203,7 +268,7 @@ class ItemCardList extends StatelessWidget {
   Widget imageCard(double width, double height) {
     return AppCard(
       onTap: () {},
-      backgroundImage: randomImage,
+      backgroundImage: widget.image ?? randomImage,
       height: width,
       width: height,
       borderRadius: 20,
@@ -214,19 +279,21 @@ class ItemCardList extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Align(
-            alignment: Alignment.centerRight,
-            child: AppTags(
-              text: starImageCount ?? '',
-              color: AppColors.blackLv9.withOpacity(0.54),
-              borderRadius: 100,
-              textColor: AppColors.primary,
-              leftIcon: Icons.star,
-              iconsColor: AppColors.orangeLv1,
-              fontSize: 10,
-              padding: EdgeInsets.all(AppSizes.padding / 4),
-            ),
-          ),
+          widget.showTag == false
+              ? const Center()
+              : Align(
+                  alignment: Alignment.centerRight,
+                  child: AppTags(
+                    text: widget.starImageCount ?? '',
+                    color: AppColors.blackLv9.withOpacity(0.54),
+                    borderRadius: 100,
+                    textColor: AppColors.primary,
+                    leftIcon: Icons.star,
+                    iconsColor: AppColors.orangeLv1,
+                    fontSize: 10,
+                    padding: EdgeInsets.all(AppSizes.padding / 4),
+                  ),
+                ),
         ],
       ),
     );
@@ -234,12 +301,12 @@ class ItemCardList extends StatelessWidget {
 
   Widget priceStatus() {
     return Flex(
-      direction: isVertical == true ? Axis.horizontal : Axis.vertical,
-      mainAxisAlignment: isVertical == true ? MainAxisAlignment.start : MainAxisAlignment.center,
+      direction: widget.isVertical == true ? Axis.horizontal : Axis.vertical,
+      mainAxisAlignment: widget.isVertical == true ? MainAxisAlignment.start : MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
-          textPrice ?? '',
+          widget.textPrice ?? '',
           style: AppTextStyle.bold(
             size: 24,
             color: AppColors.primary,
@@ -248,7 +315,7 @@ class ItemCardList extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(4.0),
           child: Text(
-            statusPrice ?? '',
+            widget.statusPrice ?? '',
             style: AppTextStyle.medium(
               size: 10,
               color: AppColors.blackLv4,
@@ -259,15 +326,21 @@ class ItemCardList extends StatelessWidget {
     );
   }
 
+  IconData heartIcon = CustomIcon.heartIcon;
   Widget heartButton() {
     return AppIconButton(
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       buttonColor: AppColors.transparent,
-      icon: const Icon(
-        CustomIcon.heartIcon,
-        color: AppColors.primary,
+      icon: Icon(
+        widget.iconHeartButton ?? heartIcon,
+        color: widget.iconHeartColor ?? AppColors.primary,
       ),
-      onTap: () {},
+      onTap: widget.onTapHearButton ??
+          () {
+            setState(() {
+              heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
+            });
+          },
     );
   }
 
@@ -281,21 +354,27 @@ class ItemCardList extends StatelessWidget {
         ),
         //
         // isList
-        detailInfoCard ?? const SizedBox.shrink(),
+        widget.detailInfoCard ?? const SizedBox.shrink(),
         //
-        SizedBox(
-          height: AppSizes.padding,
-        ),
+        widget.detailInfoCard == null
+            ? const SizedBox.shrink()
+            : SizedBox(
+                height: AppSizes.padding,
+              ),
         //
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
               child: AppButton(
-                onTap: functionLeftButton ?? () {},
-                text: textLeftButton ?? '',
+                onTap: widget.onTapLeftButton ?? () {},
+                text: widget.textLeftButton ?? '',
                 rounded: true,
+                textColor: widget.leftTextButtonColor ?? AppColors.white,
                 borderWidth: 2,
+                fontSize: widget.fontSizeButton ?? 16,
+                leftIcon: widget.leftIconButton,
+                buttonColor: widget.leftButtonColor ?? AppColors.primary,
                 borderColor: AppColors.primary,
                 padding: EdgeInsets.symmetric(
                   vertical: AppSizes.padding / 2.5,
@@ -307,13 +386,15 @@ class ItemCardList extends StatelessWidget {
             ),
             Expanded(
               child: AppButton(
-                onTap: functionRightButton ?? () {},
+                onTap: widget.onTapRightButton ?? () {},
                 padding: EdgeInsets.symmetric(
                   vertical: AppSizes.padding / 2.5,
                 ),
-                text: textRightButton ?? '',
-                textColor: AppColors.primary,
-                buttonColor: AppColors.white,
+                text: widget.textRightButton ?? '',
+                fontSize: widget.fontSizeButton ?? 16,
+                textColor: widget.rightTextButtonColor ?? AppColors.primary,
+                leftIcon: widget.rightIconButton,
+                buttonColor: widget.rightButtonColor ?? AppColors.white,
                 borderWidth: 2,
                 borderColor: AppColors.primary,
                 rounded: true,

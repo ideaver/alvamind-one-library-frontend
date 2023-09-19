@@ -1,11 +1,15 @@
+import 'package:alvamind_library/app/theme/app_text_style.dart';
+import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
+import 'package:alvamind_library/widget/molecule/app_long_card.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../widget/atom/app_image.dart';
 import '../../widget/organism/item_card/item_card_image.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
-import '../../widget/organism/item_card/item_card_list_select_done.dart';
+import '../../widget/organism/item_card/item_card_list_selected_done.dart';
 import '../../widget/organism/item_card/item_card_list_selected.dart';
 import 'sample_wrapper.dart';
 
@@ -38,8 +42,11 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
               ],
             ),
             itemCardListSelectedDetail(),
+            itemCardListSelectedDetailCustom(),
             itemCardListSelected(),
+            itemCardListSelectedCustomButton(),
             itemCardListSelectedDone(),
+            itemCardListSelectedDoneCustom(),
             itemCardListSelectedStatus(),
           ],
         ),
@@ -87,7 +94,7 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
-        address: 'Jl. Sukamenak DPR RI KOM...',
+        address: 'Jl. Sukamenak DPR RI KOM',
         isProfile: true,
       ),
     );
@@ -122,9 +129,33 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         isList: true,
         textPrice: 'Rp7rb',
         statusPrice: '/kg',
+        typeItem: 'Pakaian',
+        timeWork: '3 Hari Kerja',
+        dateProgress: '2 Agustus 2023',
+      ),
+    );
+  }
+
+  bool isSelected = false;
+  Widget itemCardListSelectedDetailCustom() {
+    return SampleWrapper(
+      title: 'ItemCardList Selected Original Custom ',
+      widget: ItemCardListSelected(
+        starImageCount: '50',
+        title: 'Cuci Kering',
+        isSelected: isSelected,
+        textPrice: 'Rp7rb',
+        statusPrice: '/kg',
+        typeItem: 'Pakaian',
         dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
+        onTapCard: () {
+          // TODO
+          setState(() {
+            isSelected = !isSelected;
+          });
+        },
       ),
     );
   }
@@ -138,6 +169,64 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         isSelected: true,
         textPrice: 'Rp7rb',
         statusPrice: '/kg',
+        typeItem: 'Pakaian',
+        timeWork: '3 Hari Kerja',
+      ),
+    );
+  }
+
+  Widget itemCardListSelectedCustomButton() {
+    return SampleWrapper(
+      title: 'ItemCardList Selected Custom Button',
+      widget: ItemCardListSelected(
+        starImageCount: '50',
+        title: 'Cuci Kering',
+        isSelected: true,
+        textPrice: 'Rp7rb',
+        statusPrice: '/kg',
+        typeItem: 'Pakaian',
+        timeWork: '3 Hari Kerja',
+        customSelectedButton: AppLongCard(
+          backgroundColor: AppColors.transparent,
+          padding: EdgeInsets.all(AppSizes.padding / 2),
+          children: [
+            Text(
+              'Kuantitas',
+              style: AppTextStyle.bold(
+                size: 14,
+                color: AppColors.white,
+              ),
+            ),
+            Row(
+              children: [
+                AppIconButton(
+                  buttonColor: AppColors.white,
+                  icon: Icon(
+                    Icons.add,
+                    size: 16,
+                  ),
+                  onTap: () {},
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: AppSizes.padding),
+                  child: Text(
+                    '0',
+                    style: AppTextStyle.bold(size: 14, color: AppColors.white),
+                  ),
+                ),
+                AppIconButton(
+                  buttonColor: AppColors.white,
+                  icon: Icon(
+                    Icons.horizontal_rule,
+                    size: 16,
+                  ),
+                  onTap: () {},
+                ),
+              ],
+            )
+          ],
+        ),
+        onTapCard: () {},
       ),
     );
   }
@@ -150,8 +239,34 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         isSelected: true,
         morePayment: 'Rp2.500',
         shuttlePayment: 'Free',
-        textButton: 'Dipilih',
-        functionButton: () {
+        textButton: 'Free Pembayaran Wallet Platform',
+        onTapButton: () {
+          // TODO
+        },
+      ),
+    );
+  }
+
+  Widget itemCardListSelectedDoneCustom() {
+    return SampleWrapper(
+      title: 'ItemCardList Selected Done',
+      widget: ItemCardListSelectedDone(
+        title: 'Drop Service',
+        isSelected: true,
+        subtitle: Text(
+          'Serahkan laundry anda ke petugas toko',
+          style: AppTextStyle.medium(
+            size: 12,
+            color: AppColors.blackLv5,
+          ),
+        ),
+        textButton: 'Pembayaran di Kasir Outlet',
+        selectedColor: AppColors.orangeLv1,
+        iconTitle: const Icon(
+          CustomIcon.boxIcon,
+          color: AppColors.black,
+        ),
+        onTapButton: () {
           // TODO
         },
       ),
@@ -169,11 +284,13 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
+        typeItem: 'Pakaian',
+        timeWork: '3 Hari Kerja',
         isStatus: true,
-        functionLeftButton: () {
+        onTapLeftButton: () {
           // TODO
         },
-        functionRightButton: () {
+        onTapRightButton: () {
           // TODO
         },
       ),

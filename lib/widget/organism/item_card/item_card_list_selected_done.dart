@@ -4,16 +4,24 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_button.dart';
+import '../../molecule/app_card_container.dart';
 
 class ItemCardListSelectedDone extends StatelessWidget {
   final String title;
-  final EdgeInsetsGeometry? padding;
-  final bool? isSelected;
   final String? morePayment;
   final String? shuttlePayment;
   final String? textButton;
+  final bool? isSelected;
+  final Widget? subtitle;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? selectedPadding;
+  final Color? color;
+  final Color? selectedColor;
+  final BorderRadius? selectedBorderRadius;
+  final BorderRadius? borderRadius;
+  final Icon? iconTitle;
 
-  final void Function()? functionButton;
+  final void Function()? onTapButton;
 
   const ItemCardListSelectedDone({
     super.key,
@@ -22,40 +30,45 @@ class ItemCardListSelectedDone extends StatelessWidget {
     this.isSelected,
     this.morePayment,
     this.shuttlePayment,
-    this.functionButton,
+    this.onTapButton,
     this.textButton,
+    this.borderRadius,
+    this.selectedColor,
+    this.color,
+    this.selectedBorderRadius,
+    this.selectedPadding,
+    this.iconTitle,
+    this.subtitle,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.primary,
-        borderRadius: BorderRadius.circular(30),
-      ),
+    return AppCardContainer(
+      padding: selectedPadding ?? const EdgeInsets.all(0),
+      backgroundColor: selectedColor ?? AppColors.primary,
+      borderRadius: selectedBorderRadius ?? BorderRadius.circular(30),
       child: Padding(
-        padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.all(0),
+        padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : const EdgeInsets.all(0),
         child: Column(
           children: [
-            Container(
+            AppCardContainer(
               padding: padding ?? EdgeInsets.all(AppSizes.padding),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
+              backgroundColor: color ?? AppColors.white,
+              borderRadius: borderRadius ?? BorderRadius.circular(30),
               child: horizontalMode(),
             ),
-            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
             isSelected == true
                 ? AppButton(
+                    buttonColor: selectedColor ?? AppColors.primary,
                     padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 4),
                     text: textButton ?? '',
-                    borderColor: AppColors.primary,
+                    borderColor: selectedColor ?? AppColors.transparent,
                     borderWidth: 0,
-                    onTap: functionButton ?? () {},
+                    onTap: onTapButton ?? () {},
                   )
-                : SizedBox.shrink(),
-            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : SizedBox.shrink(),
+                : const SizedBox.shrink(),
+            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
           ],
         ),
       ),
@@ -69,10 +82,10 @@ class ItemCardListSelectedDone extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             headItem(),
-            SizedBox(
-              height: AppSizes.padding / 2,
-            ),
-            subItem(),
+            SizedBox(height: AppSizes.padding / 2),
+            subtitle == null ? const SizedBox.shrink() : subtitle ?? Text(''),
+            morePayment == null || shuttlePayment == null ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding / 2),
+            morePayment == null || shuttlePayment == null ? const SizedBox.shrink() : subItem()
           ],
         ),
         // buttonDown()
@@ -84,7 +97,11 @@ class ItemCardListSelectedDone extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(Icons.check_box_outlined),
+        iconTitle == null
+            ? const Icon(
+                Icons.check_box_outlined,
+              )
+            : iconTitle!,
         SizedBox(
           width: AppSizes.padding / 2,
         ),

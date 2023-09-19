@@ -97,10 +97,10 @@ class _DialogSamplesViewState extends State<DialogSamplesView> {
               titleColor: AppColors.primary,
               subtitle: 'Lorem ipsum dolor sit amet hua qui lori ipsum sit ghui amet poety amet',
               subtitleColor: AppColors.black,
-              functionButton: () {
+              onTapButton: () {
                 // TODO
               },
-              functionSecondButton: () {
+              onTapSecondButton: () {
                 // TODO
               },
             ),

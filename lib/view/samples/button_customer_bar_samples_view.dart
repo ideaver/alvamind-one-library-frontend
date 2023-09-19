@@ -46,7 +46,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconLeftOut: CustomIcon.homeIcon,
         textLeftOut: 'Beranda',
-        functionButtonLeftOut: () {
+        onTapButtonLeftOut: () {
           // TODO
           setState(() {
             _index = 0;
@@ -55,7 +55,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconLeftIn: CustomIcon.documentIcon,
         textLeftIn: 'Order',
-        functionButtonLeftIn: () {
+        onTapButtonLeftIn: () {
           // TODO
           setState(() {
             _index = 1;
@@ -67,13 +67,13 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         iconCenterColor: AppColors.white,
         textCenterColor: AppColors.white,
         iconCenterBackgroundColor: AppColors.primary,
-        functionButtonCenter: () {
+        onTapButtonCenter: () {
           // TODO
         },
         //
         iconRightIn: CustomIcon.chatIcon,
         textRightIn: 'Chat',
-        functionButtonRightIn: () {
+        onTapButtonRightIn: () {
           // TODO
           setState(() {
             _index = 3;
@@ -82,7 +82,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconRightOut: Icons.settings,
         textRightOut: 'Pengaturan',
-        functionButtonRightOut: () {
+        onTapButtonRightOut: () {
           // TODO
           setState(() {
             _index = 4;
@@ -102,7 +102,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconLeftOut: CustomIcon.homeIcon,
         textLeftOut: 'Beranda',
-        functionButtonLeftOut: () {
+        onTapButtonLeftOut: () {
           // TODO
           setState(() {
             _index = 0;
@@ -111,7 +111,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconLeftIn: CustomIcon.buildingIcon,
         textLeftIn: 'Outlet',
-        functionButtonLeftIn: () {
+        onTapButtonLeftIn: () {
           // TODO
           setState(() {
             _index = 1;
@@ -123,7 +123,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
 
         // textCenterColor: AppColors.blackLv6,
         iconCenterBackgroundColor: Colors.white,
-        functionButtonCenter: () {
+        onTapButtonCenter: () {
           // TODO
 
           setState(() {
@@ -133,7 +133,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconRightIn: CustomIcon.threeUserIcon,
         textRightIn: 'Karyawan',
-        functionButtonRightIn: () {
+        onTapButtonRightIn: () {
           // TODO
           setState(() {
             _index = 3;
@@ -142,7 +142,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconRightOut: Icons.settings,
         textRightOut: 'Pengaturan',
-        functionButtonRightOut: () {
+        onTapButtonRightOut: () {
           // TODO
           setState(() {
             _index = 4;
@@ -162,7 +162,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconLeftOut: CustomIcon.homeIcon,
         textLeftOut: 'Beranda',
-        functionButtonLeftOut: () {
+        onTapButtonLeftOut: () {
           // TODO
           setState(() {
             _index = 0;
@@ -171,7 +171,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconLeftIn: CustomIcon.documentIcon,
         textLeftIn: 'Produksi',
-        functionButtonLeftIn: () {
+        onTapButtonLeftIn: () {
           // TODO
           setState(() {
             _index = 1;
@@ -183,13 +183,13 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         iconCenterColor: AppColors.white,
         textCenterColor: AppColors.white,
         iconCenterBackgroundColor: AppColors.primary,
-        functionButtonCenter: () {
+        onTapButtonCenter: () {
           // TODO
         },
         //
         iconRightIn: CustomIcon.chatIcon,
         textRightIn: 'Inbox',
-        functionButtonRightIn: () {
+        onTapButtonRightIn: () {
           // TODO
           setState(() {
             _index = 3;
@@ -198,7 +198,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconRightOut: Icons.settings,
         textRightOut: 'Pengaturan',
-        functionButtonRightOut: () {
+        onTapButtonRightOut: () {
           // TODO
           setState(() {
             _index = 4;
@@ -218,7 +218,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconLeftOut: CustomIcon.homeIcon,
         textLeftOut: 'Beranda',
-        functionButtonLeftOut: () {
+        onTapButtonLeftOut: () {
           // TODO
           setState(() {
             _index = 0;
@@ -227,7 +227,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconLeftIn: CustomIcon.convert3dCubeIcon,
         textLeftIn: 'Antar Jemput',
-        functionButtonLeftIn: () {
+        onTapButtonLeftIn: () {
           // TODO
           setState(() {
             _index = 1;
@@ -239,13 +239,13 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         iconCenterColor: AppColors.white,
         textCenterColor: AppColors.white,
         iconCenterBackgroundColor: AppColors.primary,
-        functionButtonCenter: () {
+        onTapButtonCenter: () {
           // TODO
         },
         //
         iconRightIn: CustomIcon.chatIcon,
         textRightIn: 'Inbox',
-        functionButtonRightIn: () {
+        onTapButtonRightIn: () {
           // TODO
           setState(() {
             _index = 3;
@@ -254,7 +254,7 @@ class _ButtonBarCustomerSamplesViewState extends State<ButtonBarCustomerSamplesV
         //
         iconRightOut: Icons.settings,
         textRightOut: 'Pengaturan',
-        functionButtonRightOut: () {
+        onTapButtonRightOut: () {
           // TODO
           setState(() {
             _index = 4;

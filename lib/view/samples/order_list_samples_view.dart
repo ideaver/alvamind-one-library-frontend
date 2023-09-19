@@ -1,4 +1,6 @@
+ 
 import 'package:flutter/material.dart';
+
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
@@ -16,6 +18,7 @@ class OrderListSamplesView extends StatefulWidget {
 }
 
 class _OrderListSamplesViewState extends State<OrderListSamplesView> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +42,7 @@ class _OrderListSamplesViewState extends State<OrderListSamplesView> {
       widget: OrderList(
         title: 'Alasan',
         dateTime: '12 : 30 PM',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         location: 'Tokyo, Jepang',
         orderCard: OrderCard(
           padding: EdgeInsets.all(0),
@@ -56,10 +60,10 @@ class _OrderListSamplesViewState extends State<OrderListSamplesView> {
           tagTextColor: AppColors.white,
           tagColor: AppColors.greenLv3,
           tagBorderWidth: 0,
-          functionLeftButton: () {
+          onTapLeftButton: () {
             // TODO
           },
-          functionRightButton: () {
+          onTapRightButton: () {
             // TODO
           },
         ),

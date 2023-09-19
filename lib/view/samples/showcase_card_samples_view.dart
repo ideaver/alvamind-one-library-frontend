@@ -26,11 +26,14 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             creditCard(),
+            creditCardCustom(),
+            creditCardCustom1(),
             bannerCard(),
             userProfileCard(),
             userProfileCardEmployee(),
             userProfileCardOnly(),
             userProfileCardWallet(),
+            userProfileCardSaldo(),
           ],
         ),
       ),
@@ -44,7 +47,38 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         numberCard: '1234 5678 9123 1211',
         nameCard: 'Situmorang',
         expiryDateCard: '10/23',
-        functionEditButton: () {
+        onTapEditButton: () {
+          // TODO
+        },
+      ),
+    );
+  }
+
+  Widget creditCardCustom() {
+    return SampleWrapper(
+      title: 'Credit Card Custom',
+      widget: UserCreditCard(
+        numberCard: '1234 5678 9123 1211',
+        nameCard: 'Situmorang',
+        expiryDateCard: '10/23',
+        showTag: false,
+        showButton: false,
+        onTapEditButton: () {
+          // TODO
+        },
+      ),
+    );
+  }
+
+  Widget creditCardCustom1() {
+    return SampleWrapper(
+      title: 'Credit Card Custom1',
+      widget: UserCreditCard(
+        numberCard: '1234 5678 9123 1211',
+        nameCard: 'Situmorang',
+        showTag: false,
+        showButton: false,
+        onTapEditButton: () {
           // TODO
         },
       ),
@@ -52,7 +86,7 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
   }
 
   Widget bannerCard() {
-    return SampleWrapper(
+    return const SampleWrapper(
       title: 'Banner card',
       widget: BannerCard(),
     );
@@ -65,19 +99,19 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         nameUser: 'Amber Winston',
         idUser: 'ID Profil 5457383979',
         countBalance: 'Rp12.689.000',
-        functionCopyButton: () {
+        onTapCopyButton: () {
           // TODO
         },
-        functionHistoryButton: () {
+        onTapHistoryButton: () {
           // TODO
         },
-        functionTopUpButton: () {
+        onTapTopUpButton: () {
           // TODO
         },
-        functionWithDrawButton: () {
+        onTapWithDrawButton: () {
           // TODO
         },
-        functionPayButton: () {
+        onTapPayButton: () {
           // TODO
         },
       ),
@@ -94,10 +128,10 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         idUser: 'ID Profil 5457383979',
         employeePlace: 'Barokah Laundry',
         employeeJob: 'Kasir, Produksi',
-        functionCopyButton: () {
+        onTapCopyButton: () {
           // TODO
         },
-        functionDetailButton: () {
+        onTapDetailButton: () {
           // TODO
         },
       ),
@@ -111,7 +145,7 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
         onlyUser: true,
         nameUser: 'Amber Winston',
         idUser: 'ID Profil 5457383979',
-        functionCopyButton: () {
+        onTapCopyButton: () {
           // TODO
         },
       ),
@@ -124,18 +158,29 @@ class _ShowcaseCardSamplesViewState extends State<ShowcaseCardSamplesView> {
       widget: UserProfileCard(
         onlyBalance: true,
         countBalance: 'Rp12.689.000',
-        functionHistoryButton: () {
+        onTapHistoryButton: () {
           // TODO
         },
-        functionTopUpButton: () {
+        onTapTopUpButton: () {
           // TODO
         },
-        functionWithDrawButton: () {
+        onTapWithDrawButton: () {
           // TODO
         },
-        functionPayButton: () {
+        onTapPayButton: () {
           // TODO
         },
+      ),
+    );
+  }
+
+  Widget userProfileCardSaldo() {
+    return const SampleWrapper(
+      title: 'User Profil Card Saldo',
+      widget: UserProfileCard(
+        onlyBalance: true,
+        onlySaldo: true,
+        countBalance: 'Rp12.689.000',
       ),
     );
   }

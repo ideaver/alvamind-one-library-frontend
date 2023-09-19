@@ -16,6 +16,8 @@ class AppIconButton extends StatelessWidget {
   final String? text;
   final EdgeInsetsGeometry? paddingText;
   final TextStyle? textStyle;
+  final List<BoxShadow>? boxShadow;
+  final List<Color>? gradient;
   final Function() onTap;
 
   const AppIconButton({
@@ -31,6 +33,8 @@ class AppIconButton extends StatelessWidget {
     this.text,
     this.textStyle,
     this.paddingText,
+    this.gradient,
+    this.boxShadow,
     required this.icon,
     required this.onTap,
   });
@@ -56,6 +60,13 @@ class AppIconButton extends StatelessWidget {
                 padding: padding,
                 decoration: BoxDecoration(
                   color: buttonColor,
+                  boxShadow: boxShadow ?? [],
+                  gradient: LinearGradient(
+                      colors: gradient ??
+                          [
+                            buttonColor!,
+                            buttonColor!,
+                          ]),
                   borderRadius: BorderRadius.circular(borderRadius),
                   border: borderWidth != null
                       ? Border.all(

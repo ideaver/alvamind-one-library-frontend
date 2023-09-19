@@ -9,6 +9,7 @@
         android:label="LaundryNet"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -45,5 +46,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data 
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAarnKC1N4_H_DZbplx_DJeXq8BcqAOrkU"/>
     </application>
 </manifest>

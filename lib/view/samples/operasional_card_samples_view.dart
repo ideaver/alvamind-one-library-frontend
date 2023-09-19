@@ -25,6 +25,7 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             operasionalCard(),
+            operasionalCardCustom(),
             operasionalCardDisabled(),
             operasionalCardEdit(),
           ],
@@ -39,6 +40,23 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
       widget: OperasionalCard(
         dayTitle: 'Senin',
         time: '08.00 - 17.00',
+        onChanged: (value) {
+          // TODO
+        },
+      ),
+    );
+  }
+
+  Widget operasionalCardCustom() {
+    return SampleWrapper(
+      title: 'Operasional Card Custom',
+      widget: OperasionalCard(
+        isCustom: true,
+        title: 'Notifikasi',
+        time: '08.00 - 17.00',
+        onChanged: (value) {
+          // TODO
+        },
       ),
     );
   }
@@ -53,6 +71,9 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
         chipCloseButton: () {
           // TODO
         },
+        onChanged: (value) {
+          // TODO
+        },
       ),
     );
   }
@@ -63,6 +84,7 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
       widget: OperasionalCardEdit(
         dayTitle: 'Selasa',
         time: '08.00 - 17.00',
+        onChangedToggle: (value) {},
       ),
     );
   }

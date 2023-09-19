@@ -11,15 +11,27 @@ import '../../molecule/app_tags.dart';
 class UserCreditCard extends StatelessWidget {
   final String numberCard;
   final String nameCard;
-  final String expiryDateCard;
-  final void Function() functionEditButton;
+  final String? image;
+  final String? expiryDateCard;
+  final double? imageSize;
+  final bool? showButton;
+  final bool? showTag;
+  final Gradient? gradient;
+  final List<BoxShadow>? boxShadow;
+  final void Function()? onTapEditButton;
 
   const UserCreditCard({
     super.key,
     required this.numberCard,
-    required this.expiryDateCard,
     required this.nameCard,
-    required this.functionEditButton,
+    this.expiryDateCard,
+    this.gradient,
+    this.image,
+    this.boxShadow,
+    this.showButton = true,
+    this.showTag = true,
+    this.onTapEditButton,
+    this.imageSize,
   });
 
   @override
@@ -30,10 +42,12 @@ class UserCreditCard extends StatelessWidget {
           padding: EdgeInsets.all(AppSizes.padding * 2),
           borderRadius: BorderRadius.circular(40),
           backgroundColor: AppColors.blueLv1,
-          gradient: const LinearGradient(colors: [
-            AppColors.blueLv2,
-            AppColors.blueLv1,
-          ]),
+          boxShadow: boxShadow ?? [],
+          gradient: gradient ??
+              const LinearGradient(colors: [
+                AppColors.blueLv2,
+                AppColors.blueLv1,
+              ]),
           child: content(),
         ),
         // mini cube
@@ -99,12 +113,16 @@ class UserCreditCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              AppAssets.logoCreditCard,
+              image ?? AppAssets.logoCreditCard,
+              width: imageSize,
+              height: imageSize,
             ),
-            AppTags(
-              text: 'Utama',
-              color: AppColors.orangeLv1,
-            )
+            showTag == false
+                ? const SizedBox.shrink()
+                : const AppTags(
+                    text: 'Utama',
+                    color: AppColors.orangeLv1,
+                  )
           ],
         ),
         SizedBox(height: AppSizes.padding * 2),
@@ -117,14 +135,16 @@ class UserCreditCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             textContent('Card Holder name', nameCard),
-            textContent('Expiry date', expiryDateCard),
-            AppButton(
-              text: 'Edit',
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 3),
-              buttonColor: AppColors.white,
-              textColor: AppColors.primary,
-              onTap: functionEditButton,
-            )
+            expiryDateCard == null ? const SizedBox.shrink() : textContent('Expiry date', expiryDateCard ?? ''),
+            showButton == false
+                ? const SizedBox.shrink()
+                : AppButton(
+                    text: 'Edit',
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 3),
+                    buttonColor: AppColors.white,
+                    textColor: AppColors.primary,
+                    onTap: onTapEditButton ?? () {},
+                  )
           ],
         )
       ],
