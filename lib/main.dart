@@ -21,18 +21,22 @@ Future<void> main() async {
   setupServiceLocator();
 
   // Initialize Firebase (google-service.json required)
-  // await Firebase.initializeApp();
+  // await FcmService.initNotification(
+  //   onMessageHandler: (message) {},
+  //   onBackgroundHandler: (message) {},
+  // );
 
-  // Initialize FCM service (google-service.json required)
-  // await FcmService.initNotification();
+  // Initialize local notification service
+  // await LocalNotifService.initLocalNotifService(
+  //   packageName: "com.example.app",
+  //   channelName: "example notification",
+  // );
 
   // Initialize local notification service
   // await LocalNotifService.initLocalNotifService();
 
   // Set/lock orientationgvhvgj
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp
-  ]);
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   // Set overlay style
   SystemChrome.setSystemUIOverlayStyle(AppTheme.lightOverlayStyle);
