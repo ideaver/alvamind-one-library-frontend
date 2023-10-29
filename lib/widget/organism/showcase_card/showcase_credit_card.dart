@@ -104,6 +104,7 @@ class UserCreditCard extends StatelessWidget {
               image ?? AppAssets.logoCreditCard,
               width: imageSize,
               height: imageSize,
+              package: 'alvamind_library',
             ),
             showTag == false
                 ? const SizedBox.shrink()

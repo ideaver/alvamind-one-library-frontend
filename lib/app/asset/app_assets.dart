@@ -203,3 +203,7 @@ class CustomIcon {
   static const IconData messageOutlinedIcon =
       IconData(0xe838, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
+
+class CustomImage {
+  static assets(String path) => Image.asset(path, package: 'alvamind_library');
+}
