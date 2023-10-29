@@ -126,7 +126,10 @@ class _AppImageState extends State<AppImage> {
       fit: widget.fit ?? BoxFit.cover,
       fadeInDuration: const Duration(milliseconds: 200),
       placeholder: (context, string) {
-        return Image.asset(widget.placeholder);
+        return Image.asset(
+          widget.placeholder,
+          package: 'alvamind_library',
+        );
       },
       errorWidget: (context, object, stack) {
         if (_imgErrorAttempt <= _maxAttempt) {

@@ -71,7 +71,8 @@ class _BannerCardState extends State<BannerCard> {
           decorator: DotsDecorator(
             size: const Size.square(7.0),
             activeSize: const Size(30.0, 7.0),
-            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
             color: AppColors.white.withOpacity(0.50),
             activeColor: AppColors.white,
             spacing: const EdgeInsets.all(4),
@@ -163,11 +164,8 @@ class _DummyContentState extends State<DummyContent> {
           left: 170,
           child: Opacity(
             opacity: 0.3,
-            child: Image.asset(
-              AppAssets.cubeImage,
-              width: 100,
-              height: 100,
-            ),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -175,11 +173,8 @@ class _DummyContentState extends State<DummyContent> {
           left: 223,
           child: Opacity(
             opacity: 0.3,
-            child: Image.asset(
-              AppAssets.cubeImage,
-              width: 100,
-              height: 100,
-            ),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         // big cube
@@ -188,11 +183,8 @@ class _DummyContentState extends State<DummyContent> {
           right: 212,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(
-              AppAssets.cubeImage,
-              width: 250,
-              height: 282,
-            ),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -200,11 +192,8 @@ class _DummyContentState extends State<DummyContent> {
           bottom: 56,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(
-              AppAssets.cubeImage,
-              width: 250,
-              height: 282,
-            ),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
       ],

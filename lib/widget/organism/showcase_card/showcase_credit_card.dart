@@ -56,11 +56,8 @@ class UserCreditCard extends StatelessWidget {
           left: 120,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(
-              AppAssets.cubeImage,
-              width: 100,
-              height: 100,
-            ),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -68,11 +65,8 @@ class UserCreditCard extends StatelessWidget {
           left: 223,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(
-              AppAssets.cubeImage,
-              width: 100,
-              height: 100,
-            ),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         // big cube
@@ -81,11 +75,8 @@ class UserCreditCard extends StatelessWidget {
           right: 242,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(
-              AppAssets.cubeImage,
-              width: 250,
-              height: 282,
-            ),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -93,11 +84,8 @@ class UserCreditCard extends StatelessWidget {
           bottom: 86,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(
-              AppAssets.cubeImage,
-              width: 250,
-              height: 282,
-            ),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
       ],
@@ -135,12 +123,16 @@ class UserCreditCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             textContent('Card Holder name', nameCard),
-            expiryDateCard == null ? const SizedBox.shrink() : textContent('Expiry date', expiryDateCard ?? ''),
+            expiryDateCard == null
+                ? const SizedBox.shrink()
+                : textContent('Expiry date', expiryDateCard ?? ''),
             showButton == false
                 ? const SizedBox.shrink()
                 : AppButton(
                     text: 'Edit',
-                    padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 3),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: AppSizes.padding,
+                        vertical: AppSizes.padding / 3),
                     buttonColor: AppColors.white,
                     textColor: AppColors.primary,
                     onTap: onTapEditButton ?? () {},
