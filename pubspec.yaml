@@ -131,13 +131,13 @@ flutter:
   fonts:
     - family: Urbanist
       fonts:
-        - asset: assets/fonts/Urbanist-Bold.ttf
-        - asset: assets/fonts/Urbanist-SemiBold.ttf
-        - asset: assets/fonts/Urbanist-Medium.ttf
-        - asset: assets/fonts/Urbanist-Regular.ttf
+        - asset: lib/assets/fonts/Urbanist-Bold.ttf
+        - asset: lib/assets/fonts/Urbanist-SemiBold.ttf
+        - asset: lib/assets/fonts/Urbanist-Medium.ttf
+        - asset: lib/assets/fonts/Urbanist-Regular.ttf
     - family: CustomIcon
       fonts:
-        - asset: assets/fonts/CustomIcon.ttf
+        - asset: lib/assets/fonts/CustomIcon.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
