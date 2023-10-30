@@ -28,10 +28,10 @@ class _BannerCardState extends State<BannerCard> {
   final CarouselController _controller = CarouselController();
 
   final List<Widget> dummyContentList = [
-    const DummyContent(),
-    const DummyContent(),
-    const DummyContent(),
-    const DummyContent(),
+    const BannerCardContent(),
+    const BannerCardContent(),
+    const BannerCardContent(),
+    const BannerCardContent(),
   ];
 
   @override
@@ -88,21 +88,25 @@ class _BannerCardState extends State<BannerCard> {
   }
 }
 
-class DummyContent extends StatefulWidget {
-  const DummyContent({
+class BannerCardContent extends StatefulWidget {
+  final EdgeInsets? margin;
+
+  const BannerCardContent({
     super.key,
+    this.margin,
   });
 
   @override
-  State<DummyContent> createState() => _DummyContentState();
+  State<BannerCardContent> createState() => _BannerCardContentState();
 }
 
-class _DummyContentState extends State<DummyContent> {
+class _BannerCardContentState extends State<BannerCardContent> {
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         AppCardContainer(
+          margin: widget.margin ?? EdgeInsets.symmetric(horizontal: AppSizes.padding),
           padding: const EdgeInsets.all(0),
           borderRadius: BorderRadius.circular(40),
           backgroundColor: AppColors.blueLv1,
