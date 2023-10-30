@@ -11,10 +11,12 @@ import '../../molecule/app_card_container.dart';
 
 class BannerCard extends StatefulWidget {
   final double viewportFraction;
+  final List<Widget>? contentList;
 
   const BannerCard({
     super.key,
     this.viewportFraction = 1.0,
+    this.contentList,
   });
 
   @override
@@ -25,12 +27,13 @@ class _BannerCardState extends State<BannerCard> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
 
-  final List<Widget> contentList = [
+  final List<Widget> dummyContentList = [
     const DummyContent(),
     const DummyContent(),
     const DummyContent(),
     const DummyContent(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -62,14 +65,14 @@ class _BannerCardState extends State<BannerCard> {
           },
         ),
         carouselController: _controller,
-        items: contentList,
+        items: widget.contentList ?? dummyContentList,
       ),
       Positioned(
         right: 0,
         left: 0,
         bottom: 15,
         child: DotsIndicator(
-          dotsCount: contentList.length,
+          dotsCount: widget.contentList?.length ?? dummyContentList.length,
           position: _current,
           decorator: DotsDecorator(
             size: const Size.square(7.0),
