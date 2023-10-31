@@ -40,6 +40,8 @@ class AppImage extends StatefulWidget {
   final Color borderColor;
   final double? borderWidth;
   final double? borderRadius;
+  final bool isFromAppAssets;
+  final String appAssetsPackageName;
 
   const AppImage({
     Key? key,
@@ -58,6 +60,10 @@ class AppImage extends StatefulWidget {
     this.borderColor = AppColors.primary,
     this.borderWidth,
     this.borderRadius,
+    // If want to load asset from origin app or other
+    // set [isFromAppAssets] to false or set [appAssetsPackageName] to destination package name
+    this.isFromAppAssets = true,
+    this.appAssetsPackageName = 'alvamind_library',
   }) : super(key: key);
 
   @override
@@ -74,8 +80,7 @@ class _AppImageState extends State<AppImage> {
     return GestureDetector(
       onTap: widget.enableFullScreenView
           ? () {
-              if ((widget.allImages == null || widget.allImages!.isEmpty) &&
-                  widget.image == '') {
+              if ((widget.allImages == null || widget.allImages!.isEmpty) && widget.image == '') {
                 return;
               }
 
@@ -94,9 +99,7 @@ class _AppImageState extends State<AppImage> {
         height: widget.height,
         decoration: BoxDecoration(
           color: widget.backgroundColor,
-          borderRadius: widget.borderRadius == null
-              ? null
-              : BorderRadius.circular(widget.borderRadius!),
+          borderRadius: widget.borderRadius == null ? null : BorderRadius.circular(widget.borderRadius!),
           border: widget.borderWidth == null
               ? null
               : Border.all(
@@ -160,6 +163,7 @@ class _AppImageState extends State<AppImage> {
       placeholder: AssetImage(widget.placeholder),
       image: AssetImage(
         widget.image,
+        package: widget.isFromAppAssets ? widget.appAssetsPackageName : null,
       ),
       imageErrorBuilder: (context, object, stack) {
         return widget.errorWidget ??
