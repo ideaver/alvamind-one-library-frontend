@@ -78,6 +78,7 @@ class CardPinPoinDelivery extends StatelessWidget {
             onChanged: onChanged ?? (String) {},
           ),
         ),
+<<<<<<< HEAD
         SizedBox(height: AppSizes.padding),
         AppCardContainer(
           backgroundColor: AppColors.transparent,
@@ -104,6 +105,38 @@ class CardPinPoinDelivery extends StatelessWidget {
             ],
           ),
         ),
+=======
+        courierDetail != null
+            ? AppCardContainer(
+                margin: EdgeInsets.only(top: AppSizes.padding),
+                backgroundColor: AppColors.transparent,
+                child: Column(
+                  children: [
+                    courierDetail ?? const SizedBox.shrink(),
+                  ],
+                ),
+              )
+            : const SizedBox.shrink(),
+        deliverAddress != null
+            ? AppCardContainer(
+                margin: EdgeInsets.only(top: AppSizes.padding),
+                padding: EdgeInsetsDirectional.symmetric(
+                  vertical: 0,
+                  horizontal: AppSizes.padding,
+                ),
+                backgroundColor: AppColors.transparent,
+                child: Column(
+                  children: [
+                    deliverAddress ?? const SizedBox.shrink(),
+                    const AppDivider(
+                      thickness: 2,
+                      color: AppColors.blackLv7,
+                    ),
+                  ],
+                ),
+              )
+            : const SizedBox.shrink(),
+>>>>>>> dev2
         orderList ?? const SizedBox.shrink(),
       ],
     );

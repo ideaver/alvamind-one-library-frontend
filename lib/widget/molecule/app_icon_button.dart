@@ -81,9 +81,16 @@ class AppIconButton extends StatelessWidget {
           ),
           text != null
               ? Padding(
+<<<<<<< HEAD
                   padding: paddingText ?? EdgeInsets.only(top: 10),
                   child: Text(
                     text!,
+=======
+                  padding: paddingText ?? const EdgeInsets.only(top: 10),
+                  child: Text(
+                    text!,
+                    textAlign: TextAlign.center,
+>>>>>>> dev2
                     style: textStyle ??
                         AppTextStyle.bodyMedium(
                           fontWeight: AppFontWeight.bold,

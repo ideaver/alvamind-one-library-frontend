@@ -10,8 +10,13 @@ import '../../atom/app_image.dart';
 import '../../molecule/app_card_container.dart';
 
 class BannerCard extends StatefulWidget {
+  final double viewportFraction;
+  final List<Widget>? contentList;
+
   const BannerCard({
     super.key,
+    this.viewportFraction = 1.0,
+    this.contentList,
   });
 
   @override
@@ -22,18 +27,19 @@ class _BannerCardState extends State<BannerCard> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
 
-  final List<Widget> contentList = [
-    DummyContent(),
-    DummyContent(),
-    DummyContent(),
-    DummyContent(),
+  final List<Widget> dummyContentList = [
+    const BannerCardContent(),
+    const BannerCardContent(),
+    const BannerCardContent(),
+    const BannerCardContent(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         AppCardContainer(
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           backgroundColor: AppColors.transparent,
           child: content(),
         ),
@@ -48,9 +54,9 @@ class _BannerCardState extends State<BannerCard> {
           autoPlay: true,
           initialPage: 0,
           enlargeCenterPage: false,
-          viewportFraction: 1.0,
+          viewportFraction: widget.viewportFraction,
           autoPlayCurve: Curves.fastOutSlowIn,
-          autoPlayAnimationDuration: Duration(milliseconds: 500),
+          autoPlayAnimationDuration: const Duration(milliseconds: 500),
           enableInfiniteScroll: true,
           onPageChanged: (index, reason) {
             setState(() {
@@ -59,22 +65,19 @@ class _BannerCardState extends State<BannerCard> {
           },
         ),
         carouselController: _controller,
-        items: contentList,
+        items: widget.contentList ?? dummyContentList,
       ),
       Positioned(
         right: 0,
         left: 0,
         bottom: 15,
         child: DotsIndicator(
-          dotsCount: contentList.length,
+          dotsCount: widget.contentList?.length ?? dummyContentList.length,
           position: _current,
           decorator: DotsDecorator(
             size: const Size.square(7.0),
             activeSize: const Size(30.0, 7.0),
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
-            color: AppColors.white.withOpacity(0.50),
-            activeColor: AppColors.white,
+            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
             spacing: const EdgeInsets.all(4),
           ),
         ),
@@ -83,22 +86,26 @@ class _BannerCardState extends State<BannerCard> {
   }
 }
 
-class DummyContent extends StatefulWidget {
-  const DummyContent({
+class BannerCardContent extends StatefulWidget {
+  final EdgeInsets? margin;
+
+  const BannerCardContent({
     super.key,
+    this.margin,
   });
 
   @override
-  State<DummyContent> createState() => _DummyContentState();
+  State<BannerCardContent> createState() => _BannerCardContentState();
 }
 
-class _DummyContentState extends State<DummyContent> {
+class _BannerCardContentState extends State<BannerCardContent> {
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         AppCardContainer(
-          padding: EdgeInsets.all(0),
+          margin: widget.margin ?? EdgeInsets.symmetric(horizontal: AppSizes.padding),
+          padding: const EdgeInsets.all(0),
           borderRadius: BorderRadius.circular(40),
           backgroundColor: AppColors.blueLv1,
           gradient: const LinearGradient(colors: [
@@ -164,8 +171,7 @@ class _DummyContentState extends State<DummyContent> {
           left: 170,
           child: Opacity(
             opacity: 0.3,
-            child: Image.asset(AppAssets.cubeImage,
-                width: 100, height: 100, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -173,8 +179,7 @@ class _DummyContentState extends State<DummyContent> {
           left: 223,
           child: Opacity(
             opacity: 0.3,
-            child: Image.asset(AppAssets.cubeImage,
-                width: 100, height: 100, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         // big cube
@@ -183,8 +188,7 @@ class _DummyContentState extends State<DummyContent> {
           right: 212,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage,
-                width: 250, height: 282, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -192,8 +196,7 @@ class _DummyContentState extends State<DummyContent> {
           bottom: 56,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage,
-                width: 250, height: 282, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
       ],

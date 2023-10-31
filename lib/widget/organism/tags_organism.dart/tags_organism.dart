@@ -1,6 +1,5 @@
 import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:alvamind_library/widget/molecule/app_chips.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -11,6 +10,7 @@ class TagsOrganism extends StatefulWidget {
   final EdgeInsets? padding;
   final EdgeInsets? paddingTagsBody;
   final double? fontSize;
+  final double? runSpacing;
   final bool? isSelected;
   final IconData? leftIcon;
   final List<Color>? selectedColor;
@@ -23,6 +23,7 @@ class TagsOrganism extends StatefulWidget {
     required this.onTap,
     this.padding,
     this.fontSize,
+    this.runSpacing,
     this.leftIcon,
     this.isSelected,
     this.selected,
@@ -38,18 +39,21 @@ class _TagsOrganismState extends State<TagsOrganism> {
   int chipSelected = 0;
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return SingleChildScrollView(
       padding: widget.paddingTagsBody ?? EdgeInsets.zero,
       scrollDirection: Axis.horizontal,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Row(
         children: [
           ...List.generate(widget.listChips.length, (index) {
             return Padding(
-              padding: index == widget.listChips.length - 1 ? EdgeInsets.all(0) : EdgeInsets.only(right: AppSizes.padding / 2),
+              padding: index == 0
+                  ? EdgeInsets.symmetric(horizontal: widget.runSpacing ?? AppSizes.padding / 2)
+                  : index == widget.listChips.length - 1
+                      ? EdgeInsets.zero
+                      : EdgeInsets.only(right: widget.runSpacing ?? AppSizes.padding / 2),
               child: AppChips(
-                leftIcon: widget.leftIcon ?? null,
+                leftIcon: widget.leftIcon,
                 selectedColor: widget.selectedColor?[index] ?? AppColors.primary,
                 fontSize: widget.fontSize ?? 16,
                 padding: widget.padding ??
