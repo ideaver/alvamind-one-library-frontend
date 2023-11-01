@@ -32,6 +32,7 @@ class AppCheckbox extends StatelessWidget {
       child: Padding(
         padding: padding,
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Checkbox(
               value: value,
