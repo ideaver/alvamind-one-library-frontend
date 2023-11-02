@@ -1,8 +1,9 @@
 class GenderModel {
-  final String textGender;
-  final String codeGender;
+  final String name;
+  final String code;
+
   const GenderModel({
-    required this.textGender,
-    required this.codeGender,
+    required this.name,
+    required this.code,
   });
 }

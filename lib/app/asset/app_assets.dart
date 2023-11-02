@@ -16,6 +16,13 @@ class AppAssets {
   // Image icon
   static const String pinIcon = 'lib/assets/icons/pin_icon.png';
 
+  // Onboarding Illustration
+  static const String onboardingImage1 = 'lib/assets/images/onboarding1.png';
+  static const String onboardingImage2 = 'lib/assets/images/onboarding2.png';
+  static const String onboardingImage3 = 'lib/assets/images/onboarding3.png';
+  static const String onboardingImage4 = 'lib/assets/images/onboarding4.png';
+  static const String onboardingImage5 = 'lib/assets/images/onboarding5.png';
+
   // Payment Images Icon
   static const String googleIcon = 'lib/assets/images/payment/google-icon.png';
   static const String paypalIcon = 'lib/assets/images/payment/paypal-icon.png';
@@ -33,10 +40,12 @@ class AppAssets {
   static const String success = 'lib/assets/images/success.png';
   static const String failed = 'lib/assets/images/failed.png';
   static const String warning = 'lib/assets/images/warning.png';
+  static const String dataNotFoundImages = 'lib/assets/images/data-not-found.png';
+  static const String forgetPasswordImage = 'lib/assets/images/forget-pass-image.png';
 
   // Placeholder
   static const String user = 'lib/assets/images/user.png';
-  static const String loadingGif = 'lib/assets/images/loading.gif';
+  static const String loadingGif = 'lib/assets/images/loading_circle.gif';
   static const String emptyPlaceholder = 'lib/assets/images/empty_placeholder.png';
 
   static const bankAnzImgPath = 'lib/assets/images/bank/anz.png';
@@ -64,7 +73,6 @@ class AppAssets {
   static const bankStandardCharteredImgPath = 'lib/assets/images/bank/standard chartered.png';
   static const bankUOBImgPath = 'lib/assets/images/bank/uob.png';
   // EWALLET
-
   static const ewalApplePayImgPath = 'lib/assets/images/ewallet/applepay.png';
   static const ewalBluePayImgPath = 'lib/assets/images/ewallet/bluepay.png';
   static const ewalCashbacImgPath = 'lib/assets/images/ewallet/cashbac.png';

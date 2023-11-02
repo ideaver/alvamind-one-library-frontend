@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:alvamind_library/app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
@@ -7,7 +8,6 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
 import '../../app/asset/app_assets.dart';
-import '../../app/theme/app_colors.dart';
 import '../../app/utility/console_log.dart';
 import 'app_progress_indicator.dart';
 
@@ -131,7 +131,7 @@ class _AppImageState extends State<AppImage> {
       placeholder: (context, string) {
         return Image.asset(
           widget.placeholder,
-          package: 'alvamind_library',
+          package: widget.isFromAppAssets ? widget.appAssetsPackageName : null,
         );
       },
       errorWidget: (context, object, stack) {
@@ -160,7 +160,10 @@ class _AppImageState extends State<AppImage> {
     return FadeInImage(
       fadeInDuration: const Duration(milliseconds: 200),
       fit: widget.fit ?? BoxFit.cover,
-      placeholder: AssetImage(widget.placeholder),
+      placeholder: AssetImage(
+        widget.placeholder,
+        package: widget.isFromAppAssets ? widget.appAssetsPackageName : null,
+      ),
       image: AssetImage(
         widget.image,
         package: widget.isFromAppAssets ? widget.appAssetsPackageName : null,
@@ -181,7 +184,10 @@ class _AppImageState extends State<AppImage> {
     return FadeInImage(
       fadeInDuration: const Duration(milliseconds: 200),
       fit: widget.fit ?? BoxFit.cover,
-      placeholder: AssetImage(widget.placeholder),
+      placeholder: AssetImage(
+        widget.placeholder,
+        package: widget.isFromAppAssets ? widget.appAssetsPackageName : null,
+      ),
       image: FileImage(
         File(widget.image),
       ),
@@ -201,8 +207,14 @@ class _AppImageState extends State<AppImage> {
     return FadeInImage(
       fadeInDuration: const Duration(milliseconds: 200),
       fit: widget.fit ?? BoxFit.cover,
-      placeholder: AssetImage(widget.placeholder),
-      image: AssetImage(widget.noImagePlaceholder),
+      placeholder: AssetImage(
+        widget.placeholder,
+        package: widget.isFromAppAssets ? widget.appAssetsPackageName : null,
+      ),
+      image: AssetImage(
+        widget.noImagePlaceholder,
+        package: widget.isFromAppAssets ? widget.appAssetsPackageName : null,
+      ),
       imageErrorBuilder: (context, object, stack) {
         return widget.errorWidget ??
             const Center(

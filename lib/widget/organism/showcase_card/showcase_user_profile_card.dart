@@ -68,8 +68,7 @@ class UserProfileCard extends StatelessWidget {
           left: 200,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage,
-                width: 100, height: 100, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -77,8 +76,7 @@ class UserProfileCard extends StatelessWidget {
           left: 223,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage,
-                width: 100, height: 100, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -86,8 +84,7 @@ class UserProfileCard extends StatelessWidget {
           right: 242,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage,
-                width: 250, height: 282, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -95,8 +92,7 @@ class UserProfileCard extends StatelessWidget {
           bottom: 86,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage,
-                width: 250, height: 282, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
       ],
@@ -108,14 +104,10 @@ class UserProfileCard extends StatelessWidget {
       children: [
         onlyBalance == true ? const SizedBox.shrink() : userContent(),
         //
-        onlyBalance == true || onlyUser == true
-            ? const SizedBox.shrink()
-            : SizedBox(height: AppSizes.padding),
+        onlyBalance == true || onlyUser == true ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding),
         onlyUser == true ? const SizedBox.shrink() : balanceContent(),
         //
-        onlyEmployee == false
-            ? const SizedBox.shrink()
-            : SizedBox(height: AppSizes.padding),
+        onlyEmployee == false ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding),
         onlyEmployee == false ? const SizedBox.shrink() : employeeContent(),
       ],
     );
@@ -172,9 +164,7 @@ class UserProfileCard extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: onlySaldo == true
-              ? MainAxisAlignment.center
-              : MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: onlySaldo == true ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,9 +201,7 @@ class UserProfileCard extends StatelessWidget {
                     fontSize: 10,
                     borderColor: Colors.white,
                     borderWidth: 1,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: AppSizes.padding / 1.5,
-                        vertical: AppSizes.padding / 3),
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
                     onTap: onTapHistoryButton ?? () {},
                   )
           ],
@@ -235,9 +223,8 @@ class UserProfileCard extends StatelessWidget {
                         color: AppColors.primary,
                       ),
                       onTap: onTapTopUpButton ?? () {},
-                      buttonColor: AppColors.blueLv4,
-                      textStyle:
-                          AppTextStyle.bold(size: 14, color: AppColors.primary),
+                      buttonColor: AppColors.blueLv5,
+                      textStyle: AppTextStyle.bodyMedium(fontWeight: AppFontWeight.bold, color: AppColors.primary),
                       text: 'Top Up',
                     ),
                     AppIconButton(
@@ -246,10 +233,9 @@ class UserProfileCard extends StatelessWidget {
                         color: AppColors.primary,
                       ),
                       onTap: onTapWithDrawButton ?? () {},
-                      buttonColor: AppColors.blueLv4,
+                      buttonColor: AppColors.blueLv5,
                       text: 'Withdrawal',
-                      textStyle:
-                          AppTextStyle.bold(size: 14, color: AppColors.primary),
+                      textStyle: AppTextStyle.bodyMedium(fontWeight: AppFontWeight.bold, color: AppColors.primary),
                     ),
                     AppIconButton(
                       icon: const Icon(
@@ -257,9 +243,8 @@ class UserProfileCard extends StatelessWidget {
                         color: AppColors.primary,
                       ),
                       onTap: onTapPayButton ?? () {},
-                      textStyle:
-                          AppTextStyle.bold(size: 14, color: AppColors.primary),
-                      buttonColor: AppColors.blueLv4,
+                      textStyle: AppTextStyle.bodyMedium(fontWeight: AppFontWeight.bold, color: AppColors.primary),
+                      buttonColor: AppColors.blueLv5,
                       text: 'Bayar',
                     ),
                   ],
@@ -307,9 +292,7 @@ class UserProfileCard extends StatelessWidget {
           fontSize: 10,
           borderColor: Colors.white,
           borderWidth: 1,
-          padding: EdgeInsets.symmetric(
-              horizontal: AppSizes.padding / 1.5,
-              vertical: AppSizes.padding / 3),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.padding / 1.5, vertical: AppSizes.padding / 3),
           onTap: onTapDetailButton ?? () {},
         )
       ],

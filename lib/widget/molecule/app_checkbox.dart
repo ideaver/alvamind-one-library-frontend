@@ -8,7 +8,7 @@ class AppCheckbox extends StatelessWidget {
   final bool? value;
   final String? title;
   final Color activeColor;
-  final Color fillColor;
+  final Color? fillColor;
   final TextStyle? titleStyle;
   final EdgeInsets padding;
   final Function(bool?) onChanged;
@@ -19,7 +19,7 @@ class AppCheckbox extends StatelessWidget {
     required this.value,
     this.title,
     this.activeColor = AppColors.primary,
-    this.fillColor = AppColors.primary,
+    this.fillColor,
     this.titleStyle,
     this.padding = EdgeInsets.zero,
     required this.onChanged,
@@ -41,7 +41,7 @@ class AppCheckbox extends StatelessWidget {
                   onChanged(val);
                 }
               },
-              fillColor: MaterialStateColor.resolveWith((states) => fillColor),
+              fillColor: fillColor != null ? MaterialStateColor.resolveWith((states) => fillColor!) : null,
               activeColor: activeColor,
             ),
             title != null

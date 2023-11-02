@@ -30,7 +30,6 @@ class AppInkContainer extends StatefulWidget {
 class _AppInkContainerState extends State<AppInkContainer> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return InkWell(
       onTap: widget.onTap ?? () {},
       splashColor: Colors.black.withOpacity(0.06),

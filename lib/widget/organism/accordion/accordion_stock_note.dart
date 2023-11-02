@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/const/countries.dart';
-import '../../../app/const/unitWeight.dart';
+import '../../../app/const/unit_weights.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
-
 import '../../../model/drop_down_model.dart';
 import '../../../model/unit_weight_model.dart';
 import '../../molecule/app_drop_down.dart';
@@ -29,9 +28,11 @@ class AccordionStockNote extends StatelessWidget {
     this.onEditingCompleteDownInput,
     this.onEditingCompleteUpInput,
   });
+
   @override
   Widget build(BuildContext context) {
-    UnitWeightModel _unitWeight = unitWeight.first;
+    UnitWeightModel unitWeight = unitWeights.first;
+
     return AppExpansionListTile(
       title: 'Pengingat Stok',
       expand: true,
@@ -63,7 +64,7 @@ class AccordionStockNote extends StatelessWidget {
                 SizedBox(
                   width: AppSizes.padding / 2,
                 ),
-                Container(
+                SizedBox(
                   width: 100,
                   child: AppDropDown(
                     hintStyle: AppTextStyle.medium(
@@ -73,13 +74,13 @@ class AccordionStockNote extends StatelessWidget {
                     iconsColor: AppColors.black,
                     contentPadding: EdgeInsets.all(AppSizes.padding),
                     onTapItem: (item) {
-                      _unitWeight = unitWeight.firstWhere((e) => e.codeUnit == item.value);
+                      unitWeight = unitWeights.firstWhere((e) => e.code == item.value);
                     },
                     hintText: 'KG',
-                    selectedItem: _unitWeight.codeUnit,
+                    selectedItem: unitWeight.code,
                     items: List.generate(
                       countries.length,
-                      (i) => DropDownModel(text: unitWeight[i].codeUnit, value: unitWeight[i].codeUnit),
+                      (i) => DropDownModel(text: unitWeights[i].code, value: unitWeights[i].code),
                     ),
                     itemsBuilder: (item) {
                       return Text(
@@ -121,7 +122,7 @@ class AccordionStockNote extends StatelessWidget {
                 SizedBox(
                   width: AppSizes.padding / 2,
                 ),
-                Container(
+                SizedBox(
                   width: 100,
                   child: AppDropDown(
                     hintStyle: AppTextStyle.medium(
@@ -131,13 +132,13 @@ class AccordionStockNote extends StatelessWidget {
                     iconsColor: AppColors.black,
                     contentPadding: EdgeInsets.all(AppSizes.padding),
                     onTapItem: (item) {
-                      _unitWeight = unitWeight.firstWhere((e) => e.codeUnit == item.value);
+                      unitWeight = unitWeights.firstWhere((e) => e.code == item.value);
                     },
                     hintText: 'KG',
-                    selectedItem: _unitWeight.textUnit,
+                    selectedItem: unitWeight.name,
                     items: List.generate(
                       countries.length,
-                      (i) => DropDownModel(text: unitWeight[i].codeUnit, value: unitWeight[i].codeUnit),
+                      (i) => DropDownModel(text: unitWeights[i].code, value: unitWeights[i].code),
                     ),
                     itemsBuilder: (item) {
                       return Text(

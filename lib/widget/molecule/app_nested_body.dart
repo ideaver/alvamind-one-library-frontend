@@ -11,9 +11,10 @@ class AppNestedScrollView extends StatefulWidget {
   final double? expandedHeight;
   final double? collapseHeight;
   final double? elevation;
+  final double? toolbarHeight;
   final bool? pinned;
   final bool? centerTitle;
-  final bool? isScroll;
+  final bool isScroll;
   final bool? floating;
   final bool? snap;
   final PreferredSizeWidget? bottom;
@@ -35,12 +36,13 @@ class AppNestedScrollView extends StatefulWidget {
     this.expandedTitleScale,
     this.collapseHeight,
     this.elevation,
+    this.toolbarHeight,
     this.expandedHeight,
     this.pinned,
     this.padding,
     this.title,
     this.centerTitle,
-    this.physics,
+    this.physics = const BouncingScrollPhysics(),
     this.controller,
     this.lengthTab,
     this.bgMainAxisAlignment,
@@ -60,11 +62,9 @@ class AppNestedScrollView extends StatefulWidget {
 class _AppNestedScrollViewState extends State<AppNestedScrollView> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return DefaultTabController(
       length: widget.lengthTab ?? 0,
       child: NestedScrollView(
-        controller: widget.controller,
         physics: const NeverScrollableScrollPhysics(),
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
@@ -73,9 +73,10 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
             ...widget.moreHeaderSlivers ?? [],
           ];
         },
-        body: widget.isScroll == true
+        body: widget.isScroll
             ? SingleChildScrollView(
-                physics: widget.physics ?? BouncingScrollPhysics(),
+                controller: widget.controller,
+                physics: widget.physics,
                 padding: widget.padding ??
                     EdgeInsets.only(
                       top: AppSizes.padding,
@@ -93,16 +94,17 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
     return SliverAppBar(
       automaticallyImplyLeading: false,
       pinned: widget.pinned ?? true,
-      backgroundColor: widget.backgroundColor ?? null,
+      backgroundColor: widget.backgroundColor,
       floating: widget.floating ?? false,
       excludeHeaderSemantics: true,
       snap: widget.snap ?? false,
-      expandedHeight: widget.expandedHeight ?? null,
-      collapsedHeight: widget.collapseHeight ?? null,
+      expandedHeight: widget.expandedHeight,
+      collapsedHeight: widget.collapseHeight,
       elevation: widget.elevation ?? 0.5,
       centerTitle: widget.centerTitle ?? false,
-      title: widget.title ?? SizedBox.shrink(),
-      bottom: widget.bottom ?? null,
+      title: widget.title ?? const SizedBox.shrink(),
+      bottom: widget.bottom,
+      toolbarHeight: widget.toolbarHeight ?? kToolbarHeight,
       flexibleSpace: FlexibleSpaceBar(
         title: widget.titleFlexible ?? const SizedBox.shrink(),
         background: Column(

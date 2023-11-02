@@ -1,8 +1,9 @@
 class ComplainModel {
-  final String textComplain;
-  final String codeComplain;
+  final String name;
+  final String code;
+
   const ComplainModel({
-    required this.textComplain,
-    required this.codeComplain,
+    required this.name,
+    required this.code,
   });
 }

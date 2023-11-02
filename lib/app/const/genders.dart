@@ -1,6 +1,6 @@
 import 'package:alvamind_library/model/gender_model.dart';
 
-List<GenderModel> gender = const [
+List<GenderModel> genders = const [
   GenderModel(
     name: 'Lelaki',
     code: 'L',

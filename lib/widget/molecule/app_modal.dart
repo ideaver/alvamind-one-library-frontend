@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/theme/app_shadows.dart';
 import 'package:alvamind_library/widget/molecule/app_range_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -63,8 +64,8 @@ class AppModal {
           statusPrice: statusPrice,
           priceButton: priceButton,
           title: title,
-          children: children,
           isScrolled: isScrolled,
+          children: children,
         );
       },
     );
@@ -99,7 +100,7 @@ class AppModalWidget extends StatefulWidget {
 
   const AppModalWidget({
     super.key,
-    this.backgroundColor,
+    this.backgroundColor = AppColors.white,
     this.borderRadius,
     this.directionButton,
     this.icon,
@@ -132,41 +133,42 @@ class AppModalWidget extends StatefulWidget {
 class _AppModalWidgetState extends State<AppModalWidget> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: AppSizes.padding * 4),
-      child: Container(
-        decoration: BoxDecoration(
-          color: widget.backgroundColor ?? AppColors.white,
-          borderRadius: widget.borderRadius ??
-              const BorderRadius.only(
-                topLeft: Radius.circular(40),
-                topRight: Radius.circular(40),
-              ),
-        ),
-        child: Padding(
-          padding: widget.padding ??
-              EdgeInsets.symmetric(
-                vertical: AppSizes.padding,
-                horizontal: AppSizes.padding,
-              ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              AppDivider(
-                thickness: 4,
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
-              ),
-              SizedBox(height: AppSizes.padding),
-              widget.isScrolled == false
-                  ? modalBody()
-                  : Flexible(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: modalBody(),
-                      ),
+    return Container(
+      margin: EdgeInsets.only(top: AppSizes.padding * 4),
+      decoration: BoxDecoration(
+        color: widget.backgroundColor,
+        borderRadius: widget.borderRadius ??
+            const BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+            ),
+        boxShadow: [
+          AppShadows.cardShadow4,
+        ],
+      ),
+      child: Padding(
+        padding: widget.padding ??
+            EdgeInsets.symmetric(
+              vertical: AppSizes.padding,
+              horizontal: AppSizes.padding,
+            ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AppDivider(
+              thickness: 4,
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: AppSizes.padding * 8),
+            ),
+            SizedBox(height: AppSizes.padding),
+            widget.isScrolled == false
+                ? modalBody()
+                : Flexible(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: modalBody(),
                     ),
-            ],
-          ),
+                  ),
+          ],
         ),
       ),
     );

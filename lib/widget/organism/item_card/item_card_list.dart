@@ -13,6 +13,7 @@ import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_tags.dart';
 
 class ItemCardList extends StatefulWidget {
+  final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final bool? isList;
   final bool? isVertical;
@@ -65,6 +66,7 @@ class ItemCardList extends StatefulWidget {
     this.isCustomer = false,
     this.showHeartButton = true,
     this.showTag = true,
+    this.margin,
     this.padding,
     this.dataProgress,
     this.address,
@@ -109,13 +111,16 @@ class ItemCardList extends StatefulWidget {
 class _ItemCardListState extends State<ItemCardList> {
   @override
   Widget build(BuildContext context) {
-    return AppInkContainer(
-      onTap: widget.onTapCard ?? () {},
-      padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
-      backgroundColor: widget.backgroundColor ?? AppColors.white,
-      boxShadow: widget.boxShadow,
-      borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
-      child: widget.isVertical == true ? verticalMode() : horizontalMode(),
+    return Padding(
+      padding: widget.margin ?? EdgeInsets.zero,
+      child: AppInkContainer(
+        onTap: widget.onTapCard ?? () {},
+        padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
+        backgroundColor: widget.backgroundColor ?? AppColors.white,
+        boxShadow: widget.boxShadow,
+        borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
+        child: widget.isVertical == true ? verticalMode() : horizontalMode(),
+      ),
     );
   }
 
@@ -235,7 +240,7 @@ class _ItemCardListState extends State<ItemCardList> {
                           text: widget.tagText ?? 'Premium',
                           color: widget.tagColor ?? AppColors.orangeLv1,
                           fontSize: 10,
-                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                           borderRadius: 8,
                         ),
                 ],

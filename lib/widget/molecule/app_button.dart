@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_shadows.dart';
 import '../../app/theme/app_text_style.dart';
 
 class AppButton extends StatelessWidget {
@@ -11,6 +12,8 @@ class AppButton extends StatelessWidget {
   final EdgeInsets padding;
   final bool enable;
   final bool rounded;
+  final bool showBoxShadow;
+  final List<BoxShadow>? boxShadow;
   final Color buttonColor;
   final Color disabledButtonColor;
   final Color disabledTextColor;
@@ -31,6 +34,8 @@ class AppButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
     this.enable = true,
     this.rounded = false,
+    this.showBoxShadow = false,
+    this.boxShadow,
     this.buttonColor = AppColors.primary,
     this.disabledButtonColor = AppColors.disabled,
     this.disabledTextColor = AppColors.white,
@@ -66,6 +71,7 @@ class AppButton extends StatelessWidget {
                     color: borderColor,
                   )
                 : null,
+            boxShadow: showBoxShadow && enable ? boxShadow ?? [AppShadows.shadow1] : null,
           ),
           child: Center(
             child: Row(

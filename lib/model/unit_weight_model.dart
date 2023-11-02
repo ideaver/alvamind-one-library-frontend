@@ -1,8 +1,9 @@
 class UnitWeightModel {
-  final String textUnit;
-  final String codeUnit;
+  final String name;
+  final String code;
+
   const UnitWeightModel({
-    required this.textUnit,
-    required this.codeUnit,
+    required this.name,
+    required this.code,
   });
 }

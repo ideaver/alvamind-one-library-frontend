@@ -12,7 +12,6 @@ class AppColumnInk extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Ink(
       child: Column(
         mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,
