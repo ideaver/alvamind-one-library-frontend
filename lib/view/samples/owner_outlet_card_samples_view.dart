@@ -50,7 +50,6 @@ class _OwnerOutletCardSamplesViewState extends State<OwnerOutletCardSamplesView>
         ownerCard: ItemCardList(
           starImageCount: '50',
           title: 'Barokah Laundry',
-          dateProgress: '2 Agustus 2023',
           textLeftButton: 'Detail Pesanan',
           textRightButton: 'Lacak Pengiriman',
           address: 'Jl. Sukamenak DPR RI KOM...',

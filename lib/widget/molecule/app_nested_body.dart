@@ -15,6 +15,7 @@ class AppNestedScrollView extends StatefulWidget {
   final bool? pinned;
   final bool? centerTitle;
   final bool isScroll;
+  final bool centerBody;
   final bool? floating;
   final bool? snap;
   final PreferredSizeWidget? bottom;
@@ -49,6 +50,7 @@ class AppNestedScrollView extends StatefulWidget {
     this.bgCrossAxisAlignment,
     this.moreHeaderSlivers,
     this.isScroll = true,
+    this.centerBody = false,
     this.floating,
     this.snap,
     this.bottom,
@@ -65,7 +67,7 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
     return DefaultTabController(
       length: widget.lengthTab ?? 0,
       child: NestedScrollView(
-        physics: const NeverScrollableScrollPhysics(),
+        physics: widget.isScroll ? const ClampingScrollPhysics() : const NeverScrollableScrollPhysics(),
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
@@ -74,19 +76,23 @@ class _AppNestedScrollViewState extends State<AppNestedScrollView> {
           ];
         },
         body: widget.isScroll
-            ? SingleChildScrollView(
-                controller: widget.controller,
-                physics: widget.physics,
-                padding: widget.padding ??
-                    EdgeInsets.only(
-                      top: AppSizes.padding,
-                      right: AppSizes.padding,
-                      left: AppSizes.padding,
-                    ),
-                child: widget.body,
-              )
-            : widget.body,
+            ? widget.centerBody
+                ? Center(child: scrollableBody())
+                : scrollableBody()
+            : Padding(
+                padding: widget.padding ?? EdgeInsets.zero,
+                child: widget.centerBody ? Center(child: widget.body) : widget.body,
+              ),
       ),
+    );
+  }
+
+  Widget scrollableBody() {
+    return SingleChildScrollView(
+      controller: widget.controller,
+      physics: widget.physics,
+      padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
+      child: widget.body,
     );
   }
 

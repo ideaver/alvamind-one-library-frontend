@@ -96,8 +96,7 @@ class AppColors {
   static const Color redLv4 = Color(0xFFFA9999);
   static const Color redLv5 = Color(0xFFFBB0B0);
   static const Color redLv6 = Color(0xFFFCC6C6);
-  static const Color redLv7 = Color(0xFFFDDDDD);
-
+  static const Color redLv7 = Color(0xFFFFF3F3);
   // Orange
   static const Color orangeLv1 = Color(0xFFFB9400);
 

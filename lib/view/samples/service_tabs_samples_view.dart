@@ -94,7 +94,7 @@ class _ServiceTabsSamplesViewState extends State<ServiceTabsSamplesView> {
                     boxShadow: [
                       BoxShadow(
                         color: AppColors.blackLv7.withOpacity(0.5),
-                        offset: Offset(0, 4),
+                        offset: const Offset(0, 4),
                         blurRadius: 60,
                         spreadRadius: 0,
                       ),
@@ -105,7 +105,6 @@ class _ServiceTabsSamplesViewState extends State<ServiceTabsSamplesView> {
                     isList: true,
                     textPrice: 'Rp7rb',
                     statusPrice: '/kg',
-                    dateProgress: '2 Agustus 2023',
                     typeItem: 'Pakaian',
                     timeWork: '3 Hari Kerja',
                     textLeftButton: 'Detail Pesanan',
@@ -113,7 +112,7 @@ class _ServiceTabsSamplesViewState extends State<ServiceTabsSamplesView> {
                     withCustomItem: true,
                     rightItem: AppIconButton(
                         buttonColor: AppColors.transparent,
-                        padding: EdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         onTap: () {
                           // TODO
                         },

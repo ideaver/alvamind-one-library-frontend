@@ -10,7 +10,6 @@ import '../../app/theme/app_text_style.dart';
 import '../../widget/atom/app_avatar.dart';
 import '../../widget/atom/app_image.dart';
 import '../../widget/molecule/app_button.dart';
-
 import '../../widget/molecule/app_column_ink.dart';
 import '../../widget/molecule/app_dialog.dart';
 import '../../widget/molecule/app_expansion_list_tile.dart';
@@ -18,7 +17,6 @@ import '../../widget/molecule/app_icon_button.dart';
 import '../../widget/molecule/app_long_card.dart';
 import '../../widget/molecule/app_text_field.dart';
 import '../../widget/organism/accordion/accordion_question_card.dart';
-
 import '../../widget/organism/comments_and_reviews/comments_list.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
 import '../../widget/organism/order_card/order_card.dart';
@@ -48,16 +46,16 @@ int tagSelected = 0;
 int tagSelected1 = 0;
 int tabBarSelected = 0;
 
-ScrollPhysics physics = NeverScrollableScrollPhysics();
-ScrollPhysics physics1 = NeverScrollableScrollPhysics();
+ScrollPhysics physics = const NeverScrollableScrollPhysics();
+ScrollPhysics physics1 = const NeverScrollableScrollPhysics();
 ScrollController _controller = ScrollController();
 
 class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSamplesView> {
   _scrollListener() {
     if (_controller.position.pixels >= 250) {
       setState(() {
-        physics1 = NeverScrollableScrollPhysics();
-        physics = BouncingScrollPhysics();
+        physics1 = const NeverScrollableScrollPhysics();
+        physics = const BouncingScrollPhysics();
         print(physics1);
       });
     }
@@ -171,14 +169,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
           Icons.image_outlined,
           Icons.image_outlined,
         ],
-        listTabBar: const [
-          'Ringkasan',
-          'Pemesanan',
-          'Riwayat Wallet',
-          'Favorit',
-          'Ulasan',
-          'Komplain'
-        ],
+        listTabBar: const ['Ringkasan', 'Pemesanan', 'Riwayat Wallet', 'Favorit', 'Ulasan', 'Komplain'],
         onTap: (value) {
           // TODO
         },
@@ -261,7 +252,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
             boxShadow: [
               BoxShadow(
                 color: AppColors.blackLv7.withOpacity(0.5),
-                offset: Offset(0, -10),
+                offset: const Offset(0, -10),
                 blurRadius: 60,
                 spreadRadius: 0,
               ),
@@ -275,7 +266,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                 boxShadow: [
                   BoxShadow(
                     color: AppColors.blackLv7.withOpacity(0.5),
-                    offset: Offset(0, 4),
+                    offset: const Offset(0, 4),
                     blurRadius: 60,
                     spreadRadius: 0,
                   ),
@@ -361,7 +352,8 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                   countLike: '431',
                   countStaruser: '${i + 3}',
                   imageAvatar: 'https://picsum.photos/id/1$i/100/200',
-                  textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore o eiusmod tempor incididunt ut labore et dolore.',
+                  textComment:
+                      'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore o eiusmod tempor incididunt ut labore et dolore.',
                   dateComment: '6 hours ago',
                   isImage: true,
                   image: Row(
@@ -409,7 +401,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                               boxShadow: [
                                 BoxShadow(
                                   color: AppColors.blackLv7.withOpacity(0.5),
-                                  offset: Offset(0, 4),
+                                  offset: const Offset(0, 4),
                                   blurRadius: 60,
                                   spreadRadius: 0,
                                 ),
@@ -421,7 +413,8 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                                 bottom: AppSizes.padding,
                               ),
                               borderRadius: BorderRadius.circular(16),
-                              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
+                              text:
+                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
                             )
                           ],
                         ),
@@ -471,16 +464,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                 paddingTagsBody: EdgeInsets.only(
                   left: AppSizes.padding,
                 ),
-                listChips: const [
-                  'Semua',
-                  'Menunggu Konfirmasi',
-                  'Ambil',
-                  'Proses',
-                  'Antar',
-                  'Selesai',
-                  'Komplain',
-                  'Batal'
-                ],
+                listChips: const ['Semua', 'Menunggu Konfirmasi', 'Ambil', 'Proses', 'Antar', 'Selesai', 'Komplain', 'Batal'],
                 onTap: (value) {
                   // TODO
                   setState(() {
@@ -503,7 +487,8 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                       title: 'Alasan',
                       dateTime: '12 : 30 PM',
                       location: 'Tokyo, Jepang',
-                      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                      description:
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                       boxShadow: const [
                         BoxShadow(
                           color: AppColors.blackLv7,
@@ -514,7 +499,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                       ],
                       orderCard: OrderCard(
                         image: 'https://picsum.photos/id/3$i/200/400',
-                        padding: EdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         backgroundColor: AppColors.transparent,
                         starImageCount: '50',
                         title: i == 1 ? 'Zarie Baptista' : 'Barokah Laundry',
@@ -722,12 +707,11 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                               ? 2
                               : 10, (i) {
                     return Padding(
-                      padding: i == 2 ? EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
+                      padding: i == 2 ? const EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
                       child: ItemCardList(
                         image: 'https://picsum.photos/20$i/300/',
                         starImageCount: '50',
                         title: 'Barokah Laundry',
-                        dateProgress: '2 Agustus 2023',
                         textLeftButton: 'Detail Pesanan',
                         textRightButton: 'Lacak Pengiriman',
                         address: 'Jl. Sukamenak DPR RI KOM...',

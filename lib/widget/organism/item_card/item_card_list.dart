@@ -26,7 +26,6 @@ class ItemCardList extends StatefulWidget {
   final String? address;
   final String? textPrice;
   final String? statusPrice;
-  final String? dateProgress;
   final String? statustProgressText;
   final String? dataProgress;
   final String? textLeftButton;
@@ -70,7 +69,6 @@ class ItemCardList extends StatefulWidget {
     this.padding,
     this.dataProgress,
     this.address,
-    this.dateProgress,
     this.isList,
     this.statusPrice,
     this.onTapLeftButton,

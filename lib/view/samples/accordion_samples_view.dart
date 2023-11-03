@@ -79,9 +79,10 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
         backgroundColor: Colors.white,
         children: [
           QuestionText(
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            text:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             color: AppColors.black,
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
           )
         ],
       ),
@@ -98,10 +99,11 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
         backgroundColor: AppColors.blackLv1,
         children: [
           QuestionText(
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            text:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             color: AppColors.white,
             backgroundColor: AppColors.transparent,
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
           )
         ],
       ),
@@ -179,7 +181,6 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
             ItemCardList(
               starImageCount: '50',
               title: 'Barokah Laundry',
-              dateProgress: '2 Agustus 2023',
               dateProfileItem: '+62 82335456789',
               textLeftButton: 'Detail Pesanan',
               textRightButton: 'Lacak Pengiriman',
@@ -232,7 +233,7 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
                 boxShadow: [
                   BoxShadow(
                     color: AppColors.blackLv7.withOpacity(0.5),
-                    offset: Offset(0, 4),
+                    offset: const Offset(0, 4),
                     blurRadius: 60,
                     spreadRadius: 0,
                   ),
@@ -284,7 +285,6 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
             isList: true,
             textPrice: 'Rp7rb',
             statusPrice: '/kg',
-            dateProgress: '2 Agustus 2023',
             textLeftButton: 'Detail Pesanan',
             textRightButton: 'Lacak Pengiriman',
           ),
@@ -320,7 +320,7 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
                 boxShadow: [
                   BoxShadow(
                     color: AppColors.blackLv7.withOpacity(0.5),
-                    offset: Offset(0, 4),
+                    offset: const Offset(0, 4),
                     blurRadius: 60,
                     spreadRadius: 0,
                   ),
@@ -329,7 +329,6 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
                 title: 'Cuci Kering',
                 textPrice: '4',
                 statusPrice: '/pcs',
-                dateProgress: '2 Agustus 2023',
                 textLeftButton: 'Detail Pesanan',
                 textRightButton: 'Lacak Pengiriman',
                 isStatus: true,
@@ -348,7 +347,7 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
   }
 
   Widget accordionStockNote() {
-    return SampleWrapper(
+    return const SampleWrapper(
       title: 'Accordion Stock',
       widget: AccordionStockNote(),
     );
@@ -365,7 +364,7 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
           ...List.generate(3, (index) {
             return Padding(
               padding: index == 3
-                  ? EdgeInsets.all(0)
+                  ? const EdgeInsets.all(0)
                   : EdgeInsets.only(
                       bottom: AppSizes.padding,
                     ),

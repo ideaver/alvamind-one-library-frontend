@@ -42,6 +42,7 @@ class AppTextField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final String? hintText;
   final String? labelText;
+  final String? errorText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final Widget? prefixWidget;
@@ -84,6 +85,7 @@ class AppTextField extends StatefulWidget {
     this.textInputAction,
     this.hintText,
     this.labelText,
+    this.errorText,
     this.prefixIcon,
     this.suffixIcon,
     this.prefixWidget,
@@ -172,8 +174,7 @@ class _AppTextFieldState extends State<AppTextField> {
       onChanged: widget.onChanged,
       onEditingComplete: widget.onEditingComplete,
       enabled: widget.enabled,
-      style: widget.textStyle ??
-          AppTextStyle.bodyMedium(fontWeight: AppFontWeight.semibold),
+      style: widget.textStyle ?? AppTextStyle.bodyMedium(fontWeight: AppFontWeight.semibold),
       cursorColor: AppColors.blackLv1,
       cursorWidth: 1.5,
       autofocus: widget.autofocus,
@@ -186,10 +187,15 @@ class _AppTextFieldState extends State<AppTextField> {
       textInputAction: widget.textInputAction,
       inputFormatters: inputFormatters(),
       decoration: InputDecoration(
+        errorText: widget.errorText,
         counterText: widget.showCounter ? null : '',
         isDense: true,
         filled: true,
-        fillColor: widget.enabled ? _fillColor : widget.disabledColor,
+        fillColor: widget.enabled
+            ? widget.errorText != null
+                ? AppColors.redLv7
+                : _fillColor
+            : widget.disabledColor,
         prefixIcon: prefixIconWidget(),
         suffixIcon: suffixIconWidget(),
         prefix: widget.prefixWidget,
@@ -198,7 +204,7 @@ class _AppTextFieldState extends State<AppTextField> {
         hintStyle: widget.hintStyle ??
             AppTextStyle.bodyMedium(
               fontWeight: AppFontWeight.regular,
-              color: AppColors.blackLv5,
+              color: widget.errorText != null ? AppColors.redLv5 : AppColors.blackLv5,
             ),
         contentPadding: widget.contentPadding,
         focusedBorder: OutlineInputBorder(
@@ -208,6 +214,15 @@ class _AppTextFieldState extends State<AppTextField> {
           borderSide: BorderSide(
             width: 1,
             color: widget.borderColor,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(widget.borderRadius),
+          ),
+          borderSide: const BorderSide(
+            width: 1,
+            color: AppColors.error,
           ),
         ),
         errorBorder: OutlineInputBorder(
@@ -277,7 +292,7 @@ class _AppTextFieldState extends State<AppTextField> {
         padding: const EdgeInsets.only(left: 8.0),
         child: Icon(
           widget.prefixIcon ?? Icons.search_rounded,
-          color: _iconsColor,
+          color: widget.errorText != null ? AppColors.error : _iconsColor,
           size: widget.iconsSize,
         ),
       );
@@ -291,7 +306,7 @@ class _AppTextFieldState extends State<AppTextField> {
       padding: const EdgeInsets.only(left: 8.0),
       child: Icon(
         widget.prefixIcon,
-        color: _iconsColor,
+        color: widget.errorText != null ? AppColors.error : _iconsColor,
         size: widget.iconsSize,
       ),
     );
@@ -309,7 +324,7 @@ class _AppTextFieldState extends State<AppTextField> {
           padding: const EdgeInsets.only(right: 8.0),
           child: Icon(
             widget.suffixIcon ?? Icons.tune_rounded,
-            color: _iconsColor,
+            color: widget.errorText != null ? AppColors.error : _iconsColor,
             size: widget.iconsSize,
           ),
         ),
@@ -324,7 +339,7 @@ class _AppTextFieldState extends State<AppTextField> {
       padding: const EdgeInsets.only(right: 8.0),
       child: Icon(
         widget.suffixIcon,
-        color: _iconsColor,
+        color: widget.errorText != null ? AppColors.error : _iconsColor,
         size: widget.iconsSize,
       ),
     );
@@ -353,14 +368,13 @@ class _AppTextFieldState extends State<AppTextField> {
           const SizedBox(width: 4),
           Icon(
             Icons.keyboard_arrow_down_rounded,
-            color: _iconsColor,
+            color: widget.errorText != null ? AppColors.error : _iconsColor,
             size: widget.iconsSize ?? 24,
           ),
           const SizedBox(width: 4),
           Text(
             _country.phoneCode,
-            style: widget.textStyle ??
-                AppTextStyle.bodyMedium(fontWeight: AppFontWeight.semibold),
+            style: widget.textStyle ?? AppTextStyle.bodyMedium(fontWeight: AppFontWeight.semibold),
           )
         ],
       ),
@@ -396,10 +410,8 @@ class _AppTextFieldState extends State<AppTextField> {
       child: Padding(
         padding: const EdgeInsets.only(right: 8.0),
         child: Icon(
-          _obsecureText
-              ? Icons.visibility_off_rounded
-              : Icons.remove_red_eye_rounded,
-          color: _iconsColor,
+          _obsecureText ? Icons.visibility_off_rounded : Icons.remove_red_eye_rounded,
+          color: widget.errorText != null ? AppColors.error : _iconsColor,
           size: widget.iconsSize,
         ),
       ),

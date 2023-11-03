@@ -11,6 +11,7 @@ class AppDropDown extends StatefulWidget {
   final bool enabled;
   final String? labelText;
   final String? hintText;
+  final String? errorText;
   final TextStyle? labelStyle;
   final TextStyle? textStyle;
   final TextStyle? hintStyle;
@@ -42,6 +43,7 @@ class AppDropDown extends StatefulWidget {
     this.enabled = true,
     this.labelText,
     this.hintText,
+    this.errorText,
     this.labelStyle,
     this.textStyle,
     this.hintStyle,
@@ -82,7 +84,7 @@ class _AppDropDownState extends State<AppDropDown> {
   @override
   void initState() {
     _controller = widget.textController ?? TextEditingController();
-
+    _controller.text = widget.selectedItem ?? '';
     super.initState();
   }
 
@@ -126,6 +128,7 @@ class _AppDropDownState extends State<AppDropDown> {
       onChanged: widget.onChanged,
       onEditingComplete: widget.onEditingComplete,
       enabled: false,
+      errorText: widget.errorText,
       contentPadding: widget.contentPadding,
       disabledColor: widget.enabled ? widget.fillColor : widget.disabledFillColor,
       hintText: widget.hintText,

@@ -76,7 +76,7 @@ class _CustomerListBodySamplesViewState extends State<CustomerListBodySamplesVie
           SizedBox(height: AppSizes.padding),
           ...List.generate(3, (i) {
             return Padding(
-              padding: i == 2 ? EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
+              padding: i == 2 ? const EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
               child: ItemCardList(
                 boxShadow: const [
                   BoxShadow(
@@ -89,7 +89,6 @@ class _CustomerListBodySamplesViewState extends State<CustomerListBodySamplesVie
                 image: 'https://picsum.photos/23$i/300/',
                 starImageCount: '50',
                 title: 'Barokah Laundry',
-                dateProgress: '2 Agustus 2023',
                 dateProfileItem: 'Sejak 10 Januari 2014',
                 textLeftButton: 'Detail Konsumen',
                 textRightButton: 'Whatsapp',

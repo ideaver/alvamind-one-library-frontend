@@ -9,8 +9,8 @@ import '../../app/theme/app_sizes.dart';
 import '../../widget/atom/app_image.dart';
 import '../../widget/organism/item_card/item_card_image.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
-import '../../widget/organism/item_card/item_card_list_selected_done.dart';
 import '../../widget/organism/item_card/item_card_list_selected.dart';
+import '../../widget/organism/item_card/item_card_list_selected_done.dart';
 import 'sample_wrapper.dart';
 
 class ItemCardsSamplesView extends StatefulWidget {
@@ -78,7 +78,6 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         isList: true,
         textPrice: 'Rp.00',
         statusPrice: '/00 days',
-        dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
       ),
@@ -91,7 +90,6 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
       widget: ItemCardList(
         starImageCount: '50',
         title: 'Barokah Laundry',
-        dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
         address: 'Jl. Sukamenak DPR RI KOM',
@@ -109,7 +107,6 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         isVertical: true,
         textPrice: 'Rp.00',
         statusPrice: '/00 days',
-        dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
         padding: EdgeInsets.symmetric(
@@ -131,7 +128,6 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         statusPrice: '/kg',
         typeItem: 'Pakaian',
         timeWork: '3 Hari Kerja',
-        dateProgress: '2 Agustus 2023',
       ),
     );
   }
@@ -147,7 +143,6 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         textPrice: 'Rp7rb',
         statusPrice: '/kg',
         typeItem: 'Pakaian',
-        dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
         onTapCard: () {
@@ -201,7 +196,7 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
               children: [
                 AppIconButton(
                   buttonColor: AppColors.white,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.add,
                     size: 16,
                   ),
@@ -216,7 +211,7 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
                 ),
                 AppIconButton(
                   buttonColor: AppColors.white,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.horizontal_rule,
                     size: 16,
                   ),
@@ -281,7 +276,6 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         title: 'Cuci Kering',
         textPrice: 'Rp7rb',
         statusPrice: '/kg',
-        dateProgress: '2 Agustus 2023',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
         typeItem: 'Pakaian',

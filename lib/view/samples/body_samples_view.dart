@@ -1,11 +1,9 @@
 import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:alvamind_library/app/theme/app_text_style.dart';
-
 import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 import 'package:alvamind_library/widget/molecule/app_account_list.dart';
 import 'package:alvamind_library/widget/molecule/app_card_container.dart';
 import 'package:alvamind_library/widget/molecule/app_ink_container.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
@@ -55,7 +53,6 @@ class _BodySamplesViewState extends State<BodySamplesView> {
                 statusPrice: '/kg',
                 typeItem: 'Pakaian',
                 timeWork: '3 Hari Kerja',
-                dateProgress: '2 Agustus 2023',
                 textLeftButton: 'Detail Pesanan',
                 textRightButton: 'Lacak Pengiriman',
               ),
@@ -66,7 +63,7 @@ class _BodySamplesViewState extends State<BodySamplesView> {
                   children: [
                     ...List.generate(4, (i) {
                       return Padding(
-                        padding: i != 4 ? EdgeInsets.only(right: AppSizes.padding / 2) : EdgeInsets.all(0),
+                        padding: i != 4 ? EdgeInsets.only(right: AppSizes.padding / 2) : const EdgeInsets.all(0),
                         child: const AppImage(
                           image: randomImage,
                           width: 100,
@@ -84,7 +81,7 @@ class _BodySamplesViewState extends State<BodySamplesView> {
                 backgroundColor: AppColors.transparent,
                 borderRadius: BorderRadius.circular(0),
                 child: AccountList(
-                  padding: EdgeInsets.all(0),
+                  padding: const EdgeInsets.all(0),
                   rightButton: false,
                   image: randomImage,
                   title: 'Barokah Laundry',

@@ -26,9 +26,7 @@ class ItemCardListSelected extends StatefulWidget {
   final String? typeItem;
   final String? textPrice;
   final String? statusPrice;
-  final String? dateProgress;
   final String? statustProgressText;
-  final String? dataProgress;
   final String? textLeftButton;
   final String? textRightButton;
   final String? labelingText;
@@ -53,8 +51,6 @@ class ItemCardListSelected extends StatefulWidget {
     super.key,
     required this.title,
     this.padding,
-    this.dataProgress,
-    this.dateProgress,
     this.isList = false,
     this.statusPrice,
     this.onTapLeftButton,
@@ -355,9 +351,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container()
-        ],
+        children: [Container()],
       ),
     );
   }

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
-
 import '../../widget/molecule/app_dialog.dart';
 import '../../widget/molecule/app_text_field.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
@@ -87,12 +86,11 @@ class _OutletListBodySamplesViewState extends State<OutletListBodySamplesView> {
                       ? 2
                       : 3, (i) {
             return Padding(
-              padding: i == 2 ? EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
+              padding: i == 2 ? const EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
               child: ItemCardList(
                 image: 'https://picsum.photos/20$i/300/',
                 starImageCount: '50',
                 title: 'Barokah Laundry',
-                dateProgress: '2 Agustus 2023',
                 textLeftButton: 'Detail Pesanan',
                 textRightButton: 'Lacak Pengiriman',
                 address: 'Jl. Sukamenak DPR RI KOM...',
@@ -166,7 +164,7 @@ class _OutletListBodySamplesViewState extends State<OutletListBodySamplesView> {
           SizedBox(height: AppSizes.padding),
           ...List.generate(3, (i) {
             return Padding(
-              padding: i == 2 ? EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
+              padding: i == 2 ? const EdgeInsets.all(0) : EdgeInsets.only(bottom: AppSizes.padding),
               child: ItemCardList(
                 boxShadow: const [
                   BoxShadow(
@@ -179,7 +177,6 @@ class _OutletListBodySamplesViewState extends State<OutletListBodySamplesView> {
                 image: 'https://picsum.photos/23$i/300/',
                 starImageCount: '50',
                 title: 'Barokah Laundry',
-                dateProgress: '2 Agustus 2023',
                 textLeftButton: 'Detail Toko',
                 textRightButton: 'Laporan Keuangan',
                 address: 'Jl. Sukamenak DPR RI KOM...',
