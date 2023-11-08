@@ -56,16 +56,16 @@ class AppCard extends StatelessWidget {
                 : const SizedBox.shrink(),
             Container(
               decoration: BoxDecoration(
-                color: backgroundImage != null ? AppColors.transparent : color ?? (AppTheme.isLightMode ? AppColors.white : AppColors.blackLv2),
+                color: backgroundImage != null
+                    ? AppColors.transparent
+                    : color ?? (AppTheme.isLightMode ? AppColors.white : AppColors.blackLv2),
                 border: borderWidth != null
                     ? Border.all(
                         width: borderWidth!,
                         color: borderColor,
                       )
                     : null,
-                boxShadow: [
-                  AppShadows.cardShadow2
-                ],
+                boxShadow: [AppShadows.cardShadow2],
               ),
               child: Container(
                 padding: padding,

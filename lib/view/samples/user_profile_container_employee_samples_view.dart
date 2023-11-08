@@ -4,18 +4,14 @@ import 'package:flutter/material.dart';
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
-
 import '../../widget/molecule/app_card_container.dart';
 import '../../widget/molecule/app_column_ink.dart';
-
 import '../../widget/molecule/app_icon_button.dart';
 import '../../widget/molecule/app_tags.dart';
 import '../../widget/molecule/app_text_field.dart';
 import '../../widget/organism/attedance_card/attedance_card.dart';
 import '../../widget/organism/showcase_card/showcase_user_profile_card.dart';
 import '../../widget/organism/tab _detail_outlet/tab_detail_outlet.dart';
-
-import '../../widget/organism/table_organism/table_history_trasaction.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 import '../../widget/organism/transaction_review_card/list_card_progress.dart';
 import '../../widget/organism/transaction_review_card/list_transaction.dart';
@@ -31,7 +27,8 @@ class UserProfileContainerEmployeeSamplesView extends StatefulWidget {
 
 TabController? _tabController;
 
-class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileContainerEmployeeSamplesView> with SingleTickerProviderStateMixin {
+class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileContainerEmployeeSamplesView>
+    with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -88,7 +85,7 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
   int tagSelected = 0;
 
   Widget userProfileContainerTab() {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: TabBarView(
         controller: _tabController,
@@ -105,7 +102,7 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
   Widget userProfileTabContainer() {
     return AppCardContainer(
       backgroundColor: AppColors.transparent,
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       child: Column(
         children: [
           const ListTransaction(
@@ -176,7 +173,8 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
       SizedBox(
         height: AppSizes.padding,
       ),
-      TableHistoryTransaction(),
+      const Text('Commented'),
+      // TableHistoryTransaction(),
     ]);
   }
 
@@ -184,7 +182,7 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
   Widget employeeAttedanceListBody() {
     return AppCardContainer(
       backgroundColor: AppColors.transparent,
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       borderRadius: BorderRadius.circular(0),
       child: Column(
         children: [
@@ -239,7 +237,7 @@ class _UserProfileContainerEmployeeSamplesViewState extends State<UserProfileCon
           ...List.generate(3, (i) {
             return Padding(
               padding: i == 2
-                  ? EdgeInsets.all(0)
+                  ? const EdgeInsets.all(0)
                   : EdgeInsets.only(
                       bottom: AppSizes.padding,
                     ),

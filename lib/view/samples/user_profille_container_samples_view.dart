@@ -1,5 +1,4 @@
 import 'package:alvamind_library/widget/molecule/app_nested_body.dart';
-import 'package:alvamind_library/widget/organism/table_organism/table_history_trasaction.dart';
 import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
@@ -225,7 +224,8 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
         SizedBox(
           height: AppSizes.padding,
         ),
-        TableHistoryTransaction(),
+        const Text('Commented'),
+        // TableHistoryTransaction(),
         SizedBox(
           height: AppSizes.padding * 8,
         ),
@@ -360,7 +360,9 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                     children: [
                       ...List.generate(3, (i) {
                         return Padding(
-                          padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : EdgeInsets.only(bottom: AppSizes.padding * 4),
+                          padding: i != 3
+                              ? EdgeInsets.only(right: AppSizes.padding / 2)
+                              : EdgeInsets.only(bottom: AppSizes.padding * 4),
                           child: AppImage(
                             image: 'https://picsum.photos/id/2$i/200/200',
                             width: 70,
@@ -464,7 +466,16 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                 paddingTagsBody: EdgeInsets.only(
                   left: AppSizes.padding,
                 ),
-                listChips: const ['Semua', 'Menunggu Konfirmasi', 'Ambil', 'Proses', 'Antar', 'Selesai', 'Komplain', 'Batal'],
+                listChips: const [
+                  'Semua',
+                  'Menunggu Konfirmasi',
+                  'Ambil',
+                  'Proses',
+                  'Antar',
+                  'Selesai',
+                  'Komplain',
+                  'Batal'
+                ],
                 onTap: (value) {
                   // TODO
                   setState(() {

@@ -20,9 +20,9 @@ class CommentListCard extends StatelessWidget {
   final bool? isImage;
   final String? imageAvatar;
   final dynamic image;
-  final void Function()? functionLike;
-  final void Function()? functionRespon;
-  final void Function()? functionRightButton;
+  final void Function()? onTapLikeButton;
+  final void Function()? onTapResponseButton;
+  final void Function()? onTapEditButton;
   final EdgeInsets? padding;
 
   const CommentListCard({
@@ -31,9 +31,9 @@ class CommentListCard extends StatelessWidget {
     required this.isComment,
     this.countStaruser,
     this.dateComment,
-    this.functionLike,
-    this.functionRespon,
-    this.functionRightButton,
+    this.onTapLikeButton,
+    this.onTapResponseButton,
+    this.onTapEditButton,
     this.image,
     this.isImage = false,
     this.subtitleUser,
@@ -47,7 +47,7 @@ class CommentListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: padding ??
-          EdgeInsets.all(
+          const EdgeInsets.all(
             0,
           ),
       child: Column(
@@ -63,14 +63,10 @@ class CommentListCard extends StatelessWidget {
               SizedBox(height: AppSizes.padding / 1.5),
               Row(
                 children: [
-                  isImage == true ? image : SizedBox.shrink(),
+                  isImage == true ? image : const SizedBox.shrink(),
                 ],
               ),
-              isImage == true
-                  ? SizedBox(
-                      height: AppSizes.padding / 1.5,
-                    )
-                  : SizedBox.shrink(),
+              isImage == true ? SizedBox(height: AppSizes.padding / 1.5) : const SizedBox.shrink(),
               buttonBottom(),
             ],
           )
@@ -82,53 +78,43 @@ class CommentListCard extends StatelessWidget {
   Widget buttonBottom() {
     return Row(
       children: [
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            children: [
-              AppIconButton(
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                icon: const Icon(
-                  CustomIcon.heartIcon,
-                  color: AppColors.primary,
-                ),
-                buttonColor: Colors.transparent,
-                onTap: () {},
+        Row(
+          children: [
+            AppIconButton(
+              padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+              icon: const Icon(
+                CustomIcon.heartIcon,
+                color: AppColors.primary,
               ),
-              SizedBox(
-                width: AppSizes.padding / 2,
-              ),
-              Text(
-                countLike ?? '',
-                style: AppTextStyle.regular(size: 12),
-              )
-            ],
-          ),
+              buttonColor: Colors.transparent,
+              onTap: onTapLikeButton ?? () {},
+            ),
+            SizedBox(width: AppSizes.padding / 2),
+            Text(
+              countLike ?? '',
+              style: AppTextStyle.regular(size: 12),
+            )
+          ],
         ),
         SizedBox(width: AppSizes.padding),
         isComment == true
-            ? GestureDetector(
-                onTap: () {},
-                child: Row(
-                  children: [
-                    AppIconButton(
-                      padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                      icon: const Icon(
-                        CustomIcon.sendIcon,
-                        color: AppColors.primary,
-                      ),
-                      buttonColor: Colors.transparent,
-                      onTap: () {},
+            ? Row(
+                children: [
+                  AppIconButton(
+                    padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                    icon: const Icon(
+                      CustomIcon.sendIcon,
+                      color: AppColors.primary,
                     ),
-                    SizedBox(
-                      width: AppSizes.padding / 2,
-                    ),
-                    Text(
-                      'Respon',
-                      style: AppTextStyle.regular(size: 12),
-                    )
-                  ],
-                ),
+                    buttonColor: Colors.transparent,
+                    onTap: onTapResponseButton ?? () {},
+                  ),
+                  SizedBox(width: AppSizes.padding / 2),
+                  Text(
+                    'Respon',
+                    style: AppTextStyle.regular(size: 12),
+                  )
+                ],
               )
             : const SizedBox.shrink(),
         isComment == true ? SizedBox(width: AppSizes.padding) : const SizedBox.shrink(),
@@ -153,9 +139,7 @@ class CommentListCard extends StatelessWidget {
               image: imageAvatar ?? randomImage,
               size: 40,
             ),
-            SizedBox(
-              width: AppSizes.padding / 2,
-            ),
+            SizedBox(width: AppSizes.padding / 2),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -190,9 +174,7 @@ class CommentListCard extends StatelessWidget {
               leftIcon: Icons.star,
               selectedColor: AppColors.primary,
             ),
-            SizedBox(
-              width: AppSizes.padding / 2,
-            ),
+            SizedBox(width: AppSizes.padding / 2),
             AppIconButton(
               icon: isComment == false
                   ? const Icon(
@@ -204,7 +186,7 @@ class CommentListCard extends StatelessWidget {
                       size: 20,
                       CustomIcon.editIcon,
                     ),
-              onTap: () {},
+              onTap: onTapEditButton ?? () {},
               padding: const EdgeInsets.all(2),
               buttonColor: AppColors.transparent,
             ),

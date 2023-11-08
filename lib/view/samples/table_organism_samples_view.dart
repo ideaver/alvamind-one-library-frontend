@@ -6,7 +6,6 @@ import '../../app/theme/app_text_style.dart';
 import '../../model/table_model.dart';
 import '../../widget/molecule/app_Checkbox.dart';
 import '../../widget/molecule/app_table_navigation.dart';
-import '../../widget/organism/table_organism/table_financal_journal.dart';
 import 'sample_wrapper.dart';
 
 class TableOrganismSamplesView extends StatefulWidget {
@@ -205,22 +204,23 @@ class _TableOrganismSamplesViewState extends State<TableOrganismSamplesView> {
   }
 
   Widget defaultTable() {
-    return SampleWrapper(
+    return const SampleWrapper(
       title: 'Table Financial Journal',
-      widget: TableFinancialJurnal(
-        headerTitle: headerTitle,
-        headerData1: headerData1,
-        data1: data1,
-        headerData2: headerData2,
-        data2: data2,
-        headerData3: headerData3,
-        data3: data3,
-        headerData4: headerData4,
-        data4: data4,
-        headerData5: headerData5,
-        data5: data5,
-        tableNavigation: tableNavigation,
-      ),
+      widget: Text('Commented'),
+      // widget: TableFinancialJurnal(
+      //   headerTitle: headerTitle,
+      //   headerData1: headerData1,
+      //   data1: data1,
+      //   headerData2: headerData2,
+      //   data2: data2,
+      //   headerData3: headerData3,
+      //   data3: data3,
+      //   headerData4: headerData4,
+      //   data4: data4,
+      //   headerData5: headerData5,
+      //   data5: data5,
+      //   tableNavigation: tableNavigation,
+      // ),
     );
   }
 }

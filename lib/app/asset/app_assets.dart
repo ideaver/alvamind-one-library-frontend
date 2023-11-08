@@ -45,7 +45,7 @@ class AppAssets {
 
   // Placeholder
   static const String user = 'lib/assets/images/user.png';
-  static const String loadingGif = 'lib/assets/images/loading_circle.gif';
+  static const String loadingGif = 'lib/assets/images/loading.gif';
   static const String emptyPlaceholder = 'lib/assets/images/empty_placeholder.png';
 
   static const bankAnzImgPath = 'lib/assets/images/bank/anz.png';

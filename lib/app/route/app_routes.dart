@@ -39,8 +39,8 @@ import '../../view/samples/notification_list_body.dart';
 import '../../view/samples/operasional_card_samples_view.dart';
 import '../../view/samples/operasional_list_body_samples_view.dart';
 import '../../view/samples/order_card_samples_view.dart';
-import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_list_body_samples_view.dart';
+import '../../view/samples/order_list_samples_view.dart';
 import '../../view/samples/order_type_info_samples_view.dart';
 import '../../view/samples/outlet_hero_category_samples_view.dart';
 import '../../view/samples/outlet_hero_samples_view.dart';
@@ -77,7 +77,6 @@ import '../../view/samples/transaction_review_card_samples_view.dart';
 import '../../view/samples/user_profile_container_employee_samples_view.dart';
 import '../../view/samples/user_profile_summary_bodies_samples_view.dart';
 import '../../view/samples/user_profille_container_samples_view.dart';
-import '../../widget/organism/camera/camera.dart';
 import '../../widget/organism/qr_code_scanner/qr_code_scanner.dart';
 
 // App routes
@@ -165,6 +164,5 @@ class AppRoutes {
     CalendarSamplesView.routeName: (context) => const CalendarSamplesView(),
     MapSamplesView.routeName: (context) => const MapSamplesView(),
     QRCodeScanner.routeName: (context) => const QRCodeScanner(),
-    AppCamera.routeName: (context) => const AppCamera(),
   };
 }

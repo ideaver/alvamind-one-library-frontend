@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
+import '../../app/asset/app_assets.dart';
 import '../atom/app_divider.dart';
 import '../molecule/app_button.dart';
 
@@ -68,6 +69,42 @@ class AppModal {
           children: children,
         );
       },
+    );
+  }
+
+  static void pickImageModal({
+    required NavigatorState navigator,
+    required Function() onTapGalleryButton,
+    required Function() onTapCameraButton,
+  }) {
+    AppModal.show(
+      navigator,
+      backgroundColor: AppColors.white,
+      miniTitle: 'Ingin Upload Gambar darimana?',
+      subtitleColor: AppColors.black,
+      directionButton: Axis.horizontal,
+      price: false,
+      children: [
+        Expanded(
+          child: AppButton(
+            onTap: onTapGalleryButton,
+            leftIcon: Icons.folder,
+            text: 'Gallery',
+            textColor: AppColors.primary,
+            buttonColor: AppColors.blueLv5,
+            rounded: true,
+          ),
+        ),
+        SizedBox(width: AppSizes.padding / 2),
+        Expanded(
+          child: AppButton(
+            leftIcon: CustomIcon.cameraIcon,
+            onTap: onTapCameraButton,
+            text: 'Camera',
+            rounded: true,
+          ),
+        ),
+      ],
     );
   }
 }
