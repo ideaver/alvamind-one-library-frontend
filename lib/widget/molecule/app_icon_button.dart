@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
@@ -44,6 +45,7 @@ class AppIconButton extends StatelessWidget {
     return Opacity(
       opacity: enable ? 1.0 : 0.5,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Material(
             borderRadius: BorderRadius.circular(4),
@@ -61,12 +63,7 @@ class AppIconButton extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: buttonColor,
                   boxShadow: boxShadow ?? [],
-                  gradient: LinearGradient(
-                      colors: gradient ??
-                          [
-                            buttonColor!,
-                            buttonColor!,
-                          ]),
+                  gradient: gradient != null ? LinearGradient(colors: gradient!) : null,
                   borderRadius: BorderRadius.circular(borderRadius),
                   border: borderWidth != null
                       ? Border.all(
@@ -81,14 +78,13 @@ class AppIconButton extends StatelessWidget {
           ),
           text != null
               ? Padding(
-                  padding: paddingText ?? const EdgeInsets.only(top: 10),
+                  padding: paddingText ?? EdgeInsets.symmetric(vertical: AppSizes.padding / 2),
                   child: Text(
                     text!,
                     textAlign: TextAlign.center,
-                    style: textStyle ??
-                        AppTextStyle.bodyMedium(
-                          fontWeight: AppFontWeight.bold,
-                        ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: textStyle ?? AppTextStyle.bodySmall(fontWeight: AppFontWeight.bold),
                   ),
                 )
               : const SizedBox.shrink(),

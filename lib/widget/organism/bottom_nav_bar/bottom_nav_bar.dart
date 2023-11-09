@@ -25,7 +25,7 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pageList[selectedIndex],
-      bottomSheet: SizedBox(
+      bottomNavigationBar: SizedBox(
         height: 80,
         child: AppCardContainer(
           boxShadow: [AppShadows.cardShadow4],

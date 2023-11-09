@@ -73,15 +73,15 @@ class _OrderListState extends State<OrderList> {
     setState(() {});
   }
 
-  Set<Circle> circles = Set.from([
+  Set<Circle> circles = {
     Circle(
-      circleId: CircleId('1'),
+      circleId: const CircleId('1'),
       center: const LatLng(37.42796133580664, -122.085749655962),
       radius: 400,
       fillColor: AppColors.blueLv2.withOpacity(0.2),
       strokeWidth: 0,
     )
-  ]);
+  };
 
   @override
   void initState() {
@@ -104,7 +104,7 @@ class _OrderListState extends State<OrderList> {
             color: AppColors.blackLv8,
             padding: EdgeInsets.symmetric(vertical: AppSizes.padding),
           ),
-          isShow == false
+          !isShow
               ? const SizedBox.shrink()
               : Column(
                   children: [
@@ -116,7 +116,7 @@ class _OrderListState extends State<OrderList> {
                       height: 250,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: AppColors.white,
+                        color: AppColors.blackLv9,
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
@@ -124,7 +124,7 @@ class _OrderListState extends State<OrderList> {
                           zoomControlsEnabled: false,
                           mapType: widget.mapType ?? MapType.normal,
                           initialCameraPosition: CameraPosition(
-                            target: widget.mapTarget ?? LatLng(37.42796133580664, -122.085749655962),
+                            target: widget.mapTarget ?? const LatLng(37.42796133580664, -122.085749655962),
                             zoom: widget.mapZoom ?? 14.4746,
                           ),
                           onMapCreated: (GoogleMapController controller) {
@@ -138,11 +138,11 @@ class _OrderListState extends State<OrderList> {
                     ),
                     SizedBox(height: AppSizes.padding),
                     AppCardContainer(
-                      padding: EdgeInsets.all(0),
+                      padding: const EdgeInsets.all(0),
                       boxShadow: [
                         BoxShadow(
                           color: AppColors.blackLv7.withOpacity(0.5),
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                           blurRadius: 60,
                           spreadRadius: 0,
                         )
@@ -167,12 +167,12 @@ class _OrderListState extends State<OrderList> {
             buttonColor: AppColors.transparent,
             padding: const EdgeInsets.all(4),
             icon: Icon(
-              isShow == false ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
+              !isShow ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
               size: 20,
             ),
             onTap: () {
               setState(() {
-                isShow == false ? isShow = true : isShow = false;
+                !isShow ? isShow = true : isShow = false;
               });
             },
           )
