@@ -1,9 +1,9 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
+import '../../../app/asset/app_assets.dart';
+import '../../molecule/app_card_container.dart';
 import 'package:flutter/material.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
-import 'package:alvamind_library/widget/molecule/app_long_card.dart';
+import '../../../app/theme/app_text_style.dart';
+import '../../molecule/app_icon_button.dart';
+import '../../molecule/app_long_card.dart';
 
 import '../../../app/const/countries.dart';
 import '../../../app/theme/app_colors.dart';
@@ -37,12 +37,12 @@ class BarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CountryModel _country = countries.first;
+    CountryModel country = countries.first;
     return AppCardContainer(
       boxShadow: [
         BoxShadow(
           color: AppColors.blackLv7.withOpacity(0.5),
-          offset: Offset(0, 4),
+          offset: const Offset(0, 4),
           blurRadius: 60,
           spreadRadius: 0,
         ),
@@ -78,20 +78,20 @@ class BarChart extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: 160,
                 child: AppDropDown(
                   fillColor: AppColors.white,
                   iconsColor: AppColors.black,
                   onTapItem: (item) {
-                    _country = countries.firstWhere((e) => e.countryCode == item.value);
-                    onTapItem(_country);
+                    country = countries.firstWhere((e) => e.countryCode == item.value);
+                    onTapItem(country);
                   },
                   hintText: '6 Bulan Terakhir',
                   hintStyle: AppTextStyle.bold(size: 14, color: AppColors.black),
                   borderColor: AppColors.black,
                   enabled: true,
-                  selectedItem: _country.name,
+                  selectedItem: country.name,
                   items: List.generate(
                     countries.length,
                     (i) => DropDownModel(text: countries[i].name, value: countries[i].countryCode),
@@ -112,9 +112,11 @@ class BarChart extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(textDateRange ?? '1 Jan 2023 - 31 Juli 2023', style: AppTextStyle.regular(size: 14, color: AppColors.blackLv4)),
+              Text(textDateRange ?? '1 Jan 2023 - 31 Juli 2023',
+                  style: AppTextStyle.regular(size: 14, color: AppColors.blackLv4)),
               SizedBox(height: AppSizes.padding / 2),
-              Text(countTotal ?? 'Rp 687.375.337', style: AppTextStyle.bold(size: 24, color: countTotalColor ?? AppColors.black)),
+              Text(countTotal ?? 'Rp 687.375.337',
+                  style: AppTextStyle.bold(size: 24, color: countTotalColor ?? AppColors.black)),
               SizedBox(height: AppSizes.padding / 2),
               Text('$countTransaction Transaksi', style: AppTextStyle.regular(size: 14, color: AppColors.blackLv4)),
             ],

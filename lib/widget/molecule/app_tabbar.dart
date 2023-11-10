@@ -1,7 +1,6 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
 

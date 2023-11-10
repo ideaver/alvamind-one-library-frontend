@@ -1,4 +1,4 @@
-import 'package:alvamind_library/widget/molecule/app_nested_body.dart';
+import '../../widget/molecule/app_nested_body.dart';
 import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 

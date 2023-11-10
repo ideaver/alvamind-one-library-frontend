@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../atom/app_image.dart';
@@ -9,6 +10,7 @@ class NotFoundWidget extends StatelessWidget {
   final String subtitle;
 
   const NotFoundWidget({
+    super.key,
     required this.image,
     required this.title,
     required this.subtitle,
@@ -16,7 +18,6 @@ class NotFoundWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Column(
       children: [
         SizedBox(height: AppSizes.padding * 4),

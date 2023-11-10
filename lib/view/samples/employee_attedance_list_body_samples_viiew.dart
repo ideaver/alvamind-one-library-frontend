@@ -1,9 +1,9 @@
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
+import '../../widget/molecule/app_card_container.dart';
 import '../../widget/molecule/app_tags.dart';
 import '../../widget/organism/attedance_card/attedance_card.dart';
 import '../../widget/organism/showcase_card/showcase_user_profile_card.dart';
@@ -43,7 +43,7 @@ class _EmployeeAttedanceListBodySamplesViewState extends State<EmployeeAttedance
         title: 'Attedance Card',
         widget: AppCardContainer(
           backgroundColor: AppColors.transparent,
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           borderRadius: BorderRadius.circular(0),
           child: Column(
             children: [
@@ -98,7 +98,7 @@ class _EmployeeAttedanceListBodySamplesViewState extends State<EmployeeAttedance
               ...List.generate(3, (i) {
                 return Padding(
                   padding: i == 2
-                      ? EdgeInsets.all(0)
+                      ? const EdgeInsets.all(0)
                       : EdgeInsets.only(
                           bottom: AppSizes.padding,
                         ),

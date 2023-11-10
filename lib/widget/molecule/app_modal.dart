@@ -1,5 +1,5 @@
-import 'package:alvamind_library/app/theme/app_shadows.dart';
-import 'package:alvamind_library/widget/molecule/app_range_slider.dart';
+import '../../app/theme/app_shadows.dart';
+import 'app_range_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';

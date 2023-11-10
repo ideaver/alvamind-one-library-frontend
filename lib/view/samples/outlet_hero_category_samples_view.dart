@@ -1,7 +1,7 @@
-import 'package:alvamind_library/widget/organism/outlet_hero/outlet_hero_category.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_sizes.dart';
+import '../../widget/organism/outlet_hero/outlet_hero_category.dart';
 import 'sample_wrapper.dart';
 
 class OutletHeroCategorySamplesView extends StatefulWidget {
@@ -14,8 +14,6 @@ class OutletHeroCategorySamplesView extends StatefulWidget {
 }
 
 class _OutletHeroCategorySamplesViewState extends State<OutletHeroCategorySamplesView> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +24,6 @@ class _OutletHeroCategorySamplesViewState extends State<OutletHeroCategorySample
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             outletHeroCategory(),
-        
           ],
         ),
       ),

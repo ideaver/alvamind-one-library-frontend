@@ -24,6 +24,7 @@ class TimeField extends StatefulWidget {
   final EdgeInsets? paddingScroll;
 
   const TimeField({
+    super.key,
     this.onChangedEndCalendar,
     this.onChangedStartCalendar,
     this.onEditingCompleteEndCalendar,
@@ -48,9 +49,8 @@ int chipsSelected = -1;
 class _TimeFieldState extends State<TimeField> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return AppCardContainer(
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       child: Column(
         children: [
           widget.showCalendarField == false
@@ -102,7 +102,7 @@ class _TimeFieldState extends State<TimeField> {
                   children: [
                     ...List.generate(widget.listTimeChips?.length ?? 4, (index) {
                       return Padding(
-                        padding: index == 3 ? EdgeInsets.all(0) : EdgeInsets.only(right: AppSizes.padding),
+                        padding: index == 3 ? const EdgeInsets.all(0) : EdgeInsets.only(right: AppSizes.padding),
                         child: widget.listTimeChips?[index] ??
                             AppChips(
                                 text: '${09 + index}:00 AM',

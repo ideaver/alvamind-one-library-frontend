@@ -1,9 +1,8 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
-
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/widget/organism/tab%20_detail_outlet/tab_detail_outlet.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/asset/app_assets.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../widget/organism/tab%20_detail_outlet/tab_detail_outlet.dart';
 import 'sample_wrapper.dart';
 
 class TabDetailOutletSamplesView extends StatefulWidget {
@@ -84,15 +83,7 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
             Icons.image_outlined,
             Icons.image_outlined,
           ],
-          listTabBar: const [
-            'Ringkasan',
-            'Pemesanan',
-            'Pembayaran',
-            'Riwayat Wallet',
-            'Favorit',
-            'Ulasan',
-            'Komplain'
-          ],
+          listTabBar: const ['Ringkasan', 'Pemesanan', 'Pembayaran', 'Riwayat Wallet', 'Favorit', 'Ulasan', 'Komplain'],
           onTap: (value) {
             // TODO
           },
@@ -158,10 +149,7 @@ class _TabDetailOutletSamplesViewState extends State<TabDetailOutletSamplesView>
         length: 2,
         child: TabBarDetailOutlet(
           isScrollable: false,
-          listTabBar: const [
-            'Aktif',
-            'Selesai'
-          ],
+          listTabBar: const ['Aktif', 'Selesai'],
           onTap: (value) {
             // TODO
           },

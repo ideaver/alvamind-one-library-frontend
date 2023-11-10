@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/atom/app_image.dart';
-import 'package:alvamind_library/widget/molecule/app_button.dart';
-import 'package:alvamind_library/widget/organism/service_category_menu/service_category_menu.dart';
+import '../../../app/theme/app_sizes.dart';
+import '../../../app/theme/app_text_style.dart';
+import '../../atom/app_image.dart';
+import '../../molecule/app_button.dart';
+import '../service_category_menu/service_category_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:widget_to_marker/widget_to_marker.dart';
@@ -29,6 +29,7 @@ class PublicSummaryBody extends StatefulWidget {
   final void Function() onTapReviewMore;
 
   const PublicSummaryBody({
+    super.key,
     required this.termsCondtionText,
     required this.childrenReview,
     required this.onTapGalleryMore,
@@ -68,15 +69,15 @@ class _PublicSummaryBodyState extends State<PublicSummaryBody> {
     setState(() {});
   }
 
-  Set<Circle> circles = Set.from([
+  Set<Circle> circles = {
     Circle(
-      circleId: CircleId('1'),
+      circleId: const CircleId('1'),
       center: const LatLng(37.42796133580664, -122.085749655962),
       radius: 400,
       fillColor: AppColors.blueLv2.withOpacity(0.2),
       strokeWidth: 0,
     )
-  ]);
+  };
 
   @override
   void initState() {
@@ -101,9 +102,7 @@ class _PublicSummaryBodyState extends State<PublicSummaryBody> {
         ),
         headline(
           'Layanan Laundry',
-          [
-            ServiceCategory()
-          ],
+          [ServiceCategory()],
         ),
         headlineWithMore(
           'Gallery',
@@ -190,7 +189,7 @@ class _PublicSummaryBodyState extends State<PublicSummaryBody> {
                   zoomControlsEnabled: false,
                   mapType: widget.mapType ?? MapType.normal,
                   initialCameraPosition: CameraPosition(
-                    target: widget.mapTarget ?? LatLng(37.42796133580664, -122.085749655962),
+                    target: widget.mapTarget ?? const LatLng(37.42796133580664, -122.085749655962),
                     zoom: widget.mapZoom ?? 14.4746,
                   ),
                   onMapCreated: (GoogleMapController controller) {

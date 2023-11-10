@@ -1,4 +1,4 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
+import '../../../app/theme/app_sizes.dart';
 
 import 'package:flutter/material.dart';
 
@@ -17,6 +17,7 @@ class OwnerSummaryBody extends StatefulWidget {
   final double? height;
 
   const OwnerSummaryBody({
+    super.key,
     required this.barChart,
     required this.deleteButton,
     required this.statusComplainWidget,
@@ -42,10 +43,7 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
         title: 'MESIN CUCI',
         subTitle: 'mesin',
         data: widget.countMachine.toString(),
-        colors: const [
-          AppColors.blueLv2,
-          AppColors.blueLv1
-        ],
+        colors: const [AppColors.blueLv2, AppColors.blueLv1],
         icon: CustomIcon.speakerIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 18,
@@ -68,10 +66,7 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
         title: 'KONSUMEN',
         subTitle: 'orang',
         data: widget.countConsument.toString(),
-        colors: const [
-          AppColors.greenLv2,
-          AppColors.greenLv1
-        ],
+        colors: const [AppColors.greenLv2, AppColors.greenLv1],
         icon: CustomIcon.threeUserBoldIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 18,
@@ -81,22 +76,19 @@ class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
         title: 'TRASANKSI',
         subTitle: 'order',
         data: widget.countTransaction.toString(),
-        colors: const [
-          AppColors.redLv2,
-          AppColors.redLv1
-        ],
+        colors: const [AppColors.redLv2, AppColors.redLv1],
         icon: CustomIcon.documentBoldIcon,
         iconColor: AppColors.primary,
         borderRadiusCircle: 15,
         padding: const EdgeInsets.all(20),
       ),
     ];
-    // TODO: implement build
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         GridView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
           ),

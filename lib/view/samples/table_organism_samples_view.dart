@@ -1,4 +1,3 @@
-import 'package:alvamind_library/widget/molecule/app_tags.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
@@ -6,6 +5,7 @@ import '../../app/theme/app_text_style.dart';
 import '../../model/table_model.dart';
 import '../../widget/molecule/app_Checkbox.dart';
 import '../../widget/molecule/app_table_navigation.dart';
+import '../../widget/molecule/app_tags.dart';
 import 'sample_wrapper.dart';
 
 class TableOrganismSamplesView extends StatefulWidget {

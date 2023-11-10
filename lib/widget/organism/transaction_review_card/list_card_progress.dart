@@ -1,4 +1,4 @@
-import 'package:alvamind_library/widget/molecule/app_ink_container.dart';
+import '../../molecule/app_ink_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';

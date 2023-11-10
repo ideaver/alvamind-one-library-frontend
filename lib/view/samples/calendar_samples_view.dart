@@ -1,6 +1,6 @@
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
+import '../../app/theme/app_text_style.dart';
+import 'sample_wrapper.dart';
+import '../../widget/molecule/app_card_container.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 

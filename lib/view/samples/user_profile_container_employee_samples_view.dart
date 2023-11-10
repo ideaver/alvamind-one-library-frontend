@@ -1,4 +1,3 @@
-import 'package:alvamind_library/widget/molecule/app_nested_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';
@@ -7,6 +6,7 @@ import '../../app/theme/app_sizes.dart';
 import '../../widget/molecule/app_card_container.dart';
 import '../../widget/molecule/app_column_ink.dart';
 import '../../widget/molecule/app_icon_button.dart';
+import '../../widget/molecule/app_nested_body.dart';
 import '../../widget/molecule/app_tags.dart';
 import '../../widget/molecule/app_text_field.dart';
 import '../../widget/organism/attedance_card/attedance_card.dart';

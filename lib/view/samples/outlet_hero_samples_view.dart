@@ -1,8 +1,8 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/organism/outlet_hero/outlet_hero.dart';
-
 import 'package:flutter/material.dart';
+
+import '../../app/theme/app_sizes.dart';
+import '../../widget/organism/outlet_hero/outlet_hero.dart';
+import 'sample_wrapper.dart';
 
 class OutletHeroSamplesView extends StatefulWidget {
   const OutletHeroSamplesView({Key? key}) : super(key: key);
@@ -39,7 +39,8 @@ class _OutletHeroSamplesViewState extends State<OutletHeroSamplesView> {
         countStar: '4.8',
         countReview: '120',
         tagStatus: 'Premium',
-        descriptionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et...',
+        descriptionText:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et...',
         onTapDeliveryButton: () {
           // TODO
         },

@@ -1,4 +1,4 @@
-import 'package:alvamind_library/model/complain_model.dart';
+import '../../model/complain_model.dart';
 
 List<ComplainModel> problems = const [
   ComplainModel(

@@ -1,9 +1,8 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_sizes.dart';
 import '../../widget/organism/notification_list_body/notification_list_body.dart';
+import 'sample_wrapper.dart';
 
 class NotificationListBodySamplesView extends StatefulWidget {
   const NotificationListBodySamplesView({Key? key}) : super(key: key);
@@ -32,7 +31,7 @@ class _NotificationListBodySamplesViewState extends State<NotificationListBodySa
   }
 
   Widget notificationListBody() {
-    return SampleWrapper(
+    return const SampleWrapper(
       title: 'Notification List Body',
       widget: NotificationListBody(),
     );

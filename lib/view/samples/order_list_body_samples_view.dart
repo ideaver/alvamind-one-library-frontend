@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../widget/molecule/app_dialog.dart';
@@ -83,7 +84,8 @@ class _OrderListBodySamplesViewState extends State<OrderListBodySamplesView> {
                   title: 'Alasan',
                   dateTime: '12 : 30 PM',
                   location: 'Tokyo, Jepang',
-                  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                  description:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                   boxShadow: const [
                     BoxShadow(
                       color: AppColors.blackLv7,
@@ -94,7 +96,7 @@ class _OrderListBodySamplesViewState extends State<OrderListBodySamplesView> {
                   ],
                   orderCard: OrderCard(
                     image: 'https://picsum.photos/id/3$i/200/400',
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     backgroundColor: AppColors.transparent,
                     starImageCount: '50',
                     title: i == 1 ? 'Zarie Baptista' : 'Barokah Laundry',

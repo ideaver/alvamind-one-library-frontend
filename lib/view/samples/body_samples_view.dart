@@ -1,14 +1,14 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
-import 'package:alvamind_library/widget/molecule/app_account_list.dart';
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
-import 'package:alvamind_library/widget/molecule/app_ink_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../app/theme/app_text_style.dart';
 import '../../widget/atom/app_image.dart';
+import '../../widget/molecule/app_account_list.dart';
+import '../../widget/molecule/app_card_container.dart';
+import '../../widget/molecule/app_ink_container.dart';
 import '../../widget/organism/item_card/item_card_list_selected.dart';
+import 'sample_wrapper.dart';
 
 class BodySamplesView extends StatefulWidget {
   const BodySamplesView({Key? key}) : super(key: key);

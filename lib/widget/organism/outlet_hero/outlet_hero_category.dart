@@ -1,12 +1,12 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
-import 'package:alvamind_library/widget/molecule/app_ink_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
+import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_sizes.dart';
+import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_card_container.dart';
+import '../../molecule/app_icon_button.dart';
+import '../../molecule/app_ink_container.dart';
 
 class OutletHeroCategory extends StatelessWidget {
   final String leftTitle;
@@ -20,6 +20,7 @@ class OutletHeroCategory extends StatelessWidget {
   final void Function() onTapRightButton;
 
   const OutletHeroCategory({
+    super.key,
     required this.leftTitle,
     required this.centerTitle,
     required this.rightTitle,
@@ -33,7 +34,6 @@ class OutletHeroCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return AppCardContainer(
       backgroundColor: AppColors.transparent,
       child: Row(
@@ -71,7 +71,7 @@ class OutletHeroCategory extends StatelessWidget {
     return AppInkContainer(
       onTap: onTap,
       borderRadius: BorderRadius.circular(10),
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

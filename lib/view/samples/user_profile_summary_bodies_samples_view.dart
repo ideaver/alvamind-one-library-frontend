@@ -1,13 +1,14 @@
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
 import 'package:flutter/material.dart';
+
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
+import '../../app/theme/app_text_style.dart';
 import '../../widget/molecule/app_account_list.dart';
 import '../../widget/molecule/app_button.dart';
 import '../../widget/molecule/app_card_container.dart';
 import '../../widget/molecule/app_expansion_list_tile.dart';
+import '../../widget/molecule/app_icon_button.dart';
 import '../../widget/organism/tab _detail_outlet/tab_detail_outlet.dart';
 import '../../widget/organism/transaction_review_card/list_card_progress.dart';
 import '../../widget/organism/transaction_review_card/list_transaction.dart';
@@ -49,7 +50,7 @@ class _UserProfileSummaryBodySamplesViewState extends State<UserProfileSummaryBo
         title: 'User Profile Summary Body  ',
         widget: AppCardContainer(
           backgroundColor: AppColors.transparent,
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           child: Column(
             children: [
               TabBarDetailOutlet(
@@ -108,7 +109,7 @@ class _UserProfileSummaryBodySamplesViewState extends State<UserProfileSummaryBo
                   ...List.generate(3, (index) {
                     return Padding(
                       padding: index == 3
-                          ? EdgeInsets.all(0)
+                          ? const EdgeInsets.all(0)
                           : EdgeInsets.only(
                               bottom: AppSizes.padding,
                             ),
@@ -146,7 +147,7 @@ class _UserProfileSummaryBodySamplesViewState extends State<UserProfileSummaryBo
                         boxShadow: [
                           BoxShadow(
                             color: AppColors.blackLv7.withOpacity(0.5),
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                             blurRadius: 60,
                             spreadRadius: 0,
                           ),

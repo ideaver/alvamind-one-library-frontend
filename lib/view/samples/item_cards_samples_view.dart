@@ -1,6 +1,6 @@
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
-import 'package:alvamind_library/widget/molecule/app_long_card.dart';
+import '../../app/theme/app_text_style.dart';
+import '../../widget/molecule/app_icon_button.dart';
+import '../../widget/molecule/app_long_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';

@@ -38,17 +38,16 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
   int _current = 0;
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Stack(children: [
       CarouselSlider(
         options: CarouselOptions(
-          height: widget.height ?? null,
+          height: widget.height,
           autoPlay: widget.autoPlay ?? true,
           initialPage: 0,
           enlargeCenterPage: false,
           viewportFraction: widget.viewportFraction ?? 1.0,
           autoPlayCurve: widget.autoPlayCurve ?? Curves.fastOutSlowIn,
-          autoPlayAnimationDuration: widget.autoPlayAnimationDuration ?? Duration(milliseconds: 500),
+          autoPlayAnimationDuration: widget.autoPlayAnimationDuration ?? const Duration(milliseconds: 500),
           enableInfiniteScroll: widget.enableInfiniteScroll ?? true,
           onPageChanged: (index, reason) {
             setState(() {

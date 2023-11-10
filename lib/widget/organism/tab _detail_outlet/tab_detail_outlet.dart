@@ -1,8 +1,8 @@
-import 'package:alvamind_library/app/theme/app_colors.dart';
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-
 import 'package:flutter/material.dart';
+
+import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_sizes.dart';
+import '../../../app/theme/app_text_style.dart';
 
 // ignore: must_be_immutable
 class TabBarDetailOutlet extends StatefulWidget {
@@ -19,7 +19,7 @@ class TabBarDetailOutlet extends StatefulWidget {
 
   final void Function(int)? onTap;
 
-  TabBarDetailOutlet({
+  const TabBarDetailOutlet({
     super.key,
     required this.listTabBar,
     required this.onTap,
@@ -43,8 +43,6 @@ class _TabBarDetailOutletState extends State<TabBarDetailOutlet> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-
     return TabBar(
       padding: widget.padding ?? EdgeInsets.zero,
       controller: widget.controller,

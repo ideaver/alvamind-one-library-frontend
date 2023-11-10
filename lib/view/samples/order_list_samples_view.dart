@@ -1,6 +1,4 @@
- 
 import 'package:flutter/material.dart';
-
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
@@ -18,7 +16,6 @@ class OrderListSamplesView extends StatefulWidget {
 }
 
 class _OrderListSamplesViewState extends State<OrderListSamplesView> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,10 +39,11 @@ class _OrderListSamplesViewState extends State<OrderListSamplesView> {
       widget: OrderList(
         title: 'Alasan',
         dateTime: '12 : 30 PM',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         location: 'Tokyo, Jepang',
         orderCard: OrderCard(
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           backgroundColor: AppColors.transparent,
           starImageCount: '50',
           title: 'Barokah Laundry',

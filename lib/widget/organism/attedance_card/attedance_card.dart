@@ -15,7 +15,7 @@ class AttedanceCard extends StatelessWidget {
   final Widget? statusTags;
 
   const AttedanceCard({
-    Key? key,
+    super.key,
     required this.dateAttedance,
     required this.timeEnd,
     required this.timeStart,
@@ -24,7 +24,6 @@ class AttedanceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return AppCardContainer(
         boxShadow: const [
           BoxShadow(

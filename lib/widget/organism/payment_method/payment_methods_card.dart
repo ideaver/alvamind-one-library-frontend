@@ -1,10 +1,10 @@
-import 'package:alvamind_library/widget/molecule/app_ink_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_chips.dart';
+import '../../molecule/app_ink_container.dart';
 
 class PaymentMethodCard extends StatelessWidget {
   final String title;
@@ -56,7 +56,7 @@ class PaymentMethodCard extends StatelessWidget {
               ? SizedBox(
                   height: AppSizes.padding,
                 )
-              : SizedBox.shrink(),
+              : const SizedBox.shrink(),
           ...children,
         ],
       ),

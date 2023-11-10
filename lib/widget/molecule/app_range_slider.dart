@@ -17,6 +17,7 @@ class AppRangeSlider extends StatefulWidget {
   final dynamic Function(int, dynamic, dynamic)? onDragCompleted;
 
   const AppRangeSlider({
+    super.key,
     required this.lowerValue,
     required this.upperValue,
     required this.onDragging,
@@ -37,12 +38,8 @@ class AppRangeSlider extends StatefulWidget {
 class _AppRangeSliderState extends State<AppRangeSlider> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return RangeSliderFlutter(
-      values: [
-        widget.lowerValue,
-        widget.upperValue
-      ],
+      values: [widget.lowerValue, widget.upperValue],
       min: widget.min ?? 0,
       max: widget.max ?? 20000,
       textPositionTop: -80,
@@ -58,7 +55,7 @@ class _AppRangeSliderState extends State<AppRangeSlider> {
       )),
       rangeSlider: true,
       rightHandler: RangeSliderFlutterHandler(
-          child: Center(),
+          child: const Center(),
           decoration: BoxDecoration(
             color: AppColors.white,
             shape: BoxShape.circle,
@@ -93,21 +90,10 @@ class _AppRangeSliderState extends State<AppRangeSlider> {
         setState(() {});
       },
       onDragCompleted: (handlerIndex, lowerValue, upperValue) {
-        widget.onDragCompleted ??
-            (
-              handlerIndex,
-              lowerValue,
-              upperValue
-            );
+        widget.onDragCompleted ?? (handlerIndex, lowerValue, upperValue);
       },
       onDragStarted: ((handlerIndex, lowerValue, upperValue) {
-        widget.onDragStarted ??
-            (
-              handlerIndex,
-              lowerValue,
-              upperValue
-            );
-        ;
+        widget.onDragStarted ?? (handlerIndex, lowerValue, upperValue);
       }),
     );
   }

@@ -1,5 +1,5 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/widget/molecule/app_chips.dart';
+import '../../../app/theme/app_sizes.dart';
+import '../../molecule/app_chips.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';

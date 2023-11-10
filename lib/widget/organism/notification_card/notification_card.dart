@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
-
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_ink_container.dart';
@@ -21,6 +20,7 @@ class NotificationCard extends StatelessWidget {
   final void Function() onTap;
   final EdgeInsets? padding;
   const NotificationCard({
+    super.key,
     required this.dateNotification,
     required this.timeNotification,
     required this.textNotification,
@@ -35,7 +35,6 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return AppInkContainer(
       onTap: onTap,
       padding: padding ?? EdgeInsets.all(AppSizes.padding / 2),
@@ -45,7 +44,7 @@ class NotificationCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppLongCard(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             backgroundColor: AppColors.transparent,
             children: [
               Expanded(
@@ -77,7 +76,7 @@ class NotificationCard extends StatelessWidget {
                             height: AppSizes.padding / 3,
                           ),
                           Text(
-                            '${dateNotification}  |  ${timeNotification}',
+                            '$dateNotification  |  $timeNotification',
                             style: AppTextStyle.medium(
                               size: 14,
                               color: AppColors.blackLv4,
@@ -89,7 +88,7 @@ class NotificationCard extends StatelessWidget {
                   ],
                 ),
               ),
-              isNew == true ? const AppTags(text: 'Baru') : SizedBox.shrink(),
+              isNew == true ? const AppTags(text: 'Baru') : const SizedBox.shrink(),
             ],
           ),
           SizedBox(

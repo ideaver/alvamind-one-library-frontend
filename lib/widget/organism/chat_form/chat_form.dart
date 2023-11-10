@@ -1,6 +1,6 @@
-import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:flutter/material.dart';
 
+import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../molecule/app_icon_button.dart';
@@ -75,7 +75,7 @@ class _ChatFormState extends State<ChatForm> {
             ],
           ),
           child: AppIconButton(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             gradient: const [
               AppColors.blueLv2,
               AppColors.blueLv1,
@@ -98,9 +98,9 @@ class _ChatFormState extends State<ChatForm> {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         AppIconButton(
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           buttonColor: AppColors.transparent,
-          icon: Icon(
+          icon: const Icon(
             Icons.add,
             size: 18,
             color: AppColors.primary,
@@ -112,8 +112,8 @@ class _ChatFormState extends State<ChatForm> {
         ),
         AppIconButton(
           buttonColor: AppColors.transparent,
-          padding: EdgeInsets.all(0),
-          icon: Icon(
+          padding: const EdgeInsets.all(0),
+          icon: const Icon(
             Icons.camera_alt,
             size: 18,
             color: AppColors.primary,

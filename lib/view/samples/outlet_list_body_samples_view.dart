@@ -1,5 +1,5 @@
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_column_ink.dart';
+import '../../app/theme/app_text_style.dart';
+import '../../widget/molecule/app_column_ink.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';

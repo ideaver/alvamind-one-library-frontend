@@ -1,8 +1,8 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/widget/atom/app_divider.dart';
-import 'package:alvamind_library/widget/molecule/app_button.dart';
-import 'package:alvamind_library/widget/molecule/app_chips.dart';
-import 'package:alvamind_library/widget/molecule/app_tags.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../widget/atom/app_divider.dart';
+import '../../widget/molecule/app_button.dart';
+import '../../widget/molecule/app_chips.dart';
+import '../../widget/molecule/app_tags.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';
@@ -158,7 +158,8 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
                 ),
                 const SizedBox(height: 18),
                 QuestionText(
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                  text:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                   padding: const EdgeInsets.all(0),
                 ),
                 const SizedBox(height: 18),

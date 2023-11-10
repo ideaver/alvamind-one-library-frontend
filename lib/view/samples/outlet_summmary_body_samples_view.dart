@@ -1,16 +1,16 @@
-import 'package:alvamind_library/widget/organism/oultlet_summary_body/owner_summary_body.dart';
-import 'package:alvamind_library/widget/organism/oultlet_summary_body/public_summary_body.dart';
 import 'package:flutter/material.dart';
+
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
-
 import '../../widget/atom/app_image.dart';
 import '../../widget/molecule/app_button.dart';
 import '../../widget/organism/bar_chart/bar_chart.dart';
 import '../../widget/organism/bar_chart/bar_chart_group_data.dart';
 import '../../widget/organism/bar_chart/chart.dart';
 import '../../widget/organism/comments_and_reviews/comments_list.dart';
+import '../../widget/organism/oultlet_summary_body/owner_summary_body.dart';
+import '../../widget/organism/oultlet_summary_body/public_summary_body.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 import '../../widget/organism/transaction_review_card/card_review.dart';
 import '../../widget/organism/transaction_review_card/list_card_progress.dart';
@@ -79,7 +79,8 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
     return SampleWrapper(
       title: 'Public Summary',
       widget: PublicSummaryBody(
-        termsCondtionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatioaboris nisi ut Selengkapnya...',
+        termsCondtionText:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatioaboris nisi ut Selengkapnya...',
         addressText: 'Grand City St. 100, New York, United States',
         countImages: '30+',
         images: [
@@ -101,7 +102,7 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
           ),
           SizedBox(height: AppSizes.padding * 2),
           CommentListCard(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             isComment: true,
             titleUser: 'Shizuka Otomo',
             subtitleUser: 'Occuptaion',
@@ -115,7 +116,7 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
               children: [
                 ...List.generate(3, (i) {
                   return Padding(
-                    padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : EdgeInsets.all(0),
+                    padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : const EdgeInsets.all(0),
                     child: AppImage(
                       image: 'https://picsum.photos/id/1$i/100/200',
                       width: 70,

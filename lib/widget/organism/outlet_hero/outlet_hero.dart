@@ -23,7 +23,7 @@ class OutletHero extends StatelessWidget {
   final void Function() onTapServiceButton;
 
   const OutletHero({
-    Key? key,
+    super.key,
     required this.address,
     required this.countReview,
     required this.countStar,
@@ -38,7 +38,6 @@ class OutletHero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return AppCardContainer(
       backgroundColor: AppColors.transparent,
       padding: const EdgeInsets.all(0),
@@ -51,7 +50,7 @@ class OutletHero extends StatelessWidget {
           ),
           SizedBox(height: AppSizes.padding),
           AppLongCard(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             children: [
               AppTags(
                 text: tagStatus,
@@ -64,7 +63,7 @@ class OutletHero extends StatelessWidget {
                     color: AppColors.orangeLv1,
                   ),
                   Text(
-                    '${countStar} (${countReview} ulasan)',
+                    '$countStar ($countReview ulasan)',
                     style: AppTextStyle.medium(size: 16),
                   ),
                 ],

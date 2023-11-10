@@ -1,5 +1,5 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/widget/organism/tags_organism.dart/tags_organism.dart';
+import '../../app/theme/app_sizes.dart';
+import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 import 'package:flutter/material.dart';
 
 import 'sample_wrapper.dart';
@@ -197,12 +197,7 @@ class _TagsOrganismSamplesViewState extends State<TagsOrganismSamplesView> {
     return SampleWrapper(
       title: 'Tags Organism Inbox',
       widget: TagsOrganism(
-        listChips: const [
-          'Semmua',
-          'Chat Pemesanan',
-          'Diskusi Komplain',
-          'Customer Service'
-        ],
+        listChips: const ['Semmua', 'Chat Pemesanan', 'Diskusi Komplain', 'Customer Service'],
         selected: selected,
         onTap: (value) {
           // TODO
@@ -305,16 +300,7 @@ class _TagsOrganismSamplesViewState extends State<TagsOrganismSamplesView> {
     return SampleWrapper(
       title: 'Tags Organism Order Status By Customer Owner',
       widget: TagsOrganism(
-        listChips: const [
-          'Semua',
-          'Menunggu Konfirmasi',
-          'Ambil',
-          'Proses',
-          'Antar',
-          'Selesai',
-          'Komplain',
-          'Batal'
-        ],
+        listChips: const ['Semua', 'Menunggu Konfirmasi', 'Ambil', 'Proses', 'Antar', 'Selesai', 'Komplain', 'Batal'],
         selected: selected,
         onTap: (value) {
           // TODO

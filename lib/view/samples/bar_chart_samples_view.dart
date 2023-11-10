@@ -1,13 +1,12 @@
-import 'package:alvamind_library/view/samples/sample_wrapper.dart';
+import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
-import 'package:flutter/material.dart';
-
 import '../../widget/organism/bar_chart/bar_chart.dart';
 import '../../widget/organism/bar_chart/bar_chart_group_data.dart';
 import '../../widget/organism/bar_chart/chart.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
+import 'sample_wrapper.dart';
 
 class BarChartSamplesView extends StatefulWidget {
   const BarChartSamplesView({Key? key}) : super(key: key);

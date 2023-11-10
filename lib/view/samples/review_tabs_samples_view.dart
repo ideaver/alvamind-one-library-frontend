@@ -1,11 +1,10 @@
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
 import '../../widget/atom/app_avatar.dart';
 import '../../widget/atom/app_image.dart';
+import '../../widget/molecule/app_card_container.dart';
 import '../../widget/molecule/app_expansion_list_tile.dart';
 import '../../widget/organism/accordion/accordion_question_card.dart';
 import '../../widget/organism/comments_and_reviews/comments_list.dart';
@@ -51,11 +50,11 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
     return SampleWrapper(
       title: 'Review Tabs',
       widget: AppCardContainer(
-        padding: EdgeInsets.all(0),
+        padding: const EdgeInsets.all(0),
         backgroundColor: AppColors.transparent,
         child: Column(
           children: [
-            CardReview(
+            const CardReview(
               numberStar: 4,
               countStar: '4.6',
               countReview: '120',
@@ -104,14 +103,15 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
                 countLike: '431',
                 countStaruser: '${i + 3}',
                 imageAvatar: 'https://picsum.photos/id/1$i/100/200',
-                textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore o eiusmod tempor incididunt ut labore et dolore.',
+                textComment:
+                    'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore o eiusmod tempor incididunt ut labore et dolore.',
                 dateComment: '6 hours ago',
                 isImage: true,
                 image: Row(
                   children: [
                     ...List.generate(3, (i) {
                       return Padding(
-                        padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : EdgeInsets.all(0),
+                        padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : const EdgeInsets.all(0),
                         child: AppImage(
                           image: 'https://picsum.photos/id/2$i/200/200',
                           width: 70,
@@ -152,7 +152,7 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
                             boxShadow: [
                               BoxShadow(
                                 color: AppColors.blackLv7.withOpacity(0.5),
-                                offset: Offset(0, 4),
+                                offset: const Offset(0, 4),
                                 blurRadius: 60,
                                 spreadRadius: 0,
                               ),
@@ -164,7 +164,8 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
                               bottom: AppSizes.padding,
                             ),
                             borderRadius: BorderRadius.circular(16),
-                            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
+                            text:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
                           )
                         ],
                       ),

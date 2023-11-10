@@ -1,4 +1,4 @@
-import 'package:alvamind_library/widget/molecule/app_card_container.dart';
+import '../../molecule/app_card_container.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -133,10 +133,7 @@ class Chart extends StatelessWidget {
                                         : 0,
                         color: AppColors.blackLv7,
                         strokeWidth: 1,
-                        dashArray: [
-                          20,
-                          4
-                        ],
+                        dashArray: [20, 4],
                       );
                     })
                   ],

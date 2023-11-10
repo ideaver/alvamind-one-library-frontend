@@ -1,4 +1,4 @@
-import 'package:alvamind_library/model/gender_model.dart';
+import '../../model/gender_model.dart';
 
 List<GenderModel> genders = const [
   GenderModel(

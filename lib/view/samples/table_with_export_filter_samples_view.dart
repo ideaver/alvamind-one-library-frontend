@@ -1,5 +1,5 @@
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
-import 'package:alvamind_library/widget/molecule/app_text_field.dart';
+import '../../widget/molecule/app_icon_button.dart';
+import '../../widget/molecule/app_text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';

@@ -1,13 +1,12 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/app/theme/app_text_style.dart';
-import 'package:alvamind_library/widget/molecule/app_icon_button.dart';
-import 'package:alvamind_library/widget/molecule/app_tags.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_sizes.dart';
+import '../../../app/theme/app_text_style.dart';
+import '../../molecule/app_icon_button.dart';
 import '../../molecule/app_ink_container.dart';
-
 import '../../molecule/app_progress_line.dart';
+import '../../molecule/app_tags.dart';
 
 class StatusCardComplain extends StatelessWidget {
   final String tagStatus;
@@ -16,7 +15,7 @@ class StatusCardComplain extends StatelessWidget {
   final void Function() onTapCard;
 
   const StatusCardComplain({
-    Key? key,
+    super.key,
     required this.countStatus,
     required this.onTapChevronButton,
     required this.onTapCard,
@@ -25,7 +24,6 @@ class StatusCardComplain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return AppInkContainer(
       onTap: onTapCard,
       child: Column(
@@ -52,7 +50,7 @@ class StatusCardComplain extends StatelessWidget {
                   AppIconButton(
                       padding: EdgeInsets.all(AppSizes.padding / 6),
                       buttonColor: AppColors.transparent,
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.chevron_right,
                       ),
                       onTap: onTapChevronButton)

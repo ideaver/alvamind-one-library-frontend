@@ -1,11 +1,11 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
-import 'package:alvamind_library/widget/organism/notification_list_body/search_not_found.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_sizes.dart';
 import '../notification_card/notification_card.dart';
 import '../tags_organism.dart/tags_organism.dart';
+import 'search_not_found.dart';
 
 class NotificationListBody extends StatefulWidget {
   const NotificationListBody({
@@ -88,7 +88,7 @@ class _NotificationListBodyState extends State<NotificationListBody> {
                             dateNotification: '20 Dec, 2022',
                             timeNotification: '20:49 PM',
                             iconColor: AppColors.orangeLv1,
-                            backgroundColorIcon: Color(0xFFFACC15).withOpacity(0.2),
+                            backgroundColorIcon: const Color(0xFFFACC15).withOpacity(0.2),
                             iconNotification: CustomIcon.discountBoldIcon,
                             textNotification: 'Anda bisa mendapatkan diskon sebesar 7rb. Syarat dan ketentuan berlaku.',
                             onTap: () {
@@ -112,7 +112,8 @@ class _NotificationListBodyState extends State<NotificationListBody> {
                                 iconColor: AppColors.redLv1,
                                 backgroundColorIcon: AppColors.redLv1.withOpacity(0.2),
                                 iconNotification: CustomIcon.chatBoldIcon,
-                                textNotification: 'Komplain anda berhasil ditanggapi. silahkan klik untuk mengetahui info selanjutnya.',
+                                textNotification:
+                                    'Komplain anda berhasil ditanggapi. silahkan klik untuk mengetahui info selanjutnya.',
                                 onTap: () {
                                   // TODO
                                 },
@@ -121,7 +122,7 @@ class _NotificationListBodyState extends State<NotificationListBody> {
                           }),
                         ],
                       )
-                    : NotFoundWidget(
+                    : const NotFoundWidget(
                         image: AppAssets.boardPaperImage,
                         title: 'Kosong',
                         subtitle: 'Anda belum memiliki notifikasi saat ini',

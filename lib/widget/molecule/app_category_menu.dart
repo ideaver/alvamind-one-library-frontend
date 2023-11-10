@@ -1,6 +1,6 @@
-import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_sizes.dart';
 import '../../model/category_menu_model.dart';
 import 'app_icon_button.dart';
 
