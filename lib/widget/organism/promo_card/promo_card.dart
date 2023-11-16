@@ -7,7 +7,6 @@ import '../../../app/theme/app_text_style.dart';
 import '../../atom/app_divider.dart';
 import '../../atom/app_image.dart';
 import '../../molecule/app_button.dart';
-import '../../molecule/app_icon_button.dart';
 import '../../molecule/app_long_card.dart';
 
 class PromoCard extends StatelessWidget {
@@ -21,7 +20,7 @@ class PromoCard extends StatelessWidget {
   final void Function()? functionIconButton;
   final void Function()? functionEditButton;
   final String? image;
-  final bool? rightIcon;
+  final bool isOwner;
   final List<BoxShadow>? boxShadow;
 
   const PromoCard({
@@ -31,7 +30,7 @@ class PromoCard extends StatelessWidget {
     this.iconButton,
     this.image,
     this.subtitle,
-    this.rightIcon = true,
+    this.isOwner = false,
     this.countPromo,
     this.detailDatePromo,
     this.functionEditButton,
@@ -60,9 +59,7 @@ class PromoCard extends StatelessWidget {
                       imgProvider: ImgProvider.assetImage,
                       width: 60,
                     ),
-                    SizedBox(
-                      width: AppSizes.padding,
-                    ),
+                    SizedBox(width: AppSizes.padding),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,19 +113,19 @@ class PromoCard extends StatelessWidget {
                   ],
                 ),
               ),
-              rightIcon == true
-                  ? AppIconButton(
-                      icon: Icon(
-                        iconButton ?? Icons.circle_outlined,
-                        color: AppColors.primary,
-                      ),
-                      buttonColor: Colors.transparent,
-                      onTap: functionIconButton ?? () {},
-                    )
-                  : const SizedBox.shrink(),
+              // !isOwner
+              //     ? AppIconButton(
+              //         icon: Icon(
+              //           iconButton ?? Icons.circle_outlined,
+              //           color: AppColors.primary,
+              //         ),
+              //         buttonColor: Colors.transparent,
+              //         onTap: functionIconButton ?? () {},
+              //       )
+              //     : const SizedBox.shrink(),
             ],
           ),
-          rightIcon == false ? editButtonDown() : const SizedBox.shrink(),
+          isOwner ? editButtonDown() : const SizedBox.shrink(),
         ],
       ),
     );

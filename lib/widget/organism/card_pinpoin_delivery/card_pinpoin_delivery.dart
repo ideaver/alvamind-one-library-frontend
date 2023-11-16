@@ -63,21 +63,21 @@ class CardPinPoinDelivery extends StatelessWidget {
               ],
             )),
         SizedBox(height: AppSizes.padding),
-        AppCardContainer(
-          boxShadow: const [
-            BoxShadow(
-              color: AppColors.blackLv7,
-              offset: Offset(0, 4),
-              blurRadius: 60,
-              spreadRadius: 0,
-            ),
-          ],
-          child: AddressCard(
-            countLocationUser: countLocationUser ?? 'Lokasi anda ( dalam 10 km )',
-            locationUser: locationUser ?? 'Margahayu, Bandung',
-            onChanged: onChanged ?? (String) {},
-          ),
-        ),
+        // AppCardContainer(
+        //   boxShadow: const [
+        //     BoxShadow(
+        //       color: AppColors.blackLv7,
+        //       offset: Offset(0, 4),
+        //       blurRadius: 60,
+        //       spreadRadius: 0,
+        //     ),
+        //   ],
+        //   child: AddressCard(
+        //     countLocationUser: countLocationUser ?? 'Lokasi anda ( dalam 10 km )',
+        //     locationUser: locationUser ?? 'Margahayu, Bandung',
+        //     onChanged: onChanged ?? (String) {},
+        //   ),
+        // ),
         courierDetail != null
             ? AppCardContainer(
                 margin: EdgeInsets.only(top: AppSizes.padding),

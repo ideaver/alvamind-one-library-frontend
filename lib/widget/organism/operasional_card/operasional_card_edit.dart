@@ -17,6 +17,7 @@ class OperasionalCardEdit extends StatefulWidget {
   final String? time;
   final String? text;
   bool? isDisabled;
+  bool showToggle;
   final dynamic Function(bool) onChangedToggle;
   final void Function(String)? onChangedStart;
   final void Function(String)? onChangedEnd;
@@ -29,6 +30,7 @@ class OperasionalCardEdit extends StatefulWidget {
     this.text,
     this.time,
     this.isDisabled,
+    this.showToggle = true,
     this.onChangedEnd,
     this.onChangedStart,
     this.onEditingCompleteEnd,
@@ -70,19 +72,19 @@ class _OperasionalCardEditState extends State<OperasionalCardEdit> {
                 children: [
                   Row(
                     children: [
-                      AppToggle(
-                        value: widget.isDisabled == true ? false : value1,
-                        onChanged: (val) {
-                          value1 = val;
-                          setState(() {
-                            value1 == false ? widget.isDisabled = true : widget.isDisabled = false;
-                          });
-                          widget.onChangedToggle(val);
-                        },
-                      ),
-                      SizedBox(
-                        width: AppSizes.padding / 2,
-                      ),
+                      widget.showToggle
+                          ? AppToggle(
+                              value: widget.isDisabled == true ? false : value1,
+                              onChanged: (val) {
+                                value1 = val;
+                                setState(() {
+                                  value1 == false ? widget.isDisabled = true : widget.isDisabled = false;
+                                });
+                                widget.onChangedToggle(val);
+                              },
+                            )
+                          : const SizedBox.shrink(),
+                      SizedBox(width: AppSizes.padding / 2),
                       Text(
                         widget.dayTitle ?? '',
                         style: AppTextStyle.bold(size: 20),
@@ -95,16 +97,18 @@ class _OperasionalCardEditState extends State<OperasionalCardEdit> {
                           fontSize: 14,
                           textStyle: AppTextStyle.bold(
                             size: 14,
-                            color: AppColors.blackLv3,
+                            color: AppColors.redLv1,
                           ),
-                          selectedColor: AppColors.blackLv6,
-                          leftIcon: Icons.login_rounded,
-                          unselectedColor: AppColors.blackLv3,
+                          // selectedColor: AppColors.redLv7,
+                          // leftIcon: Icons.login_rounded,
+                          unselectedColor: AppColors.redLv7,
+                          disabledColor: AppColors.redLv7,
                           borderWidth: 0,
                           padding: EdgeInsets.symmetric(
                             vertical: AppSizes.padding / 2,
                             horizontal: AppSizes.padding,
                           ),
+                          enable: false,
                           onTap: () {},
                           isSelected: true,
                         )
