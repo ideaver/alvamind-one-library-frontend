@@ -70,7 +70,7 @@ class _PromoCardSamplesViewState extends State<PromoCardSamplesView> {
         title: 'Promo Spesial Hari ini\nUntuk Hari ini',
         datePromo: 'Berakhir 2 Hari lagi',
         subtitle: 'Dapatkan diskon hinggi 75% syarat & kententuan berlaku.',
-        rightIcon: false,
+        isOwner: false,
         detailDatePromo: '25 Mei - 25 Mei 2023',
         countPromo: '123.123',
         functionEditButton: () {

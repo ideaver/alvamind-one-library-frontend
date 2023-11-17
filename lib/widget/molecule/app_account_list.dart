@@ -19,12 +19,14 @@ class AccountList extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final EdgeInsets? padding;
   final Color? backgroundColor;
+  final void Function()? onTapCard;
   final void Function()? onTapUser;
   final void Function()? onTapChatButton;
   final void Function()? onTapCallButton;
 
   const AccountList({
     super.key,
+    this.onTapCard,
     this.onTapUser,
     this.onTapCallButton,
     this.onTapChatButton,
@@ -42,96 +44,99 @@ class AccountList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCardContainer(
-      padding: padding ?? EdgeInsets.zero,
-      boxShadow: boxShadow ?? [],
-      backgroundColor: backgroundColor ?? AppColors.transparent,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: GestureDetector(
-              onTap: onTapUser,
-              child: Row(
-                children: [
-                  leftItem == null
-                      ? CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            image ?? randomImage,
+    return GestureDetector(
+      onTap: onTapCard,
+      child: AppCardContainer(
+        padding: padding ?? EdgeInsets.zero,
+        boxShadow: boxShadow ?? [],
+        backgroundColor: backgroundColor ?? AppColors.transparent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: GestureDetector(
+                onTap: onTapUser,
+                child: Row(
+                  children: [
+                    leftItem == null
+                        ? CircleAvatar(
+                            backgroundImage: NetworkImage(
+                              image ?? randomImage,
+                            ),
+                            maxRadius: 25,
+                          )
+                        : leftItem!,
+                    SizedBox(width: AppSizes.padding),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            title ?? '',
+                            style: titleTextStyle ?? AppTextStyle.bold(size: 18),
                           ),
-                          maxRadius: 25,
-                        )
-                      : leftItem!,
-                  SizedBox(width: AppSizes.padding),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title ?? '',
-                          style: titleTextStyle ?? AppTextStyle.bold(size: 18),
-                        ),
-                        subtitle == null
-                            ? const SizedBox.shrink()
-                            : SizedBox(
-                                height: AppSizes.padding / 4,
-                              ),
-                        subtitle == null
-                            ? const SizedBox.shrink()
-                            : Text(
-                                subtitle ?? '',
-                                maxLines: 1,
-                                softWrap: true,
-                                overflow: TextOverflow.ellipsis,
-                                style: AppTextStyle.medium(
-                                  size: 14,
-                                  color: AppColors.blackLv5,
+                          subtitle == null
+                              ? const SizedBox.shrink()
+                              : SizedBox(
+                                  height: AppSizes.padding / 4,
                                 ),
-                              ),
-                      ],
+                          subtitle == null
+                              ? const SizedBox.shrink()
+                              : Text(
+                                  subtitle ?? '',
+                                  maxLines: 1,
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: AppTextStyle.medium(
+                                    size: 14,
+                                    color: AppColors.blackLv5,
+                                  ),
+                                ),
+                        ],
+                      ),
                     ),
-                  ),
-                  //
-                  rightButton == false ? SizedBox(width: AppSizes.padding * 4) : const SizedBox.shrink(),
+                    //
+                    rightButton == false ? SizedBox(width: AppSizes.padding * 4) : const SizedBox.shrink(),
 
-                  rightButton == false
-                      ? const SizedBox.shrink()
-                      : Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Flexible(
-                                child: AppIconButton(
-                                  buttonColor: AppColors.transparent,
-                                  padding: const EdgeInsets.all(2),
-                                  icon: const Icon(
-                                    CustomIcon.chatIcon,
-                                    color: AppColors.primary,
+                    rightButton == false
+                        ? const SizedBox.shrink()
+                        : Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Flexible(
+                                  child: AppIconButton(
+                                    buttonColor: AppColors.transparent,
+                                    padding: const EdgeInsets.all(2),
+                                    icon: const Icon(
+                                      CustomIcon.chatIcon,
+                                      color: AppColors.primary,
+                                    ),
+                                    onTap: onTapChatButton ?? () {},
                                   ),
-                                  onTap: onTapChatButton ?? () {},
                                 ),
-                              ),
-                              SizedBox(width: AppSizes.padding),
-                              Flexible(
-                                child: AppIconButton(
-                                  padding: const EdgeInsets.all(2),
-                                  buttonColor: AppColors.transparent,
-                                  icon: const Icon(
-                                    CustomIcon.contactIcon,
-                                    color: AppColors.primary,
+                                SizedBox(width: AppSizes.padding),
+                                Flexible(
+                                  child: AppIconButton(
+                                    padding: const EdgeInsets.all(2),
+                                    buttonColor: AppColors.transparent,
+                                    icon: const Icon(
+                                      CustomIcon.contactIcon,
+                                      color: AppColors.primary,
+                                    ),
+                                    onTap: onTapChatButton ?? () {},
                                   ),
-                                  onTap: onTapChatButton ?? () {},
                                 ),
-                              ),
-                            ],
-                          ),
-                        )
-                ],
+                              ],
+                            ),
+                          )
+                  ],
+                ),
               ),
             ),
-          ),
-          rightButton == false ? rightItem! : const SizedBox.shrink(),
-        ],
+            rightButton == false ? rightItem! : const SizedBox.shrink(),
+          ],
+        ),
       ),
     );
   }
