@@ -42,36 +42,40 @@ class _AppRangeSliderState extends State<AppRangeSlider> {
       values: [widget.lowerValue, widget.upperValue],
       min: widget.min ?? 0,
       max: widget.max ?? 20000,
-      textPositionTop: -80,
+      textPositionTop: -74,
       handlerHeight: 30,
       handlerWidth: 30,
-      fontSize: 14,
+      fontSize: 12,
       textBackgroundColor: AppColors.primary,
       handler: RangeSliderFlutterHandler(
-          decoration: BoxDecoration(
-        color: AppColors.white,
-        shape: BoxShape.circle,
-        border: Border.all(color: AppColors.primary, width: 7),
-      )),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          shape: BoxShape.circle,
+          border: Border.all(color: AppColors.primary, width: 7),
+        ),
+      ),
       rangeSlider: true,
       rightHandler: RangeSliderFlutterHandler(
-          child: const Center(),
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            shape: BoxShape.circle,
-            border: Border.all(color: AppColors.primary, width: 7),
-          )),
+        child: const Center(),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          shape: BoxShape.circle,
+          border: Border.all(color: AppColors.primary, width: 7),
+        ),
+      ),
       tooltip: RangeSliderFlutterTooltip(
-          leftSuffix: widget.leftSuffix,
-          rightSuffix: widget.rightSuffix,
-          rightPrefix: widget.rightPrefix,
-          leftPrefix: widget.leftPrefix,
-          alwaysShowTooltip: true,
-          boxStyle: RangeSliderFlutterTooltipBox(
-              decoration: BoxDecoration(
+        leftSuffix: widget.leftSuffix,
+        rightSuffix: widget.rightSuffix,
+        rightPrefix: widget.rightPrefix,
+        leftPrefix: widget.leftPrefix,
+        alwaysShowTooltip: true,
+        boxStyle: RangeSliderFlutterTooltipBox(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             color: AppColors.primary,
-          ))),
+          ),
+        ),
+      ),
       trackBar: RangeSliderFlutterTrackBar(
         activeTrackBarHeight: 8,
         inactiveTrackBarHeight: 8,
@@ -86,8 +90,6 @@ class _AppRangeSliderState extends State<AppRangeSlider> {
       ),
       onDragging: (handlerIndex, lowerValue, upperValue) {
         widget.onDragging(handlerIndex, lowerValue, upperValue);
-
-        setState(() {});
       },
       onDragCompleted: (handlerIndex, lowerValue, upperValue) {
         widget.onDragCompleted ?? (handlerIndex, lowerValue, upperValue);

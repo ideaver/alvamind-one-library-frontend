@@ -1,16 +1,16 @@
 import 'dart:async';
 
-import '../../../app/theme/app_sizes.dart';
-import '../../../app/theme/app_text_style.dart';
-import '../../atom/app_image.dart';
-import '../../molecule/app_button.dart';
-import '../service_category_menu/service_category_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:widget_to_marker/widget_to_marker.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_sizes.dart';
+import '../../../app/theme/app_text_style.dart';
+import '../../atom/app_image.dart';
 import '../../atom/app_pin_point.dart';
+import '../../molecule/app_button.dart';
+import '../service_category_menu/service_category_menu.dart';
 
 class PublicSummaryBody extends StatefulWidget {
   final String termsCondtionText;
@@ -177,27 +177,34 @@ class _PublicSummaryBodyState extends State<PublicSummaryBody> {
               ],
             ),
             SizedBox(height: AppSizes.padding),
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: AppColors.blueLv5,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: GoogleMap(
-                  zoomControlsEnabled: false,
-                  mapType: widget.mapType ?? MapType.normal,
-                  initialCameraPosition: CameraPosition(
-                    target: widget.mapTarget ?? const LatLng(37.42796133580664, -122.085749655962),
-                    zoom: widget.mapZoom ?? 14.4746,
+            GestureDetector(
+              onTap: () {
+                if (widget.onTapMap != null) {
+                  widget.onTapMap!(widget.mapTarget ?? const LatLng(37.42796133580664, -122.085749655962));
+                }
+              },
+              child: Container(
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: AppColors.blueLv5,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: GoogleMap(
+                    zoomControlsEnabled: false,
+                    mapType: widget.mapType ?? MapType.normal,
+                    initialCameraPosition: CameraPosition(
+                      target: widget.mapTarget ?? const LatLng(37.42796133580664, -122.085749655962),
+                      zoom: widget.mapZoom ?? 14.4746,
+                    ),
+                    onMapCreated: (GoogleMapController controller) {
+                      _controller.complete(controller);
+                    },
+                    circles: circles,
+                    onTap: widget.onTapMap ?? (value) {},
+                    markers: widget.mapMarker ?? markers,
                   ),
-                  onMapCreated: (GoogleMapController controller) {
-                    _controller.complete(controller);
-                  },
-                  circles: circles,
-                  onTap: widget.onTapMap ?? (value) {},
-                  markers: widget.mapMarker ?? markers,
                 ),
               ),
             ),

@@ -47,8 +47,10 @@ class AppTextField extends StatefulWidget {
   final IconData? suffixIcon;
   final Widget? prefixWidget;
   final Widget? suffixWidget;
-  final Function(String text)? onChanged;
+  final Function()? onTap;
+  final Function(String)? onChanged;
   final Function()? onEditingComplete;
+  final Function(String)? onSubmitted;
   final Function()? onTapSearcFilter;
   final Function(CountryModel)? onTapCountry;
   final List<TextInputFormatter>? inputFormatters;
@@ -90,8 +92,10 @@ class AppTextField extends StatefulWidget {
     this.suffixIcon,
     this.prefixWidget,
     this.suffixWidget,
+    this.onTap,
     this.onChanged,
     this.onEditingComplete,
+    this.onSubmitted,
     this.onTapSearcFilter,
     this.onTapCountry,
     this.inputFormatters,
@@ -168,83 +172,87 @@ class _AppTextFieldState extends State<AppTextField> {
   }
 
   Widget textFieldWidget() {
-    return TextField(
-      focusNode: _focusNode,
-      controller: widget.controller,
-      onChanged: widget.onChanged,
-      onEditingComplete: widget.onEditingComplete,
-      enabled: widget.enabled,
-      style: widget.textStyle ?? AppTextStyle.bodyMedium(fontWeight: AppFontWeight.semibold),
-      cursorColor: AppColors.blackLv1,
-      cursorWidth: 1.5,
-      autofocus: widget.autofocus,
-      obscureText: _obsecureText,
-      minLines: widget.minLines,
-      maxLines: widget.type == AppTextFieldType.password ? 1 : widget.maxLines,
-      maxLength: widget.maxLength,
-      maxLengthEnforcement: MaxLengthEnforcement.enforced,
-      keyboardType: keyboardType(),
-      textInputAction: widget.textInputAction,
-      inputFormatters: inputFormatters(),
-      decoration: InputDecoration(
-        errorText: widget.errorText,
-        counterText: widget.showCounter ? null : '',
-        isDense: true,
-        filled: true,
-        fillColor: widget.enabled
-            ? widget.errorText != null
-                ? AppColors.redLv7
-                : _fillColor
-            : widget.disabledColor,
-        prefixIcon: prefixIconWidget(),
-        suffixIcon: suffixIconWidget(),
-        prefix: widget.prefixWidget,
-        suffix: widget.suffixWidget,
-        hintText: widget.hintText,
-        hintStyle: widget.hintStyle ??
-            AppTextStyle.bodyMedium(
-              fontWeight: AppFontWeight.regular,
-              color: widget.errorText != null ? AppColors.redLv5 : AppColors.blackLv5,
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: TextField(
+        focusNode: _focusNode,
+        controller: widget.controller,
+        onChanged: widget.onChanged,
+        onEditingComplete: widget.onEditingComplete,
+        onSubmitted: widget.onSubmitted,
+        enabled: widget.enabled,
+        style: widget.textStyle ?? AppTextStyle.bodyMedium(fontWeight: AppFontWeight.semibold),
+        cursorColor: AppColors.blackLv1,
+        cursorWidth: 1.5,
+        autofocus: widget.autofocus,
+        obscureText: _obsecureText,
+        minLines: widget.minLines,
+        maxLines: widget.type == AppTextFieldType.password ? 1 : widget.maxLines,
+        maxLength: widget.maxLength,
+        maxLengthEnforcement: MaxLengthEnforcement.enforced,
+        keyboardType: keyboardType(),
+        textInputAction: widget.textInputAction,
+        inputFormatters: inputFormatters(),
+        decoration: InputDecoration(
+          errorText: widget.errorText,
+          counterText: widget.showCounter ? null : '',
+          isDense: true,
+          filled: true,
+          fillColor: widget.enabled
+              ? widget.errorText != null
+                  ? AppColors.redLv7
+                  : _fillColor
+              : widget.disabledColor,
+          prefixIcon: prefixIconWidget(),
+          suffixIcon: suffixIconWidget(),
+          prefix: widget.prefixWidget,
+          suffix: widget.suffixWidget,
+          hintText: widget.hintText,
+          hintStyle: widget.hintStyle ??
+              AppTextStyle.bodyMedium(
+                fontWeight: AppFontWeight.regular,
+                color: widget.errorText != null ? AppColors.redLv5 : AppColors.blackLv5,
+              ),
+          contentPadding: widget.contentPadding,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(widget.borderRadius),
             ),
-        contentPadding: widget.contentPadding,
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(widget.borderRadius),
+            borderSide: BorderSide(
+              width: 1,
+              color: widget.borderColor,
+            ),
           ),
-          borderSide: BorderSide(
-            width: 1,
-            color: widget.borderColor,
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(widget.borderRadius),
+            ),
+            borderSide: const BorderSide(
+              width: 1,
+              color: AppColors.error,
+            ),
           ),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(widget.borderRadius),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(widget.borderRadius),
+            ),
+            borderSide: const BorderSide(
+              width: 1,
+              color: AppColors.error,
+            ),
           ),
-          borderSide: const BorderSide(
-            width: 1,
-            color: AppColors.error,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(widget.borderRadius),
+            ),
+            borderSide: BorderSide.none,
           ),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(widget.borderRadius),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(widget.borderRadius),
+            ),
+            borderSide: BorderSide.none,
           ),
-          borderSide: const BorderSide(
-            width: 1,
-            color: AppColors.error,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(widget.borderRadius),
-          ),
-          borderSide: BorderSide.none,
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(widget.borderRadius),
-          ),
-          borderSide: BorderSide.none,
         ),
       ),
     );
