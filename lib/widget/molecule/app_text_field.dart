@@ -47,6 +47,10 @@ class AppTextField extends StatefulWidget {
   final IconData? suffixIcon;
   final Widget? prefixWidget;
   final Widget? suffixWidget;
+  final String? prefixText;
+  final String? suffixText;
+  final TextStyle? prefixStyle;
+  final TextStyle? suffixStyle;
   final Function()? onTap;
   final Function(String)? onChanged;
   final Function()? onEditingComplete;
@@ -92,6 +96,10 @@ class AppTextField extends StatefulWidget {
     this.suffixIcon,
     this.prefixWidget,
     this.suffixWidget,
+    this.prefixText,
+    this.suffixText,
+    this.prefixStyle,
+    this.suffixStyle,
     this.onTap,
     this.onChanged,
     this.onEditingComplete,
@@ -207,6 +215,10 @@ class _AppTextFieldState extends State<AppTextField> {
           suffixIcon: suffixIconWidget(),
           prefix: widget.prefixWidget,
           suffix: widget.suffixWidget,
+          prefixText: widget.prefixText,
+          suffixText: widget.suffixText,
+          prefixStyle: widget.prefixStyle,
+          suffixStyle: widget.suffixStyle,
           hintText: widget.hintText,
           hintStyle: widget.hintStyle ??
               AppTextStyle.bodyMedium(

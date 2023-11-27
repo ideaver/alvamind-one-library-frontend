@@ -9,6 +9,7 @@ class AppLocale {
 
   static Locale defaultLocale = const Locale('id', 'ID');
   static String defaultPhoneCode = '+62';
+  static String defaultCurrencyCode = 'Rp';
 
   static const List<Locale> supportedLocales = [
     Locale('id', 'ID'),

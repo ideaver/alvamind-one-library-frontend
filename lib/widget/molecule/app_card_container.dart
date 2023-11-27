@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
@@ -11,6 +12,7 @@ class AppCardContainer extends StatelessWidget {
   final Widget? child;
   final List<BoxShadow>? boxShadow;
   final Gradient? gradient;
+  final bool withBackground;
 
   const AppCardContainer({
     Key? key,
@@ -21,6 +23,7 @@ class AppCardContainer extends StatelessWidget {
     this.child,
     this.boxShadow,
     this.gradient,
+    this.withBackground = false,
   }) : super(key: key);
 
   @override
@@ -32,9 +35,57 @@ class AppCardContainer extends StatelessWidget {
         boxShadow: boxShadow ?? [],
         gradient: gradient,
       ),
-      padding: padding ?? EdgeInsets.all(AppSizes.padding),
-      margin: margin ?? EdgeInsets.zero,
-      child: child,
+      child: !withBackground
+          ? Container(
+              padding: padding ?? EdgeInsets.all(AppSizes.padding),
+              margin: margin ?? EdgeInsets.zero,
+              child: child,
+            )
+          : childWithBackground(),
+    );
+  }
+
+  Widget childWithBackground() {
+    return Stack(
+      children: [
+        Positioned(
+          top: 75,
+          left: 200,
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
+          ),
+        ),
+        Positioned(
+          top: 247,
+          left: 223,
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
+          ),
+        ),
+        Positioned(
+          top: 38,
+          right: 242,
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
+          ),
+        ),
+        Positioned(
+          left: 232,
+          bottom: 86,
+          child: Opacity(
+            opacity: 0.5,
+            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
+          ),
+        ),
+        Container(
+          padding: padding ?? EdgeInsets.all(AppSizes.padding),
+          margin: margin ?? EdgeInsets.zero,
+          child: child,
+        )
+      ],
     );
   }
 }

@@ -51,51 +51,16 @@ class UserProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        AppCardContainer(
-          padding: EdgeInsets.all(AppSizes.padding * 2),
-          borderRadius: BorderRadius.circular(40),
-          backgroundColor: AppColors.blueLv1,
-          gradient: const LinearGradient(colors: [
-            AppColors.blueLv2,
-            AppColors.blueLv1,
-          ]),
-          child: content(),
-        ),
-        Positioned(
-          top: 75,
-          left: 200,
-          child: Opacity(
-            opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
-          ),
-        ),
-        Positioned(
-          top: 247,
-          left: 223,
-          child: Opacity(
-            opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
-          ),
-        ),
-        Positioned(
-          top: 38,
-          right: 242,
-          child: Opacity(
-            opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
-          ),
-        ),
-        Positioned(
-          left: 232,
-          bottom: 86,
-          child: Opacity(
-            opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
-          ),
-        ),
-      ],
+    return AppCardContainer(
+      padding: EdgeInsets.all(AppSizes.padding * 2),
+      borderRadius: BorderRadius.circular(40),
+      backgroundColor: AppColors.blueLv1,
+      gradient: const LinearGradient(colors: [
+        AppColors.blueLv2,
+        AppColors.blueLv1,
+      ]),
+      withBackground: true,
+      child: content(),
     );
   }
 
@@ -179,9 +144,7 @@ class UserProfileCard extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(
-                  height: AppSizes.padding / 3,
-                ),
+                SizedBox(height: AppSizes.padding / 3),
                 Text(
                   countBalance ?? '',
                   softWrap: true,
@@ -206,11 +169,7 @@ class UserProfileCard extends StatelessWidget {
                   )
           ],
         ),
-        onlySaldo == true
-            ? const SizedBox.shrink()
-            : SizedBox(
-                height: AppSizes.padding,
-              ),
+        onlySaldo == true ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding),
         onlySaldo == true
             ? const SizedBox.shrink()
             : AppCardContainer(
@@ -222,7 +181,12 @@ class UserProfileCard extends StatelessWidget {
                         Icons.add_box_rounded,
                         color: AppColors.primary,
                       ),
-                      onTap: onTapTopUpButton ?? () {},
+                      enable: true,
+                      onTap: () {
+                        if (onTapTopUpButton != null) {
+                          onTapTopUpButton!();
+                        }
+                      },
                       buttonColor: AppColors.blueLv5,
                       textStyle: AppTextStyle.bodyMedium(fontWeight: AppFontWeight.bold, color: AppColors.primary),
                       text: 'Top Up',
@@ -232,7 +196,11 @@ class UserProfileCard extends StatelessWidget {
                         CustomIcon.withdrawBoldIcon,
                         color: AppColors.primary,
                       ),
-                      onTap: onTapWithDrawButton ?? () {},
+                      onTap: () {
+                        if (onTapWithDrawButton != null) {
+                          onTapWithDrawButton!();
+                        }
+                      },
                       buttonColor: AppColors.blueLv5,
                       text: 'Withdrawal',
                       textStyle: AppTextStyle.bodyMedium(fontWeight: AppFontWeight.bold, color: AppColors.primary),
@@ -242,7 +210,11 @@ class UserProfileCard extends StatelessWidget {
                         CustomIcon.scanIcon,
                         color: AppColors.primary,
                       ),
-                      onTap: onTapPayButton ?? () {},
+                      onTap: () {
+                        if (onTapPayButton != null) {
+                          onTapPayButton!();
+                        }
+                      },
                       textStyle: AppTextStyle.bodyMedium(fontWeight: AppFontWeight.bold, color: AppColors.primary),
                       buttonColor: AppColors.blueLv5,
                       text: 'Bayar',
