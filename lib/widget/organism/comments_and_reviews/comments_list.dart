@@ -17,9 +17,9 @@ class CommentListCard extends StatelessWidget {
   final bool isComment;
   final String? textComment;
   final String? dateComment;
-  final bool? isImage;
+  final bool showImage;
   final String? imageAvatar;
-  final dynamic image;
+  final List<String>? images;
   final void Function()? onTapLikeButton;
   final void Function()? onTapResponseButton;
   final void Function()? onTapEditButton;
@@ -34,8 +34,8 @@ class CommentListCard extends StatelessWidget {
     this.onTapLikeButton,
     this.onTapResponseButton,
     this.onTapEditButton,
-    this.image,
-    this.isImage = false,
+    this.images,
+    this.showImage = false,
     this.subtitleUser,
     this.textComment,
     this.imageAvatar,
@@ -61,17 +61,36 @@ class CommentListCard extends StatelessWidget {
                 style: AppTextStyle.regular(size: 14),
               ),
               SizedBox(height: AppSizes.padding / 1.5),
-              Row(
-                children: [
-                  isImage == true ? image : const SizedBox.shrink(),
-                ],
-              ),
-              isImage == true ? SizedBox(height: AppSizes.padding / 1.5) : const SizedBox.shrink(),
+              showImage == true ? imageList() : const SizedBox.shrink(),
+              showImage == true ? SizedBox(height: AppSizes.padding / 1.5) : const SizedBox.shrink(),
               buttonBottom(),
             ],
           )
         ],
       ),
+    );
+  }
+
+  Widget imageList() {
+    if (images == null || images!.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    return Row(
+      children: [
+        ...List.generate(images!.length, (i) {
+          return Padding(
+            padding: EdgeInsets.only(right: AppSizes.padding / 2),
+            child: AppImage(
+              image: 'https://picsum.photos/id/2$i/200/200',
+              width: 70,
+              height: 70,
+              borderRadius: 24,
+              backgroundColor: AppColors.redLv5,
+            ),
+          );
+        }),
+      ],
     );
   }
 

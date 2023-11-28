@@ -101,8 +101,8 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
             countReview: '120',
           ),
           SizedBox(height: AppSizes.padding * 2),
-          CommentListCard(
-            padding: const EdgeInsets.all(0),
+          const CommentListCard(
+            padding: EdgeInsets.all(0),
             isComment: true,
             titleUser: 'Shizuka Otomo',
             subtitleUser: 'Occuptaion',
@@ -111,23 +111,8 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
             imageAvatar: randomImage,
             textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
             dateComment: '6 hours ago',
-            isImage: true,
-            image: Row(
-              children: [
-                ...List.generate(3, (i) {
-                  return Padding(
-                    padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : const EdgeInsets.all(0),
-                    child: AppImage(
-                      image: 'https://picsum.photos/id/1$i/100/200',
-                      width: 70,
-                      height: 70,
-                      borderRadius: 24,
-                      backgroundColor: AppColors.redLv5,
-                    ),
-                  );
-                }),
-              ],
-            ),
+            showImage: true,
+            images: [randomImage, randomImage, randomImage],
           ),
         ],
       ),

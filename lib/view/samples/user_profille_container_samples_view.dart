@@ -1,4 +1,3 @@
-import '../../widget/molecule/app_nested_body.dart';
 import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
@@ -14,6 +13,7 @@ import '../../widget/molecule/app_dialog.dart';
 import '../../widget/molecule/app_expansion_list_tile.dart';
 import '../../widget/molecule/app_icon_button.dart';
 import '../../widget/molecule/app_long_card.dart';
+import '../../widget/molecule/app_nested_body.dart';
 import '../../widget/molecule/app_text_field.dart';
 import '../../widget/organism/accordion/accordion_question_card.dart';
 import '../../widget/organism/comments_and_reviews/comments_list.dart';
@@ -355,25 +355,8 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                   textComment:
                       'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore o eiusmod tempor incididunt ut labore et dolore.',
                   dateComment: '6 hours ago',
-                  isImage: true,
-                  image: Row(
-                    children: [
-                      ...List.generate(3, (i) {
-                        return Padding(
-                          padding: i != 3
-                              ? EdgeInsets.only(right: AppSizes.padding / 2)
-                              : EdgeInsets.only(bottom: AppSizes.padding * 4),
-                          child: AppImage(
-                            image: 'https://picsum.photos/id/2$i/200/200',
-                            width: 70,
-                            height: 70,
-                            borderRadius: 24,
-                            backgroundColor: AppColors.redLv5,
-                          ),
-                        );
-                      }),
-                    ],
-                  ),
+                  showImage: true,
+                  images: const [randomImage, randomImage, randomImage],
                 ),
                 i == 0
                     ? Padding(

@@ -22,6 +22,7 @@ class AppTextField extends StatefulWidget {
   final FocusNode? focusNode;
   final bool enabled;
   final bool autofocus;
+  final bool showSearchFilter;
   final double fontSize;
   final double? iconsSize;
   final double borderRadius;
@@ -68,6 +69,7 @@ class AppTextField extends StatefulWidget {
     this.focusNode,
     this.enabled = true,
     this.autofocus = false,
+    this.showSearchFilter = true,
     this.fontSize = 14,
     this.iconsSize,
     this.borderRadius = 16,
@@ -338,6 +340,10 @@ class _AppTextFieldState extends State<AppTextField> {
     }
 
     if (widget.type == AppTextFieldType.search) {
+      if (!widget.showSearchFilter) {
+        return null;
+      }
+
       return GestureDetector(
         onTap: widget.onTapSearcFilter,
         child: Padding(

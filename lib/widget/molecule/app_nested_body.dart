@@ -1,5 +1,6 @@
-import '../../app/theme/app_sizes.dart';
 import 'package:flutter/material.dart';
+
+import '../../app/theme/app_sizes.dart';
 
 class AppNestedScrollView extends StatefulWidget {
   final Widget body;

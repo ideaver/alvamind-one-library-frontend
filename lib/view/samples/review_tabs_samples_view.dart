@@ -106,23 +106,8 @@ class _ReviewTabsSamplesViewState extends State<ReviewTabsSamplesView> {
                 textComment:
                     'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore o eiusmod tempor incididunt ut labore et dolore.',
                 dateComment: '6 hours ago',
-                isImage: true,
-                image: Row(
-                  children: [
-                    ...List.generate(3, (i) {
-                      return Padding(
-                        padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : const EdgeInsets.all(0),
-                        child: AppImage(
-                          image: 'https://picsum.photos/id/2$i/200/200',
-                          width: 70,
-                          height: 70,
-                          borderRadius: 24,
-                          backgroundColor: AppColors.redLv5,
-                        ),
-                      );
-                    }),
-                  ],
-                ),
+                showImage: true,
+                images: const [randomImage, randomImage, randomImage],
               ),
               i == 0
                   ? Padding(

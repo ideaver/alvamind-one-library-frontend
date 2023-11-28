@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_shadows.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../atom/app_divider.dart';
 import '../../molecule/app_card_container.dart';
@@ -61,24 +62,17 @@ class ListTransaction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppCardContainer(
-        backgroundColor: AppColors.white,
-        boxShadow: boxShadow ??
-            const [
-              BoxShadow(
-                color: AppColors.blackLv7,
-                offset: Offset(0, 4),
-                blurRadius: 60,
-                spreadRadius: -40,
-              ),
-            ],
-        child: isTransaction == true
-            ? transaction()
-            : isComplain == true
-                ? complain()
-                : userDetail());
+      backgroundColor: AppColors.white,
+      boxShadow: boxShadow ?? [AppShadows.cardShadow1],
+      child: isTransaction == true
+          ? transaction()
+          : isComplain == true
+              ? complain()
+              : userDetail(),
+    );
   }
 
-  userDetail() {
+  Widget userDetail() {
     return Column(
       children: [
         AppTransactionInfo(
@@ -108,9 +102,7 @@ class ListTransaction extends StatelessWidget {
           withIcon: false,
           onlyTrasactionId: true,
         ),
-        const AppDivider(
-          color: AppColors.blackLv7,
-        ),
+        const AppDivider(color: AppColors.blackLv7),
         AppTransactionInfo(
           dotChillPadding: const EdgeInsets.all(0),
           dotColor: AppColors.transparent,
@@ -124,7 +116,7 @@ class ListTransaction extends StatelessWidget {
     );
   }
 
-  transaction() {
+  Widget transaction() {
     return Column(
       children: [
         AppTransactionInfo(
@@ -154,9 +146,7 @@ class ListTransaction extends StatelessWidget {
           withIcon: false,
           onlyTrasactionId: true,
         ),
-        const AppDivider(
-          color: AppColors.blackLv7,
-        ),
+        const AppDivider(color: AppColors.blackLv7),
         AppTransactionInfo(
           dotChillPadding: const EdgeInsets.all(0),
           dotColor: AppColors.transparent,
@@ -170,7 +160,7 @@ class ListTransaction extends StatelessWidget {
     );
   }
 
-  complain() {
+  Widget complain() {
     return Column(
       children: [
         AppTransactionInfo(
@@ -191,9 +181,7 @@ class ListTransaction extends StatelessWidget {
           withIcon: false,
           onlyTrasactionId: true,
         ),
-        const AppDivider(
-          color: AppColors.blackLv7,
-        ),
+        const AppDivider(color: AppColors.blackLv7),
         AppTransactionInfo(
           dotChillPadding: const EdgeInsets.all(0),
           dotColor: AppColors.transparent,

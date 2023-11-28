@@ -23,12 +23,13 @@ class AppImageInk extends StatelessWidget {
       padding: padding ?? EdgeInsets.all(0),
       child: Ink(
         decoration: BoxDecoration(
-            borderRadius: borderRadius ?? BorderRadius.circular(20),
-            color: color ?? AppColors.blueLv4,
-            image: DecorationImage(
-              image: NetworkImage(image),
-              fit: BoxFit.cover,
-            )),
+          borderRadius: borderRadius ?? BorderRadius.circular(20),
+          color: color ?? AppColors.blueLv4,
+          image: DecorationImage(
+            image: NetworkImage(image),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }

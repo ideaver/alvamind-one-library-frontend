@@ -52,7 +52,7 @@ class _CommentAndReviewListSamplesViewState extends State<CommentAndReviewListSa
         ],
         leftItem: Padding(
           padding: EdgeInsets.only(right: AppSizes.padding / 1.5),
-          child: AppAvatar(
+          child: const AppAvatar(
             image: randomImage,
             size: 40,
           ),
@@ -70,13 +70,14 @@ class _CommentAndReviewListSamplesViewState extends State<CommentAndReviewListSa
             boxShadow: [
               BoxShadow(
                 color: AppColors.blackLv7.withOpacity(0.5),
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
                 blurRadius: 60,
                 spreadRadius: 0,
               ),
             ],
             borderRadius: BorderRadius.circular(16),
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
+            text:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
           )
         ],
       ),
@@ -84,35 +85,21 @@ class _CommentAndReviewListSamplesViewState extends State<CommentAndReviewListSa
   }
 
   Widget commentCard() {
-    return SampleWrapper(
-        title: 'Comment',
-        widget: CommentListCard(
-          isComment: true,
-          titleUser: 'FullName',
-          subtitleUser: 'Occuptaion',
-          countLike: '431',
-          countStaruser: '0',
-          imageAvatar: randomImage,
-          textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-          dateComment: '6 hours ago',
-          isImage: true,
-          image: Row(
-            children: [
-              ...List.generate(3, (i) {
-                return Padding(
-                  padding: i != 3 ? EdgeInsets.only(right: AppSizes.padding / 2) : EdgeInsets.all(0),
-                  child: const AppImage(
-                    image: randomImage,
-                    width: 70,
-                    height: 70,
-                    borderRadius: 24,
-                    backgroundColor: AppColors.redLv5,
-                  ),
-                );
-              }),
-            ],
-          ),
-        ));
+    return const SampleWrapper(
+      title: 'Comment',
+      widget: CommentListCard(
+        isComment: true,
+        titleUser: 'FullName',
+        subtitleUser: 'Occuptaion',
+        countLike: '431',
+        countStaruser: '0',
+        imageAvatar: randomImage,
+        textComment: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        dateComment: '6 hours ago',
+        showImage: true,
+        images: [randomImage, randomImage, randomImage],
+      ),
+    );
   }
 
   Widget commentList() {
