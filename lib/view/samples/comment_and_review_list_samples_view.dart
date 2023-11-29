@@ -88,7 +88,7 @@ class _CommentAndReviewListSamplesViewState extends State<CommentAndReviewListSa
     return const SampleWrapper(
       title: 'Comment',
       widget: CommentListCard(
-        isComment: true,
+        isMyComment: true,
         titleUser: 'FullName',
         subtitleUser: 'Occuptaion',
         countLike: '431',
@@ -106,7 +106,7 @@ class _CommentAndReviewListSamplesViewState extends State<CommentAndReviewListSa
     return const SampleWrapper(
         title: 'Comment List',
         widget: CommentListCard(
-          isComment: false,
+          isMyComment: false,
           titleUser: 'FullName',
           subtitleUser: 'Occuptaion',
           countLike: '431',

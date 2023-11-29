@@ -107,9 +107,13 @@ class _TransaksiReviewCardSamplesViewState extends State<TransaksiReviewCardSamp
     return const SampleWrapper(
       title: 'Card Review',
       widget: CardReview(
-        numberStar: 4,
-        countStar: '4.6',
-        countReview: '120',
+        starsOveral: 4.6,
+        totalReviews: 127,
+        total5Stars: 20,
+        total4Stars: 15,
+        total3Stars: 12,
+        total2Stars: 5,
+        total1Stars: 1,
       ),
     );
   }

@@ -14,7 +14,8 @@ class CommentListCard extends StatelessWidget {
   final String? subtitleUser;
   final String? countStaruser;
   final String? countLike;
-  final bool isComment;
+  final bool showResponseButton;
+  final bool isMyComment;
   final String? textComment;
   final String? dateComment;
   final bool showImage;
@@ -28,7 +29,8 @@ class CommentListCard extends StatelessWidget {
   const CommentListCard({
     super.key,
     required this.titleUser,
-    required this.isComment,
+    this.showResponseButton = false,
+    this.isMyComment = false,
     this.countStaruser,
     this.dateComment,
     this.onTapLikeButton,
@@ -116,7 +118,7 @@ class CommentListCard extends StatelessWidget {
           ],
         ),
         SizedBox(width: AppSizes.padding),
-        isComment == true
+        showResponseButton
             ? Row(
                 children: [
                   AppIconButton(
@@ -136,7 +138,7 @@ class CommentListCard extends StatelessWidget {
                 ],
               )
             : const SizedBox.shrink(),
-        isComment == true ? SizedBox(width: AppSizes.padding) : const SizedBox.shrink(),
+        showResponseButton ? SizedBox(width: AppSizes.padding) : const SizedBox.shrink(),
         Text(
           dateComment ?? '',
           style: AppTextStyle.regular(
@@ -194,21 +196,17 @@ class CommentListCard extends StatelessWidget {
               selectedColor: AppColors.primary,
             ),
             SizedBox(width: AppSizes.padding / 2),
-            AppIconButton(
-              icon: isComment == false
-                  ? const Icon(
-                      Icons.pending_outlined,
-                      size: 20,
-                      color: AppColors.white,
-                    )
-                  : const Icon(
+            isMyComment
+                ? AppIconButton(
+                    icon: const Icon(
                       size: 20,
                       CustomIcon.editIcon,
                     ),
-              onTap: onTapEditButton ?? () {},
-              padding: const EdgeInsets.all(2),
-              buttonColor: AppColors.transparent,
-            ),
+                    onTap: onTapEditButton ?? () {},
+                    padding: const EdgeInsets.all(2),
+                    buttonColor: AppColors.transparent,
+                  )
+                : const SizedBox.shrink(),
           ],
         )
       ],

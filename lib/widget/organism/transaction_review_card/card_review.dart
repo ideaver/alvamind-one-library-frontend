@@ -1,3 +1,4 @@
+import 'package:alvamind_library/app/theme/app_shadows.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -7,27 +8,29 @@ import '../../molecule/app_card_container.dart';
 import '../../molecule/app_progress_line.dart';
 
 class CardReview extends StatelessWidget {
-  final String countStar;
-  final String countReview;
-  final int numberStar;
+  final double starsOveral;
+  final int totalReviews;
+  final double total5Stars;
+  final double total4Stars;
+  final double total3Stars;
+  final double total2Stars;
+  final double total1Stars;
+
   const CardReview({
     super.key,
-    required this.countReview,
-    required this.countStar,
-    required this.numberStar,
+    required this.starsOveral,
+    required this.totalReviews,
+    required this.total5Stars,
+    required this.total4Stars,
+    required this.total3Stars,
+    required this.total2Stars,
+    required this.total1Stars,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppCardContainer(
-      boxShadow: const [
-        BoxShadow(
-          color: AppColors.blackLv7,
-          offset: Offset(0, 4),
-          blurRadius: 60,
-          spreadRadius: 0,
-        ),
-      ],
+      boxShadow: [AppShadows.cardShadow1],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -39,7 +42,7 @@ class CardReview extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      countStar,
+                      '$starsOveral',
                       style: AppTextStyle.bold(size: 32),
                     ),
                     Padding(
@@ -52,22 +55,20 @@ class CardReview extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  'Berdasarkan ${countReview} Ulasan',
+                  'Berdasarkan $totalReviews Ulasan',
                   style: AppTextStyle.medium(
                     size: 12,
                     color: AppColors.blackLv5,
                   ),
                 ),
-                SizedBox(
-                  height: AppSizes.padding / 2,
-                ),
+                SizedBox(height: AppSizes.padding / 2),
                 Row(
                   children: [
                     ...List.generate(5, (index) {
                       return Icon(
                         Icons.star_rate_rounded,
                         size: 25,
-                        color: index == numberStar ? AppColors.blackLv4 : AppColors.orangeLv1,
+                        color: index == starsOveral.round() ? AppColors.blackLv4 : AppColors.orangeLv1,
                       );
                     })
                   ],
@@ -77,23 +78,15 @@ class CardReview extends StatelessWidget {
           ),
           Column(
             children: [
-              lineProgress('5 bintang', 60),
-              SizedBox(
-                height: AppSizes.padding / 4,
-              ),
-              lineProgress('4 bintang', 40),
-              SizedBox(
-                height: AppSizes.padding / 4,
-              ),
-              lineProgress('3 bintang', 30),
-              SizedBox(
-                height: AppSizes.padding / 4,
-              ),
-              lineProgress('2 bintang', 20),
-              SizedBox(
-                height: AppSizes.padding / 4,
-              ),
-              lineProgress(' 1 bintang', 10),
+              lineProgress('5 bintang', total5Stars),
+              SizedBox(height: AppSizes.padding / 4),
+              lineProgress('4 bintang', total4Stars),
+              SizedBox(height: AppSizes.padding / 4),
+              lineProgress('3 bintang', total3Stars),
+              SizedBox(height: AppSizes.padding / 4),
+              lineProgress('2 bintang', total2Stars),
+              SizedBox(height: AppSizes.padding / 4),
+              lineProgress(' 1 bintang', total1Stars),
             ],
           )
         ],
@@ -113,9 +106,7 @@ class CardReview extends StatelessWidget {
             color: AppColors.blackLv5,
           ),
         ),
-        SizedBox(
-          width: AppSizes.padding / 2,
-        ),
+        SizedBox(width: AppSizes.padding / 2),
         AppProgressLine(
           value: valueStar,
           maxValue: 100,

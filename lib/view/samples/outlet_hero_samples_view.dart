@@ -50,6 +50,9 @@ class _OutletHeroSamplesViewState extends State<OutletHeroSamplesView> {
         onTapServiceButton: () {
           // TODO
         },
+        onTapDescription: () {
+          // TODO
+        },
       ),
     );
   }

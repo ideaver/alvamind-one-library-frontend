@@ -9,6 +9,7 @@ class AppButton extends StatelessWidget {
   final double? height;
   final double? fontSize;
   final double? borderWidth;
+  final double? iconPadding;
   final EdgeInsets padding;
   final bool enable;
   final bool rounded;
@@ -31,6 +32,7 @@ class AppButton extends StatelessWidget {
     this.height,
     this.fontSize,
     this.borderWidth,
+    this.iconPadding,
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
     this.enable = true,
     this.rounded = false,
@@ -106,7 +108,7 @@ class AppButton extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(right: 12),
+      padding: EdgeInsets.only(right: iconPadding ?? 12),
       child: Icon(
         leftIcon,
         color: enable ? textColor : disabledTextColor,
@@ -121,7 +123,7 @@ class AppButton extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(left: 12),
+      padding: EdgeInsets.only(left: iconPadding ?? 12),
       child: Icon(
         rightIcon,
         color: enable ? textColor : disabledTextColor,

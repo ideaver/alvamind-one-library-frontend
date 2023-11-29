@@ -37,6 +37,7 @@ class TagsOrganism extends StatefulWidget {
 
 class _TagsOrganismState extends State<TagsOrganism> {
   int chipSelected = 0;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -47,11 +48,9 @@ class _TagsOrganismState extends State<TagsOrganism> {
         children: [
           ...List.generate(widget.listChips.length, (index) {
             return Padding(
-              padding: index == 0
-                  ? EdgeInsets.symmetric(horizontal: widget.runSpacing ?? AppSizes.padding / 2)
-                  : index == widget.listChips.length - 1
-                      ? EdgeInsets.zero
-                      : EdgeInsets.only(right: widget.runSpacing ?? AppSizes.padding / 2),
+              padding: index == widget.listChips.length - 1
+                  ? EdgeInsets.zero
+                  : EdgeInsets.only(right: widget.runSpacing ?? AppSizes.padding / 2),
               child: AppChips(
                 leftIcon: widget.leftIcon,
                 selectedColor: widget.selectedColor?[index] ?? AppColors.primary,

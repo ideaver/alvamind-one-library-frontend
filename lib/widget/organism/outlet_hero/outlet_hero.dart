@@ -21,6 +21,7 @@ class OutletHero extends StatelessWidget {
   final void Function() onTapDeliveryButton;
   final void Function() onTapDropButton;
   final void Function() onTapServiceButton;
+  final void Function() onTapDescription;
 
   const OutletHero({
     super.key,
@@ -32,6 +33,7 @@ class OutletHero extends StatelessWidget {
     required this.onTapDeliveryButton,
     required this.onTapDropButton,
     required this.onTapServiceButton,
+    required this.onTapDescription,
     required this.tagStatus,
     this.tagStatusColor,
   });
@@ -78,9 +80,7 @@ class OutletHero extends StatelessWidget {
                 size: 18,
                 color: AppColors.primary,
               ),
-              SizedBox(
-                width: AppSizes.padding / 2,
-              ),
+              SizedBox(width: AppSizes.padding / 2),
               Expanded(
                 child: Text(
                   address,
@@ -106,12 +106,26 @@ class OutletHero extends StatelessWidget {
             thickness: 2,
             color: AppColors.blackLv8,
           ),
-          Text(
-            descriptionText,
-            style: AppTextStyle.regular(
-              size: 16,
+          GestureDetector(
+            onTap: onTapDescription,
+            child: RichText(
+              text: TextSpan(
+                text: descriptionText,
+                style: AppTextStyle.regular(size: 16),
+                children: [
+                  TextSpan(
+                    text: ' Selengkapnya',
+                    style: AppTextStyle.bold(
+                      size: 16,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                ],
+              ),
+              maxLines: 5,
+              overflow: TextOverflow.ellipsis,
             ),
-          )
+          ),
         ],
       ),
     );

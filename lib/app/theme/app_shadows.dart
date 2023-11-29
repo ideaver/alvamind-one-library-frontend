@@ -32,6 +32,12 @@ class AppShadows {
     blurRadius: 32,
   );
 
+  static final cardShadow5 = BoxShadow(
+    color: AppColors.black.withOpacity(0.08),
+    offset: const Offset(0, 1),
+    blurRadius: 4,
+  );
+
   static final shadow1 = BoxShadow(
     color: AppColors.primary.withOpacity(0.25),
     offset: const Offset(4, 8),

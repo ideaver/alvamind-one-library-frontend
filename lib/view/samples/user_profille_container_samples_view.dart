@@ -346,7 +346,7 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
               children: [
                 CommentListCard(
                   padding: EdgeInsets.symmetric(vertical: AppSizes.padding),
-                  isComment: true,
+                  isMyComment: true,
                   titleUser: dummyName[i],
                   subtitleUser: 'Occuptaion',
                   countLike: '431',

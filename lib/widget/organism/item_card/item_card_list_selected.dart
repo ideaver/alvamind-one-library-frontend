@@ -35,10 +35,11 @@ class ItemCardListSelected extends StatefulWidget {
   final double? labelingCount;
   final Color? selectedButtonColor;
   final Color? labelingColor;
+  final Color? backgroundColor;
+  final Color? iconHeartColor;
   final BorderRadius? borderRadiusSelected;
   final BorderRadius? borderRadius;
   final IconData? iconHeartButton;
-  final Color? iconHeartColor;
   final List<BoxShadow>? boxShadow;
   final Widget? customSelectedButton;
   final void Function()? onTapRightButton;
@@ -78,6 +79,7 @@ class ItemCardListSelected extends StatefulWidget {
     this.borderRadius,
     this.borderRadiusSelected,
     this.iconHeartButton,
+    this.backgroundColor,
     this.iconHeartColor,
     this.onTapHeartButton,
     this.customSelectedButton,
@@ -104,7 +106,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
             AppInkContainer(
               onTap: widget.onTapCard ?? () {},
               padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
-              backgroundColor: AppColors.white,
+              backgroundColor: widget.backgroundColor ?? AppColors.white,
               borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
               child: horizontalMode(),
             ),
@@ -396,7 +398,9 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
       onTap: widget.onTapHeartButton ??
           () {
             setState(() {
-              heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
+              heartIcon == CustomIcon.heartIcon
+                  ? heartIcon = CustomIcon.heartBoldIcon
+                  : heartIcon = CustomIcon.heartIcon;
             });
           },
     );
