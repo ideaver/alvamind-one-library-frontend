@@ -96,7 +96,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
     return Ink(
       decoration: BoxDecoration(
         color: widget.isSelected == true ? widget.selectedButtonColor ?? AppColors.primary : AppColors.transparent,
-        borderRadius: widget.borderRadiusSelected ?? BorderRadius.circular(30),
+        borderRadius: widget.borderRadiusSelected ?? BorderRadius.circular(AppSizes.padding),
         boxShadow: widget.boxShadow ?? [],
       ),
       child: Padding(
@@ -107,7 +107,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
               onTap: widget.onTapCard ?? () {},
               padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
               backgroundColor: widget.backgroundColor ?? AppColors.white,
-              borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(AppSizes.padding),
               child: horizontalMode(),
             ),
             widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
@@ -137,19 +137,13 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             imageCard(90, 90),
-            SizedBox(
-              width: AppSizes.padding,
-            ),
+            SizedBox(width: AppSizes.padding),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   headItem(),
-                  widget.isSelected == false
-                      ? const SizedBox.shrink()
-                      : SizedBox(
-                          height: AppSizes.padding / 2,
-                        ),
+                  widget.isSelected == false ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding / 2),
                   Flex(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     direction: Axis.horizontal,

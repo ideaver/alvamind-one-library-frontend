@@ -1,7 +1,9 @@
+import 'package:alvamind_library/app/theme/app_shadows.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
 import '../atom/app_divider.dart';
 
@@ -32,7 +34,7 @@ class AppExpansionListTile extends StatefulWidget {
 
   const AppExpansionListTile({
     Key? key,
-    required this.children,
+    this.children = const [],
     this.title,
     this.icon,
     this.backgroundColor,
@@ -79,27 +81,20 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
               ? 74
               : widget.gap == true
                   ? 74
-                  : 58,
+                  : 64,
       duration: const Duration(milliseconds: 300),
       child: Ink(
         decoration: BoxDecoration(
           color: widget.backgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: widget.boxShadow ??
-              const [
-                BoxShadow(
-                  color: AppColors.blackLv7,
-                  offset: Offset(0, 4),
-                  blurRadius: 60,
-                  spreadRadius: 0,
-                ),
-              ],
+          borderRadius: BorderRadius.circular(AppSizes.padding),
+          boxShadow: widget.boxShadow ?? [AppShadows.cardShadow1],
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(AppSizes.padding),
           child: SingleChildScrollView(
             physics: const NeverScrollableScrollPhysics(),
             child: Column(
+              crossAxisAlignment: widget.crossAxisAlignmentChild ?? CrossAxisAlignment.center,
               children: [
                 GestureDetector(
                   onTap: widget.isDisabled == true
@@ -114,7 +109,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                     padding: widget.paddingHeader ?? const EdgeInsets.all(18),
                     decoration: BoxDecoration(
                       color: widget.childrenColor == null ? widget.childrenColor : widget.backgroundColor,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(AppSizes.padding),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -129,7 +124,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                                     ),
                                     child: Icon(
                                       widget.icon!,
-                                      color: widget.iconColor == null ? AppColors.black : widget.iconColor,
+                                      color: widget.iconColor ?? AppColors.black,
                                       size: 20,
                                     ),
                                   )
@@ -181,7 +176,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                                 ? const SizedBox.shrink()
                                 : Icon(
                                     isExpanded ? CustomIcon.iconArrowDown : CustomIcon.iconArrowRight,
-                                    color: widget.buttonDropColor == null ? Colors.blue : widget.buttonDropColor,
+                                    color: widget.buttonDropColor ?? Colors.blue,
                                     size: 18,
                                   ),
                           ],

@@ -39,6 +39,7 @@ class AppTextField extends StatefulWidget {
   final TextStyle? labelStyle;
   final TextStyle? textStyle;
   final TextStyle? hintStyle;
+  final TextAlign? textAlign;
   final TextInputType? textInputType;
   final TextInputAction? textInputAction;
   final String? hintText;
@@ -89,6 +90,7 @@ class AppTextField extends StatefulWidget {
     this.labelStyle,
     this.textStyle,
     this.hintStyle,
+    this.textAlign,
     this.textInputType,
     this.textInputAction,
     this.hintText,
@@ -203,6 +205,7 @@ class _AppTextFieldState extends State<AppTextField> {
         keyboardType: keyboardType(),
         textInputAction: widget.textInputAction,
         inputFormatters: inputFormatters(),
+        textAlign: widget.textAlign ?? TextAlign.left,
         decoration: InputDecoration(
           errorText: widget.errorText,
           counterText: widget.showCounter ? null : '',

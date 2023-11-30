@@ -1,10 +1,8 @@
-import '../../app/theme/app_sizes.dart';
-
-import 'sample_wrapper.dart';
-
 import 'package:flutter/material.dart';
 
+import '../../app/theme/app_sizes.dart';
 import '../../widget/organism/chat_form/chat_form.dart';
+import 'sample_wrapper.dart';
 
 class ChatFormSamplesView extends StatefulWidget {
   const ChatFormSamplesView({Key? key}) : super(key: key);
@@ -36,11 +34,11 @@ class _ChatFormSamplesViewState extends State<ChatFormSamplesView> {
     return SampleWrapper(
       title: 'Chat Form',
       widget: ChatForm(
-        textPlaceholder: 'Type a message ....',
+        hintText: 'Type a message ....',
         onTapAddButton: () {
           // TODO
         },
-        onTapCameraButton: () {
+        onTapImageButton: () {
           // TODO
         },
         onTapSendButton: () {

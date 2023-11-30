@@ -38,78 +38,82 @@ class AppTransactionInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppDottedBorder(
-      color: dotColor ?? AppColors.purpleLv1,
-      childPadding: dotChillPadding ?? EdgeInsets.all(AppSizes.padding),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        color: dotColor ?? AppColors.purpleLv1,
+        childPadding: dotChillPadding ?? EdgeInsets.all(AppSizes.padding),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: AppSizes.padding / 4),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                textTitle ?? 'Transaction ID',
-                style: textTitleStyle ??
-                    AppTextStyle.bodyMedium(
-                      fontWeight: AppFontWeight.medium,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    textTitle ?? 'Transaction ID',
+                    style: textTitleStyle ??
+                        AppTextStyle.bodyMedium(
+                          fontWeight: AppFontWeight.medium,
+                        ),
+                  ),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            transactionId,
+                            textAlign: TextAlign.end,
+                            softWrap: true,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: transactionIdStyle ??
+                                AppTextStyle.bodyLarge(
+                                  fontWeight: AppFontWeight.semibold,
+                                ),
+                          ),
+                        ),
+                        withIcon == false ? const SizedBox.shrink() : const SizedBox(width: 8),
+                        withIcon == false
+                            ? const SizedBox.shrink()
+                            : AppIconButton(
+                                padding: EdgeInsets.zero,
+                                buttonColor: AppColors.transparent,
+                                icon: const Icon(
+                                  Icons.file_copy_outlined,
+                                  color: AppColors.primary,
+                                  size: 18,
+                                ),
+                                onTap: onTapCopyButton ?? () {},
+                              )
+                      ],
                     ),
+                  ),
+                ],
               ),
-              Expanded(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        transactionId,
-                        textAlign: TextAlign.end,
-                        softWrap: true,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: transactionIdStyle ??
-                            AppTextStyle.bodyLarge(
-                              fontWeight: AppFontWeight.semibold,
+              onlyTrasactionId == true
+                  ? const SizedBox.shrink()
+                  : Padding(
+                      padding: EdgeInsets.only(top: AppSizes.padding),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Status',
+                            style: AppTextStyle.bodyMedium(
+                              fontWeight: AppFontWeight.medium,
                             ),
-                      ),
-                    ),
-                    withIcon == false ? const SizedBox.shrink() : const SizedBox(width: 8),
-                    withIcon == false
-                        ? const SizedBox.shrink()
-                        : AppIconButton(
-                            padding: EdgeInsets.zero,
-                            buttonColor: AppColors.transparent,
-                            icon: const Icon(
-                              Icons.file_copy_outlined,
-                              color: AppColors.primary,
-                              size: 18,
-                            ),
-                            onTap: onTapCopyButton ?? () {},
+                          ),
+                          AppTags(
+                            text: transactionStatus,
+                            textColor: transactionStatusColor,
+                            borderWidth: 1,
+                            borderColor: transactionStatusColor,
+                            color: AppColors.transparent,
                           )
-                  ],
-                ),
-              ),
+                        ],
+                      ),
+                    )
             ],
           ),
-          SizedBox(height: AppSizes.padding),
-          onlyTrasactionId == true
-              ? const SizedBox.shrink()
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Status',
-                      style: AppTextStyle.bodyMedium(
-                        fontWeight: AppFontWeight.medium,
-                      ),
-                    ),
-                    AppTags(
-                      text: transactionStatus,
-                      textColor: transactionStatusColor,
-                      borderWidth: 1,
-                      borderColor: transactionStatusColor,
-                      color: AppColors.transparent,
-                    )
-                  ],
-                )
-        ],
-      ),
-    );
+        ));
   }
 }

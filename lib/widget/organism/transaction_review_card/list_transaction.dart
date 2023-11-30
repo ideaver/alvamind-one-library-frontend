@@ -76,7 +76,7 @@ class ListTransaction extends StatelessWidget {
     return Column(
       children: [
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Email',
           transactionId: email ?? '',
@@ -85,7 +85,7 @@ class ListTransaction extends StatelessWidget {
           onTapCopyButton: onTapCopyEmail ?? () {},
         ),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Whatsapp',
           transactionId: number ?? '',
@@ -94,7 +94,7 @@ class ListTransaction extends StatelessWidget {
           onTapCopyButton: onTapCopyNumber ?? () {},
         ),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Gender',
           transactionId: gender ?? '',
@@ -104,7 +104,7 @@ class ListTransaction extends StatelessWidget {
         ),
         const AppDivider(color: AppColors.blackLv7),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Terdaftar',
           transactionId: registerDate ?? '',
@@ -120,7 +120,7 @@ class ListTransaction extends StatelessWidget {
     return Column(
       children: [
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Transaction ID',
           transactionId: transactionId ?? '',
@@ -129,7 +129,7 @@ class ListTransaction extends StatelessWidget {
           onTapCopyButton: onTapCopyTransactionId ?? () {},
         ),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Biaya Admin',
           transactionId: adminPayment ?? '',
@@ -138,7 +138,7 @@ class ListTransaction extends StatelessWidget {
           onlyTrasactionId: true,
         ),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Tagihan',
           transactionId: bill ?? '',
@@ -148,7 +148,7 @@ class ListTransaction extends StatelessWidget {
         ),
         const AppDivider(color: AppColors.blackLv7),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Total',
           transactionId: count ?? '',
@@ -164,7 +164,7 @@ class ListTransaction extends StatelessWidget {
     return Column(
       children: [
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'ID Komplain',
           transactionId: complainId ?? '',
@@ -173,7 +173,7 @@ class ListTransaction extends StatelessWidget {
           onTapCopyButton: onTapCopyComplainId ?? () {},
         ),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Tanggal Komplain',
           transactionId: dateComplain ?? '',
@@ -183,7 +183,7 @@ class ListTransaction extends StatelessWidget {
         ),
         const AppDivider(color: AppColors.blackLv7),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'ID Order',
           transactionId: orderId ?? '',
@@ -192,7 +192,7 @@ class ListTransaction extends StatelessWidget {
           onTapCopyButton: onTapCopyOrderId ?? () {},
         ),
         AppTransactionInfo(
-          dotChillPadding: const EdgeInsets.all(0),
+          dotChillPadding: EdgeInsets.zero,
           dotColor: AppColors.transparent,
           textTitle: 'Konsumen',
           transactionId: consument ?? '',

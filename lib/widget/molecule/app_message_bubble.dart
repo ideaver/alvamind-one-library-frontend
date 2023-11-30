@@ -1,15 +1,18 @@
+import 'package:alvamind_library/app/theme/app_sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
 import '../../app/theme/app_theme.dart';
 import '../../app/utility/date_formatter.dart';
+import '../atom/app_image.dart';
 
 class AppMessageBubble extends StatelessWidget {
   final bool isMe;
   final bool isReaded;
   final String? userName;
-  final String message;
+  final String? imageUrl;
+  final String? message;
   final DateTime timeStamp;
   final Color? color;
   final Color? messageColor;
@@ -24,7 +27,8 @@ class AppMessageBubble extends StatelessWidget {
     required this.isMe,
     required this.isReaded,
     this.userName,
-    required this.message,
+    this.imageUrl,
+    this.message,
     required this.timeStamp,
     this.color,
     this.messageColor,
@@ -61,17 +65,13 @@ class AppMessageBubble extends StatelessWidget {
               padding: padding,
               decoration: BoxDecoration(
                 color: color ??
-                    (isMe
-                        ? (AppTheme.isLightMode
-                            ? AppColors.primary
-                            : AppColors.blackLv2)
-                        : AppColors.blackLv9),
+                    (isMe ? (AppTheme.isLightMode ? AppColors.primary : AppColors.blackLv2) : AppColors.blackLv9),
                 borderRadius: radius,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  userName != null
+                  userName != null && !isMe
                       ? Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),
                           child: Text(
@@ -83,19 +83,33 @@ class AppMessageBubble extends StatelessWidget {
                           ),
                         )
                       : const SizedBox.shrink(),
+                  imageUrl != null
+                      ? Padding(
+                          padding: EdgeInsets.symmetric(vertical: AppSizes.padding / 2),
+                          child: AppImage(
+                            image: imageUrl!,
+                            width: 200,
+                            height: 200,
+                            borderRadius: AppSizes.padding,
+                            backgroundColor: AppColors.blueLv5,
+                            enableFullScreenView: true,
+                          ),
+                        )
+                      : const SizedBox.shrink(),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Expanded(
-                        child: Text(
-                          message,
-                          style: AppTextStyle.medium(
-                            size: 14,
-                            color: messageColor ??
-                                (isMe ? AppColors.white : AppColors.blackLv1),
-                          ),
-                        ),
+                        child: message != null
+                            ? Text(
+                                message!,
+                                style: AppTextStyle.medium(
+                                  size: 14,
+                                  color: messageColor ?? (isMe ? AppColors.white : AppColors.blackLv1),
+                                ),
+                              )
+                            : const SizedBox.shrink(),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8),
@@ -108,10 +122,7 @@ class AppMessageBubble extends StatelessWidget {
                               ),
                               style: AppTextStyle.bodySmall(
                                 fontWeight: AppFontWeight.medium,
-                                color: messageColor ??
-                                    (isMe
-                                        ? AppColors.white
-                                        : AppColors.blackLv1),
+                                color: messageColor ?? (isMe ? AppColors.white : AppColors.blackLv1),
                               ),
                             ),
                             isReaded
@@ -119,10 +130,7 @@ class AppMessageBubble extends StatelessWidget {
                                     padding: const EdgeInsets.only(left: 6),
                                     child: Icon(
                                       Icons.done_all,
-                                      color: messageColor ??
-                                          (isMe
-                                              ? AppColors.white
-                                              : AppColors.blackLv1),
+                                      color: messageColor ?? (isMe ? AppColors.white : AppColors.blackLv1),
                                       size: 12,
                                     ),
                                   )
