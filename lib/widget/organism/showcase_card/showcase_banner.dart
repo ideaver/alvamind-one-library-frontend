@@ -25,6 +25,7 @@ class BannerCard extends StatefulWidget {
 
 class _BannerCardState extends State<BannerCard> {
   int _current = 0;
+
   final CarouselController _controller = CarouselController();
 
   final List<Widget> dummyContentList = [
@@ -59,9 +60,8 @@ class _BannerCardState extends State<BannerCard> {
           autoPlayAnimationDuration: const Duration(milliseconds: 500),
           enableInfiniteScroll: true,
           onPageChanged: (index, reason) {
-            setState(() {
-              _current = index;
-            });
+            _current = index;
+            setState(() {});
           },
         ),
         carouselController: _controller,
@@ -77,8 +77,13 @@ class _BannerCardState extends State<BannerCard> {
           decorator: DotsDecorator(
             size: const Size.square(7.0),
             activeSize: const Size(30.0, 7.0),
-            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
             spacing: const EdgeInsets.all(4),
+            color: AppColors.white,
+            activeColor: AppColors.blueLv2,
+            activeShape: RoundedRectangleBorder(
+              side: BorderSide(color: AppColors.white, width: 0.5),
+              borderRadius: BorderRadius.circular(5.0),
+            ),
           ),
         ),
       ),
@@ -105,8 +110,8 @@ class _BannerCardContentState extends State<BannerCardContent> {
       children: [
         AppCardContainer(
           margin: widget.margin ?? EdgeInsets.symmetric(horizontal: AppSizes.padding),
-          padding: const EdgeInsets.all(0),
-          borderRadius: BorderRadius.circular(40),
+          padding: EdgeInsets.zero,
+          borderRadius: BorderRadius.circular(AppSizes.padding * 1.5),
           backgroundColor: AppColors.blueLv1,
           gradient: const LinearGradient(colors: [
             Color(0xFF9D59FF),

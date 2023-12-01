@@ -341,7 +341,9 @@ class _ItemCardListState extends State<ItemCardList> {
       onTap: widget.onTapHearButton ??
           () {
             setState(() {
-              heartIcon == CustomIcon.heartIcon ? heartIcon = CustomIcon.heartBoldIcon : heartIcon = CustomIcon.heartIcon;
+              heartIcon == CustomIcon.heartIcon
+                  ? heartIcon = CustomIcon.heartBoldIcon
+                  : heartIcon = CustomIcon.heartIcon;
             });
           },
     );

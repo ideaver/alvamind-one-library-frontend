@@ -43,13 +43,15 @@ class AppTabBar extends StatelessWidget {
         left: AppSizes.padding,
       ),
       decoration: BoxDecoration(
-          border: divider == false
-              ? Border.all(width: 0, color: AppColors.transparent)
-              : Border(
-                  bottom: BorderSide(
+        border: divider == false
+            ? Border.all(width: 0, color: AppColors.transparent)
+            : Border(
+                bottom: BorderSide(
                   color: dividerColor ?? AppColors.primary,
                   width: 3,
-                ))),
+                ),
+              ),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -60,11 +62,7 @@ class AppTabBar extends StatelessWidget {
                   size: leftIconSize,
                   color: leftIconColor,
                 ),
-          leftIcon == null
-              ? const SizedBox.shrink()
-              : SizedBox(
-                  width: AppSizes.padding / 2,
-                ),
+          leftIcon == null ? const SizedBox.shrink() : SizedBox(width: AppSizes.padding / 2),
           Text(
             text,
             style: AppTextStyle.bold(
@@ -72,11 +70,7 @@ class AppTabBar extends StatelessWidget {
               color: textColor,
             ),
           ),
-          rightIcon == null
-              ? const SizedBox.shrink()
-              : SizedBox(
-                  width: AppSizes.padding / 2,
-                ),
+          rightIcon == null ? const SizedBox.shrink() : SizedBox(width: AppSizes.padding / 2),
           rightIcon == null
               ? const SizedBox.shrink()
               : Icon(
