@@ -88,7 +88,7 @@ class _OrderListState extends State<OrderList> {
   @override
   Widget build(BuildContext context) {
     return AppCardContainer(
-      boxShadow: widget.boxShadow ?? [],
+      boxShadow: widget.boxShadow ?? [AppShadows.cardShadow1],
       padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
       backgroundColor: widget.backgroundColor ?? AppColors.white,
       borderRadius: BorderRadius.circular(20),
@@ -134,8 +134,8 @@ class _OrderListState extends State<OrderList> {
                     // ),
                     // SizedBox(height: AppSizes.padding),
                     AppCardContainer(
-                      padding: const EdgeInsets.all(0),
-                      boxShadow: [AppShadows.cardShadow2],
+                      padding: EdgeInsets.zero,
+                      boxShadow: [AppShadows.cardShadow5],
                       child: AppExpansionListTile(
                         title: widget.title ?? 'Alasan',
                         expand: true,
@@ -144,7 +144,7 @@ class _OrderListState extends State<OrderList> {
                             text: widget.description ?? '',
                             color: AppColors.black,
                             backgroundColor: AppColors.transparent,
-                            padding: const EdgeInsets.all(0),
+                            padding: EdgeInsets.zero,
                           )
                         ],
                       ),

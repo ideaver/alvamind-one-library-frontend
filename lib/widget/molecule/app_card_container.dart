@@ -2,6 +2,7 @@ import 'package:alvamind_library/app/asset/app_assets.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_shadows.dart';
 import '../../app/theme/app_sizes.dart';
 
 class AppCardContainer extends StatelessWidget {
@@ -33,7 +34,7 @@ class AppCardContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.white,
         borderRadius: borderRadius ?? BorderRadius.circular(AppSizes.padding),
-        boxShadow: boxShadow ?? [],
+        boxShadow: boxShadow ?? [AppShadows.cardShadow1],
         gradient: gradient,
       ),
       child: !withBackground

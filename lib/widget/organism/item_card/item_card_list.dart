@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_shadows.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../atom/app_divider.dart';
@@ -115,7 +116,7 @@ class _ItemCardListState extends State<ItemCardList> {
         onTap: widget.onTapCard ?? () {},
         padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
         backgroundColor: widget.backgroundColor ?? AppColors.white,
-        boxShadow: widget.boxShadow,
+        boxShadow: widget.boxShadow ?? [AppShadows.cardShadow1],
         borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
         child: widget.isVertical == true ? verticalMode() : horizontalMode(),
       ),
@@ -144,9 +145,7 @@ class _ItemCardListState extends State<ItemCardList> {
                 maxLines: 2,
                 overflow: TextOverflow.clip,
               ),
-              SizedBox(
-                height: AppSizes.padding / 2,
-              ),
+              SizedBox(height: AppSizes.padding / 2),
               Text(
                 widget.address ?? 'City, Country',
                 style: AppTextStyle.regular(size: 12),
@@ -154,9 +153,7 @@ class _ItemCardListState extends State<ItemCardList> {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(
-                height: AppSizes.padding / 2,
-              ),
+              SizedBox(height: AppSizes.padding / 2),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

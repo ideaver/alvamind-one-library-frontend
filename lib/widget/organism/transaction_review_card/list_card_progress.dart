@@ -1,10 +1,11 @@
-import '../../molecule/app_ink_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_shadows.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_icon_button.dart';
+import '../../molecule/app_ink_container.dart';
 import '../../molecule/app_tags.dart';
 
 class ListCard extends StatefulWidget {
@@ -53,15 +54,7 @@ class _ListCardState extends State<ListCard> {
     return AppInkContainer(
       onTap: widget.onTapCard ?? () {},
       backgroundColor: AppColors.white,
-      boxShadow: widget.boxShadow ??
-          [
-            const BoxShadow(
-              color: AppColors.blackLv7,
-              offset: Offset(0, 4),
-              blurRadius: 60,
-              spreadRadius: 0,
-            ),
-          ],
+      boxShadow: widget.boxShadow ?? [AppShadows.cardShadow1],
       child: Column(
         children: [
           Row(
@@ -76,11 +69,7 @@ class _ListCardState extends State<ListCard> {
                             widget.leftIcon,
                             color: widget.leftIconColor ?? AppColors.primary,
                           ),
-                    widget.leftIcon == null
-                        ? const SizedBox.shrink()
-                        : SizedBox(
-                            width: AppSizes.padding,
-                          ),
+                    widget.leftIcon == null ? const SizedBox.shrink() : SizedBox(width: AppSizes.padding),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

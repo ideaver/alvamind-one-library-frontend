@@ -119,9 +119,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                           children: [
                             widget.icon != null
                                 ? Padding(
-                                    padding: const EdgeInsets.only(
-                                      right: 9,
-                                    ),
+                                    padding: const EdgeInsets.only(right: 9),
                                     child: Icon(
                                       widget.icon!,
                                       color: widget.iconColor ?? AppColors.black,
@@ -167,11 +165,7 @@ class _AppExpansionListTileState extends State<AppExpansionListTile> {
                         Row(
                           children: [
                             widget.moreItem != null ? widget.moreItem! : const SizedBox.shrink(),
-                            widget.showExpandButton == false
-                                ? const SizedBox.shrink()
-                                : const SizedBox(
-                                    width: 12,
-                                  ),
+                            widget.showExpandButton == false ? const SizedBox.shrink() : const SizedBox(width: 12),
                             widget.showExpandButton == false
                                 ? const SizedBox.shrink()
                                 : Icon(

@@ -1,14 +1,15 @@
-import '../../app/theme/app_sizes.dart';
-import '../../widget/atom/app_divider.dart';
-import '../../widget/molecule/app_button.dart';
-import '../../widget/molecule/app_chips.dart';
-import '../../widget/molecule/app_tags.dart';
+import 'package:alvamind_library/app/theme/app_shadows.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
+import '../../app/theme/app_sizes.dart';
 import '../../app/theme/app_text_style.dart';
+import '../../widget/atom/app_divider.dart';
+import '../../widget/molecule/app_button.dart';
+import '../../widget/molecule/app_chips.dart';
 import '../../widget/molecule/app_expansion_list_tile.dart';
+import '../../widget/molecule/app_tags.dart';
 import '../../widget/molecule/app_text_field.dart';
 import '../../widget/organism/accordion/accordion_question_card.dart';
 import '../../widget/organism/accordion/accordion_stock_note.dart';
@@ -230,21 +231,14 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
             return Padding(
               padding: EdgeInsets.only(bottom: AppSizes.padding),
               child: PaymentCard(
-                onTap: () {},
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.blackLv7.withOpacity(0.5),
-                    offset: const Offset(0, 4),
-                    blurRadius: 60,
-                    spreadRadius: 0,
-                  ),
-                ],
+                onChanged: (val) {},
+                boxShadow: [AppShadows.cardShadow1],
                 backgroundColor: AppColors.white,
                 image: imagePayment[i],
                 title: titlePayment[i],
                 subtitle: i == 0 ? 'Admin Fee Rp 0.0000' : null,
-                withTags: i == 4 ? true : false,
-                textTags: i == 4 ? 'Top Up' : null,
+                // trailing: i == 4 ? true : false,
+                // textTags: i == 4 ? 'Top Up' : null,
                 titleColor: AppColors.black,
               ),
             );

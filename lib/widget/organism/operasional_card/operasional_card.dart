@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_shadows.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_Toggle.dart';
 import '../../molecule/app_card_container.dart';
 import '../../molecule/app_chips.dart';
 
-// ignore: must_be_immutable
 class OperasionalCard extends StatefulWidget {
   final String? title;
   final String? dayTitle;
   final String? time;
   final String? text;
-  bool? isDisabled;
-  final bool? isCustom;
-  final bool? withSubtitle;
+  final bool value;
+  final bool enabled;
+  final bool isCustom;
+  final bool withSubtitle;
   final void Function()? chipCloseButton;
   final dynamic Function(bool) onChanged;
 
-  OperasionalCard({
+  const OperasionalCard({
     super.key,
-    this.isDisabled,
+    this.value = false,
+    this.enabled = true,
     this.dayTitle,
     this.text,
     this.time,
     this.chipCloseButton,
-    this.isCustom,
+    this.isCustom = false,
     this.title,
     this.withSubtitle = true,
     required this.onChanged,
@@ -37,25 +39,24 @@ class OperasionalCard extends StatefulWidget {
 }
 
 class _OperasionalCardState extends State<OperasionalCard> {
-  bool value1 = true;
-  bool value2 = false;
+  bool switchValue = true;
+
+  @override
+  void initState() {
+    switchValue = widget.value;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         AppCardContainer(
           padding: EdgeInsets.all(AppSizes.padding * 1.2),
-          boxShadow: const [
-            BoxShadow(
-              color: AppColors.blackLv7,
-              offset: Offset(0, 4),
-              blurRadius: 60,
-              spreadRadius: 0,
-            ),
-          ],
+          boxShadow: [AppShadows.cardShadow1],
           child: Column(
             children: [
-              widget.isCustom == true
+              widget.isCustom
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -64,12 +65,10 @@ class _OperasionalCardState extends State<OperasionalCard> {
                           style: AppTextStyle.bold(size: 20),
                         ),
                         AppToggle(
-                          value: widget.isDisabled == true ? false : value1,
+                          value: widget.value,
                           onChanged: (val) {
-                            value1 = val;
-                            setState(() {
-                              value1 == false ? widget.isDisabled = true : widget.isDisabled = false;
-                            });
+                            switchValue = val;
+                            setState(() {});
                             widget.onChanged(val);
                           },
                         ),
@@ -81,12 +80,10 @@ class _OperasionalCardState extends State<OperasionalCard> {
                         Row(
                           children: [
                             AppToggle(
-                              value: widget.isDisabled == true ? false : value1,
+                              value: widget.value,
                               onChanged: (val) {
-                                value1 = val;
-                                setState(() {
-                                  value1 == false ? widget.isDisabled = true : widget.isDisabled = false;
-                                });
+                                switchValue = val;
+                                setState(() {});
                                 widget.onChanged(val);
                               },
                             ),
@@ -99,7 +96,7 @@ class _OperasionalCardState extends State<OperasionalCard> {
                             )
                           ],
                         ),
-                        widget.isDisabled == true
+                        !widget.enabled
                             ? AppChips(
                                 text: 'Tutup',
                                 fontSize: 14,
@@ -128,27 +125,22 @@ class _OperasionalCardState extends State<OperasionalCard> {
                                     width: AppSizes.padding / 2,
                                   ),
                                   AppToggle(
-                                    value: value1,
+                                    value: switchValue,
                                     onChanged: (val) {
-                                      value1 = val;
-                                      setState(() {
-                                        widget.isDisabled == false ? widget.isDisabled = false : widget.isDisabled = true;
-                                      });
+                                      switchValue = val;
+                                      setState(() {});
                                     },
                                   ),
                                 ],
                               ),
                       ],
                     ),
-              widget.isDisabled == true || widget.withSubtitle == false
-                  ? const SizedBox.shrink()
-                  : SizedBox(
-                      height: AppSizes.padding,
-                    ),
-              widget.isDisabled == true || widget.withSubtitle == false
+              !widget.enabled || !widget.withSubtitle ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding),
+              !widget.enabled || !widget.withSubtitle
                   ? const SizedBox.shrink()
                   : Text(
-                      widget.text ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                      widget.text ??
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                       style: AppTextStyle.medium(size: 14),
                     )
             ],

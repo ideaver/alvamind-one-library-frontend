@@ -66,8 +66,8 @@ class _PaymentSamplesViewState extends State<PaymentSamplesView> {
                   image: imagePayment[i],
                   title: titlePayment[i],
                   subtitle: i == 0 ? 'Admin Fee Rp 0.0000' : null,
-                  withTags: i == 4 ? true : false,
-                  textTags: i == 4 ? 'Top Up' : null,
+                  // trailing: i == 4 ? true : false,
+                  // textTags: i == 4 ? 'Top Up' : null,
                   titleColor: AppColors.black,
                 ),
                 SizedBox(
@@ -91,7 +91,7 @@ class _PaymentSamplesViewState extends State<PaymentSamplesView> {
               image: AppAssets.mastercardIcon,
               title: '•••• •••• •••• •••• 4679',
               titleColor: AppColors.black,
-              rightButton: AppChips(
+              trailing: AppChips(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 text: 'Change',
                 fontSize: 12,

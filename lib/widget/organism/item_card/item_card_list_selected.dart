@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../app/asset/app_assets.dart';
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_shadows.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../atom/app_divider.dart';
@@ -97,7 +98,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
       decoration: BoxDecoration(
         color: widget.isSelected == true ? widget.selectedButtonColor ?? AppColors.primary : AppColors.transparent,
         borderRadius: widget.borderRadiusSelected ?? BorderRadius.circular(AppSizes.padding),
-        boxShadow: widget.boxShadow ?? [],
+        boxShadow: widget.boxShadow ?? [AppShadows.cardShadow1],
       ),
       child: Padding(
         padding: widget.isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : const EdgeInsets.all(0),
@@ -383,7 +384,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
 
   Widget heartButton() {
     return AppIconButton(
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       buttonColor: AppColors.transparent,
       icon: Icon(
         widget.iconHeartButton ?? heartIcon,
