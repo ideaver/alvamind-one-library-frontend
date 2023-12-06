@@ -65,7 +65,7 @@ class _OperasionalCardSamplesViewState extends State<OperasionalCardSamplesView>
     return SampleWrapper(
       title: 'Operasional Card Disabled',
       widget: OperasionalCard(
-        isDisabled: true,
+        enabled: true,
         dayTitle: 'Selasa',
         time: '08.00 - 17.00',
         chipCloseButton: () {

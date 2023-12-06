@@ -9,12 +9,13 @@ import '../../widget/organism/bar_chart/bar_chart.dart';
 import '../../widget/organism/bar_chart/bar_chart_group_data.dart';
 import '../../widget/organism/bar_chart/chart.dart';
 import '../../widget/organism/comments_and_reviews/comments_list.dart';
-import '../../widget/organism/oultlet_summary_body/owner_summary_body.dart';
-import '../../widget/organism/oultlet_summary_body/public_summary_body.dart';
+import '../../widget/organism/oultlet_summary_body/_____owner_summary_body.dart';
+import '../../widget/organism/oultlet_summary_body/_____public_summary_body.dart';
 import '../../widget/organism/tags_organism.dart/tags_organism.dart';
 import '../../widget/organism/transaction_review_card/card_review.dart';
 import '../../widget/organism/transaction_review_card/list_card_progress.dart';
 import 'sample_wrapper.dart';
+import 'user_profille_container_samples_view.dart';
 
 class OutletSummaryBodySamplesView extends StatefulWidget {
   const OutletSummaryBodySamplesView({Key? key}) : super(key: key);
@@ -208,11 +209,11 @@ class _OutletSummaryBodySamplesViewState extends State<OutletSummaryBodySamplesV
             onTap: (value) {
               // TODO
               setState(() {
-                tagSelected2 = value;
+                tagSelected1 = value;
               });
             },
           ),
-          barChart: tagSelected2 == 0
+          barChart: tagSelected1 == 0
               ? Chart(
                   listValueChart: [
                     generateGroupDataProfit(0, 5, 5),
