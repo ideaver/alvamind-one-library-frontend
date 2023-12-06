@@ -95,13 +95,15 @@ class _ListCardState extends State<ListCard> {
               ),
               Row(
                 children: [
-                  AppTags(
-                    text: widget.textTags ?? '',
-                    color: widget.tagColor ?? AppColors.white,
-                    textColor: widget.tagTextColor ?? AppColors.primary,
-                    borderColor: widget.tagBorderColor ?? AppColors.primary,
-                    borderWidth: 1,
-                  ),
+                  widget.textTags != null
+                      ? AppTags(
+                          text: widget.textTags ?? '',
+                          color: widget.tagColor ?? AppColors.white,
+                          textColor: widget.tagTextColor ?? AppColors.primary,
+                          borderColor: widget.tagBorderColor ?? AppColors.primary,
+                          borderWidth: 1,
+                        )
+                      : SizedBox.shrink(),
                   SizedBox(width: AppSizes.padding / 4),
                   AppIconButton(
                     padding: const EdgeInsets.all(0),

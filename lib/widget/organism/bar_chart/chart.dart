@@ -1,4 +1,3 @@
-import '../../molecule/app_card_container.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -76,73 +75,72 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCardContainer(
-      padding: const EdgeInsets.all(0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AspectRatio(
-            aspectRatio: 1.2,
-            child: BarChart(
-              BarChartData(
-                alignment: BarChartAlignment.spaceBetween,
-                titlesData: FlTitlesData(
-                  leftTitles: AxisTitles(
-                    sideTitles: SideTitles(
-                      showTitles: true,
-                      getTitlesWidget: leftTitles,
-                      reservedSize: 30,
-                    ),
-                  ),
-                  rightTitles: const AxisTitles(),
-                  topTitles: const AxisTitles(),
-                  bottomTitles: AxisTitles(
-                    sideTitles: SideTitles(
-                      showTitles: true,
-                      getTitlesWidget: bottomTitles,
-                      reservedSize: 20,
-                    ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AspectRatio(
+          aspectRatio: 1.2,
+          child: BarChart(
+            BarChartData(
+              alignment: BarChartAlignment.spaceBetween,
+              titlesData: FlTitlesData(
+                leftTitles: AxisTitles(
+                  sideTitles: SideTitles(
+                    showTitles: true,
+                    getTitlesWidget: leftTitles,
+                    reservedSize: 30,
                   ),
                 ),
-                barTouchData: BarTouchData(
-                    enabled: true,
-                    touchTooltipData: BarTouchTooltipData(
-                        tooltipBgColor: AppColors.white,
-                        tooltipRoundedRadius: 10,
-                        tooltipBorder: const BorderSide(
-                          width: 1,
-                          color: AppColors.primary,
-                        ))),
-                borderData: FlBorderData(show: false),
-                gridData: const FlGridData(show: false),
-                barGroups: listValueChart,
-                extraLinesData: ExtraLinesData(
-                  extraLinesOnTop: false,
-                  horizontalLines: [
-                    ...List.generate(5, (i) {
-                      return HorizontalLine(
-                        y: i == 1
-                            ? 2
-                            : i == 2
-                                ? 4
-                                : i == 3
-                                    ? 6
-                                    : i == 4
-                                        ? 8
-                                        : 0,
-                        color: AppColors.blackLv7,
-                        strokeWidth: 1,
-                        dashArray: [20, 4],
-                      );
-                    })
-                  ],
+                rightTitles: const AxisTitles(),
+                topTitles: const AxisTitles(),
+                bottomTitles: AxisTitles(
+                  sideTitles: SideTitles(
+                    showTitles: true,
+                    getTitlesWidget: bottomTitles,
+                    reservedSize: 20,
+                  ),
                 ),
+              ),
+              barTouchData: BarTouchData(
+                enabled: true,
+                touchTooltipData: BarTouchTooltipData(
+                  tooltipBgColor: AppColors.white,
+                  tooltipRoundedRadius: 10,
+                  tooltipBorder: const BorderSide(
+                    width: 1,
+                    color: AppColors.primary,
+                  ),
+                ),
+              ),
+              borderData: FlBorderData(show: false),
+              gridData: const FlGridData(show: false),
+              barGroups: listValueChart,
+              extraLinesData: ExtraLinesData(
+                extraLinesOnTop: false,
+                horizontalLines: [
+                  ...List.generate(5, (i) {
+                    return HorizontalLine(
+                      y: i == 1
+                          ? 2
+                          : i == 2
+                              ? 4
+                              : i == 3
+                                  ? 6
+                                  : i == 4
+                                      ? 8
+                                      : 0,
+                      color: AppColors.blackLv7,
+                      strokeWidth: 1,
+                      dashArray: [20, 4],
+                    );
+                  })
+                ],
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

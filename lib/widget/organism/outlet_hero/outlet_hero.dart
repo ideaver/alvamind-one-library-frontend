@@ -41,8 +41,7 @@ class OutletHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppCardContainer(
-      backgroundColor: AppColors.transparent,
-      padding: const EdgeInsets.all(0),
+      padding: EdgeInsets.all(AppSizes.padding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -52,7 +51,7 @@ class OutletHero extends StatelessWidget {
           ),
           SizedBox(height: AppSizes.padding),
           AppLongCard(
-            padding: const EdgeInsets.all(0),
+            padding: EdgeInsets.zero,
             children: [
               AppTags(
                 text: tagStatus,

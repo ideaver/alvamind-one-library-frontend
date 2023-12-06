@@ -32,10 +32,10 @@ class OwnerSummaryBody extends StatefulWidget {
   State<OwnerSummaryBody> createState() => _OwnerSummaryBodyState();
 }
 
-int tagSelected = 0;
-int tagSelected2 = 0;
-
 class _OwnerSummaryBodyState extends State<OwnerSummaryBody> {
+  int tagSelected = 0;
+  int tagSelected2 = 0;
+
   @override
   Widget build(BuildContext context) {
     List<Widget> listStatistic = [

@@ -39,33 +39,32 @@ class BarChart extends StatelessWidget {
   Widget build(BuildContext context) {
     CountryModel country = countries.first;
     return AppCardContainer(
-      boxShadow: [
-        BoxShadow(
-          color: AppColors.blackLv7.withOpacity(0.5),
-          offset: const Offset(0, 4),
-          blurRadius: 60,
-          spreadRadius: 0,
-        ),
-      ],
+      // boxShadow: [
+      //   BoxShadow(
+      //     color: AppColors.blackLv7.withOpacity(0.5),
+      //     offset: const Offset(0, 4),
+      //     blurRadius: 60,
+      //     spreadRadius: 0,
+      //   ),
+      // ],
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppLongCard(
-            padding: const EdgeInsets.all(0),
+            padding: EdgeInsets.zero,
             children: [
               Expanded(
                 child: Row(
                   children: [
                     AppIconButton(
-                        buttonColor: AppColors.blueLv5,
-                        icon: const Icon(
-                          CustomIcon.chartBoldIcon,
-                          color: AppColors.primary,
-                        ),
-                        onTap: () {}),
-                    SizedBox(
-                      width: AppSizes.padding / 1.5,
+                      buttonColor: AppColors.blueLv5,
+                      icon: const Icon(
+                        CustomIcon.chartBoldIcon,
+                        color: AppColors.primary,
+                      ),
+                      onTap: () {},
                     ),
+                    SizedBox(width: AppSizes.padding / 1.5),
                     Expanded(
                       child: Text(
                         textTypeChart,
@@ -106,9 +105,7 @@ class BarChart extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
-            height: AppSizes.padding,
-          ),
+          SizedBox(height: AppSizes.padding),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -121,13 +118,9 @@ class BarChart extends StatelessWidget {
               Text('$countTransaction Transaksi', style: AppTextStyle.regular(size: 14, color: AppColors.blackLv4)),
             ],
           ),
-          SizedBox(
-            height: AppSizes.padding,
-          ),
+          SizedBox(height: AppSizes.padding),
           tagBar,
-          SizedBox(
-            height: AppSizes.padding,
-          ),
+          SizedBox(height: AppSizes.padding),
           barChart,
         ],
       ),

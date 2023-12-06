@@ -18,6 +18,7 @@ class OperasionalCardEdit extends StatefulWidget {
   final String? text;
   bool? isDisabled;
   bool showToggle;
+  bool editMode;
   final dynamic Function(bool) onChangedToggle;
   final void Function(String)? onChangedStart;
   final void Function(String)? onChangedEnd;
@@ -31,6 +32,7 @@ class OperasionalCardEdit extends StatefulWidget {
     this.time,
     this.isDisabled,
     this.showToggle = true,
+    this.editMode = false,
     this.onChangedEnd,
     this.onChangedStart,
     this.onEditingCompleteEnd,
@@ -45,6 +47,12 @@ class OperasionalCardEdit extends StatefulWidget {
 class _OperasionalCardEditState extends State<OperasionalCardEdit> {
   bool value1 = true;
   bool isEdit = false;
+
+  @override
+  void initState() {
+    isEdit = widget.editMode;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

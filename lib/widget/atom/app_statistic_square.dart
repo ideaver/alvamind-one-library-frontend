@@ -30,10 +30,7 @@ class AppStatisticSquare extends StatelessWidget {
     this.icon = Icons.stacked_bar_chart_rounded,
     this.shadowColor,
     this.textColor = AppColors.white,
-    this.colors = const [
-      AppColors.blueLv2,
-      AppColors.blueLv1
-    ],
+    this.colors = const [AppColors.blueLv2, AppColors.blueLv1],
     this.iconSize = 24,
     this.iconColor = AppColors.primary,
     this.iconBackgroundColor,
@@ -88,8 +85,10 @@ class AppStatisticSquare extends StatelessWidget {
               children: [
                 Text(
                   data,
-                  style: AppTextStyle.heading3(
+                  style: AppTextStyle.bold(
                     color: textColor,
+                    // Relative size, bigger length smallest size
+                    size: data.length > 5 ? 200 / data.length : 28,
                   ),
                 ),
                 const SizedBox(width: 8),
