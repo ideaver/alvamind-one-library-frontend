@@ -1,3 +1,4 @@
+import 'package:alvamind_library/widget/atom/app_divider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -12,12 +13,12 @@ class OperasionalCard extends StatefulWidget {
   final String? title;
   final String? dayTitle;
   final String? time;
-  final String? text;
   final bool value;
   final bool? isDisabled;
   final bool enabled;
+  final bool divider;
   final bool isCustom;
-  final bool withSubtitle;
+  final Widget? subtitle;
   final void Function()? chipCloseButton;
   final dynamic Function(bool) onChanged;
 
@@ -26,13 +27,13 @@ class OperasionalCard extends StatefulWidget {
     this.value = false,
     this.enabled = true,
     this.dayTitle,
-    this.text,
     this.time,
     this.chipCloseButton,
     this.isDisabled = false,
     this.isCustom = false,
+    this.divider = false,
     this.title,
-    this.withSubtitle = true,
+    this.subtitle,
     required this.onChanged,
   });
 
@@ -137,16 +138,15 @@ class _OperasionalCardState extends State<OperasionalCard> {
                               ),
                       ],
                     ),
-              !widget.enabled || !widget.withSubtitle
+              widget.divider ? const AppDivider() : const SizedBox(),
+              !widget.enabled ||
+                      widget.subtitle == null ||
+                      (widget.subtitle != null && widget.divider)
                   ? const SizedBox.shrink()
                   : SizedBox(height: AppSizes.padding),
-              !widget.enabled || !widget.withSubtitle
+              !widget.enabled || widget.subtitle == null
                   ? const SizedBox.shrink()
-                  : Text(
-                      widget.text ??
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                      style: AppTextStyle.medium(size: 14),
-                    )
+                  : widget.subtitle ?? const SizedBox()
             ],
           ),
         )
