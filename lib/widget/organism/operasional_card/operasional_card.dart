@@ -14,6 +14,7 @@ class OperasionalCard extends StatefulWidget {
   final String? time;
   final String? text;
   final bool value;
+  final bool? isDisabled;
   final bool enabled;
   final bool isCustom;
   final bool withSubtitle;
@@ -28,6 +29,7 @@ class OperasionalCard extends StatefulWidget {
     this.text,
     this.time,
     this.chipCloseButton,
+    this.isDisabled = false,
     this.isCustom = false,
     this.title,
     this.withSubtitle = true,
@@ -135,7 +137,9 @@ class _OperasionalCardState extends State<OperasionalCard> {
                               ),
                       ],
                     ),
-              !widget.enabled || !widget.withSubtitle ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding),
+              !widget.enabled || !widget.withSubtitle
+                  ? const SizedBox.shrink()
+                  : SizedBox(height: AppSizes.padding),
               !widget.enabled || !widget.withSubtitle
                   ? const SizedBox.shrink()
                   : Text(

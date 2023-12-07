@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
+import 'dart:io';
 
 import 'app/locale/app_locale.dart';
 import 'app/route/app_routes.dart';
@@ -9,6 +10,15 @@ import 'app/service/locator/service_locator.dart';
 import 'app/service/network_checker/network_checker_service.dart';
 import 'app/theme/app_theme.dart';
 import 'view/main/main_view.dart';
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
 
 Future<void> main() async {
   // Initialize binding
@@ -41,6 +51,7 @@ Future<void> main() async {
   // Set overlay style
   SystemChrome.setSystemUIOverlayStyle(AppTheme.lightOverlayStyle);
 
+  HttpOverrides.global = MyHttpOverrides();
   // runApp()
   runApp(const MyApp());
 }
