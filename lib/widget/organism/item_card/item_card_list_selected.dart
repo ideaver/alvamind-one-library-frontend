@@ -24,6 +24,8 @@ class ItemCardListSelected extends StatefulWidget {
   final Widget? rightItem;
   final String title;
   final String? timeWork;
+  final IconData? timeWorkIcon;
+  final IconData? typeItemIcon;
   final String? typeItem;
   final String? textPrice;
   final String? statusPrice;
@@ -66,6 +68,8 @@ class ItemCardListSelected extends StatefulWidget {
     this.starImageCount,
     this.isSelected,
     this.timeWork,
+    this.timeWorkIcon,
+    this.typeItemIcon,
     this.typeItem,
     this.showButton = true,
     this.isStatus = false,
@@ -96,35 +100,49 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
   Widget build(BuildContext context) {
     return Ink(
       decoration: BoxDecoration(
-        color: widget.isSelected == true ? widget.selectedButtonColor ?? AppColors.primary : AppColors.transparent,
-        borderRadius: widget.borderRadiusSelected ?? BorderRadius.circular(AppSizes.padding),
+        color: widget.isSelected == true
+            ? widget.selectedButtonColor ?? AppColors.primary
+            : AppColors.transparent,
+        borderRadius: widget.borderRadiusSelected ??
+            BorderRadius.circular(AppSizes.padding),
         boxShadow: widget.boxShadow ?? [AppShadows.cardShadow1],
       ),
       child: Padding(
-        padding: widget.isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : const EdgeInsets.all(0),
+        padding: widget.isSelected == true
+            ? EdgeInsets.all(AppSizes.padding / 3)
+            : const EdgeInsets.all(0),
         child: Column(
           children: [
             AppInkContainer(
               onTap: widget.onTapCard ?? () {},
               padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
               backgroundColor: widget.backgroundColor ?? AppColors.white,
-              borderRadius: widget.borderRadius ?? BorderRadius.circular(AppSizes.padding),
+              borderRadius: widget.borderRadius ??
+                  BorderRadius.circular(AppSizes.padding),
               child: horizontalMode(),
             ),
-            widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
+            widget.isSelected == true
+                ? SizedBox(height: AppSizes.padding / 2)
+                : const SizedBox.shrink(),
             widget.isSelected == true
                 ? widget.customSelectedButton == null
                     ? AppButton(
-                        padding: EdgeInsets.symmetric(horizontal: AppSizes.padding, vertical: AppSizes.padding / 4),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: AppSizes.padding,
+                            vertical: AppSizes.padding / 4),
                         text: 'Dipilih',
-                        borderColor: widget.selectedButtonColor ?? AppColors.transparent,
+                        borderColor:
+                            widget.selectedButtonColor ?? AppColors.transparent,
                         rightIcon: Icons.check_box_rounded,
-                        buttonColor: widget.selectedButtonColor ?? AppColors.primary,
+                        buttonColor:
+                            widget.selectedButtonColor ?? AppColors.primary,
                         onTap: widget.onTapSelectedButton ?? () {},
                       )
                     : widget.customSelectedButton!
                 : const SizedBox.shrink(),
-            widget.isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
+            widget.isSelected == true
+                ? SizedBox(height: AppSizes.padding / 2)
+                : const SizedBox.shrink(),
           ],
         ),
       ),
@@ -144,7 +162,9 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   headItem(),
-                  widget.isSelected == false ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding / 2),
+                  widget.isSelected == false
+                      ? const SizedBox.shrink()
+                      : SizedBox(height: AppSizes.padding / 2),
                   Flex(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     direction: Axis.horizontal,
@@ -258,7 +278,12 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
             ? const SizedBox.shrink()
             : Row(
                 children: [
-                  customIcon4Circle(),
+                  widget.typeItemIcon != null
+                      ? Icon(
+                          widget.typeItemIcon ?? Icons.access_time_sharp,
+                          size: 16,
+                        )
+                      : customIcon4Circle(),
                   SizedBox(
                     width: AppSizes.padding / 2,
                   ),
@@ -279,8 +304,8 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
             ? const SizedBox.shrink()
             : Row(
                 children: [
-                  const Icon(
-                    Icons.access_time_sharp,
+                  Icon(
+                    widget.timeWorkIcon ?? Icons.access_time_sharp,
                     size: 16,
                   ),
                   SizedBox(

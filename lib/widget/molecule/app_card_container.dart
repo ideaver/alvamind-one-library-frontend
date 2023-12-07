@@ -13,6 +13,8 @@ class AppCardContainer extends StatelessWidget {
   final Widget? child;
   final List<BoxShadow>? boxShadow;
   final Gradient? gradient;
+  final double? width;
+  final double? height;
   final bool withBackground;
 
   const AppCardContainer({
@@ -24,6 +26,8 @@ class AppCardContainer extends StatelessWidget {
     this.child,
     this.boxShadow,
     this.gradient,
+    this.height,
+    this.width,
     this.withBackground = false,
   }) : super(key: key);
 
@@ -31,6 +35,8 @@ class AppCardContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin ?? EdgeInsets.zero,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.white,
         borderRadius: borderRadius ?? BorderRadius.circular(AppSizes.padding),
@@ -55,7 +61,8 @@ class AppCardContainer extends StatelessWidget {
           left: 200,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -63,7 +70,8 @@ class AppCardContainer extends StatelessWidget {
           left: 223,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage, width: 100, height: 100, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 100, height: 100, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -71,7 +79,8 @@ class AppCardContainer extends StatelessWidget {
           right: 242,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
         Positioned(
@@ -79,7 +88,8 @@ class AppCardContainer extends StatelessWidget {
           bottom: 86,
           child: Opacity(
             opacity: 0.5,
-            child: Image.asset(AppAssets.cubeImage, width: 250, height: 282, package: 'alvamind_library'),
+            child: Image.asset(AppAssets.cubeImage,
+                width: 250, height: 282, package: 'alvamind_library'),
           ),
         ),
         Container(
