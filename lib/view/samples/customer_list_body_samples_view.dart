@@ -89,20 +89,20 @@ class _CustomerListBodySamplesViewState extends State<CustomerListBodySamplesVie
                 image: 'https://picsum.photos/23$i/300/',
                 starImageCount: '50',
                 title: 'Barokah Laundry',
-                dateProfileItem: 'Sejak 10 Januari 2014',
+                titleTop: 'Sejak 10 Januari 2014',
                 textLeftButton: 'Detail Konsumen',
                 textRightButton: 'Whatsapp',
-                address: 'Jl. Sukamenak DPR RI KOM...',
-                isProfile: true,
-                isOwner: true,
-                isCustomer: true,
+                subtitle: 'Jl. Sukamenak DPR RI KOM...',
+                showTitleTopWidgets: true,
+                showBottomButtons: true,
+                showTitleTopTag: true,
                 onTapLeftButton: () {
                   // TODO
                 },
                 onTapRightButton: () {
                   // TODO
                 },
-                detailInfoCard: const OrderTypeInfo(
+                additionalWidget: const OrderTypeInfo(
                   isCustomer: true,
                   withOrder: false,
                   countMachine: '42',

@@ -708,8 +708,8 @@ class _UserProfileContainerSamplesViewState extends State<UserProfileContainerSa
                         title: 'Barokah Laundry',
                         textLeftButton: 'Detail Pesanan',
                         textRightButton: 'Lacak Pengiriman',
-                        address: 'Jl. Sukamenak DPR RI KOM...',
-                        isProfile: true,
+                        subtitle: 'Jl. Sukamenak DPR RI KOM...',
+                        showTitleTopWidgets: true,
                         tagText: tagSelected1 == 1
                             ? 'Reguler'
                             : tagSelected1 == 0 && i == 1

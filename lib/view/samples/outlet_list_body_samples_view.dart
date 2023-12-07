@@ -1,9 +1,9 @@
-import '../../app/theme/app_text_style.dart';
-import '../../widget/molecule/app_column_ink.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
+import '../../app/theme/app_text_style.dart';
+import '../../widget/molecule/app_column_ink.dart';
 import '../../widget/molecule/app_dialog.dart';
 import '../../widget/molecule/app_text_field.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
@@ -93,8 +93,8 @@ class _OutletListBodySamplesViewState extends State<OutletListBodySamplesView> {
                 title: 'Barokah Laundry',
                 textLeftButton: 'Detail Pesanan',
                 textRightButton: 'Lacak Pengiriman',
-                address: 'Jl. Sukamenak DPR RI KOM...',
-                isProfile: true,
+                subtitle: 'Jl. Sukamenak DPR RI KOM...',
+                showTitleTopWidgets: true,
                 tagText: tagSelected1 == 1
                     ? 'Reguler'
                     : tagSelected1 == 0 && i == 1
@@ -179,16 +179,16 @@ class _OutletListBodySamplesViewState extends State<OutletListBodySamplesView> {
                 title: 'Barokah Laundry',
                 textLeftButton: 'Detail Toko',
                 textRightButton: 'Laporan Keuangan',
-                address: 'Jl. Sukamenak DPR RI KOM...',
-                isProfile: true,
-                isOwner: true,
+                subtitle: 'Jl. Sukamenak DPR RI KOM...',
+                showTitleTopWidgets: true,
+                showBottomButtons: true,
                 onTapLeftButton: () {
                   // TODO
                 },
                 onTapRightButton: () {
                   // TODO
                 },
-                detailInfoCard: OrderTypeInfo(
+                additionalWidget: OrderTypeInfo(
                   withOrder: false,
                   countMachine: '21/24',
                   countCustomers: '3.145',

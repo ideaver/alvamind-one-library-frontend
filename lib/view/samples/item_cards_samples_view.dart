@@ -1,12 +1,12 @@
-import '../../app/theme/app_text_style.dart';
-import '../../widget/molecule/app_icon_button.dart';
-import '../../widget/molecule/app_long_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/asset/app_assets.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_sizes.dart';
+import '../../app/theme/app_text_style.dart';
 import '../../widget/atom/app_image.dart';
+import '../../widget/molecule/app_icon_button.dart';
+import '../../widget/molecule/app_long_card.dart';
 import '../../widget/organism/item_card/item_card_image.dart';
 import '../../widget/organism/item_card/item_card_list.dart';
 import '../../widget/organism/item_card/item_card_list_selected.dart';
@@ -92,8 +92,8 @@ class _ItemCardsSamplesViewState extends State<ItemCardsSamplesView> {
         title: 'Barokah Laundry',
         textLeftButton: 'Detail Pesanan',
         textRightButton: 'Lacak Pengiriman',
-        address: 'Jl. Sukamenak DPR RI KOM',
-        isProfile: true,
+        subtitle: 'Jl. Sukamenak DPR RI KOM',
+        showTitleTopWidgets: true,
       ),
     );
   }

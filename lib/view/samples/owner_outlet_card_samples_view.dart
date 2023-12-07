@@ -52,16 +52,16 @@ class _OwnerOutletCardSamplesViewState extends State<OwnerOutletCardSamplesView>
           title: 'Barokah Laundry',
           textLeftButton: 'Detail Pesanan',
           textRightButton: 'Lacak Pengiriman',
-          address: 'Jl. Sukamenak DPR RI KOM...',
-          isProfile: true,
-          isOwner: true,
+          subtitle: 'Jl. Sukamenak DPR RI KOM...',
+          showTitleTopWidgets: true,
+          showBottomButtons: true,
           onTapLeftButton: () {
             // TODO
           },
           onTapRightButton: () {
             // TODO
           },
-          detailInfoCard: OrderTypeInfo(
+          additionalWidget: OrderTypeInfo(
             withOrder: false,
             countMachine: '21/24',
             countCustomers: '3.145',

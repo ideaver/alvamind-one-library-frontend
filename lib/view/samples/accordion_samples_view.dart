@@ -183,13 +183,13 @@ class _AccordionSamplesViewState extends State<AccordionSamplesView> {
             ItemCardList(
               starImageCount: '50',
               title: 'Barokah Laundry',
-              dateProfileItem: '+62 82335456789',
+              titleTop: '+62 82335456789',
               textLeftButton: 'Detail Pesanan',
               textRightButton: 'Lacak Pengiriman',
-              address: 'Jl. Sukamenak DPR RI KOM...',
+              subtitle: 'Jl. Sukamenak DPR RI KOM...',
               tagText: 'Sudah Pin Point',
               tagColor: AppColors.greenLv1,
-              isProfile: true,
+              showTitleTopWidgets: true,
               onTapCard: () {
                 // TODO
               },

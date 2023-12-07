@@ -13,12 +13,13 @@ class OrderTypeInfo extends StatelessWidget {
   final double? fontSize;
   final double? iconSize;
   final double? backgroundSize;
-  final bool? withOrder;
-  final bool? onlyOrder;
-  final bool? isCustomer;
+  final bool withOrder;
+  final bool onlyOrder;
+  final bool isCustomer;
   final void Function()? deliveryButton;
   final void Function()? dropButton;
   final void Function()? selfButton;
+
   const OrderTypeInfo({
     super.key,
     this.countCustomers,
@@ -40,7 +41,7 @@ class OrderTypeInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        withOrder == true
+        withOrder
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -62,35 +63,27 @@ class OrderTypeInfo extends StatelessWidget {
                 ],
               )
             : const SizedBox.shrink(),
-        withOrder == true
-            ? SizedBox(
-                height: AppSizes.padding / 2,
-              )
-            : const SizedBox.shrink(),
-        onlyOrder == true
+        withOrder ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
+        onlyOrder
             ? const SizedBox.shrink()
             : Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  detailInfo(countMachine ?? '', isCustomer == true ? 'Transaksi' : 'Mesin aktif'),
+                  detailInfo(countMachine ?? '', isCustomer ? 'Transaksi' : 'Mesin aktif'),
                   Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                    ),
+                    margin: const EdgeInsets.symmetric(horizontal: 12),
                     height: 18,
                     width: 1,
                     color: AppColors.blackLv4,
                   ),
-                  detailInfo(countCustomers ?? '', isCustomer == true ? 'Ulasan' : 'Konsumen'),
+                  detailInfo(countCustomers ?? '', isCustomer ? 'Ulasan' : 'Konsumen'),
                   Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                    ),
+                    margin: const EdgeInsets.symmetric(horizontal: 12),
                     height: 18,
                     width: 1,
                     color: AppColors.blackLv4,
                   ),
-                  detailInfo(countEmployees ?? '', isCustomer == true ? 'Komplain' : 'Karyawan'),
+                  detailInfo(countEmployees ?? '', isCustomer ? 'Komplain' : 'Karyawan'),
                 ],
               ),
       ],
@@ -111,23 +104,17 @@ class OrderTypeInfo extends StatelessWidget {
           textAlign: TextAlign.center,
           style: AppTextStyle.bold(size: 18),
         ),
-        SizedBox(
-          height: AppSizes.padding / 2,
-        ),
+        SizedBox(height: AppSizes.padding / 2),
         Row(
           children: [
-            isCustomer == true
+            isCustomer
                 ? const SizedBox.shrink()
                 : const Icon(
                     Icons.circle,
                     size: 10,
                     color: AppColors.blackLv6,
                   ),
-            isCustomer == true
-                ? const SizedBox.shrink()
-                : SizedBox(
-                    width: AppSizes.padding / 4,
-                  ),
+            isCustomer ? const SizedBox.shrink() : SizedBox(width: AppSizes.padding / 4),
             Text(
               subtitle,
               softWrap: true,
