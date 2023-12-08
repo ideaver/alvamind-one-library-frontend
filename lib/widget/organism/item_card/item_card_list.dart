@@ -19,10 +19,10 @@ class ItemCardList extends StatefulWidget {
   final bool isList;
   final bool isVertical;
   final bool showTitleTopWidgets;
-  final bool showBottomButtons;
+  final bool showBottomWidgets;
   final bool showTitleTopTag;
-  final bool showHeartButton;
-  final bool showTag;
+  final bool showTopRightButton;
+  final bool showRating;
   final String title;
   final String? subtitle;
   final String? textPrice;
@@ -46,7 +46,7 @@ class ItemCardList extends StatefulWidget {
   final Color? iconHeartColor;
   final BorderRadius? borderRadius;
   final Widget? additionalWidget;
-  final IconData? iconHeartButton;
+  final IconData? topRightButtonIcon;
   final IconData? leftIconButton;
   final IconData? rightIconButton;
   final List<BoxShadow>? boxShadow;
@@ -54,7 +54,7 @@ class ItemCardList extends StatefulWidget {
   final double? fontSizeButton;
   final void Function()? onTapRightButton;
   final void Function()? onTapLeftButton;
-  final void Function()? onTapHearButton;
+  final void Function()? onTapTopRightButton;
   final void Function()? onTapCard;
 
   const ItemCardList({
@@ -62,10 +62,10 @@ class ItemCardList extends StatefulWidget {
     required this.title,
     this.isVertical = false,
     this.showTitleTopWidgets = false,
-    this.showBottomButtons = false,
+    this.showBottomWidgets = false,
     this.showTitleTopTag = false,
-    this.showHeartButton = true,
-    this.showTag = true,
+    this.showTopRightButton = true,
+    this.showRating = true,
     this.margin,
     this.padding,
     this.dataProgress,
@@ -90,8 +90,8 @@ class ItemCardList extends StatefulWidget {
     this.image,
     this.backgroundColor,
     this.borderRadius,
-    this.iconHeartButton,
-    this.onTapHearButton,
+    this.topRightButtonIcon,
+    this.onTapTopRightButton,
     this.iconHeartColor,
     this.leftButtonColor,
     this.leftIconButton,
@@ -156,7 +156,7 @@ class _ItemCardListState extends State<ItemCardList> {
               children: [
                 priceStatus(),
                 SizedBox(width: AppSizes.padding),
-                heartButton(),
+                topRightButtonWidget(),
               ],
             ),
           ],
@@ -178,6 +178,7 @@ class _ItemCardListState extends State<ItemCardList> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   headItem(),
+                  SizedBox(height: AppSizes.padding / 4),
                   Flex(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     direction: Axis.horizontal,
@@ -199,7 +200,7 @@ class _ItemCardListState extends State<ItemCardList> {
             )
           ],
         ),
-        widget.showBottomButtons
+        widget.showBottomWidgets
             ? widget.customBottomButton != null
                 ? widget.customBottomButton ?? buttonDown()
                 : buttonDown()
@@ -242,9 +243,9 @@ class _ItemCardListState extends State<ItemCardList> {
             ),
             widget.showTitleTopTag || !widget.isList
                 ? const SizedBox.shrink()
-                : !widget.showHeartButton
+                : !widget.showTopRightButton
                     ? const SizedBox.shrink()
-                    : heartButton(),
+                    : topRightButtonWidget(),
           ],
         ),
       ],
@@ -265,7 +266,7 @@ class _ItemCardListState extends State<ItemCardList> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          !widget.showTag
+          !widget.showRating
               ? const Center()
               : Align(
                   alignment: Alignment.centerRight,
@@ -312,22 +313,22 @@ class _ItemCardListState extends State<ItemCardList> {
     );
   }
 
-  IconData heartIcon = CustomIcon.heartIcon;
+  IconData topRightButtonIcon = CustomIcon.heartIcon;
 
-  Widget heartButton() {
+  Widget topRightButtonWidget() {
     return AppIconButton(
       padding: EdgeInsets.zero,
       buttonColor: AppColors.transparent,
       icon: Icon(
-        widget.iconHeartButton ?? heartIcon,
+        widget.topRightButtonIcon ?? topRightButtonIcon,
         color: widget.iconHeartColor ?? AppColors.primary,
       ),
-      onTap: widget.onTapHearButton ??
+      onTap: widget.onTapTopRightButton ??
           () {
             setState(() {
-              heartIcon == CustomIcon.heartIcon
-                  ? heartIcon = CustomIcon.heartBoldIcon
-                  : heartIcon = CustomIcon.heartIcon;
+              topRightButtonIcon == CustomIcon.heartIcon
+                  ? topRightButtonIcon = CustomIcon.heartBoldIcon
+                  : topRightButtonIcon = CustomIcon.heartIcon;
             });
           },
     );

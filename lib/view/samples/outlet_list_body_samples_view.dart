@@ -181,7 +181,7 @@ class _OutletListBodySamplesViewState extends State<OutletListBodySamplesView> {
                 textRightButton: 'Laporan Keuangan',
                 subtitle: 'Jl. Sukamenak DPR RI KOM...',
                 showTitleTopWidgets: true,
-                showBottomButtons: true,
+                showBottomWidgets: true,
                 onTapLeftButton: () {
                   // TODO
                 },

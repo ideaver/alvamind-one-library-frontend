@@ -54,7 +54,7 @@ class _OwnerOutletCardSamplesViewState extends State<OwnerOutletCardSamplesView>
           textRightButton: 'Lacak Pengiriman',
           subtitle: 'Jl. Sukamenak DPR RI KOM...',
           showTitleTopWidgets: true,
-          showBottomButtons: true,
+          showBottomWidgets: true,
           onTapLeftButton: () {
             // TODO
           },
