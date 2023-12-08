@@ -15,6 +15,7 @@ class AppTransactionInfo extends StatelessWidget {
   final Color transactionStatusColor;
   final EdgeInsets? dotChillPadding;
   final bool? onlyTrasactionId;
+  final Widget? transactionIdWidget;
   final bool? withIcon;
   final TextStyle? transactionIdStyle;
   final TextStyle? textTitleStyle;
@@ -28,6 +29,7 @@ class AppTransactionInfo extends StatelessWidget {
     this.onTapCopyButton,
     this.dotChillPadding,
     this.dotColor,
+    this.transactionIdWidget,
     this.onlyTrasactionId,
     this.textTitle,
     this.withIcon = true,
@@ -48,45 +50,50 @@ class AppTransactionInfo extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    textTitle ?? 'Transaction ID',
-                    style: textTitleStyle ??
-                        AppTextStyle.bodyMedium(
-                          fontWeight: AppFontWeight.medium,
-                        ),
-                  ),
                   Expanded(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            transactionId,
-                            textAlign: TextAlign.end,
-                            softWrap: true,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: transactionIdStyle ??
-                                AppTextStyle.bodyLarge(
-                                  fontWeight: AppFontWeight.semibold,
-                                ),
+                    child: Text(
+                      textTitle ?? 'Transaction ID',
+                      style: textTitleStyle ??
+                          AppTextStyle.bodyMedium(
+                            fontWeight: AppFontWeight.medium,
                           ),
-                        ),
-                        withIcon == false ? const SizedBox.shrink() : const SizedBox(width: 8),
-                        withIcon == false
-                            ? const SizedBox.shrink()
-                            : AppIconButton(
-                                padding: EdgeInsets.zero,
-                                buttonColor: AppColors.transparent,
-                                icon: const Icon(
-                                  Icons.file_copy_outlined,
-                                  color: AppColors.primary,
-                                  size: 18,
-                                ),
-                                onTap: onTapCopyButton ?? () {},
-                              )
-                      ],
                     ),
                   ),
+                  transactionIdWidget ??
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                transactionId,
+                                textAlign: TextAlign.end,
+                                softWrap: true,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: transactionIdStyle ??
+                                    AppTextStyle.bodyLarge(
+                                      fontWeight: AppFontWeight.semibold,
+                                    ),
+                              ),
+                            ),
+                            withIcon == false
+                                ? const SizedBox.shrink()
+                                : const SizedBox(width: 8),
+                            withIcon == false
+                                ? const SizedBox.shrink()
+                                : AppIconButton(
+                                    padding: EdgeInsets.zero,
+                                    buttonColor: AppColors.transparent,
+                                    icon: const Icon(
+                                      Icons.file_copy_outlined,
+                                      color: AppColors.primary,
+                                      size: 18,
+                                    ),
+                                    onTap: onTapCopyButton ?? () {},
+                                  )
+                          ],
+                        ),
+                      ),
                 ],
               ),
               onlyTrasactionId == true

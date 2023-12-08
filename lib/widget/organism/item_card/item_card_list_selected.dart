@@ -21,6 +21,7 @@ class ItemCardListSelected extends StatefulWidget {
   final bool? withCustomItem;
   final bool? showLabel;
   final bool? showButton;
+  final bool showImage;
   final Widget? rightItem;
   final String title;
   final String? timeWork;
@@ -28,6 +29,7 @@ class ItemCardListSelected extends StatefulWidget {
   final IconData? typeItemIcon;
   final String? typeItem;
   final String? textPrice;
+  final double? textPriceFontSize;
   final String? statusPrice;
   final String? statustProgressText;
   final String? textLeftButton;
@@ -64,6 +66,7 @@ class ItemCardListSelected extends StatefulWidget {
     this.statustProgressText,
     this.textLeftButton,
     this.textPrice,
+    this.textPriceFontSize,
     this.textRightButton,
     this.starImageCount,
     this.isSelected,
@@ -72,6 +75,7 @@ class ItemCardListSelected extends StatefulWidget {
     this.typeItemIcon,
     this.typeItem,
     this.showButton = true,
+    this.showImage = true,
     this.isStatus = false,
     this.onTapCard,
     this.boxShadow,
@@ -155,8 +159,10 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            imageCard(90, 90),
-            SizedBox(width: AppSizes.padding),
+            widget.showImage ? imageCard(90, 90) : const SizedBox.shrink(),
+            widget.showImage
+                ? SizedBox(width: AppSizes.padding)
+                : const SizedBox.shrink(),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -280,7 +286,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
                 children: [
                   widget.typeItemIcon != null
                       ? Icon(
-                          widget.typeItemIcon ?? Icons.access_time_sharp,
+                          widget.timeWorkIcon ?? Icons.access_time_sharp,
                           size: 16,
                         )
                       : customIcon4Circle(),
@@ -387,7 +393,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
         Text(
           widget.textPrice ?? '',
           style: AppTextStyle.bold(
-            size: 24,
+            size: widget.textPriceFontSize ?? 24,
             color: AppColors.primary,
           ),
         ),
