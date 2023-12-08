@@ -29,6 +29,7 @@ class ItemCardListSelected extends StatefulWidget {
   final IconData? typeItemIcon;
   final String? typeItem;
   final String? textPrice;
+  final double? textPriceFontSize;
   final String? statusPrice;
   final String? statustProgressText;
   final String? textLeftButton;
@@ -65,6 +66,7 @@ class ItemCardListSelected extends StatefulWidget {
     this.statustProgressText,
     this.textLeftButton,
     this.textPrice,
+    this.textPriceFontSize,
     this.textRightButton,
     this.starImageCount,
     this.isSelected,
@@ -158,7 +160,9 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             widget.showImage ? imageCard(90, 90) : const SizedBox.shrink(),
-            SizedBox(width: AppSizes.padding),
+            widget.showImage
+                ? SizedBox(width: AppSizes.padding)
+                : const SizedBox.shrink(),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -389,7 +393,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
         Text(
           widget.textPrice ?? '',
           style: AppTextStyle.bold(
-            size: 24,
+            size: widget.textPriceFontSize ?? 24,
             color: AppColors.primary,
           ),
         ),
