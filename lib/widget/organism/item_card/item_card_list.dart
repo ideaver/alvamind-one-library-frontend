@@ -39,6 +39,8 @@ class ItemCardList extends StatefulWidget {
   final String? titleTop;
   final String? image;
   final Color? tagColor;
+  final Color? tagBorderColor;
+  final Color? tagTextColor;
   final Color? backgroundColor;
   final Color? leftButtonColor;
   final Color? leftTextButtonColor;
@@ -86,6 +88,8 @@ class ItemCardList extends StatefulWidget {
     this.titleTop,
     this.tagColor,
     this.tagText,
+    this.tagBorderColor,
+    this.tagTextColor,
     this.additionalWidget,
     this.onTapCard,
     this.boxShadow,
@@ -227,6 +231,10 @@ class _ItemCardListState extends State<ItemCardList> {
                       : AppTags(
                           text: widget.tagText ?? '',
                           color: widget.tagColor ?? AppColors.orangeLv1,
+                          borderColor:
+                              widget.tagBorderColor ?? AppColors.orangeLv1,
+                          textColor: widget.tagTextColor ?? AppColors.white,
+                          borderWidth: 1,
                           fontSize: 10,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 6),
