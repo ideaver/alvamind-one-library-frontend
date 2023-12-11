@@ -295,6 +295,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
                   ),
                   Text(
                     widget.typeItem ?? 'Pakaian',
+                    overflow: TextOverflow.ellipsis,
                     style: AppTextStyle.regular(
                       size: 14,
                     ),
@@ -317,10 +318,14 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
                   SizedBox(
                     width: AppSizes.padding / 2,
                   ),
-                  Text(
-                    widget.timeWork ?? '3 Hari Kerja',
-                    style: AppTextStyle.regular(
-                      size: 14,
+                  SizedBox(
+                    width: AppSizes.screenSize.width / 5,
+                    child: Text(
+                      widget.timeWork ?? '3 Hari Kerja',
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTextStyle.regular(
+                        size: 14,
+                      ),
                     ),
                   )
                 ],
@@ -392,6 +397,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
       children: [
         Text(
           widget.textPrice ?? '',
+          overflow: TextOverflow.ellipsis,
           style: AppTextStyle.bold(
             size: widget.textPriceFontSize ?? 24,
             color: AppColors.primary,
@@ -401,6 +407,7 @@ class _ItemCardListSelectedState extends State<ItemCardListSelected> {
           padding: const EdgeInsets.all(4.0),
           child: Text(
             widget.statusPrice ?? '',
+            overflow: TextOverflow.ellipsis,
             style: AppTextStyle.medium(
               size: 10,
               color: AppColors.blackLv4,
