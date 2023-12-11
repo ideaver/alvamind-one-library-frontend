@@ -174,7 +174,7 @@ class _ItemCardListState extends State<ItemCardList> {
           direction: Axis.horizontal,
           children: [
             widget.showImage ? imageCard(100, 100) : const SizedBox.shrink(),
-            SizedBox(width: AppSizes.padding),
+            SizedBox(width: widget.showImage ? AppSizes.padding : 0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
