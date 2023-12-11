@@ -36,6 +36,7 @@ class OutletHeroCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppCardContainer(
       backgroundColor: AppColors.transparent,
+      boxShadow: [],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

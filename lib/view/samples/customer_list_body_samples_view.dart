@@ -94,7 +94,7 @@ class _CustomerListBodySamplesViewState extends State<CustomerListBodySamplesVie
                 textRightButton: 'Whatsapp',
                 subtitle: 'Jl. Sukamenak DPR RI KOM...',
                 showTitleTopWidgets: true,
-                showBottomButtons: true,
+                showBottomWidgets: true,
                 showTitleTopTag: true,
                 onTapLeftButton: () {
                   // TODO
