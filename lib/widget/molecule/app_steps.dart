@@ -63,27 +63,13 @@ class AppSteps extends StatelessWidget {
                 ...List.generate(
                   steps.length,
                   (i) => i == (steps.length - 1)
-                      ? Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            stepHorizontal(steps[i], i),
-                            stepText(steps[i], i)
-                          ],
-                        )
-                      : Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                      ? stepHorizontal(steps[i], i)
+                      : Expanded(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Spacer(),
-                                  stepHorizontal(steps[i], i),
-                                  dashLine(i, steps[i].isActive),
-                                ],
-                              ),
-                              stepText(steps[i], i)
+                              stepHorizontal(steps[i], i),
+                              dashLine(i, steps[i].isActive),
                             ],
                           ),
                         ),
@@ -114,11 +100,8 @@ class AppSteps extends StatelessWidget {
 
   Widget dashLine(int i, bool isActive) {
     return Expanded(
-      child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-        final boxSize = direction == Axis.horizontal
-            ? constraints.constrainWidth()
-            : constraints.constrainHeight();
+      child: LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+        final boxSize = direction == Axis.horizontal ? constraints.constrainWidth() : constraints.constrainHeight();
         final dCount = (boxSize * dashFillRate / dashWith).floor();
         return SizedBox(
           width: direction == Axis.horizontal ? boxSize : leadingSize,
@@ -144,51 +127,44 @@ class AppSteps extends StatelessWidget {
     );
   }
 
-  Widget stepText(StepsModel step, int i) {
-    return Column(
-      children: [
-        step.title != null
-            ? Padding(
-                padding: const EdgeInsets.only(bottom: 4, top: 14),
-                child: Text(
-                  step.title!,
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: titleStyle ??
-                      AppTextStyle.bold(
-                        size: titleFontSize ?? leadingSize / 2,
-                        color: step.isActive
-                            ? titleActiveColor
-                            : titleInactiveColor,
-                      ),
-                ),
-              )
-            : const SizedBox.shrink(),
-        showSubtitle && step.subtitle != null
-            ? Text(
-                step.subtitle!,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: subtitleStyle ??
-                    AppTextStyle.medium(
-                      size: subtitleFontSize ?? leadingSize / 2.6,
-                      color: step.isActive
-                          ? subtitleActiveColor
-                          : subtitleInactiveColor,
-                    ),
-              )
-            : const SizedBox.shrink()
-      ],
-    );
-  }
-
   Widget stepHorizontal(StepsModel step, int i) {
     return Container(
       width: leadingSize * 1.5,
       padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: leadingWidget(step, i),
+      child: Column(
+        children: [
+          leadingWidget(step, i),
+          step.title != null
+              ? Padding(
+                  padding: const EdgeInsets.only(bottom: 4, top: 14),
+                  child: Text(
+                    step.title!,
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: titleStyle ??
+                        AppTextStyle.bold(
+                          size: titleFontSize ?? leadingSize / 2,
+                          color: step.isActive ? titleActiveColor : titleInactiveColor,
+                        ),
+                  ),
+                )
+              : const SizedBox.shrink(),
+          showSubtitle && step.subtitle != null
+              ? Text(
+                  step.subtitle!,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: subtitleStyle ??
+                      AppTextStyle.medium(
+                        size: subtitleFontSize ?? leadingSize / 2.6,
+                        color: step.isActive ? subtitleActiveColor : subtitleInactiveColor,
+                      ),
+                )
+              : const SizedBox.shrink(),
+        ],
+      ),
     );
   }
 
@@ -212,9 +188,7 @@ class AppSteps extends StatelessWidget {
                                 style: titleStyle ??
                                     AppTextStyle.bold(
                                       size: titleFontSize ?? leadingSize / 2,
-                                      color: step.isActive
-                                          ? titleActiveColor
-                                          : titleInactiveColor,
+                                      color: step.isActive ? titleActiveColor : titleInactiveColor,
                                     ),
                               ),
                             )
@@ -225,9 +199,7 @@ class AppSteps extends StatelessWidget {
                               style: subtitleStyle ??
                                   AppTextStyle.medium(
                                     size: subtitleFontSize ?? leadingSize / 2.6,
-                                    color: step.isActive
-                                        ? subtitleActiveColor
-                                        : subtitleInactiveColor,
+                                    color: step.isActive ? subtitleActiveColor : subtitleInactiveColor,
                                   ),
                             )
                           : const SizedBox.shrink(),
@@ -255,9 +227,7 @@ class AppSteps extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: AppColors.white,
-        border: Border.all(
-            width: leadingSize / 12,
-            color: step.isActive ? activeColor : inactiveColor),
+        border: Border.all(width: leadingSize / 12, color: step.isActive ? activeColor : inactiveColor),
         shape: BoxShape.circle,
       ),
       child: Container(
