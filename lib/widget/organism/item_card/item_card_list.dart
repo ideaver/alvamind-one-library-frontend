@@ -22,6 +22,7 @@ class ItemCardList extends StatefulWidget {
   final bool showBottomWidgets;
   final bool showTitleTopTag;
   final bool showTopRightButton;
+  final bool showImage;
   final bool showRating;
   final String title;
   final String? subtitle;
@@ -38,6 +39,8 @@ class ItemCardList extends StatefulWidget {
   final String? titleTop;
   final String? image;
   final Color? tagColor;
+  final Color? tagBorderColor;
+  final Color? tagTextColor;
   final Color? backgroundColor;
   final Color? leftButtonColor;
   final Color? leftTextButtonColor;
@@ -65,6 +68,7 @@ class ItemCardList extends StatefulWidget {
     this.showBottomWidgets = false,
     this.showTitleTopTag = false,
     this.showTopRightButton = true,
+    this.showImage = true,
     this.showRating = true,
     this.margin,
     this.padding,
@@ -84,6 +88,8 @@ class ItemCardList extends StatefulWidget {
     this.titleTop,
     this.tagColor,
     this.tagText,
+    this.tagBorderColor,
+    this.tagTextColor,
     this.additionalWidget,
     this.onTapCard,
     this.boxShadow,
@@ -171,8 +177,8 @@ class _ItemCardListState extends State<ItemCardList> {
         Flex(
           direction: Axis.horizontal,
           children: [
-            imageCard(100, 100),
-            SizedBox(width: AppSizes.padding),
+            widget.showImage ? imageCard(100, 100) : const SizedBox.shrink(),
+            SizedBox(width: widget.showImage ? AppSizes.padding : 0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,14 +231,21 @@ class _ItemCardListState extends State<ItemCardList> {
                       : AppTags(
                           text: widget.tagText ?? '',
                           color: widget.tagColor ?? AppColors.orangeLv1,
+                          borderColor:
+                              widget.tagBorderColor ?? AppColors.orangeLv1,
+                          textColor: widget.tagTextColor ?? AppColors.white,
+                          borderWidth: 1,
                           fontSize: 10,
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 6),
                           borderRadius: 8,
                         ),
                 ],
               )
             : const SizedBox.shrink(),
-        widget.showTitleTopWidgets ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
+        widget.showTitleTopWidgets
+            ? SizedBox(height: AppSizes.padding / 2)
+            : const SizedBox.shrink(),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -289,7 +302,9 @@ class _ItemCardListState extends State<ItemCardList> {
   Widget priceStatus() {
     return Flex(
       direction: widget.isVertical ? Axis.horizontal : Axis.vertical,
-      mainAxisAlignment: widget.isVertical ? MainAxisAlignment.start : MainAxisAlignment.center,
+      mainAxisAlignment: widget.isVertical
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
@@ -346,7 +361,9 @@ class _ItemCardListState extends State<ItemCardList> {
         // isList
         widget.additionalWidget ?? const SizedBox.shrink(),
         //
-        widget.additionalWidget == null ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding),
+        widget.additionalWidget == null
+            ? const SizedBox.shrink()
+            : SizedBox(height: AppSizes.padding),
         //
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
