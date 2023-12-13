@@ -19,8 +19,8 @@ class AppDropDown extends StatefulWidget {
   final EdgeInsets contentPadding;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
-  final Widget? prefixWidget;
-  final Widget? suffixWidget;
+  // final Widget? prefixWidget;
+  // final Widget? suffixWidget;
   final double? iconsSize;
   final double borderRadius;
   final Color itemsBackgroundColor;
@@ -54,8 +54,8 @@ class AppDropDown extends StatefulWidget {
     ),
     this.prefixIcon,
     this.suffixIcon,
-    this.prefixWidget,
-    this.suffixWidget,
+    // this.prefixWidget,
+    // this.suffixWidget,
     this.iconsSize = 16,
     this.borderRadius = 16,
     this.itemsBackgroundColor = AppColors.white,
@@ -135,9 +135,9 @@ class _AppDropDownState extends State<AppDropDown> {
       hintStyle: widget.hintStyle,
       textStyle: widget.textStyle,
       prefixIcon: widget.prefixIcon,
-      prefixWidget: widget.prefixWidget,
+      // prefixWidget: widget.prefixWidget,
       suffixIcon: widget.suffixIcon ?? Icons.arrow_drop_down_rounded,
-      suffixWidget: widget.suffixWidget,
+      // suffixWidget: widget.suffixWidget,
       iconsSize: widget.suffixIcon != null || widget.prefixIcon != null ? widget.iconsSize : 32,
       iconsColor: widget.enabled ? widget.iconsColor : widget.iconsDisabledColor,
       borderRadius: widget.borderRadius,

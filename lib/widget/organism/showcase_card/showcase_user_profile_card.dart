@@ -17,6 +17,8 @@ class UserProfileCard extends StatelessWidget {
   final String? employeeJob;
   final String? image;
 
+  final List<BoxShadow>? boxShadow;
+
   final bool? onlyEmployee;
   final bool? onlyBalance;
   final bool? onlyUser;
@@ -40,6 +42,7 @@ class UserProfileCard extends StatelessWidget {
     this.onTapDetailButton,
     this.idUser,
     this.image,
+    this.boxShadow,
     this.nameUser,
     this.employeeJob,
     this.employeePlace,
@@ -59,6 +62,7 @@ class UserProfileCard extends StatelessWidget {
         AppColors.blueLv2,
         AppColors.blueLv1,
       ]),
+      boxShadow: boxShadow,
       withBackground: true,
       child: content(),
     );

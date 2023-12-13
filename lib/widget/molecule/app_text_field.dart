@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../app/const/countries.dart';
+import '../../app/locale/app_locale.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_text_style.dart';
 import '../../model/country_model.dart';
@@ -14,6 +15,7 @@ enum AppTextFieldType {
   number,
   phone,
   search,
+  currency,
 }
 
 class AppTextField extends StatefulWidget {
@@ -47,12 +49,16 @@ class AppTextField extends StatefulWidget {
   final String? errorText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
-  final Widget? prefixWidget;
-  final Widget? suffixWidget;
-  final String? prefixText;
-  final String? suffixText;
-  final TextStyle? prefixStyle;
-  final TextStyle? suffixStyle;
+  final Widget? prefixIconWidget;
+  final Widget? suffixIconWidget;
+  // [DEPRECATED] NOT ALWAYS SHOWING UP
+  // USER PREFIX ICON INSTEAD
+  // final Widget? prefixWidget;
+  // final Widget? suffixWidget;
+  // final String? prefixText;
+  // final String? suffixText;
+  // final TextStyle? prefixStyle;
+  // final TextStyle? suffixStyle;
   final Function()? onTap;
   final Function(String)? onChanged;
   final Function()? onEditingComplete;
@@ -98,12 +104,14 @@ class AppTextField extends StatefulWidget {
     this.errorText,
     this.prefixIcon,
     this.suffixIcon,
-    this.prefixWidget,
-    this.suffixWidget,
-    this.prefixText,
-    this.suffixText,
-    this.prefixStyle,
-    this.suffixStyle,
+    this.prefixIconWidget,
+    this.suffixIconWidget,
+    // this.prefixWidget,
+    // this.suffixWidget,
+    // this.prefixText,
+    // this.suffixText,
+    // this.prefixStyle,
+    // this.suffixStyle,
     this.onTap,
     this.onChanged,
     this.onEditingComplete,
@@ -216,14 +224,16 @@ class _AppTextFieldState extends State<AppTextField> {
                   ? AppColors.redLv7
                   : _fillColor
               : widget.disabledColor,
-          prefixIcon: prefixIconWidget(),
-          suffixIcon: suffixIconWidget(),
-          prefix: widget.prefixWidget,
-          suffix: widget.suffixWidget,
-          prefixText: widget.prefixText,
-          suffixText: widget.suffixText,
-          prefixStyle: widget.prefixStyle,
-          suffixStyle: widget.suffixStyle,
+          prefixIcon: widget.prefixIconWidget ?? prefixIconWidget(),
+          suffixIcon: widget.suffixIconWidget ?? suffixIconWidget(),
+          // [DEPRECATED] NOT ALWAYS SHOWING UP
+          // USER PREFIX ICON INSTEAD
+          // prefix: widget.prefixWidget,
+          // suffix: widget.suffixWidget,
+          // prefixText: widget.prefixText,
+          // suffixText: widget.suffixText,
+          // prefixStyle: widget.prefixStyle,
+          // suffixStyle: widget.suffixStyle,
           hintText: widget.hintText,
           hintStyle: widget.hintStyle ??
               AppTextStyle.bodyMedium(
@@ -284,7 +294,7 @@ class _AppTextFieldState extends State<AppTextField> {
       return TextInputType.phone;
     }
 
-    if (widget.type == AppTextFieldType.number) {
+    if (widget.type == AppTextFieldType.number || widget.type == AppTextFieldType.currency) {
       return TextInputType.number;
     }
 
@@ -319,6 +329,24 @@ class _AppTextFieldState extends State<AppTextField> {
           widget.prefixIcon ?? Icons.search_rounded,
           color: widget.errorText != null ? AppColors.error : _iconsColor,
           size: widget.iconsSize,
+        ),
+      );
+    }
+
+    if (widget.type == AppTextFieldType.currency) {
+      return Padding(
+        padding: EdgeInsets.fromLTRB(
+          widget.contentPadding.left,
+          widget.contentPadding.top,
+          widget.contentPadding.right / 2,
+          widget.contentPadding.bottom,
+        ),
+        child: Text(
+          AppLocale.defaultCurrencyCode,
+          style: AppTextStyle.bold(
+            size: widget.iconsSize ?? 14,
+            color: widget.errorText != null ? AppColors.error : _iconsColor,
+          ),
         ),
       );
     }

@@ -6,6 +6,7 @@ import 'package:alvamind_library/widget/molecule/app_ink_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_shadows.dart';
 import '../../../app/theme/app_sizes.dart';
 import '../../../app/theme/app_text_style.dart';
 import '../../molecule/app_Toggle.dart';
@@ -65,14 +66,7 @@ class _OperasionalCardEditState extends State<OperasionalCardEdit> {
             });
           },
           padding: EdgeInsets.all(AppSizes.padding * 1.2),
-          boxShadow: const [
-            BoxShadow(
-              color: AppColors.blackLv7,
-              offset: Offset(0, 4),
-              blurRadius: 60,
-              spreadRadius: 0,
-            ),
-          ],
+          boxShadow: [AppShadows.cardShadow1],
           child: Column(
             children: [
               Row(
