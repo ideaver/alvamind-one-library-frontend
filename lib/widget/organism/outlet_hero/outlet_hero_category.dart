@@ -72,12 +72,12 @@ class OutletHeroCategory extends StatelessWidget {
     return AppInkContainer(
       onTap: onTap,
       borderRadius: BorderRadius.circular(10),
-      padding: const EdgeInsets.all(0),
+      padding: EdgeInsets.zero,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           AppIconButton(
-            buttonColor: AppColors.greenLv7,
+            buttonColor: AppColors.greenLv8,
             icon: Icon(
               icon,
               color: AppColors.greenLv1,

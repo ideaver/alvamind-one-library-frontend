@@ -31,7 +31,7 @@ class ChatForm extends StatefulWidget {
 }
 
 class _ChatFormState extends State<ChatForm> {
-  bool showImageButton = false;
+  bool showImageButton = true;
 
   @override
   Widget build(BuildContext context) {

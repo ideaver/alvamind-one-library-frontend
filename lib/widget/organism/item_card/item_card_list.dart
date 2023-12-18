@@ -123,7 +123,7 @@ class _ItemCardListState extends State<ItemCardList> {
         padding: widget.padding ?? EdgeInsets.all(AppSizes.padding),
         backgroundColor: widget.backgroundColor ?? AppColors.white,
         boxShadow: widget.boxShadow ?? [AppShadows.cardShadow1],
-        borderRadius: widget.borderRadius ?? BorderRadius.circular(30),
+        borderRadius: widget.borderRadius ?? BorderRadius.circular(AppSizes.padding),
         child: widget.isVertical ? verticalMode() : horizontalMode(),
       ),
     );
@@ -231,21 +231,17 @@ class _ItemCardListState extends State<ItemCardList> {
                       : AppTags(
                           text: widget.tagText ?? '',
                           color: widget.tagColor ?? AppColors.orangeLv1,
-                          borderColor:
-                              widget.tagBorderColor ?? AppColors.orangeLv1,
+                          borderColor: widget.tagBorderColor ?? AppColors.orangeLv1,
                           textColor: widget.tagTextColor ?? AppColors.white,
                           borderWidth: 1,
                           fontSize: 10,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 6),
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                           borderRadius: 8,
                         ),
                 ],
               )
             : const SizedBox.shrink(),
-        widget.showTitleTopWidgets
-            ? SizedBox(height: AppSizes.padding / 2)
-            : const SizedBox.shrink(),
+        widget.showTitleTopWidgets ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -302,9 +298,7 @@ class _ItemCardListState extends State<ItemCardList> {
   Widget priceStatus() {
     return Flex(
       direction: widget.isVertical ? Axis.horizontal : Axis.vertical,
-      mainAxisAlignment: widget.isVertical
-          ? MainAxisAlignment.start
-          : MainAxisAlignment.center,
+      mainAxisAlignment: widget.isVertical ? MainAxisAlignment.start : MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
@@ -361,9 +355,7 @@ class _ItemCardListState extends State<ItemCardList> {
         // isList
         widget.additionalWidget ?? const SizedBox.shrink(),
         //
-        widget.additionalWidget == null
-            ? const SizedBox.shrink()
-            : SizedBox(height: AppSizes.padding),
+        widget.additionalWidget == null ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding),
         //
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
