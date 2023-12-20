@@ -104,16 +104,20 @@ class _ListCardState extends State<ListCard> {
                           borderWidth: 1,
                         )
                       : SizedBox.shrink(),
-                  SizedBox(width: AppSizes.padding / 4),
-                  AppIconButton(
-                    padding: const EdgeInsets.all(0),
-                    buttonColor: AppColors.transparent,
-                    icon: Icon(
-                      widget.rightIcon,
-                      color: widget.rightIconColor ?? AppColors.blackLv2,
-                    ),
-                    onTap: widget.onTapChevronButton ?? () {},
-                  )
+                  widget.rightIcon != null
+                      ? Padding(
+                          padding: EdgeInsets.only(left: AppSizes.padding / 4),
+                          child: AppIconButton(
+                            padding: EdgeInsets.zero,
+                            buttonColor: AppColors.transparent,
+                            icon: Icon(
+                              widget.rightIcon,
+                              color: widget.rightIconColor ?? AppColors.blackLv2,
+                            ),
+                            onTap: widget.onTapChevronButton ?? () {},
+                          ),
+                        )
+                      : SizedBox.shrink(),
                 ],
               )
             ],

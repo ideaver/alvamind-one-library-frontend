@@ -8,35 +8,50 @@ import '../../atom/app_divider.dart';
 import '../../atom/app_image.dart';
 import '../../molecule/app_button.dart';
 import '../../molecule/app_long_card.dart';
+import '../../molecule/app_radio.dart';
 
-class PromoCard extends StatelessWidget {
+class PromoCard extends StatefulWidget {
   final String title;
   final String? subtitle;
   final String? datePromo;
   final String? detailDatePromo;
   final String? countPromo;
   final IconData? iconButton;
-
-  final void Function()? functionIconButton;
-  final void Function()? functionEditButton;
   final String? image;
   final bool isOwner;
+  final bool isSelected;
   final List<BoxShadow>? boxShadow;
+  final void Function()? onTapEditButton;
+  final void Function(bool)? onChanged;
 
   const PromoCard({
     super.key,
+    required this.title,
     this.datePromo,
-    this.functionIconButton,
     this.iconButton,
     this.image,
     this.subtitle,
     this.isOwner = false,
+    this.isSelected = false,
     this.countPromo,
     this.detailDatePromo,
-    this.functionEditButton,
     this.boxShadow,
-    required this.title,
+    this.onTapEditButton,
+    this.onChanged,
   });
+
+  @override
+  State<PromoCard> createState() => _PromoCardState();
+}
+
+class _PromoCardState extends State<PromoCard> {
+  bool isSelected = false;
+
+  @override
+  void initState() {
+    isSelected = widget.isSelected;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +59,7 @@ class PromoCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(30),
-        boxShadow: boxShadow ?? [],
+        boxShadow: widget.boxShadow ?? [],
       ),
       child: Column(
         children: [
@@ -55,7 +70,7 @@ class PromoCard extends StatelessWidget {
                 child: Row(
                   children: [
                     AppImage(
-                      image: image ?? randomImage,
+                      image: widget.image ?? randomImage,
                       imgProvider: ImgProvider.assetImage,
                       width: 60,
                     ),
@@ -65,7 +80,7 @@ class PromoCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            title,
+                            widget.title,
                             softWrap: true,
                             maxLines: 3,
                             overflow: TextOverflow.fade,
@@ -85,7 +100,7 @@ class PromoCard extends StatelessWidget {
                                 width: AppSizes.padding / 4,
                               ),
                               Text(
-                                datePromo ?? '',
+                                widget.datePromo ?? '',
                                 softWrap: true,
                                 maxLines: 3,
                                 overflow: TextOverflow.fade,
@@ -98,7 +113,7 @@ class PromoCard extends StatelessWidget {
                           ),
                           SizedBox(height: AppSizes.padding / 2),
                           Text(
-                            subtitle ?? '',
+                            widget.subtitle ?? '',
                             softWrap: true,
                             maxLines: 3,
                             overflow: TextOverflow.fade,
@@ -113,19 +128,25 @@ class PromoCard extends StatelessWidget {
                   ],
                 ),
               ),
-              // !isOwner
-              //     ? AppIconButton(
-              //         icon: Icon(
-              //           iconButton ?? Icons.circle_outlined,
-              //           color: AppColors.primary,
-              //         ),
-              //         buttonColor: Colors.transparent,
-              //         onTap: functionIconButton ?? () {},
-              //       )
-              //     : const SizedBox.shrink(),
+              !widget.isOwner
+                  ? AppRadio(
+                      value: widget.isSelected,
+                      groupValue: true,
+                      onChanged: (value) {
+                        if (value != null) {
+                          isSelected = value as bool;
+                          setState(() {});
+                        }
+
+                        if (widget.onChanged != null) {
+                          widget.onChanged!(isSelected);
+                        }
+                      },
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
-          isOwner ? editButtonDown() : const SizedBox.shrink(),
+          widget.isOwner ? editButtonDown() : const SizedBox.shrink(),
         ],
       ),
     );
@@ -144,7 +165,7 @@ class PromoCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    detailDatePromo ?? '',
+                    widget.detailDatePromo ?? '',
                     textAlign: TextAlign.center,
                     softWrap: true,
                     maxLines: 3,
@@ -180,7 +201,7 @@ class PromoCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      countPromo ?? '',
+                      widget.countPromo ?? '',
                       textAlign: TextAlign.center,
                       style: AppTextStyle.bold(size: 18),
                     ),
@@ -213,7 +234,7 @@ class PromoCard extends StatelessWidget {
           padding: EdgeInsets.all(AppSizes.padding),
           child: AppButton(
             leftIcon: CustomIcon.editPenIcon,
-            onTap: functionEditButton ?? () {},
+            onTap: widget.onTapEditButton ?? () {},
             text: 'Edit',
             rounded: true,
             padding: EdgeInsets.symmetric(vertical: AppSizes.padding / 2),

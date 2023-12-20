@@ -44,17 +44,17 @@ class ItemCardListSelectedDone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppCardContainer(
-      padding: selectedPadding ?? const EdgeInsets.all(0),
+      padding: selectedPadding ?? EdgeInsets.zero,
       backgroundColor: selectedColor ?? AppColors.primary,
-      borderRadius: selectedBorderRadius ?? BorderRadius.circular(30),
+      borderRadius: selectedBorderRadius ?? BorderRadius.circular(AppSizes.padding * 2),
       child: Padding(
-        padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : const EdgeInsets.all(0),
+        padding: isSelected == true ? EdgeInsets.all(AppSizes.padding / 3) : EdgeInsets.zero,
         child: Column(
           children: [
             AppCardContainer(
               padding: padding ?? EdgeInsets.all(AppSizes.padding),
               backgroundColor: color ?? AppColors.white,
-              borderRadius: borderRadius ?? BorderRadius.circular(30),
+              borderRadius: borderRadius ?? BorderRadius.circular(AppSizes.padding * 2 - AppSizes.padding / 3),
               child: horizontalMode(),
             ),
             isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
@@ -68,7 +68,7 @@ class ItemCardListSelectedDone extends StatelessWidget {
                     onTap: onTapButton ?? () {},
                   )
                 : const SizedBox.shrink(),
-            isSelected == true ? SizedBox(height: AppSizes.padding / 2) : const SizedBox.shrink(),
+            isSelected == true ? SizedBox(height: AppSizes.padding / 4) : const SizedBox.shrink(),
           ],
         ),
       ),
@@ -84,7 +84,9 @@ class ItemCardListSelectedDone extends StatelessWidget {
             headItem(),
             SizedBox(height: AppSizes.padding / 2),
             subtitle == null ? const SizedBox.shrink() : subtitle ?? Text(''),
-            morePayment == null || shuttlePayment == null ? const SizedBox.shrink() : SizedBox(height: AppSizes.padding / 2),
+            morePayment == null || shuttlePayment == null
+                ? const SizedBox.shrink()
+                : SizedBox(height: AppSizes.padding / 2),
             morePayment == null || shuttlePayment == null ? const SizedBox.shrink() : subItem()
           ],
         ),

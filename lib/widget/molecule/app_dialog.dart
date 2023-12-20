@@ -304,6 +304,7 @@ class AppDialogCustomWidget extends StatelessWidget {
   final Color? titleColor;
   final Color? subtitleColor;
   final Axis? directionButton;
+  final bool showItemBotom;
   final List<Widget>? itemBottom;
   final Widget? moreitem;
   final void Function()? onTapButton;
@@ -323,6 +324,7 @@ class AppDialogCustomWidget extends StatelessWidget {
     this.padding,
     this.subtitleColor,
     this.titleColor,
+    this.showItemBotom = true,
     this.itemBottom,
     this.textButton,
     this.textSecondButton,
@@ -336,7 +338,7 @@ class AppDialogCustomWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.white,
-        borderRadius: borderRadius ?? BorderRadius.circular(40),
+        borderRadius: borderRadius ?? BorderRadius.circular(AppSizes.padding),
       ),
       child: Padding(
         padding: padding ?? EdgeInsets.all(AppSizes.padding * 1.2),
@@ -356,6 +358,7 @@ class AppDialogCustomWidget extends StatelessWidget {
                 : const SizedBox.shrink(),
             Text(
               title,
+              textAlign: TextAlign.center,
               style: AppTextStyle.bold(size: 24, color: titleColor ?? Colors.white),
             ),
             SizedBox(height: AppSizes.padding * 1.5),
@@ -365,26 +368,31 @@ class AppDialogCustomWidget extends StatelessWidget {
               style: AppTextStyle.regular(size: 16, color: subtitleColor ?? Colors.white),
             ),
             SizedBox(height: AppSizes.padding * 1.5),
-            Flex(
-              direction: directionButton ?? Axis.vertical,
-              children: itemBottom ??
-                  [
-                    AppButton(
-                      onTap: onTapButton ?? () {},
-                      text: textButton ?? 'button',
-                      rounded: true,
+            showItemBotom
+                ? Padding(
+                    padding: EdgeInsets.only(top: AppSizes.padding * 1.5),
+                    child: Flex(
+                      direction: directionButton ?? Axis.vertical,
+                      children: itemBottom ??
+                          [
+                            AppButton(
+                              onTap: onTapButton ?? () {},
+                              text: textButton ?? 'button',
+                              rounded: true,
+                            ),
+                            SizedBox(height: AppSizes.padding / 2),
+                            AppButton(
+                              onTap: onTapSecondButton ?? () {},
+                              text: textSecondButton ?? 'Button',
+                              textColor: AppColors.primary,
+                              buttonColor: AppColors.blueLv5,
+                              rounded: true,
+                            ),
+                            moreitem ?? const SizedBox.shrink(),
+                          ],
                     ),
-                    SizedBox(height: AppSizes.padding / 2),
-                    AppButton(
-                      onTap: onTapSecondButton ?? () {},
-                      text: textSecondButton ?? 'Button',
-                      textColor: AppColors.primary,
-                      buttonColor: AppColors.blueLv5,
-                      rounded: true,
-                    ),
-                    moreitem ?? const SizedBox.shrink(),
-                  ],
-            ),
+                  )
+                : SizedBox.shrink(),
           ],
         ),
       ),

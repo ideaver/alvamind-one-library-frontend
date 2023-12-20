@@ -175,9 +175,9 @@ class _AppModalWidgetState extends State<AppModalWidget> {
       decoration: BoxDecoration(
         color: widget.backgroundColor,
         borderRadius: widget.borderRadius ??
-            const BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
+            BorderRadius.only(
+              topLeft: Radius.circular(AppSizes.padding),
+              topRight: Radius.circular(AppSizes.padding),
             ),
         boxShadow: [
           AppShadows.cardShadow4,
