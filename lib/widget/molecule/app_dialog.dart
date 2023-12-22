@@ -367,7 +367,6 @@ class AppDialogCustomWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               style: AppTextStyle.regular(size: 16, color: subtitleColor ?? Colors.white),
             ),
-            SizedBox(height: AppSizes.padding * 1.5),
             showItemBotom
                 ? Padding(
                     padding: EdgeInsets.only(top: AppSizes.padding * 1.5),

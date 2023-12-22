@@ -202,6 +202,7 @@ class _AppModalWidgetState extends State<AppModalWidget> {
                 : Flexible(
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
+                      physics: BouncingScrollPhysics(),
                       child: modalBody(),
                     ),
                   ),

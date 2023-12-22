@@ -21,20 +21,21 @@ class NotFoundWidget extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: AppSizes.padding * 4),
-        AppImage(
-          image: image,
-          imgProvider: ImgProvider.assetImage,
+        Padding(
+          padding: EdgeInsets.all(AppSizes.padding),
+          child: AppImage(
+            image: image,
+            imgProvider: ImgProvider.assetImage,
+          ),
         ),
-        SizedBox(height: AppSizes.padding * 4),
+        SizedBox(height: AppSizes.padding),
         Column(
           children: [
             Text(
               title,
               style: AppTextStyle.bold(size: 24),
             ),
-            SizedBox(
-              height: AppSizes.padding,
-            ),
+            SizedBox(height: AppSizes.padding),
             Text(
               subtitle,
               textAlign: TextAlign.center,
