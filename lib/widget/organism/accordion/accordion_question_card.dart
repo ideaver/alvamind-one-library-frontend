@@ -24,33 +24,22 @@ class QuestionText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding == null
-          ? const EdgeInsets.only(
-              top: 16,
-              bottom: 22,
-              right: 22,
-              left: 22,
-            )
-          : padding!,
+      padding: padding == null ? const EdgeInsets.fromLTRB(22, 16, 22, 22) : padding!,
       child: Container(
-        padding: EdgeInsets.all(
-          AppSizes.padding,
-        ),
+        padding: EdgeInsets.all(AppSizes.padding),
         decoration: BoxDecoration(
-            boxShadow: boxShadow ?? [],
-            color: backgroundColor ?? Colors.white,
-            borderRadius: borderRadius ??
-                BorderRadius.circular(
-                  20,
-                )),
+          boxShadow: boxShadow ?? [],
+          color: backgroundColor ?? Colors.white,
+          borderRadius: borderRadius ?? BorderRadius.circular(20),
+        ),
         child: Text(
           text,
+          overflow: TextOverflow.clip,
+          textAlign: TextAlign.start,
           style: AppTextStyle.regular(
             size: 14,
             color: color,
           ),
-          overflow: TextOverflow.clip,
-          textAlign: TextAlign.start,
         ),
       ),
     );

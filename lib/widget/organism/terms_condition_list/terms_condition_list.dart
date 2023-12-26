@@ -53,7 +53,7 @@ class TermsConditionList extends StatelessWidget {
               ),
         ...List.generate(4, (i) {
           return Padding(
-            padding: i == 4 ? const EdgeInsets.all(0) : EdgeInsets.only(bottom: gap ?? AppSizes.padding),
+            padding: i == 4 ? EdgeInsets.zero : EdgeInsets.only(bottom: gap ?? AppSizes.padding),
             child: AppExpansionListTile(
               isDisabled: isDisabled,
               title: title?[i] ?? '${i + 1} . Lorem ipsum dolor sit amet ',
@@ -62,7 +62,8 @@ class TermsConditionList extends StatelessWidget {
               backgroundColor: backgroundColor ?? AppColors.white,
               children: [
                 QuestionText(
-                  text: subtitle?[i] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                  text: subtitle?[i] ??
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                   color: subtitleColor?[i] ?? AppColors.black,
                   padding: EdgeInsets.all(AppSizes.padding / 10),
                   backgroundColor: AppColors.transparent,

@@ -10,6 +10,7 @@ class AppButton extends StatelessWidget {
   final double? fontSize;
   final double? borderWidth;
   final double? iconPadding;
+  final double borderRadius;
   final EdgeInsets padding;
   final bool enable;
   final bool rounded;
@@ -33,6 +34,7 @@ class AppButton extends StatelessWidget {
     this.fontSize,
     this.borderWidth,
     this.iconPadding,
+    this.borderRadius = 16,
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
     this.enable = true,
     this.rounded = false,
@@ -53,20 +55,20 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular(rounded ? 100 : 16),
+      borderRadius: BorderRadius.circular(rounded ? 100 : borderRadius),
       child: InkWell(
         onTap: enable ? onTap : null,
         splashColor: AppColors.black.withOpacity(0.06),
         splashFactory: InkRipple.splashFactory,
         highlightColor: enable ? AppColors.black.withOpacity(0.12) : Colors.transparent,
-        borderRadius: BorderRadius.circular(rounded ? 100 : 16),
+        borderRadius: BorderRadius.circular(rounded ? 100 : borderRadius),
         child: Ink(
           width: width,
           height: height,
           padding: padding,
           decoration: BoxDecoration(
             color: enable ? buttonColor : disabledButtonColor,
-            borderRadius: BorderRadius.circular(rounded ? 100 : 16),
+            borderRadius: BorderRadius.circular(rounded ? 100 : borderRadius),
             border: borderWidth != null
                 ? Border.all(
                     width: borderWidth!,
