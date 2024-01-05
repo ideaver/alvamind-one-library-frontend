@@ -9,7 +9,7 @@ import 'app_tags.dart';
 
 class AppTransactionInfo extends StatelessWidget {
   final String transactionId;
-  final String transactionStatus;
+  final String? transactionStatus;
   final String? textTitle;
   final Color? dotColor;
   final Color transactionStatusColor;
@@ -24,7 +24,7 @@ class AppTransactionInfo extends StatelessWidget {
   const AppTransactionInfo({
     Key? key,
     required this.transactionId,
-    required this.transactionStatus,
+    this.transactionStatus,
     this.transactionStatusColor = AppColors.primary,
     this.onTapCopyButton,
     this.dotChillPadding,
@@ -76,9 +76,7 @@ class AppTransactionInfo extends StatelessWidget {
                                     ),
                               ),
                             ),
-                            withIcon == false
-                                ? const SizedBox.shrink()
-                                : const SizedBox(width: 8),
+                            withIcon == false ? const SizedBox.shrink() : const SizedBox(width: 8),
                             withIcon == false
                                 ? const SizedBox.shrink()
                                 : AppIconButton(
@@ -110,7 +108,7 @@ class AppTransactionInfo extends StatelessWidget {
                             ),
                           ),
                           AppTags(
-                            text: transactionStatus,
+                            text: transactionStatus ?? '',
                             textColor: transactionStatusColor,
                             borderWidth: 1,
                             borderColor: transactionStatusColor,
